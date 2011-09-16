@@ -14,7 +14,7 @@ For the techno-heads
 
 Demo site
 ----------
-Deployed to javazone-videos.herokuapp.com now and then. 
+Testing site deployed to javazone-video.herokuapp.com now and then. 
 
 
 Knut Haugen 2011-09-16

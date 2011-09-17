@@ -12,6 +12,25 @@ For the techno-heads
 * Jackson
 * SASS
 
+Dependencies
+--------------
+
+The app uses two play modules
+
+* Mongo
+
+```
+play install mongo
+```
+
+* cobertura
+
+```
+play install cobertura
+```
+
+
+
 Demo site
 ----------
 Testing site deployed to javazone-video.herokuapp.com now and then. 

@@ -2,3 +2,4 @@
 
 require:
     - play -> cobertura 2.2
+    - play -> mongo 1.3

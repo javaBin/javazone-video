@@ -12,11 +12,26 @@ import static junit.framework.Assert.assertNotNull;
 public class IncogitoClientIntegrationTest extends FunctionalTest {
 
     @Test
-    public void clientCanFetchIncogitoSessions() {
+    public void clientCanFetchIncogitoSessionsfor2011() {
         IncogitoClient client = new IncogitoClient();
-        String result = client.doRequest("http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions");
-        System.err.println(result);
+        String result = client.getSessionForYear(2011);
         assertNotNull(result);
     }
+
+    @Test
+    public void clientCanFetchIncogitoSessionsfor2010() {
+        IncogitoClient client = new IncogitoClient();
+        String result = client.getSessionForYear(2010);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void clientReturnsNullForInvalidYear() {
+        IncogitoClient client = new IncogitoClient();
+        String result = client.getSessionForYear(2000);
+        assertNull(result);
+    }
+
+
 
 }

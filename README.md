@@ -17,10 +17,10 @@ Dependencies
 
 The app uses two play modules
 
-* Mongo
+* Morphia
 
 ```
-play install mongo
+play install morphia
 ```
 
 * cobertura

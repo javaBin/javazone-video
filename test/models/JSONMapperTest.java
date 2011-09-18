@@ -32,7 +32,6 @@ public class JSONMapperTest extends UnitTest {
     @Test
     public void mapVideoJSONToListOfVideos() throws Exception {
         JSONMapper mapper = new JSONMapper();
-        System.out.println("pwd=" + System.getProperty("user.dir"));
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
         List<VimeoVideo> videos = mapper.videosToObjects(videosJson);
 

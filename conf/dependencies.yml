@@ -3,7 +3,6 @@
 require:
     - play -> cobertura 2.2
     - play -> morphia 1.2.3beta1
-    - play -> oauth 1.0
     - com.google.guava -> guava r09
     - org.codehaus.jackson -> jackson-mapper-asl 1.8.5 
     - org.apache.httpcomponents -> httpclient 4.1.2

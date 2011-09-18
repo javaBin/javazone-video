@@ -3,6 +3,7 @@ package models;
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import models.domain.vimeo.VimeoVideo;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import play.test.UnitTest;
@@ -22,8 +23,8 @@ public class JSONMapperTest extends UnitTest {
 
     private static VimeoVideo video;;
 
-    @BeforeClass
-    public static void init() throws IOException {
+    @Before
+    public void init() throws IOException {
         video = getVideoElement();
     }
 
@@ -31,7 +32,8 @@ public class JSONMapperTest extends UnitTest {
     @Test
     public void mapVideoJSONToListOfVideos() throws Exception {
         JSONMapper mapper = new JSONMapper();
-        String videosJson = Files.toString(new File("src/test/resources/twoVideos.json"), Charsets.UTF_8);
+        System.out.println("pwd=" + System.getProperty("user.dir"));
+        String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
         List<VimeoVideo> videos = mapper.videosToObjects(videosJson);
 
         assertEquals(2, videos.size());
@@ -60,7 +62,7 @@ public class JSONMapperTest extends UnitTest {
 
     private static VimeoVideo getVideoElement() throws IOException {
         JSONMapper mapper = new JSONMapper();
-        String videosJson = Files.toString(new File("src/test/resources/twoVideos.json"), Charsets.UTF_8);
+        String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
         return mapper.videosToObjects(videosJson).get(0);
     }
 

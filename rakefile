@@ -1,0 +1,13 @@
+load 'secret_rakefile' if FileTest.exists?('secret_rakefile.rb')
+
+task :run => [:set_development_environment] do
+  sh "play run"
+end
+
+task :test => [:set_development_environment] do
+  sh "play test"
+end
+
+task :deploy_test => [:set_test_environment] do
+  sh "git push heroku master"
+end

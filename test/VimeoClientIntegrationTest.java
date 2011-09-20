@@ -1,8 +1,10 @@
+import models.domain.vimeo.VimeoVideo;
 import org.junit.Test;
 import play.test.FunctionalTest;
 import models.VimeoClient;
 
-import static junit.framework.Assert.assertNotNull;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
@@ -11,10 +13,12 @@ import static junit.framework.Assert.assertNotNull;
 public class VimeoClientIntegrationTest extends FunctionalTest {
 
     @Test
-    public void clientCanFetchVimeoVideosSessions() {
+    public void clientCanFetchVimeoVideos() {
         VimeoClient client = new VimeoClient();
-        String result = client.doRequest("http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions");
-        System.err.println(result);
-        assertEquals(result, "");
+
+        String result = client.getAllVideos(new HashMap<String, String>(){{ put("per_page", "1");}});
+        assertNotNull(result);
     }
+
+
 }

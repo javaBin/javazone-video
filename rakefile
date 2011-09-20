@@ -1,4 +1,4 @@
-load 'secret_rakefile' if FileTest.exists?('secret_rakefile.rb')
+load 'jzvideo-secrets.rb' if FileTest.exists?('jzvideo-secrets.rb')
 
 task :run => [:set_development_environment] do
   sh "play run"

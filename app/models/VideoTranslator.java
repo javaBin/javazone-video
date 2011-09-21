@@ -27,11 +27,14 @@ public class VideoTranslator {
 
     private static VimeoVideo createVideoObject(Map<String, Object> v) {
         VimeoVideo video = new VimeoVideo();
-        video.title((String) v.get("title"));
-        video.id(Integer.parseInt((String) v.get("id")));
-        video.description((String) v.get("description"));
-        video.duration(Integer.parseInt((String) v.get("duration")));
 
+        addSimpleProperties(v, video);
+        addTags(v, video);
+
+        return video;
+    }
+
+    private static void addTags(Map<String, Object> v, VimeoVideo video) {
         List<Map<String, String>> tags = (List<Map<String, String>>) ((Map<String, Object>)v.get("tags")).get("tag");
         for(Map<String, String> tag : tags) {
             VimeoTag vTag = new VimeoTag(Integer.parseInt(tag.get("id")),
@@ -39,7 +42,12 @@ public class VideoTranslator {
                                          tag.get("url"));
             video.addTag(vTag);
         }
+    }
 
-        return video;
+    private static void addSimpleProperties(Map<String, Object> v, VimeoVideo video) {
+        video.title((String) v.get("title"));
+        video.id(Integer.parseInt((String) v.get("id")));
+        video.description((String) v.get("description"));
+        video.duration(Integer.parseInt((String) v.get("duration")));
     }
 }

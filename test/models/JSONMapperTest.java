@@ -2,9 +2,9 @@ package models;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
-import models.domain.vimeo.VimeoVideo;
+import models.domain.VimeoTag;
+import models.domain.VimeoVideo;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import play.test.UnitTest;
 
@@ -31,9 +31,8 @@ public class JSONMapperTest extends UnitTest {
 
     @Test
     public void mapVideoJSONToListOfVideos() throws Exception {
-        JSONMapper mapper = new JSONMapper();
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
-        List<VimeoVideo> videos = mapper.videosToObjects(videosJson);
+        List<VimeoVideo> videos = JSONMapper.videosToObjects(videosJson);
 
         assertEquals(2, videos.size());
     }
@@ -44,14 +43,49 @@ public class JSONMapperTest extends UnitTest {
     }
 
     @Test
-    public void wrapperForId() {
+    public void isWrapperForId() {
         assertEquals(28803302, video.id());
     }
 
     @Test
-    public void wrapperForDescription() {
+    public void isWrapperForDescription() {
         assertLargerThan(10, video.description().length());
     }
+
+    @Test
+    public void isWrapperForDuration() {
+        assertEquals(3755, video.duration());
+    }
+
+    @Test
+    public void isWrapperForTags() {
+        assertEquals(5, video.tags().size());
+    }
+
+    @Test
+    public void tagsHaveId() {
+        VimeoTag tag = video.tags().get(0);
+        assertEquals(64157810, tag.id());
+    }
+
+    @Test
+    public void tagsHaveName() {
+        VimeoTag tag = video.tags().get(0);
+        assertEquals("JavaZOne 2011", tag.name());
+    }
+
+    @Test
+    public void tagsHaveUrl() {
+        VimeoTag tag = video.tags().get(0);
+        assertEquals("http://vimeo.com/tag:javazone2011", tag.url());
+    }
+
+    @Test
+    public void getTotalNumberFromMetadata() throws Exception {
+        String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
+        assertEquals(new Integer(190), JSONMapper.getTotalVideos(videosJson));
+    }
+
 
     private void assertLargerThan(int i, int length) {
         if(length < i) {
@@ -60,9 +94,8 @@ public class JSONMapperTest extends UnitTest {
     }
 
     private static VimeoVideo getVideoElement() throws IOException {
-        JSONMapper mapper = new JSONMapper();
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
-        return mapper.videosToObjects(videosJson).get(0);
+        return JSONMapper.videosToObjects(videosJson).get(0);
     }
 
 }

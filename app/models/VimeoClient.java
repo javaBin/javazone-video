@@ -1,5 +1,6 @@
 package models;
 
+import models.domain.VimeoVideo;
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.builder.api.VimeoApi;
 import org.scribe.model.OAuthRequest;
@@ -8,6 +9,9 @@ import org.scribe.model.Token;
 import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -18,14 +22,39 @@ import java.util.Map.Entry;
 public class VimeoClient {
 
     private static final String VIMEO_API_URL = "http://vimeo.com/api/rest/v2/";
-    private static final String VIDEOS_METHOD = "vimeo.videos.getUploaded";
+    private static final String VIDEOS_METHOD = "vimeo.videos.getByTag";
 
     private static final Token EMPTY_TOKEN = new Token("", "");
     private static final String CONSUMER_KEY = System.getenv("VIMEO_CONSUMER_KEY");
     private static final String CONSUMER_SECRET = System.getenv("VIMEO_CONSUMER_SECRET");
 
-    public String getAllVideos(Map<String, String> args ) {
+    private static final Map<String, String> supportedTags = new HashMap<String, String>(){{put("2011", "Javazone2011");
+                                                                                            put("2010", "Javazone2010");}};
 
+    public List<VimeoVideo> getVideosByYear(String year, Map<String, String> args, Integer max ) {
+
+        if(supportedTags.containsKey(year)) {
+            args.put("tag", supportedTags.get(year));
+        } else {
+            throw new IllegalArgumentException("year " + year + " is not supported. Must be on of " +
+                    supportedTags.keySet().toString());
+        }
+
+        List<VimeoVideo> videos = new ArrayList<VimeoVideo>();
+        String videoJSON = getVideoPage(1, args);
+        videos.addAll(JSONMapper.videosToObjects(videoJSON));
+        int total = (max == 0)? JSONMapper.getTotalVideos(videoJSON) : max;
+
+        int page = 2;
+        while (videos.size() < total) {
+            String json = getVideoPage(page++, args);
+            videos.addAll(JSONMapper.videosToObjects(json));
+        }
+
+        return videos;
+    }
+
+    private String getVideoPage(Integer pageNumber, Map<String, String> args) {
         OAuthService service = new ServiceBuilder()
                 .provider(VimeoApi.class)
                 .apiKey(CONSUMER_KEY)
@@ -33,6 +62,7 @@ public class VimeoClient {
                 .build();
 
         OAuthRequest request = new OAuthRequest(Verb.GET, VIMEO_API_URL);
+        args.put("page", pageNumber.toString());
         addParameters(request, args);
 
         service.signRequest(EMPTY_TOKEN, request);

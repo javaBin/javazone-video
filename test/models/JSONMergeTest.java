@@ -2,7 +2,7 @@ package models;
 
 import models.domain.IncogitoSession;
 import models.domain.Video;
-import models.domain.vimeo.VimeoVideo;
+import models.domain.VimeoVideo;
 import org.junit.Test;
 import play.test.UnitTest;
 

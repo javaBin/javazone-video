@@ -1,6 +1,7 @@
 package models;
 
-import models.domain.vimeo.VimeoVideo;
+import models.domain.VimeoTag;
+import models.domain.VimeoVideo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +30,16 @@ public class VideoTranslator {
         video.title((String) v.get("title"));
         video.id(Integer.parseInt((String) v.get("id")));
         video.description((String) v.get("description"));
+        video.duration(Integer.parseInt((String) v.get("duration")));
+
+        List<Map<String, String>> tags = (List<Map<String, String>>) ((Map<String, Object>)v.get("tags")).get("tag");
+        for(Map<String, String> tag : tags) {
+            VimeoTag vTag = new VimeoTag(Integer.parseInt(tag.get("id")),
+                                         tag.get("_content"),
+                                         tag.get("url"));
+            video.addTag(vTag);
+        }
+
         return video;
     }
 }

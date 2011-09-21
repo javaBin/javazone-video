@@ -1,6 +1,6 @@
 package models;
 
-import models.domain.vimeo.VimeoVideo;
+import models.domain.VimeoVideo;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
@@ -14,9 +14,10 @@ import java.util.Map;
  */
 
 public class JSONMapper {
+    private static ObjectMapper mapper = new ObjectMapper();
 
-    public List<VimeoVideo> videosToObjects(String videosString) {
-        ObjectMapper mapper = new ObjectMapper();
+    public static List<VimeoVideo> videosToObjects(String videosString) {
+
 
         try {
             Map<String, Object> map = mapper.readValue(videosString,  Map.class);
@@ -30,4 +31,14 @@ public class JSONMapper {
     }
 
 
+    public static Integer getTotalVideos(String videosJson) {
+        try {
+            Map<String, Object> map = mapper.readValue(videosJson,  Map.class);
+            Map<String, Object> videos = (Map<String, Object>) map.get("videos");
+            return Integer.parseInt((String) videos.get("total"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

@@ -1,7 +1,5 @@
 package models.domain;
 
-import models.domain.vimeo.VimeoVideo;
-
 public class Video {
 
     private String talkAbstract;

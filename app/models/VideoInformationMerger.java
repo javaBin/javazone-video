@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import models.domain.IncogitoSession;
 import models.domain.Video;
-import models.domain.vimeo.VimeoVideo;
+import models.domain.VimeoVideo;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;

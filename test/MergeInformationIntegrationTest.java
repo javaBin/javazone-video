@@ -2,7 +2,7 @@
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import models.JSONMapper;
-import models.domain.vimeo.VimeoVideo;
+import models.domain.VimeoVideo;
 
 import org.junit.Test;
 

@@ -31,27 +31,41 @@ public class VimeoClient {
     private static final Map<String, String> supportedTags = new HashMap<String, String>(){{put("2011", "Javazone2011");
                                                                                             put("2010", "Javazone2010");}};
 
+    private JSONMapper mapper;
+    private Integer totalVideos;
+
     public List<VimeoVideo> getVideosByYear(String year, Map<String, String> args, Integer max ) {
 
         if(supportedTags.containsKey(year)) {
             args.put("tag", supportedTags.get(year));
         } else {
             throw new IllegalArgumentException("year " + year + " is not supported. Must be on of " +
-                    supportedTags.keySet().toString());
+                                               supportedTags.keySet().toString());
         }
 
         List<VimeoVideo> videos = new ArrayList<VimeoVideo>();
-        String videoJSON = getVideoPage(1, args);
-        videos.addAll(JSONMapper.videosToObjects(videoJSON));
-        int total = (max == 0)? JSONMapper.getTotalVideos(videoJSON) : max;
 
+        videos.addAll(getPage(1, args, videos));
+
+        int total = (max == 0)? totalVideos : max;
+        addPagesUntilTotal(args, videos, total);
+
+        return videos;
+    }
+
+    private void addPagesUntilTotal(Map<String, String> args, List<VimeoVideo> videos, int total) {
         int page = 2;
         while (videos.size() < total) {
             String json = getVideoPage(page++, args);
-            videos.addAll(JSONMapper.videosToObjects(json));
+            videos.addAll(new JSONMapper(json).videosToObjects());
         }
+    }
 
-        return videos;
+    private List<VimeoVideo> getPage(int pageNumber, Map<String, String> args, List<VimeoVideo> videos) {
+        String videoJSON = getVideoPage(pageNumber, args);
+        JSONMapper mapper = new JSONMapper(videoJSON);
+        totalVideos = mapper.getTotalVideos();
+        return mapper.videosToObjects();
     }
 
     private String getVideoPage(Integer pageNumber, Map<String, String> args) {

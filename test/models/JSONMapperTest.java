@@ -32,7 +32,8 @@ public class JSONMapperTest extends UnitTest {
     @Test
     public void mapVideoJSONToListOfVideos() throws Exception {
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
-        List<VimeoVideo> videos = JSONMapper.videosToObjects(videosJson);
+        JSONMapper mapper = new JSONMapper(videosJson);
+        List<VimeoVideo> videos = mapper.videosToObjects();
 
         assertEquals(2, videos.size());
     }
@@ -83,7 +84,8 @@ public class JSONMapperTest extends UnitTest {
     @Test
     public void getTotalNumberFromMetadata() throws Exception {
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
-        assertEquals(new Integer(190), JSONMapper.getTotalVideos(videosJson));
+        JSONMapper mapper = new JSONMapper(videosJson);
+        assertEquals(new Integer(190), mapper.getTotalVideos());
     }
 
 
@@ -95,7 +97,8 @@ public class JSONMapperTest extends UnitTest {
 
     private static VimeoVideo getVideoElement() throws IOException {
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
-        return JSONMapper.videosToObjects(videosJson).get(0);
+        JSONMapper mapper = new JSONMapper(videosJson);
+        return mapper.videosToObjects().get(0);
     }
 
 }

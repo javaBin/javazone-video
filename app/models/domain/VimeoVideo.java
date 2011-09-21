@@ -67,6 +67,6 @@ public class VimeoVideo {
     }
 
     public void addTag(final VimeoTag vTag) {
-        tags().add(vTag);
+        tags.add(vTag);
     }
 }

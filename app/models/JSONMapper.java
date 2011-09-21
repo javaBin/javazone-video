@@ -14,13 +14,19 @@ import java.util.Map;
  */
 
 public class JSONMapper {
-    private static ObjectMapper mapper = new ObjectMapper();
+    private ObjectMapper mapper;
+    private String json;
 
-    public static List<VimeoVideo> videosToObjects(String videosString) {
+    public JSONMapper(final String jsonData) {
+        mapper = new ObjectMapper();
+        json = jsonData;
+    }
+
+    public List<VimeoVideo> videosToObjects() {
 
 
         try {
-            Map<String, Object> map = mapper.readValue(videosString,  Map.class);
+            Map<String, Object> map = mapper.readValue(json,  Map.class);
             Map<String, Object> videos = (Map<String, Object>) map.get("videos");
             return VideoTranslator.translateVideos((List<HashMap<String, Object>>) videos.get("video"));
         } catch (IOException e) {
@@ -31,9 +37,9 @@ public class JSONMapper {
     }
 
 
-    public static Integer getTotalVideos(String videosJson) {
+    public Integer getTotalVideos() {
         try {
-            Map<String, Object> map = mapper.readValue(videosJson,  Map.class);
+            Map<String, Object> map = mapper.readValue(json,  Map.class);
             Map<String, Object> videos = (Map<String, Object>) map.get("videos");
             return Integer.parseInt((String) videos.get("total"));
         } catch (IOException e) {

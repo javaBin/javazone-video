@@ -13,10 +13,6 @@ public class Video extends Model {
     @Id
     private int id;
 
-    public Video(String talkAbstract) {
-        this.talkAbstract = talkAbstract;
-    }
-
     public Video() {
 
     }

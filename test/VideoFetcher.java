@@ -6,6 +6,7 @@ import models.domain.Video;
 import models.domain.VimeoVideo;
 import org.junit.Ignore;
 import org.junit.Test;
+import play.test.FunctionalTest;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * User: Knut Haugen <knuthaug@gmail.com>
  * 2011-09-24
  */
-public class VideoFetcher {
+public class VideoFetcher extends FunctionalTest {
 
     @Test
     @Ignore

@@ -13,17 +13,16 @@ import java.util.Map;
  * 2011-09-11
  */
 
-public class JSONMapper {
+public class VideoJSONMapper {
     private ObjectMapper mapper;
     private String json;
 
-    public JSONMapper(final String jsonData) {
+    public VideoJSONMapper(final String jsonData) {
         mapper = new ObjectMapper();
         json = jsonData;
     }
 
     public List<VimeoVideo> videosToObjects() {
-
 
         try {
             Map<String, Object> map = mapper.readValue(json,  Map.class);

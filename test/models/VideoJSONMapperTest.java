@@ -18,7 +18,7 @@ import static junit.framework.Assert.assertEquals;
  * User: Knut Haugen <knuthaug@gmail.com>
  * 2011-09-11
  */
-public class JSONMapperTest extends UnitTest {
+public class VideoJSONMapperTest extends UnitTest {
 
 
     private static VimeoVideo video;;
@@ -32,7 +32,7 @@ public class JSONMapperTest extends UnitTest {
     @Test
     public void mapVideoJSONToListOfVideos() throws Exception {
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
-        JSONMapper mapper = new JSONMapper(videosJson);
+        VideoJSONMapper mapper = new VideoJSONMapper(videosJson);
         List<VimeoVideo> videos = mapper.videosToObjects();
 
         assertEquals(2, videos.size());
@@ -84,7 +84,7 @@ public class JSONMapperTest extends UnitTest {
     @Test
     public void getTotalNumberFromMetadata() throws Exception {
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
-        JSONMapper mapper = new JSONMapper(videosJson);
+        VideoJSONMapper mapper = new VideoJSONMapper(videosJson);
         assertEquals(new Integer(190), mapper.getTotalVideos());
     }
 
@@ -97,7 +97,7 @@ public class JSONMapperTest extends UnitTest {
 
     private static VimeoVideo getVideoElement() throws IOException {
         String videosJson = Files.toString(new File("test/testdata/twoVideos.json"), Charsets.UTF_8);
-        JSONMapper mapper = new JSONMapper(videosJson);
+        VideoJSONMapper mapper = new VideoJSONMapper(videosJson);
         return mapper.videosToObjects().get(0);
     }
 

@@ -1,16 +1,15 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
+import models.domain.Video;
+import play.mvc.Controller;
 
-import java.util.*;
-
-import models.*;
+import java.util.List;
 
 public class Application extends Controller {
 
     public static void index() {
-        render();
+        List<Video> videos = Video.findAll();
+        render(videos);
     }
 
 }

@@ -18,4 +18,23 @@ h1 img {
          top: 12px;
 }
 
+article {
+  width: 500px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border: 2px solid #b6b2b5;
+  background-color: d9d5d8;
+  margin: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+  position: relative;
+  left: 100px;
+}
+
+article h2 {
+  font-size: 130%;
+  margin-top: 0px;
+  padding-top: 0px;
+}
 

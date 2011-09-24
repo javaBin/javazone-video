@@ -1,5 +1,6 @@
 package models;
 
+import models.domain.IncogitoSession;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -10,6 +11,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
@@ -21,16 +24,12 @@ public class IncogitoClient {
     private static final String ENDPOINT_HOST = "javazone.no";
     private static final String SESSION_SERVICE_PATH = "/incogito10/rest/events/JavaZone %s/sessions";
 
-    public String getSessionForYear(int year) {
+    public List<IncogitoSession> getSessionsForYear(int year) {
         HttpClient client = new DefaultHttpClient();
         String responseBody = null;
 
         try {
-            String url = encode(String.format(SESSION_SERVICE_PATH, year));
-            HttpGet httpget = new HttpGet(url);
-            httpget.addHeader("Accept", "application/json");
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            responseBody = client.execute(httpget, responseHandler);
+            responseBody = executeRequest(year, client);
         } catch (ClientProtocolException e) {
             e.printStackTrace(); //TODO: log?
         } catch (IOException e) {
@@ -39,7 +38,19 @@ public class IncogitoClient {
             client.getConnectionManager().shutdown();
         }
 
-        return null != responseBody? responseBody.toString() : null;
+        return null != responseBody? mapObjects(responseBody) : new ArrayList<IncogitoSession>();
+    }
+
+    private List<IncogitoSession> mapObjects(String json) {
+        return new SessionJSONMapper(json).sessionsToObjects();
+    }
+
+    private String executeRequest(int year, HttpClient client) throws IOException {
+        String url = encode(String.format(SESSION_SERVICE_PATH, year));
+        HttpGet httpget = new HttpGet(url);
+        httpget.addHeader("Accept", "application/json");
+        ResponseHandler<String> responseHandler = new BasicResponseHandler();
+        return client.execute(httpget, responseHandler);
     }
 
     private String encode(String input) {

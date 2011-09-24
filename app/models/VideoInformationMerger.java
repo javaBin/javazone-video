@@ -20,7 +20,11 @@ public class VideoInformationMerger {
             int index = titleMatches(vVideo, sessions);
 
             if(index >= 0) {
-                video.talkAbstract(sessions.get(index).talkAbstract());
+                IncogitoSession session = sessions.get(index);
+
+                video.talkAbstract(session.talkAbstract());
+                video.id(vVideo.id());
+                video.title(session.title());
                 videos.add(video);
             } else {
                 videos.add(new Video(vVideo));

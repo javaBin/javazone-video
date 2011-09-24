@@ -12,8 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static junit.framework.Assert.assertEquals;
-
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
  * 2011-09-11
@@ -88,6 +86,11 @@ public class VideoJSONMapperTest extends UnitTest {
         assertEquals(new Integer(190), mapper.getTotalVideos());
     }
 
+    @Test
+    public void returnsEmptyListForNullString() {
+        VideoJSONMapper mapper = new VideoJSONMapper(null);
+        assertEquals(0, mapper.videosToObjects().size());
+    }
 
     private void assertLargerThan(int i, int length) {
         if(length < i) {

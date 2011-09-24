@@ -1,9 +1,17 @@
 package models.domain;
 
-public class Video {
+import com.google.code.morphia.annotations.Entity;
+import com.google.code.morphia.annotations.Id;
+import play.modules.morphia.Model;
+
+@Entity
+public class Video extends Model {
 
     private String talkAbstract;
     private String title;
+
+    @Id
+    private int id;
 
     public Video(String talkAbstract) {
         this.talkAbstract = talkAbstract;
@@ -15,6 +23,7 @@ public class Video {
 
     public Video(VimeoVideo vVideo) {
         title = vVideo.title();
+        id = vVideo.id();
     }
 
     public String talkAbstract() {
@@ -25,7 +34,15 @@ public class Video {
         this.talkAbstract = abs;
     }
 
+    public void title(String title) {
+        this.title = title.trim();
+    }
+
     public String title() {
         return title;
+    }
+
+    public void id(int id) {
+        this.id = id;
     }
 }

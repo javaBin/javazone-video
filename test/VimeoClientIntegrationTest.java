@@ -1,10 +1,9 @@
+import models.VimeoClient;
 import models.domain.VimeoVideo;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import play.test.FunctionalTest;
-import models.VimeoClient;
-import play.utils.Utils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +54,20 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
         List<VimeoVideo> results = client.getVideosByYear("2009", args, 1);
         assertEquals(1, results.size());
 
+    }
+
+    @Test
+    public void handlesNullArgs() {
+        VimeoClient client = new VimeoClient();
+        List<VimeoVideo> results = client.getVideosByYear("2010", null, 1);
+        assertEquals(50, results.size());
+    }
+
+     @Test
+    public void handlesNullMax() {
+        VimeoClient client = new VimeoClient();
+        List<VimeoVideo> results = client.getVideosByYear("2010", null, null);
+        assertEquals(68, results.size());
     }
 
     @Test

@@ -1,1 +1,229 @@
-{"sessions":[{"id":"8ddc3cfd-c787-4f8b-81d7-c45ba3deacc7","format":"Quickie","level":{"id":"Intermediate","displayName":"Intermediate","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/levels/Intermediate.png"},"end":{"month":9,"year":2011,"valid":true,"day":8,"eonAndYear":2011,"fractionalSecond":null,"hour":12,"minute":35,"second":0,"timezone":-2147483648,"xmlschemaType":{"prefix":"","namespaceURI":"http://www.w3.org/2001/XMLSchema","localPart":"dateTime"},"eon":null,"millisecond":-2147483648},"labels":[],"start":{"month":9,"year":2011,"valid":true,"day":8,"eonAndYear":2011,"fractionalSecond":null,"hour":12,"minute":20,"second":0,"timezone":-2147483648,"xmlschemaType":{"prefix":"","namespaceURI":"http://www.w3.org/2001/XMLSchema","localPart":"dateTime"},"eon":null,"millisecond":-2147483648},"room":"Sal 7","title":" Spring Java Config is cool. Writing it in Scala makes it sexy!","speakers":[{"name":"Kaare Nilsen","bioHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nOpinionated programmer with a beard at Arktekk\n</div>\n<div class=\"paragraph\">\nKaare Nilsen is a passionate programmer with more than 15 years of experience from projects in various industries, in both private and government sector. After all these years he is proud to still call himself a programmer. He firmly believes that architecture is important, in fact - way too important to be left to The Architects.\n</div>\n<div class=\"paragraph\">\nKaare is not afraid of letting his voice be heard, and often speaks about various programming and open source topics at meetups and conferences.\n</div>\n</div>\n","photoUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/8ddc3cfd-c787-4f8b-81d7-c45ba3deacc7/speaker-photos/0"}],"selfUri":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/8ddc3cfd-c787-4f8b-81d7-c45ba3deacc7","sessionHtmlUrl":"http://javazone.no/incogito10/events/JavaZone%202011/sessions/%20Spring%20Java%20Config%20is%20cool.%20Writing%20it%20in%20Scala%20makes%20it%20sexy!","bodyHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nMoving from Java to Scala sometimes feels scary. To make the transition a little bit easier it might help to keep some of the existing Java frameworks your company have experience in using. At least that is our theory when we chose to keep SpringMVC as web framework in my current Scala project. Time will tell if we are right or wrong in that theory :)\n</div>\n<div class=\"paragraph\">\nBut I did stumble upon a nice little side effect. That Scala could make Spring Java Config go from cool to great.\n</div>\n<div class=\"paragraph\">\nIn this lightning talk I will show how a Spring config could look in Scala, and how we could use Scala's features to create very readable and type safe Spring configuration.\n</div>\n</div>\n"},{"id":"2a61f30a-a48b-4db5-bf30-8e8712778d8b","format":"Presentation","level":{"id":"Intermediate","displayName":"Intermediate","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/levels/Intermediate.png"},"end":{"month":9,"year":2011,"valid":true,"day":8,"eonAndYear":2011,"fractionalSecond":null,"hour":14,"minute":0,"second":0,"timezone":-2147483648,"xmlschemaType":{"prefix":"","namespaceURI":"http://www.w3.org/2001/XMLSchema","localPart":"dateTime"},"eon":null,"millisecond":-2147483648},"labels":[{"id":"research","displayName":"Reasearch","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/research.png"},{"id":"experience-report","displayName":"Experience Report","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/experience-report.png"},{"id":"enterprise-java","displayName":"Enterprise Java","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/enterprise-java.png"},{"id":"concurrency-and-scalability","displayName":"Concurrency & scalability","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/concurrency-and-scalability.png"},{"id":"programming-concepts","displayName":"Programming concepts","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/programming-concepts.png"}],"start":{"month":9,"year":2011,"valid":true,"day":8,"eonAndYear":2011,"fractionalSecond":null,"hour":13,"minute":0,"second":0,"timezone":-2147483648,"xmlschemaType":{"prefix":"","namespaceURI":"http://www.w3.org/2001/XMLSchema","localPart":"dateTime"},"eon":null,"millisecond":-2147483648},"room":"Sal 5","title":"3 Case Studies in NoSQL, Java and the Real World","speakers":[{"name":"Eugene Ciurana","bioHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nEugene Ciurana (http://ciurana.eu) is the VP of Technology at Badoo.com, one of the largest social networking sites in worldwide, and a cofounder of SOBA Labs, the most sophisticated public and private clouds management software. Eugene is also an open source evangelist who specializes in the design and implementation of mission-critical, high availability systems. He recently built scalable computational networks for leading financial, software, insurance, SaaS, government, and health care companies in the US, Japan, Mexico, and Europe. Eugene can be found on the Freenode IRC network (##java, #awk, #python, #mongodb) under the /nick pr3d4t0r.\n</div>\n</div>\n","photoUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/2a61f30a-a48b-4db5-bf30-8e8712778d8b/speaker-photos/0"}],"selfUri":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/2a61f30a-a48b-4db5-bf30-8e8712778d8b","sessionHtmlUrl":"http://javazone.no/incogito10/events/JavaZone%202011/sessions/3%20Case%20Studies%20in%20NoSQL,%20Java%20and%20the%20Real%20World","bodyHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nNot-only-SQL systems can be applied in a large number of problem domains.  In general, it's safe to say that NoSQL is a contender against traditional RDBMSs if data storage and retrieval needs aren't transactional.  This presentation covers three case studies where traditional RDBMS approaches had been taken, and ultimately abandoned in favor of NoSQL document databases and massive, fast-access storage mechanisms.  The presentation covers Java, mongoDB, HBase, GridFS, and HDFS, and provides insights into how each of of the applications were designed, deployed, refactored, and launched in production.\n</div>\n</div>\n"},{"id":"a044731e-3c9a-4106-91e3-fd7512369483","format":"Presentation","level":{"id":"Introductory","displayName":"Introductory","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/levels/Introductory.png"},"end":{"month":9,"year":2011,"valid":true,"day":7,"eonAndYear":2011,"fractionalSecond":null,"hour":18,"minute":0,"second":0,"timezone":-2147483648,"xmlschemaType":{"prefix":"","namespaceURI":"http://www.w3.org/2001/XMLSchema","localPart":"dateTime"},"eon":null,"millisecond":-2147483648},"labels":[{"id":"methodology","displayName":"Methodology","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/methodology.png"},{"id":"enterprise-java","displayName":"Enterprise Java","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/enterprise-java.png"},{"id":"concurrency-and-scalability","displayName":"Concurrency & scalability","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/concurrency-and-scalability.png"},{"id":"programming-concepts","displayName":"Programming concepts","iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/programming-concepts.png"}],"start":{"month":9,"year":2011,"valid":true,"day":7,"eonAndYear":2011,"fractionalSecond":null,"hour":17,"minute":0,"second":0,"timezone":-2147483648,"xmlschemaType":{"prefix":"","namespaceURI":"http://www.w3.org/2001/XMLSchema","localPart":"dateTime"},"eon":null,"millisecond":-2147483648},"room":"Sal 2","title":"A Deep Dive into Spring's IoC Support, in 2011, and in the Future","speakers":[{"name":"Josh Long","bioHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nJosh Long is the Spring developer advocate for SpringSource, an editor on the Java queue for InfoQ.com, and the lead author on several books, including Apress' \"Pro Spring Integration,\" and \"Spring Recipes, 2nd Edition\" Josh has spoken at many different industry conferences internationally including TheServerSide Java Symposium, SpringOne, Geecon, OSCON, JavaZone, Devoxx, Java2Days, SpringOne2GX, DreamForce, numerous Java User Groups worldwide, and many more. When he's not hacking on code for SpringSource, he can be found at the local Java User Group or at the local coffee shop. Josh likes solutions that push the boundaries of the technologies that enable them. His interests include scalability, BPM, big-data and grid processing, mobile computing and so-called \"smart\" systems. He blogs at SpringSource (http://blog.springsource.org) or http://www.joshlong.com. He's on Twitter, too, as @starbuxman.\n</div>\n</div>\n","photoUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a044731e-3c9a-4106-91e3-fd7512369483/speaker-photos/0"}],"selfUri":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a044731e-3c9a-4106-91e3-fd7512369483","sessionHtmlUrl":"http://javazone.no/incogito10/events/JavaZone%202011/sessions/A%20Deep%20Dive%20into%20Spring's%20IoC%20Support,%20in%202011,%20and%20in%20the%20Future","bodyHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nThe Spring framework has served people well for years, but few have exploited the incredible power of the framework's core IoC support and component model, including the Java-only configuration model, the annotation support, the native support for JSR's 250 and 330, and the incredible AOP and meta-framework support that the other Spring frameworks   - Spring Batch, MVC, Integration - etc., all exploit. This talk introduces viewers to the powerful technologies including in the core Spring framework that can be used to meet any challenge - from component-level use cases to low-level framework-building scenarios.\n</div>\n</div>\n"}]}
+{"sessions":[
+    {
+        "id":"8ddc3cfd-c787-4f8b-81d7-c45ba3deacc7",
+        "format":"Quickie",
+        "level":{
+            "id":"Intermediate",
+            "displayName":"Intermediate",
+            "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/levels/Intermediate.png"
+        },
+        "end":{
+            "month":9,
+            "year":2011,
+            "valid":true,
+            "day":8,
+            "eonAndYear":2011,
+            "fractionalSecond":null,
+            "hour":12,
+            "minute":35,
+            "second":0,
+            "timezone":-2147483648,
+            "xmlschemaType":{
+                "prefix":"",
+                "namespaceURI":"http://www.w3.org/2001/XMLSchema",
+                "localPart":"dateTime"
+            },
+            "eon":null,
+            "millisecond":-2147483648
+        },
+        "labels":[],
+        "start":{
+            "month":9,
+            "year":2011,
+            "valid":true,
+            "day":8,
+            "eonAndYear":2011,
+            "fractionalSecond":null,
+            "hour":12,
+            "minute":20,
+            "second":0,
+            "timezone":-2147483648,
+            "xmlschemaType":{
+                "prefix":"",
+                "namespaceURI":"http://www.w3.org/2001/XMLSchema",
+                "localPart":"dateTime"
+            },
+            "eon":null,
+            "millisecond":-2147483648
+        },
+        "room":"Sal 7",
+        "title":" Spring Java Config is cool. Writing it in Scala makes it sexy!",
+        "speakers":[
+            {
+                "name":"Kaare Nilsen",
+                "bioHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nOpinionated programmer with a beard at Arktekk\n</div>\n<div class=\"paragraph\">\nKaare Nilsen is a passionate programmer with more than 15 years of experience from projects in various industries, in both private and government sector. After all these years he is proud to still call himself a programmer. He firmly believes that architecture is important, in fact - way too important to be left to The Architects.\n</div>\n<div class=\"paragraph\">\nKaare is not afraid of letting his voice be heard, and often speaks about various programming and open source topics at meetups and conferences.\n</div>\n</div>\n",
+                "photoUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/8ddc3cfd-c787-4f8b-81d7-c45ba3deacc7/speaker-photos/0"
+            }
+        ],
+        "selfUri":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/8ddc3cfd-c787-4f8b-81d7-c45ba3deacc7",
+        "sessionHtmlUrl":"http://javazone.no/incogito10/events/JavaZone%202011/sessions/%20Spring%20Java%20Config%20is%20cool.%20Writing%20it%20in%20Scala%20makes%20it%20sexy!",
+        "bodyHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nMoving from Java to Scala sometimes feels scary. To make the transition a little bit easier it might help to keep some of the existing Java frameworks your company have experience in using. At least that is our theory when we chose to keep SpringMVC as web framework in my current Scala project. Time will tell if we are right or wrong in that theory :)\n</div>\n<div class=\"paragraph\">\nBut I did stumble upon a nice little side effect. That Scala could make Spring Java Config go from cool to great.\n</div>\n<div class=\"paragraph\">\nIn this lightning talk I will show how a Spring config could look in Scala, and how we could use Scala's features to create very readable and type safe Spring configuration.\n</div>\n</div>\n"
+    },
+    {
+        "id":"2a61f30a-a48b-4db5-bf30-8e8712778d8b",
+        "format":"Presentation",
+        "level":{
+            "id":"Intermediate",
+            "displayName":"Intermediate",
+            "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/levels/Intermediate.png"
+        },
+        "end":{
+            "month":9,
+            "year":2011,
+            "valid":true,
+            "day":8,
+            "eonAndYear":2011,
+            "fractionalSecond":null,
+            "hour":14,
+            "minute":0,
+            "second":0,
+            "timezone":-2147483648,
+            "xmlschemaType":{
+                "prefix":"",
+                "namespaceURI":"http://www.w3.org/2001/XMLSchema",
+                "localPart":"dateTime"
+            },
+            "eon":null,
+            "millisecond":-2147483648
+        },
+        "labels":[
+            {
+                "id":"research",
+                "displayName":"Reasearch",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/research.png"
+            },
+            {
+                "id":"experience-report",
+                "displayName":"Experience Report",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/experience-report.png"
+            },
+            {
+                "id":"enterprise-java",
+                "displayName":"Enterprise Java",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/enterprise-java.png"
+            },
+            {
+                "id":"concurrency-and-scalability",
+                "displayName":"Concurrency & scalability",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/concurrency-and-scalability.png"
+            },
+            {
+                "id":"programming-concepts",
+                "displayName":"Programming concepts",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/programming-concepts.png"
+            }
+        ],
+        "start":{
+            "month":9,
+            "year":2011,
+            "valid":true,
+            "day":8,
+            "eonAndYear":2011,
+            "fractionalSecond":null,
+            "hour":13,
+            "minute":0,
+            "second":0,
+            "timezone":-2147483648,
+            "xmlschemaType":{
+                "prefix":"",
+                "namespaceURI":"http://www.w3.org/2001/XMLSchema",
+                "localPart":"dateTime"
+            },
+            "eon":null,
+            "millisecond":-2147483648
+        },
+        "room":"Sal 5",
+        "title":"3 Case Studies in NoSQL, Java and the Real World",
+        "speakers":[
+            {
+                "name":"Eugene Ciurana",
+                "bioHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nEugene Ciurana (http://ciurana.eu) is the VP of Technology at Badoo.com, one of the largest social networking sites in worldwide, and a cofounder of SOBA Labs, the most sophisticated public and private clouds management software. Eugene is also an open source evangelist who specializes in the design and implementation of mission-critical, high availability systems. He recently built scalable computational networks for leading financial, software, insurance, SaaS, government, and health care companies in the US, Japan, Mexico, and Europe. Eugene can be found on the Freenode IRC network (##java, #awk, #python, #mongodb) under the /nick pr3d4t0r.\n</div>\n</div>\n",
+                "photoUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/2a61f30a-a48b-4db5-bf30-8e8712778d8b/speaker-photos/0"
+            }
+        ],
+        "selfUri":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/2a61f30a-a48b-4db5-bf30-8e8712778d8b",
+        "sessionHtmlUrl":"http://javazone.no/incogito10/events/JavaZone%202011/sessions/3%20Case%20Studies%20in%20NoSQL,%20Java%20and%20the%20Real%20World",
+        "bodyHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nNot-only-SQL systems can be applied in a large number of problem domains.  In general, it's safe to say that NoSQL is a contender against traditional RDBMSs if data storage and retrieval needs aren't transactional.  This presentation covers three case studies where traditional RDBMS approaches had been taken, and ultimately abandoned in favor of NoSQL document databases and massive, fast-access storage mechanisms.  The presentation covers Java, mongoDB, HBase, GridFS, and HDFS, and provides insights into how each of of the applications were designed, deployed, refactored, and launched in production.\n</div>\n</div>\n"
+    },
+    {
+        "id":"a044731e-3c9a-4106-91e3-fd7512369483",
+        "format":"Presentation",
+        "level":{
+            "id":"Introductory",
+            "displayName":"Introductory",
+            "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/levels/Introductory.png"
+        },
+        "end":{
+            "month":9,
+            "year":2011,
+            "valid":true,
+            "day":7,
+            "eonAndYear":2011,
+            "fractionalSecond":null,
+            "hour":18,
+            "minute":0,
+            "second":0,
+            "timezone":-2147483648,
+            "xmlschemaType":{
+                "prefix":"",
+                "namespaceURI":"http://www.w3.org/2001/XMLSchema",
+                "localPart":"dateTime"
+            },
+            "eon":null,
+            "millisecond":-2147483648
+        },
+        "labels":[
+            {
+                "id":"methodology",
+                "displayName":"Methodology",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/methodology.png"
+            },
+            {
+                "id":"enterprise-java",
+                "displayName":"Enterprise Java",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/enterprise-java.png"
+            },
+            {
+                "id":"concurrency-and-scalability",
+                "displayName":"Concurrency & scalability",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/concurrency-and-scalability.png"
+            },
+            {
+                "id":"programming-concepts",
+                "displayName":"Programming concepts",
+                "iconUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/icons/labels/programming-concepts.png"
+            }
+        ],
+        "start":{
+            "month":9,
+            "year":2011,
+            "valid":true,
+            "day":7,
+            "eonAndYear":2011,
+            "fractionalSecond":null,
+            "hour":17,
+            "minute":0,
+            "second":0,
+            "timezone":-2147483648,
+            "xmlschemaType":{
+                "prefix":"",
+                "namespaceURI":"http://www.w3.org/2001/XMLSchema",
+                "localPart":"dateTime"
+            },
+            "eon":null,
+            "millisecond":-2147483648
+        },
+        "room":"Sal 2",
+        "title":"A Deep Dive into Spring's IoC Support, in 2011, and in the Future",
+        "speakers":[
+            {
+                "name":"Josh Long",
+                "bioHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nJosh Long is the Spring developer advocate for SpringSource, an editor on the Java queue for InfoQ.com, and the lead author on several books, including Apress' \"Pro Spring Integration,\" and \"Spring Recipes, 2nd Edition\" Josh has spoken at many different industry conferences internationally including TheServerSide Java Symposium, SpringOne, Geecon, OSCON, JavaZone, Devoxx, Java2Days, SpringOne2GX, DreamForce, numerous Java User Groups worldwide, and many more. When he's not hacking on code for SpringSource, he can be found at the local Java User Group or at the local coffee shop. Josh likes solutions that push the boundaries of the technologies that enable them. His interests include scalability, BPM, big-data and grid processing, mobile computing and so-called \"smart\" systems. He blogs at SpringSource (http://blog.springsource.org) or http://www.joshlong.com. He's on Twitter, too, as @starbuxman.\n</div>\n</div>\n",
+                "photoUrl":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a044731e-3c9a-4106-91e3-fd7512369483/speaker-photos/0"
+            }
+        ],
+        "selfUri":"http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a044731e-3c9a-4106-91e3-fd7512369483",
+        "sessionHtmlUrl":"http://javazone.no/incogito10/events/JavaZone%202011/sessions/A%20Deep%20Dive%20into%20Spring's%20IoC%20Support,%20in%202011,%20and%20in%20the%20Future",
+        "bodyHtml":"<div class=\"wiki\">\n<div class=\"paragraph\">\nThe Spring framework has served people well for years, but few have exploited the incredible power of the framework's core IoC support and component model, including the Java-only configuration model, the annotation support, the native support for JSR's 250 and 330, and the incredible AOP and meta-framework support that the other Spring frameworks   - Spring Batch, MVC, Integration - etc., all exploit. This talk introduces viewers to the powerful technologies including in the core Spring framework that can be used to meet any challenge - from component-level use cases to low-level framework-building scenarios.\n</div>\n</div>\n"
+    }
+]}

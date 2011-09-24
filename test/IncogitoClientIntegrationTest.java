@@ -1,9 +1,10 @@
 
 import models.IncogitoClient;
+import models.domain.IncogitoSession;
 import org.junit.Test;
 import play.test.FunctionalTest;
 
-import static junit.framework.Assert.assertNotNull;
+import java.util.List;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
@@ -14,24 +15,22 @@ public class IncogitoClientIntegrationTest extends FunctionalTest {
     @Test
     public void clientCanFetchIncogitoSessionsfor2011() {
         IncogitoClient client = new IncogitoClient();
-        String result = client.getSessionForYear(2011);
-        assertNotNull(result);
+        List<IncogitoSession> result = client.getSessionsForYear(2011);
+        assertEquals(130, result.size());
     }
 
     @Test
     public void clientCanFetchIncogitoSessionsfor2010() {
         IncogitoClient client = new IncogitoClient();
-        String result = client.getSessionForYear(2010);
-        assertNotNull(result);
+        List<IncogitoSession> result = client.getSessionsForYear(2010);
+        assertEquals(151, result.size());
     }
 
     @Test
-    public void clientReturnsNullForInvalidYear() {
+    public void clientReturnsEmptyListForInvalidYear() {
         IncogitoClient client = new IncogitoClient();
-        String result = client.getSessionForYear(2000);
-        assertNull(result);
+        List<IncogitoSession> result = client.getSessionsForYear(2000);
+        assertEquals(0, result.size());
     }
-
-
 
 }

@@ -29,12 +29,18 @@ public class VimeoClient {
     private static final String CONSUMER_SECRET = System.getenv("VIMEO_CONSUMER_SECRET");
 
     private static final Map<String, String> supportedTags = new HashMap<String, String>(){{put("2011", "Javazone2011");
-                                                                                            put("2010", "Javazone2010");}};
-
-    private JSONMapper mapper;
+                                                                               put("2010", "Javazone2010");}};
     private Integer totalVideos;
 
     public List<VimeoVideo> getVideosByYear(String year, Map<String, String> args, Integer max ) {
+
+        if(null == args) {
+            args = new HashMap<String, String>();
+        }
+
+        if(null == max) {
+            max = 0;
+        }
 
         if(supportedTags.containsKey(year)) {
             args.put("tag", supportedTags.get(year));
@@ -45,7 +51,7 @@ public class VimeoClient {
 
         List<VimeoVideo> videos = new ArrayList<VimeoVideo>();
 
-        videos.addAll(getPage(1, args, videos));
+        videos.addAll(getPage(1, args));
 
         int total = (max == 0)? totalVideos : max;
         addPagesUntilTotal(args, videos, total);
@@ -57,13 +63,13 @@ public class VimeoClient {
         int page = 2;
         while (videos.size() < total) {
             String json = getVideoPage(page++, args);
-            videos.addAll(new JSONMapper(json).videosToObjects());
+            videos.addAll(new VideoJSONMapper(json).videosToObjects());
         }
     }
 
-    private List<VimeoVideo> getPage(int pageNumber, Map<String, String> args, List<VimeoVideo> videos) {
+    private List<VimeoVideo> getPage(int pageNumber, Map<String, String> args) {
         String videoJSON = getVideoPage(pageNumber, args);
-        JSONMapper mapper = new JSONMapper(videoJSON);
+        VideoJSONMapper mapper = new VideoJSONMapper(videoJSON);
         totalVideos = mapper.getTotalVideos();
         return mapper.videosToObjects();
     }

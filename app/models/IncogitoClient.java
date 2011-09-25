@@ -49,6 +49,7 @@ public class IncogitoClient {
         String url = encode(String.format(SESSION_SERVICE_PATH, year));
         HttpGet httpget = new HttpGet(url);
         httpget.addHeader("Accept", "application/json");
+        httpget.addHeader("Accept-Charset", "UTF-8");
         ResponseHandler<String> responseHandler = new BasicResponseHandler();
         return client.execute(httpget, responseHandler);
     }

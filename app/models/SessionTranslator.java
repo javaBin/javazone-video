@@ -14,6 +14,13 @@ import java.util.Map;
  */
 public class SessionTranslator {
 
+    static Map<String, String> replacements = new HashMap<String, String>(){
+        {
+            put("Ã¥", "å");
+            put("Ã¸", "ø");
+        }
+    };
+
     public static List<IncogitoSession> translateSessions(List<HashMap<String, Object>> sessions) {
         List<IncogitoSession> sessionObjects = new ArrayList<IncogitoSession>();
 
@@ -43,6 +50,17 @@ public class SessionTranslator {
         }
 
         String iso = new String((String)v.get(key));
+        iso = replaceCrapCharset(iso);
         return new String(iso.getBytes("UTF-8"));
+    }
+
+    private static String replaceCrapCharset(String iso) {
+
+        String ret = iso;
+        for(Map.Entry<String, String> e : replacements.entrySet()) {
+            ret = ret.replaceAll(e.getKey(), e.getValue());
+        }
+
+        return ret;
     }
 }

@@ -45,7 +45,7 @@ public class VideoInformationMerger {
                 if(StringUtils.isBlank(vVideo.title()) || StringUtils.isBlank(session.title())) {
                     return false;
                 }
-                return vVideo.title().equals(session.title());
+                return vVideo.title().equalsIgnoreCase(session.title());
             }
         };
 

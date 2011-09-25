@@ -1,3 +1,10 @@
 tmp
 logs
 test-result
+.idea/
+cobertura.ser
+javazone-video.iml
+jz-video.iml
+lib/
+modules/
+out/

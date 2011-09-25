@@ -21,14 +21,17 @@ public class VideoInformationMerger {
                 IncogitoSession session = sessions.get(index);
                 video.talkAbstract(session.talkAbstract());
                 video.id(vVideo.id());
-                video.title(session.title());
+                video.title(vVideo.title());
 
                 for(VimeoTag tag : vVideo.tags()) {
                     video.addTag(new Tag(tag.id(), tag.name(), tag.url()));
                 }
 
                 videos.add(video);
+            } else {
+                System.err.println("Could not match title for video <" + vVideo.title() + ">");
             }
+
         }
 
         return videos;

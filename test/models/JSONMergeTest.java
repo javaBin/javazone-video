@@ -9,8 +9,6 @@ import play.test.UnitTest;
 import java.util.Arrays;
 import java.util.List;
 
-import static junit.framework.Assert.assertEquals;
-
 public class JSONMergeTest extends UnitTest {
 
     private VideoInformationMerger merger = new VideoInformationMerger();
@@ -47,15 +45,14 @@ public class JSONMergeTest extends UnitTest {
     }
 
     @Test
-    public void videoInformationRetainedEvenIfTitleDoesNotMatch() {
+    public void videoInformationNotRetainedIfTitleDoesNotMatch() {
         List<IncogitoSession> sessions = Arrays.asList(createTestSession("this", "abstract"),
                                                        createTestSession("is", "abstract2"));
-        List<VimeoVideo> vimeoVidoes = Arrays.asList(createTestVideo("this is a test"),
+        List<VimeoVideo> vimeoVideos = Arrays.asList(createTestVideo("this is a test"),
                                                      createTestVideo("this is a test2"));
 
-        List<Video> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
-        assertEquals("this is a test", videos.get(0).title());
-        assertEquals("this is a test2", videos.get(1).title());
+        List<Video> videos = merger.mergeVideoAndSessionInfo(vimeoVideos, sessions);
+        assertEquals(0, videos.size());
     }
 
     @Test

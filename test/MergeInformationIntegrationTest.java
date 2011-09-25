@@ -21,28 +21,52 @@ import static fj.data.List.iterableList;
  */
 public class MergeInformationIntegrationTest extends FunctionalTest {
 
+    List<Video> mergedVideos;
+
     @Test
     public void allVideosHaveTitles() throws Exception {
+        fj.data.List<Video> newList = iterableList(getVideos());
+
+        assertEquals(true, newList.forall(new F<Video, Boolean>() {
+            @Override
+            public Boolean f(Video video) {
+                if(null != video.title() && ! "".equals(video.title())) {
+                    return true;
+                }
+                return false;
+            }
+        }));
+    }
+
+    @Test
+    public void allVideosHaveTags() throws Exception {
+        fj.data.List<Video> newList = iterableList(getVideos());
+
+        assertEquals(true, newList.forall(new F<Video, Boolean>() {
+            @Override
+            public Boolean f(Video video) {
+                if(null != video.tags() && video.tags().size() >= 0) {
+                    return true;
+                }
+                return false;
+            }
+        }));
+    }
+
+
+    private List<Video> getVideos() throws Exception {
+        if(mergedVideos != null) {
+            return mergedVideos;
+        }
+
         String videosString = readFile("test/testdata/videos.json");
         String sessionsString = readFile("test/testdata/sessions.json");
         VideoJSONMapper mapper = new VideoJSONMapper(videosString);
 
         List<VimeoVideo> videos = mapper.videosToObjects();
         List<IncogitoSession> sessions = new SessionJSONMapper(sessionsString).sessionsToObjects();
-
-        List<Video> mergedVideos = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
-        fj.data.List<Video> newList = iterableList(mergedVideos);
-
-        assertEquals(true, newList.forall(new F<Video, Boolean>() {
-            @Override
-            public Boolean f(Video video) {
-                if(null != video.title() && ! "".equals(video.title())) {
-                    System.err.println(video.title());
-                    return true;
-                }
-                return false;
-            }
-        }));
+        mergedVideos = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
+        return mergedVideos;
     }
 
     private String readFile(String fileName) throws Exception {

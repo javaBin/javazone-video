@@ -34,10 +34,15 @@ public class SessionTranslator {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
+
         return session;
     }
 
     private static String toUTF8(Map<String, Object> v, String key) throws UnsupportedEncodingException {
-        return ((String)v.get(key)).getBytes("UTF-8").toString();
+        if(v.get(key) == null) {
+            return "";
+        }
+        String iso = new String((String)v.get(key));
+        return new String(iso.getBytes("UTF-8"));
     }
 }

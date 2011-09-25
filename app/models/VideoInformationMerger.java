@@ -2,9 +2,7 @@ package models;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
-import models.domain.IncogitoSession;
-import models.domain.Video;
-import models.domain.VimeoVideo;
+import models.domain.*;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
@@ -24,11 +22,13 @@ public class VideoInformationMerger {
                 video.talkAbstract(session.talkAbstract());
                 video.id(vVideo.id());
                 video.title(session.title());
-                videos.add(video);
-            } else {
-                videos.add(new Video(vVideo));
-            }
 
+                for(VimeoTag tag : vVideo.tags()) {
+                    video.addTag(new Tag(tag.id(), tag.name(), tag.url()));
+                }
+
+                videos.add(video);
+            }
         }
 
         return videos;

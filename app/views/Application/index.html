@@ -3,7 +3,12 @@
 
 #{list items:videos, as:'video'}
     <article>
-        <h2>${video.title}</h2>
+        <header><h2>${video.title}</h2></header>
+        <footer>
+            #{list items:tags, as:'tag'}
+                <a href="${tag.url}" class="tag">${tag.name}</a>
+            #{/list}
+        </footer>
     </article>
 #{/list}
 

@@ -1,14 +1,21 @@
 package models.domain;
 
+import com.google.code.morphia.annotations.Embedded;
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
 import play.modules.morphia.Model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Video extends Model {
 
     private String talkAbstract;
     private String title;
+
+    @Embedded
+    private List<Tag> tags;
 
     @Id
     private int id;
@@ -41,4 +48,16 @@ public class Video extends Model {
     public void id(int id) {
         this.id = id;
     }
+
+    public void addTag(Tag tag) {
+        if(tags == null) {
+            tags = new ArrayList<Tag>();
+        }
+        tags.add(tag);
+    }
+
+    public List<Tag> tags() {
+        return tags;
+    }
+
 }

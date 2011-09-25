@@ -12,7 +12,7 @@ public class Tag {
     public Tag(int id, String name, String url) {
         this.id = id;
         this.name = name;
-        this.url = name;
+        this.url = url;
     }
 
 }

@@ -45,3 +45,25 @@ article h2 {
   padding-top: 0px;
 }
 
+footer ul {
+  margin-bottom: 0px;
+  text-align: right;
+}
+
+footer ul li {
+  font-size: 80%;
+  background-color: #f1f1f1;
+  color: #979ac6;
+  border: 1px solid #8a8a8a;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  display: inline;
+  margin: 2px;
+  padding: 2px;
+}
+
+footer ul li a {
+  color: #3f3f3f;
+  font-weight: bold;
+}

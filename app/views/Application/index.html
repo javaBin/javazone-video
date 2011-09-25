@@ -5,9 +5,11 @@
     <article>
         <header><h2>${video.title}</h2></header>
         <footer>
-            #{list items:tags, as:'tag'}
-                <a href="${tag.url}" class="tag">${tag.name}</a>
+            <ul>
+            #{list items:video.tags, as:'tag'}
+                <li><a href="${tag.url}" class="tag">${tag.name}</a></li>
             #{/list}
+            </ul>
         </footer>
     </article>
 #{/list}

@@ -2,6 +2,7 @@ package models;
 
 import models.domain.IncogitoSession;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,10 +24,20 @@ public class SessionTranslator {
         return sessionObjects;
     }
 
-    private static IncogitoSession createSession(Map<String,Object> v) {
+    private static IncogitoSession createSession(Map<String, Object> v) {
         IncogitoSession session = new IncogitoSession();
-        session.title((String) v.get("title"));
-        session.talkAbstract((String) v.get("bodyHtml"));
+
+        try {
+            session.title(toUTF8(v, "title"));
+            session.talkAbstract(toUTF8(v, "bodyHtml"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+
         return session;
+    }
+
+    private static String toUTF8(Map<String, Object> v, String key) throws UnsupportedEncodingException {
+        return ((String)v.get(key)).getBytes("UTF-8").toString();
     }
 }

@@ -21,7 +21,6 @@ public class VideoInformationMerger {
 
             if(index >= 0) {
                 IncogitoSession session = sessions.get(index);
-
                 video.talkAbstract(session.talkAbstract());
                 video.id(vVideo.id());
                 video.title(session.title());

@@ -37,6 +37,7 @@ public class MergeInformationIntegrationTest extends FunctionalTest {
             @Override
             public Boolean f(Video video) {
                 if(null != video.title() && ! "".equals(video.title())) {
+                    System.err.println(video.title());
                     return true;
                 }
                 return false;

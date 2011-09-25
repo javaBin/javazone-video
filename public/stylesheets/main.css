@@ -20,11 +20,18 @@ h1 img {
 
 article {
   width: 500px;
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border: 2px solid #b6b2b5;
-  background-color: d9d5d8;
+
+  background-color:#4b4b4b;
+    border-width:1px;
+    border-style:solid;
+    border-bottom-color:#4f4e4f;
+    border-right-color:#4f4e4f;
+    border-top-color:#696969;
+    border-left-color:#696969;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+
   margin: 5px;
   padding: 5px;
   margin-bottom: 20px;

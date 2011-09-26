@@ -23,7 +23,7 @@ The app uses two play modules
 play install morphia
 ```
 
-* cobertura
+* cobertura (just for test id)
 
 ```
 play install cobertura

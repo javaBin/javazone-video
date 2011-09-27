@@ -1,27 +1,27 @@
 body {
-     background-color: #202020;
-     color: #b6b2b5;
-     font: lighter 14px/18px Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
-     line-height: 1.5;
+    background-color: #202020;
+    color: #b6b2b5;
+    font: lighter 14px/18px Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
+    line-height: 1.5;
 }
 
 h1 {
-     padding-left: 80px;
-     font-size: 200%;
-     padding-top: 0;
-     margin-top: 20px;
-     color: #f1f1f1;
+    padding-left: 80px;
+    font-size: 200%;
+    padding-top: 0;
+    margin-top: 20px;
+    color: #f1f1f1;
 }
 
-h1 img { 
-         position: relative;
-         top: 12px;
+h1 img {
+    position: relative;
+    top: 12px;
 }
 
 article {
-  width: 500px;
+    width: 500px;
 
-  background-color:#4b4b4b;
+    background-color:#4b4b4b;
     border-width:1px;
     border-style:solid;
     border-bottom-color:#4f4e4f;
@@ -32,7 +32,7 @@ article {
     -webkit-border-radius:3px;
     border-radius:3px;
 
-      margin: 5px;
+    margin: 5px;
     padding: 5px;
     margin-bottom: 20px;
     position: relative;
@@ -40,14 +40,14 @@ article {
 }
 
 article h2 {
-  font-size: 110%;
-  margin-top: 0;
-  padding-top: 0;
+    font-size: 110%;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 footer ul {
-  margin-bottom: 0;
-  text-align: right;
+    margin-bottom: 0;
+    text-align: right;
 }
 
 footer ul li {
@@ -63,6 +63,6 @@ footer ul li {
 }
 
 footer ul li a {
-  color: #3f3f3f;
-  font-weight: bold;
+    color: #3f3f3f;
+    font-weight: bold;
 }

@@ -1,12 +1,12 @@
 #{extends 'main.html' /}
 #{set title:'Javazone videos' /}
 
-#{list items:videos, as:'video'}
+#{list items:talks, as:'talk'}
     <article>
-        <header><h2>${video.title}</h2></header>
+        <header><h2>${talk.title}</h2></header>
         <footer>
             <ul>
-            #{list items:video.tags, as:'tag'}
+            #{list items:talk.tags, as:'tag'}
                 <li><a href="${tag.url}" class="tag">${tag.name}</a></li>
             #{/list}
             </ul>

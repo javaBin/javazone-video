@@ -10,31 +10,31 @@ import java.util.List;
 
 public class VideoInformationMerger {
 
-    public List<Video> mergeVideoAndSessionInfo(List<VimeoVideo> vimeoVideos, List<IncogitoSession> sessions) {
-        List<Video> videos = new ArrayList<Video>();
+    public List<Talk> mergeVideoAndSessionInfo(List<VimeoVideo> vimeoVideos, List<IncogitoSession> sessions) {
+        List<Talk> talks = new ArrayList<Talk>();
 
         for(VimeoVideo vVideo : vimeoVideos) {
-            Video video = new Video();
+            Talk talk = new Talk();
             int index = titleMatches(vVideo, sessions);
 
             if(index >= 0) {
                 IncogitoSession session = sessions.get(index);
-                video.talkAbstract(session.talkAbstract());
-                video.id(vVideo.id());
-                video.title(vVideo.title());
+                talk.talkAbstract(session.talkAbstract());
+                talk.id(vVideo.id());
+                talk.title(vVideo.title());
 
                 for(VimeoTag tag : vVideo.tags()) {
-                    video.addTag(new Tag(tag.id(), tag.name(), tag.url()));
+                    talk.addTag(new Tag(tag.id(), tag.name(), tag.url()));
                 }
 
-                videos.add(video);
+                talks.add(talk);
             } else {
-                System.err.println("Could not match title for video <" + vVideo.title() + ">");
+                System.err.println("Could not match title for talk <" + vVideo.title() + ">");
             }
 
         }
 
-        return videos;
+        return talks;
     }
 
     private int titleMatches(final VimeoVideo vVideo, List<IncogitoSession> sessions) {

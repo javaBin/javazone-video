@@ -49,6 +49,10 @@ public class SessionTranslator {
             return "";
         }
 
+        if(null == v.get(key)) {
+            return "";
+        }
+
         String iso = new String((String)v.get(key));
         iso = replaceCrapCharset(iso);
         return new String(iso.getBytes("UTF-8"));

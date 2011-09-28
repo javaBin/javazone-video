@@ -5,7 +5,7 @@ import models.SessionJSONMapper;
 import models.VideoInformationMerger;
 import models.VideoJSONMapper;
 import models.domain.IncogitoSession;
-import models.domain.Video;
+import models.domain.Talk;
 import models.domain.VimeoVideo;
 import org.junit.Test;
 import play.test.FunctionalTest;
@@ -21,16 +21,16 @@ import static fj.data.List.iterableList;
  */
 public class MergeInformationIntegrationTest extends FunctionalTest {
 
-    List<Video> mergedVideos;
+    List<Talk> mergedTalks;
 
     @Test
     public void allVideosHaveTitles() throws Exception {
-        fj.data.List<Video> newList = iterableList(getVideos());
+        fj.data.List<Talk> newList = iterableList(getVideos());
 
-        assertEquals(true, newList.forall(new F<Video, Boolean>() {
+        assertEquals(true, newList.forall(new F<Talk, Boolean>() {
             @Override
-            public Boolean f(Video video) {
-                if(null != video.title() && ! "".equals(video.title())) {
+            public Boolean f(Talk talk) {
+                if(null != talk.title() && ! "".equals(talk.title())) {
                     return true;
                 }
                 return false;
@@ -40,12 +40,12 @@ public class MergeInformationIntegrationTest extends FunctionalTest {
 
     @Test
     public void allVideosHaveTags() throws Exception {
-        fj.data.List<Video> newList = iterableList(getVideos());
+        fj.data.List<Talk> newList = iterableList(getVideos());
 
-        assertEquals(true, newList.forall(new F<Video, Boolean>() {
+        assertEquals(true, newList.forall(new F<Talk, Boolean>() {
             @Override
-            public Boolean f(Video video) {
-                if(null != video.tags() && video.tags().size() >= 0) {
+            public Boolean f(Talk talk) {
+                if(null != talk.tags() && talk.tags().size() >= 0) {
                     return true;
                 }
                 return false;
@@ -54,9 +54,9 @@ public class MergeInformationIntegrationTest extends FunctionalTest {
     }
 
 
-    private List<Video> getVideos() throws Exception {
-        if(mergedVideos != null) {
-            return mergedVideos;
+    private List<Talk> getVideos() throws Exception {
+        if(mergedTalks != null) {
+            return mergedTalks;
         }
 
         String videosString = readFile("test/testdata/videos.json");
@@ -65,8 +65,8 @@ public class MergeInformationIntegrationTest extends FunctionalTest {
 
         List<VimeoVideo> videos = mapper.videosToObjects();
         List<IncogitoSession> sessions = new SessionJSONMapper(sessionsString).sessionsToObjects();
-        mergedVideos = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
-        return mergedVideos;
+        mergedTalks = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
+        return mergedTalks;
     }
 
     private String readFile(String fileName) throws Exception {

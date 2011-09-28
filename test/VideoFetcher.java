@@ -2,7 +2,7 @@ import models.IncogitoClient;
 import models.VideoInformationMerger;
 import models.VimeoClient;
 import models.domain.IncogitoSession;
-import models.domain.Video;
+import models.domain.Talk;
 import models.domain.VimeoVideo;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -22,10 +22,10 @@ public class VideoFetcher extends FunctionalTest {
         List<VimeoVideo> videos = new VimeoClient().getVideosByYear("2011", null, null);
         List<IncogitoSession> sessions = new IncogitoClient().getSessionsForYear(2011);
 
-        List<Video> finishedVideos = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
+        List<Talk> finishedTalks = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
 
-        for(Video video : finishedVideos) {
-            video.save();
+        for(Talk talk : finishedTalks) {
+            talk.save();
         }
     }
 

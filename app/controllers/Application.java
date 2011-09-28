@@ -1,6 +1,6 @@
 package controllers;
 
-import models.domain.Video;
+import models.domain.Talk;
 import play.mvc.Controller;
 
 import java.util.List;
@@ -8,8 +8,8 @@ import java.util.List;
 public class Application extends Controller {
 
     public static void index() {
-        List<Video> videos = Video.findAll();
-        render(videos);
+        List<Talk> talks = Talk.findAll();
+        render(talks);
     }
 
 }

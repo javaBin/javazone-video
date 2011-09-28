@@ -1,7 +1,7 @@
 package models;
 
 import models.domain.IncogitoSession;
-import models.domain.Video;
+import models.domain.Talk;
 import models.domain.VimeoVideo;
 import org.junit.Test;
 import play.test.UnitTest;
@@ -18,7 +18,7 @@ public class JSONMergeTest extends UnitTest {
         List<IncogitoSession> sessions = Arrays.asList(new IncogitoSession());
         List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo());
 
-        List<Video> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
+        List<Talk> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
         assertEquals("", videos.get(0).talkAbstract());
 
     }
@@ -28,8 +28,8 @@ public class JSONMergeTest extends UnitTest {
         List<IncogitoSession> sessions = Arrays.asList(createTestSession("this is a test", "abstract"));
         List<VimeoVideo> vimeoVidoes = Arrays.asList(createTestVideo("this is a test"));
 
-        List<Video> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
-        assertEquals("abstract", videos.get(0).talkAbstract());
+        List<Talk> talks = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
+        assertEquals("abstract", talks.get(0).talkAbstract());
     }
 
     @Test
@@ -39,9 +39,9 @@ public class JSONMergeTest extends UnitTest {
         List<VimeoVideo> vimeoVidoes = Arrays.asList(createTestVideo("this is a test"),
                                                      createTestVideo("this is a test2"));
 
-        List<Video> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
-        assertEquals("abstract", videos.get(0).talkAbstract());
-        assertEquals("abstract2", videos.get(1).talkAbstract());
+        List<Talk> talks = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
+        assertEquals("abstract", talks.get(0).talkAbstract());
+        assertEquals("abstract2", talks.get(1).talkAbstract());
     }
 
     @Test
@@ -51,8 +51,8 @@ public class JSONMergeTest extends UnitTest {
         List<VimeoVideo> vimeoVideos = Arrays.asList(createTestVideo("this is a test"),
                                                      createTestVideo("this is a test2"));
 
-        List<Video> videos = merger.mergeVideoAndSessionInfo(vimeoVideos, sessions);
-        assertEquals(0, videos.size());
+        List<Talk> talks = merger.mergeVideoAndSessionInfo(vimeoVideos, sessions);
+        assertEquals(0, talks.size());
     }
 
     @Test
@@ -60,8 +60,8 @@ public class JSONMergeTest extends UnitTest {
         List<IncogitoSession> sessions = Arrays.asList(createTestSession("this is a test", "abstract"));
         List<VimeoVideo> vimeoVidoes = Arrays.asList(createTestVideo("this is a tes"));
 
-        List<Video> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
-        assertEquals("abstract", videos.get(0).talkAbstract());
+        List<Talk> talks = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
+        assertEquals("abstract", talks.get(0).talkAbstract());
 
     }
 
@@ -70,8 +70,8 @@ public class JSONMergeTest extends UnitTest {
         List<IncogitoSession> sessions = Arrays.asList(createTestSession("this is a test", "abstract"));
         List<VimeoVideo> vimeoVidoes = Arrays.asList(createTestVideo("this s a tes"));
 
-        List<Video> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
-        assertEquals("abstract", videos.get(0).talkAbstract());
+        List<Talk> talks = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
+        assertEquals("abstract", talks.get(0).talkAbstract());
 
     }
 

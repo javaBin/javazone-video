@@ -8,7 +8,7 @@ import play.modules.morphia.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity()
 public class Talk extends Model {
 
     private String talkAbstract;

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Video extends Model {
+public class Talk extends Model {
 
     private String talkAbstract;
     private String title;
@@ -20,11 +20,11 @@ public class Video extends Model {
     @Id
     private int id;
 
-    public Video() {
+    public Talk() {
 
     }
 
-    public Video(VimeoVideo vVideo) {
+    public Talk(VimeoVideo vVideo) {
         title = vVideo.title();
         id = vVideo.id();
     }

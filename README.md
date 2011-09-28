@@ -29,6 +29,10 @@ play install morphia
 play install cobertura
 ```
 
+* sass for awesome style sheets
+``
+play install sass
+```
 
 
 Demo site

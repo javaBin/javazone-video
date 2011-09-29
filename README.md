@@ -7,10 +7,11 @@ links to other resources on the same topic, easy sharing of videos, rss feeds an
 
 For the techno-heads
 ----------------------
-* Play! framework
-* MongoDB+Morphia
+* Play! framework 1.2.3
+* MongoDB+Morphia 1.2.3
 * Jackson
-* SASS
+* SASS 1.1
+* Cobertura for test coverage
 
 Dependencies
 --------------
@@ -54,6 +55,15 @@ Task:
   * TBD
 * import_prod
   * TBD 
+
+Design mockups
+---------------
+
+* Prelimenary page mockups are on google docs on the following urls:
+  * front page: https://docs.google.com/drawings/d/1VIyzGEhxpbbk7wLqCetqQepUj7cWTr8HOhETOEBMvXg/edit?hl=en_US
+  * video page: https://docs.google.com/drawings/d/1mL2RtVe02dTR2pf5MrgUT-NdtrImC-5K593PuNbdNoY/edit?hl=en_US&pli=1
+
+Request access if you think you need it. 
 
 
 Demo site

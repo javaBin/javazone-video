@@ -1,5 +1,6 @@
 package models;
 
+import models.domain.Thumbnail;
 import models.domain.VimeoTag;
 import models.domain.VimeoVideo;
 
@@ -26,9 +27,7 @@ public class VideoTranslator {
     }
 
     private static VimeoVideo createVideoObject(Map<String, Object> v) {
-        VimeoVideo video = new VimeoVideo();
-
-        addSimpleProperties(v, video);
+        VimeoVideo video = newVideoWithSimpleProperties(v);
         addTags(v, video);
 
         return video;
@@ -44,10 +43,27 @@ public class VideoTranslator {
         }
     }
 
-    private static void addSimpleProperties(Map<String, Object> v, VimeoVideo video) {
-        video.title((String) v.get("title"));
-        video.id(Integer.parseInt((String) v.get("id")));
-        video.description((String) v.get("description"));
-        video.duration(Integer.parseInt((String) v.get("duration")));
+    private static VimeoVideo newVideoWithSimpleProperties(Map<String, Object> v) {
+        return new VimeoVideo(Integer.parseInt((String) v.get("id")),
+                              (String) v.get("title"),
+                              (String) v.get("description"),
+                              Integer.parseInt((String) v.get("duration")),
+                              createThumbnail(v));
+    }
+
+    private static Thumbnail createThumbnail(Map<String, Object> v) {
+        Map<String, Object> tmp = (Map<String, Object>) v.get("thumbnails");
+        List<Map<String, String>> map = (List<Map<String, String>>) tmp.get("thumbnail");
+
+        for(Map<String, String> values : map) {
+            if(values.get("width").equals("640")){
+                return new Thumbnail(values.get("_content"),
+                                     Integer.parseInt(values.get("width")),
+                                     Integer.parseInt(values.get("height")));
+            }
+
+        }
+        return Thumbnail.missing();
+
     }
 }

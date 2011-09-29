@@ -1,0 +1,15 @@
+#{extends 'main.html' /}
+#{set title:'Javazone videos :: ${talk.title}' /}
+
+<article>
+    <header><h2>${talk.title}</h2></header>
+    <img src="${talk.thumbnail.url}" width="480" height="150" alt="${talk.title}">
+
+    <footer>
+        <ul>
+            #{list items:talk.tags, as:'tag'}
+            <li><a href="${tag.url}" class="tag">${tag.name}</a></li>
+            #{/list}
+        </ul>
+    </footer>
+</article>

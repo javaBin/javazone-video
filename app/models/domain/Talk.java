@@ -20,6 +20,9 @@ public class Talk extends Model {
     @Id
     private int id;
 
+    @Embedded
+    private Thumbnail thumbnail;
+
     public Talk() {
 
     }
@@ -27,6 +30,7 @@ public class Talk extends Model {
     public Talk(VimeoVideo vVideo) {
         title = vVideo.title();
         id = vVideo.id();
+        thumbnail = vVideo.thumbnail();
     }
 
     public String talkAbstract() {
@@ -60,4 +64,11 @@ public class Talk extends Model {
         return tags;
     }
 
+    public Thumbnail thumbnail() {
+        return thumbnail;
+    }
+
+    public void thumbnail(Thumbnail thumbnail) {
+        this.thumbnail = thumbnail;
+    }
 }

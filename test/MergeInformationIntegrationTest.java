@@ -53,6 +53,21 @@ public class MergeInformationIntegrationTest extends FunctionalTest {
         }));
     }
 
+    @Test
+    public void allVideosHaveThumbnails() throws Exception {
+        fj.data.List<Talk> newList = iterableList(getVideos());
+
+        assertEquals(true, newList.forall(new F<Talk, Boolean>() {
+            @Override
+            public Boolean f(Talk talk) {
+                if(null != talk.thumbnail() && talk.thumbnail().width() == 640) {
+                    return true;
+                }
+                return false;
+            }
+        }));
+    }
+
 
     private List<Talk> getVideos() throws Exception {
         if(mergedTalks != null) {

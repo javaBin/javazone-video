@@ -2,6 +2,7 @@ package models;
 
 import models.domain.IncogitoSession;
 import models.domain.Talk;
+import models.domain.Thumbnail;
 import models.domain.VimeoVideo;
 import org.junit.Test;
 import play.test.UnitTest;
@@ -16,7 +17,7 @@ public class JSONMergeTest extends UnitTest {
     @Test
     public void mergeWithEmptyTitlesDoesNotMergeInfo() {
         List<IncogitoSession> sessions = Arrays.asList(new IncogitoSession());
-        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo());
+        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "", "", 0, Thumbnail.missing()));
 
         List<Talk> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
         assertEquals("", videos.get(0).talkAbstract());
@@ -76,8 +77,8 @@ public class JSONMergeTest extends UnitTest {
     }
 
     private VimeoVideo createTestVideo(String title) {
-        VimeoVideo video = new VimeoVideo();
-        video.title(title);
+        VimeoVideo video = new VimeoVideo(0, title, "", 0, Thumbnail.missing());
+
         return video;
     }
 

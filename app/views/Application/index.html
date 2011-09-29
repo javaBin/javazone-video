@@ -4,6 +4,9 @@
 #{list items:talks, as:'talk'}
     <article>
         <header><h2>${talk.title}</h2></header>
+        <a href="@{Talks.show(talk.id)}">
+            <img src="${talk.thumbnail.url}" width="480" height="150" alt="${talk.title}">
+        </a>
         <footer>
             <ul>
             #{list items:talk.tags, as:'tag'}

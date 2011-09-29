@@ -8,58 +8,37 @@ package models.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * "id":"28803302",
-      "is_hd":"1",
-      "is_transcoding":"",
-      "is_watchlater":"0",
-      "license":"0",
-      "privacy":"anybody",
-      "title":"Deploying Apps on Heroku",
- */
+public final class VimeoVideo {
+    private final String title;
+    private final int id;
+    private final String description;
+    private final int duration;
+    private final List<VimeoTag> tags;
+    private final Thumbnail thumb;
 
-public class VimeoVideo {
-    private String title = "";
-    private int id;
-    private String description;
-    private int duration;
-    private List<VimeoTag> tags;
-
-    public VimeoVideo() {
+    public VimeoVideo(int id, String title, String description, int duration, Thumbnail thumbnail) {
         tags = new ArrayList<VimeoTag>();
-    }
-
-    public void title(final String title) {
+        this.id = id;
         this.title = title;
+        this.description = description;
+        this.duration = duration;
+        this.thumb = thumbnail;
     }
 
     public String title() {
         return title;
     }
 
-
     public int id() {
         return id;
-    }
-
-    public void id(final Integer id) {
-        this.id = id;
     }
 
     public String description() {
         return description;
     }
 
-    public void description(final String description) {
-        this.description = description;
-    }
-
     public int duration() {
         return duration;
-    }
-
-    public void duration(int duration) {
-        this.duration = duration;
     }
 
     public List<VimeoTag> tags() {
@@ -68,5 +47,9 @@ public class VimeoVideo {
 
     public void addTag(final VimeoTag vTag) {
         tags.add(vTag);
+    }
+
+    public Thumbnail thumbnail() {
+        return thumb;
     }
 }

@@ -27,6 +27,8 @@ public class VideoInformationMerger {
                     talk.addTag(new Tag(tag.id(), tag.name(), tag.url()));
                 }
 
+                talk.thumbnail(vVideo.thumbnail());
+
                 talks.add(talk);
             } else {
                 System.err.println("Could not match title for talk <" + vVideo.title() + ">");

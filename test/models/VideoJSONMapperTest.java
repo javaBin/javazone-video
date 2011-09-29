@@ -2,6 +2,7 @@ package models;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
+import models.domain.Thumbnail;
 import models.domain.VimeoTag;
 import models.domain.VimeoVideo;
 import org.junit.Before;
@@ -77,6 +78,14 @@ public class VideoJSONMapperTest extends UnitTest {
     public void tagsHaveUrl() {
         VimeoTag tag = video.tags().get(0);
         assertEquals("http://vimeo.com/tag:javazone2011", tag.url());
+    }
+
+    @Test
+    public void videosHaveThumbnails() {
+        Thumbnail thumb = video.thumbnail();
+        assertEquals(640, thumb.width());
+        assertEquals(204, thumb.height());
+        assertEquals("http://b.vimeocdn.com/ts/192/437/192437267_640.jpg", thumb.url());
     }
 
     @Test

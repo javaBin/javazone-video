@@ -42,7 +42,8 @@ Building and deploying
 There is a rake script for starting play and deploying to test site (heroku) and
 production site (TBD) and setting some important shell variables/heroku config in the process. This is done to keep vimeo api key and database credentials out of the public repo. In order for this to work, you need the file jzvideo-secrets.rb. Contact one of the developers if you think you should have this file. This could be done in private repo on github, but until further notice, it's not. 
 
-Task:
+Tasks:
+
 * rake run
   * Set environment for local, sync play deps and run 'play run'
 * rake test

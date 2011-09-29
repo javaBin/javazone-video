@@ -8,3 +8,4 @@ jz-video.iml
 lib/
 modules/
 out/
+jzvideo-secrets.rb

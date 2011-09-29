@@ -15,7 +15,7 @@ For the techno-heads
 Dependencies
 --------------
 
-The app uses two play modules
+The app uses the following play modules
 
 * Morphia
 
@@ -35,10 +35,30 @@ play install cobertura
 play install sass
 ```
 
+Building and deploying
+-----------------------
+
+There is a rake script for starting play and deploying to test site (heroku) and
+production site (TBD) and setting some important shell variables/heroku config in the process. This is done to keep vimeo api key and database credentials out of the public repo. In order for this to work, you need the file jzvideo-secrets.rb. Contact one of the developers if you think you should have this file. This could be done in private repo on github, but until further notice, it's not. 
+
+Task:
+* rake run
+  * Set environment for local, sync play deps and run 'play run'
+* rake test
+  * same as above but run play in test mode
+* deploy_test
+  * set heroku config vars and push to heroku
+* import_test
+  * set local shell vars to point to test (heroku) database and run test (this makes it possible to run the data fetcher tests to seed the database on heroku.
+* deploy_prod
+  * TBD
+* import_prod
+  * TBD 
+
 
 Demo site
 ----------
-Testing site deployed to javazone-video.herokuapp.com now and then. 
+Testing site deployed to javazone-video.herokuapp.com now and then. For now. Production coming soon. 
 
 
 Knut Haugen 2011-09-16

@@ -19,22 +19,10 @@ Dependencies
 The app uses the following play modules
 
 * Morphia
-
-```
-play install morphia
-```
-
 * cobertura (just for test id)
-
-```
-play install cobertura
-```
-
 * sass for awesome style sheets
 
-```
-play install sass
-```
+Run 'play dependencies --sync' to install or run the appropriate rake tasks described below to fix this. 
 
 Building and deploying
 -----------------------

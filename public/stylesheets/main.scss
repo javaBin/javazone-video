@@ -86,6 +86,11 @@ article {
     }
 }
 
+p {
+  position: relative;
+  left: 100px;
+}
+
 footer {
   font-size: 70%;
   border-top: 1px solid $dark-border;

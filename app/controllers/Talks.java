@@ -11,6 +11,9 @@ public class Talks extends Controller {
 
     public static void show(int id) {
         Talk talk = Talk.find("byId", id).first();
+        if(talk == null) {
+            notFound("The talk was not found. Sorry");
+        }
         render(talk);
     }
 }

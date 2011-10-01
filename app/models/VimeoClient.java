@@ -1,6 +1,6 @@
 package models;
 
-import models.domain.VimeoVideo;
+import models.domain.external.VimeoVideo;
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.builder.api.VimeoApi;
 import org.scribe.model.OAuthRequest;

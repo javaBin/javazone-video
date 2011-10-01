@@ -4,9 +4,9 @@ import fj.F;
 import models.SessionJSONMapper;
 import models.VideoInformationMerger;
 import models.VideoJSONMapper;
-import models.domain.IncogitoSession;
+import models.domain.external.IncogitoSession;
 import models.domain.Talk;
-import models.domain.VimeoVideo;
+import models.domain.external.VimeoVideo;
 import org.junit.Test;
 import play.test.FunctionalTest;
 
@@ -46,6 +46,21 @@ public class MergeInformationIntegrationTest extends FunctionalTest {
             @Override
             public Boolean f(Talk talk) {
                 if(null != talk.tags() && talk.tags().size() >= 0) {
+                    return true;
+                }
+                return false;
+            }
+        }));
+    }
+
+    @Test
+    public void allVideosHaveSpeakers() throws Exception {
+        fj.data.List<Talk> newList = iterableList(getVideos());
+
+        assertEquals(true, newList.forall(new F<Talk, Boolean>() {
+            @Override
+            public Boolean f(Talk talk) {
+                if(null != talk.speakers() && talk.speakers().size() >= 0) {
                     return true;
                 }
                 return false;

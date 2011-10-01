@@ -1,10 +1,10 @@
 import models.IncogitoClient;
 import models.VideoInformationMerger;
 import models.VimeoClient;
-import models.domain.IncogitoSession;
+import models.domain.Speaker;
 import models.domain.Talk;
-import models.domain.VimeoVideo;
-import org.junit.Ignore;
+import models.domain.external.IncogitoSession;
+import models.domain.external.VimeoVideo;
 import org.junit.Test;
 import play.test.FunctionalTest;
 
@@ -17,7 +17,6 @@ import java.util.List;
 public class VideoFetcher extends FunctionalTest {
 
     @Test
-    @Ignore
     public void fetchAndSaveVideos() {
         List<VimeoVideo> videos = new VimeoClient().getVideosByYear("2011", null, null);
         List<IncogitoSession> sessions = new IncogitoClient().getSessionsForYear(2011);
@@ -25,6 +24,14 @@ public class VideoFetcher extends FunctionalTest {
         List<Talk> finishedTalks = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
 
         for(Talk talk : finishedTalks) {
+            for(Speaker speaker : talk.speakers()) { //must save reference types first
+                Speaker found = Speaker.find("bySlug", speaker.slug()).first();
+                if(null != found) {
+                    speaker = found;
+                }
+
+                speaker.save();
+            }
             talk.save();
         }
     }

@@ -13,5 +13,7 @@ GET     /public/                                staticDir:public
 
 GET     /talk/{id}                              Talks.show
 
+GET     /speaker/{slug}                         Speakers.show
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

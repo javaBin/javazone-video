@@ -3,12 +3,14 @@ package models.domain;
 import com.google.code.morphia.annotations.Embedded;
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
+import com.google.code.morphia.annotations.Reference;
+import models.domain.external.VimeoVideo;
 import play.modules.morphia.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity()
+@Entity
 public class Talk extends Model {
 
     private String talkAbstract;
@@ -23,11 +25,16 @@ public class Talk extends Model {
     @Embedded
     private Thumbnail thumbnail;
 
-    public Talk() {
+    @Reference
+    private List<Speaker> speakers;
 
+    public Talk() {
+        tags = new ArrayList<Tag>();
+        speakers = new ArrayList<Speaker>();
     }
 
     public Talk(VimeoVideo vVideo) {
+        this();
         title = vVideo.title();
         id = vVideo.id();
         thumbnail = vVideo.thumbnail();
@@ -54,9 +61,6 @@ public class Talk extends Model {
     }
 
     public void addTag(Tag tag) {
-        if(tags == null) {
-            tags = new ArrayList<Tag>();
-        }
         tags.add(tag);
     }
 
@@ -70,5 +74,13 @@ public class Talk extends Model {
 
     public void thumbnail(Thumbnail thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public List<Speaker> speakers() {
+        return speakers;
+    }
+
+    public void addSpeaker(Speaker speaker) {
+        speakers.add(speaker);
     }
 }

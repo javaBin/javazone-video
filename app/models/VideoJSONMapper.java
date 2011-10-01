@@ -1,6 +1,6 @@
 package models;
 
-import models.domain.VimeoVideo;
+import models.domain.external.VimeoVideo;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;

@@ -1,5 +1,5 @@
 import models.VimeoClient;
-import models.domain.VimeoVideo;
+import models.domain.external.VimeoVideo;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

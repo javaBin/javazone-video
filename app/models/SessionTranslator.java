@@ -1,6 +1,6 @@
 package models;
 
-import models.domain.IncogitoSession;
+import models.domain.external.IncogitoSession;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -18,6 +18,9 @@ public class SessionTranslator {
         {
             put("Ã¥", "å");
             put("Ã¸", "ø");
+            put("Ã©", "é");
+            put("Ã¶", "ö");
+            put("Ã\u0098", "Ø");
         }
     };
 
@@ -32,16 +35,28 @@ public class SessionTranslator {
     }
 
     private static IncogitoSession createSession(Map<String, Object> v) {
-        IncogitoSession session = new IncogitoSession();
-
+        IncogitoSession session = new IncogitoSession("", "");
         try {
-            session.title(toUTF8(v, "title"));
-            session.talkAbstract(toUTF8(v, "bodyHtml"));
+            session = new IncogitoSession(toUTF8(v, "title"), toUTF8(v, "bodyHtml"));
+
+            for(Map<String, Object> values : getSpeakers(v)) {
+                 session.addSpeaker(toUTF8(values, "name"),
+                                    (String) values.get("bioHtml"),
+                                    (String) values.get("photoUrl"));
+            }
+
+
+            //;addSpeakers(session, getSpeakers(v));
+            return session;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
         return session;
+    }
+
+    private static List<Map<String, Object>> getSpeakers(Map<String, Object> v) {
+        return (List<Map<String, Object>>) v.get("speakers");
     }
 
     private static String toUTF8(Map<String, Object> v, String key) throws UnsupportedEncodingException {

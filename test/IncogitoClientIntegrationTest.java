@@ -1,6 +1,6 @@
 
 import models.IncogitoClient;
-import models.domain.IncogitoSession;
+import models.domain.external.IncogitoSession;
 import org.junit.Test;
 import play.test.FunctionalTest;
 

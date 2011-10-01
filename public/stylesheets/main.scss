@@ -57,6 +57,15 @@ article {
     position: relative;
     left: 100px;
 
+    a {
+      color: $link-color;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     h2 {
       font-size: 110%;
       margin-top: 0;

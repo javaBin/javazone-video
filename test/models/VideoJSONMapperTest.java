@@ -3,8 +3,7 @@ package models;
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import models.domain.Thumbnail;
-import models.domain.VimeoTag;
-import models.domain.VimeoVideo;
+import models.domain.external.VimeoVideo;
 import org.junit.Before;
 import org.junit.Test;
 import play.test.UnitTest;
@@ -64,19 +63,19 @@ public class VideoJSONMapperTest extends UnitTest {
 
     @Test
     public void tagsHaveId() {
-        VimeoTag tag = video.tags().get(0);
+        VimeoVideo.Tag tag = video.tags().get(0);
         assertEquals(64157810, tag.id());
     }
 
     @Test
     public void tagsHaveName() {
-        VimeoTag tag = video.tags().get(0);
+        VimeoVideo.Tag tag = video.tags().get(0);
         assertEquals("JavaZOne 2011", tag.name());
     }
 
     @Test
     public void tagsHaveUrl() {
-        VimeoTag tag = video.tags().get(0);
+        VimeoVideo.Tag tag = video.tags().get(0);
         assertEquals("http://vimeo.com/tag:javazone2011", tag.url());
     }
 

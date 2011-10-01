@@ -4,4 +4,10 @@
 <article>
     <header><h2>${speaker.name}</h2></header>
     <img src="${speaker.photoURL}" alt="${speaker.name}">
+    Talks:
+    <ul>
+        #{list items:talks, as:'talk'}
+            <li>${talk.title}</li>
+        #{/list}
+    </ul>
 </article>

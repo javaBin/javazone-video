@@ -1,0 +1,9 @@
+#{if talk.speakers.size == 1 }
+<span>speaker: </span>
+#{/if}
+#{else}
+<span>speakers: </span>
+#{/else}
+#{list items:talk.speakers, as:'speaker'}
+<a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a>${speaker_isLast ? "": ', '}
+#{/list}

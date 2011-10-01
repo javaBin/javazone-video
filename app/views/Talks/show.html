@@ -5,6 +5,7 @@
     <header><h2>${talk.title}</h2></header>
     <img src="${talk.thumbnail.url}" width="480" height="150" alt="${talk.title}">
 
+    #{include 'speakers.html' /}
     <footer>
         <ul>
             #{list items:talk.tags, as:'tag'}

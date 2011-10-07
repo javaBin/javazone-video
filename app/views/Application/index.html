@@ -5,7 +5,7 @@
     <article>
         <header><h2>${talk.title}</h2></header>
         <a href="@{Talks.show(talk.id)}">
-            <img src="${talk.thumbnail.url}" width="480" height="150" alt="${talk.title}">
+            <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
         </a>
         #{include 'speakers.html' /}
 

@@ -40,7 +40,7 @@ h1 img {
 }
 
 article {
-    width: 500px;
+    width: 650px;
 
     background-color: $box-color;
     border-width:1px;
@@ -66,6 +66,11 @@ article {
       text-decoration: underline;
     }
 
+    img {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
     h2 {
       font-size: 110%;
       margin-top: 0;
@@ -73,9 +78,14 @@ article {
       letter-spacing: 0.1em;
     }
 
+    footer {
+        text-align: right;
+    }
+
     footer ul {
-      margin-bottom: 0;
-      text-align: right;
+        width: 470px;
+        margin-bottom: 0;
+        text-align: right;
     }
     
     footer ul li {

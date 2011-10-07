@@ -4,7 +4,7 @@
 #{else}
     <span>speakers: </span>
 #{/else}
-#
-{list items:talk.speakers, as:'speaker'}
+
+#{list items:talk.speakers, as:'speaker'}
     <a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a>${speaker_isLast ? "": ', '}
 #{/list}

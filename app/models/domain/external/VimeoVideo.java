@@ -5,6 +5,7 @@ package models.domain.external;
  * 2011-09-11
  */
 
+import models.domain.Embed;
 import models.domain.Thumbnail;
 
 import java.util.ArrayList;
@@ -17,8 +18,10 @@ public final class VimeoVideo {
     private final int duration;
     private final List<Tag> tags;
     private final Thumbnail thumb;
+    private Embed embed;
 
-    public VimeoVideo(int id, String title, String description, int duration, Thumbnail thumbnail) {
+    public VimeoVideo(int id, String title, String description, int duration,
+                      Thumbnail thumbnail) {
         tags = new ArrayList<Tag>();
         this.id = id;
         this.title = title;
@@ -53,6 +56,14 @@ public final class VimeoVideo {
 
     public Thumbnail thumbnail() {
         return thumb;
+    }
+
+    public Embed embedCode() {
+        return embed;
+    }
+
+    public void addEmbed(Embed embed) {
+        this.embed = embed;
     }
 
     public class Tag {

@@ -1,4 +1,5 @@
 import models.VimeoClient;
+import models.domain.Embed;
 import models.domain.external.VimeoVideo;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -44,6 +45,15 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
 
         List<VimeoVideo> results = client.getVideosByYear("2010", args, 1);
         assertEquals(1, results.size());
+
+    }
+
+    @Test
+    public void fetchedVideosHaveEmbedCodes() {
+        VimeoClient client = new VimeoClient();
+
+        List<VimeoVideo> results = client.getVideosByYear("2010", args, 1);
+        assertEquals(Embed.class, results.get(0).embedCode().getClass());
 
     }
 

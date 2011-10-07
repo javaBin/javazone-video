@@ -1,9 +1,9 @@
 #{extends 'main.html' /}
-#{set title:'Javazone videos :: ${talk.title}' /}
+#{set title:'Javazone videos :: ' + talk.title /}
 
 <article>
     <header><h2>${talk.title}</h2></header>
-    <img src="${talk.thumbnail.url}" width="480" height="150" alt="${talk.title}">
+    ${talk.embed.embedCode.raw()}
 
     #{include 'speakers.html' /}
     <footer>

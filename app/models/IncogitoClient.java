@@ -38,7 +38,7 @@ public class IncogitoClient {
             client.getConnectionManager().shutdown();
         }
 
-        return null != responseBody? mapObjects(responseBody) : new ArrayList<IncogitoSession>();
+        return null != responseBody ? mapObjects(responseBody) : new ArrayList<IncogitoSession>();
     }
 
     private List<IncogitoSession> mapObjects(String json) {

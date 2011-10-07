@@ -25,6 +25,9 @@ public class Talk extends Model {
     @Embedded
     private Thumbnail thumbnail;
 
+    @Embedded
+    private Embed embed;
+
     @Reference
     private List<Speaker> speakers;
 
@@ -38,6 +41,7 @@ public class Talk extends Model {
         title = vVideo.title();
         id = vVideo.id();
         thumbnail = vVideo.thumbnail();
+        embed = vVideo.embedCode();
     }
 
     public String talkAbstract() {
@@ -82,5 +86,13 @@ public class Talk extends Model {
 
     public void addSpeaker(Speaker speaker) {
         speakers.add(speaker);
+    }
+
+    public Embed embed() {
+        return embed;
+    }
+
+    public void embed(Embed embed) {
+        this.embed = embed;
     }
 }

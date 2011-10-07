@@ -1,3 +1,4 @@
+import models.domain.Embed;
 import models.domain.Talk;
 import models.domain.Thumbnail;
 import org.junit.Test;
@@ -19,6 +20,7 @@ public class ApplicationTest extends FunctionalTest {
         Talk talk = new Talk();
         talk.id(123);
         talk.thumbnail(new Thumbnail("", 0, 0));
+        talk.embed(new Embed(""));
         talk.save();
 
         Response response = GET("/talk/123");

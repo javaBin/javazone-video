@@ -60,10 +60,14 @@ article {
     a {
       color: $link-color;
       text-decoration: none;
+      text-align: center;
+      margin-left: 5px;
+
     }
 
     a:hover {
-      text-decoration: underline;
+        text-decoration: underline;
+
     }
 
     img {
@@ -80,10 +84,10 @@ article {
 
     footer {
         text-align: right;
+        width: 100%;
     }
 
     footer ul {
-        width: 470px;
         margin-bottom: 0;
         text-align: right;
     }

@@ -39,6 +39,7 @@ h1 img {
     top: 12px;
 }
 
+
 article {
     width: 650px;
 
@@ -55,7 +56,6 @@ article {
     padding: 5px;
     margin-bottom: 20px;
     position: relative;
-    left: 100px;
 
     a {
       color: $link-color;
@@ -70,10 +70,6 @@ article {
 
     }
 
-    img {
-        margin-right: auto;
-        margin-left: auto;
-    }
 
     h2 {
       font-size: 110%;
@@ -101,12 +97,22 @@ article {
       padding: 2px;
       @include rounded-corners;
       font-weight: normal;
+      margin-left: 5px;
     }
     
     footer ul li a {
       color: $dark-border;
       font-weight: bold;
     }
+}
+
+article.speaker {
+  background: transparent;
+  border: none;
+  
+  footer {
+    border: none;
+  }
 }
 
 p {

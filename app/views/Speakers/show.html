@@ -1,7 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'Javazone videos :: ${speaker.name}' /}
-
-<article>
+<div class="prefix_1 grid_7 suffix_4">
+<article class="speaker">
     <header><h2>${speaker.name}</h2></header>
     <img src="${speaker.photoURL}" alt="${speaker.name}">
     Talks:
@@ -11,3 +11,4 @@
         #{/list}
     </ul>
 </article>
+</div>

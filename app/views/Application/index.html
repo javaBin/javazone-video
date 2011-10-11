@@ -2,6 +2,7 @@
 #{set title:'Javazone videos' /}
 
 #{list items:talks, as:'talk'}
+    <div class="grid_7 prefix_1 suffix_4">
     <article>
         <header><h2>${talk.title}</h2></header>
         <a href="@{Talks.show(talk.id)}">
@@ -18,5 +19,7 @@
             </ul>
         </footer>
     </article>
+    </div>       
+    <div class="clear"></div>
 #{/list}
 

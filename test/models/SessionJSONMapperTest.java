@@ -55,6 +55,11 @@ public class SessionJSONMapperTest extends UnitTest {
     }
 
     @Test
+    public void sessionsHaveAYear() {
+        assertEquals(2011, session.year());
+    }
+
+    @Test
     public void speakersHaveABio() {
         assertEquals("<div class=\"wiki\">\n" +
                 "<div class=\"paragraph\">\n" +

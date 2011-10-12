@@ -16,7 +16,7 @@ public class JSONMergeTest extends UnitTest {
 
     @Test
     public void mergeWithEmptyTitlesDoesNotMergeInfo() {
-        List<IncogitoSession> sessions = Arrays.asList(new IncogitoSession("", ""));
+        List<IncogitoSession> sessions = Arrays.asList(new IncogitoSession("", "", 0));
         List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "", "", 0, Thumbnail.missing()));
 
         List<Talk> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
@@ -83,7 +83,7 @@ public class JSONMergeTest extends UnitTest {
     }
 
     private IncogitoSession createTestSession(String title, String anAbstract) {
-        IncogitoSession session = new IncogitoSession(title, anAbstract);
+        IncogitoSession session = new IncogitoSession(title, anAbstract, 2011);
         return session;
     }
 }

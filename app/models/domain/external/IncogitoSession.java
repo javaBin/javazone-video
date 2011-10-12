@@ -12,10 +12,12 @@ public final class IncogitoSession {
     private final String title;
     private final String talkAbstract;
     private final List<Speaker> speakers;
+    private int year;
 
-    public IncogitoSession(String title, String abs) {
+    public IncogitoSession(String title, String abs, Integer year) {
         this.title = title;
         this.talkAbstract = abs;
+        this.year = year;
         speakers = new ArrayList<Speaker>();
     }
 
@@ -33,6 +35,14 @@ public final class IncogitoSession {
 
     public void addSpeaker(String name, String bio, String url) {
         speakers.add(new Speaker(name, bio, url));
+    }
+
+    public int year() {
+        return year;
+    }
+
+    public void year(int year) {
+        this.year = year;
     }
 
     public class Speaker {

@@ -25,6 +25,13 @@ public class VideoFetcher extends FunctionalTest {
 
         List<Talk> finishedTalks = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
 
+        videos = new VimeoClient().getVideosByYear("2010", null, null);
+        sessions = new IncogitoClient().getSessionsForYear(2010);
+
+        finishedTalks.addAll(new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions));
+
+
+
         for(Talk talk : finishedTalks) {
             for(Speaker speaker : talk.speakers()) { //must save reference types first
                 Speaker found = Speaker.find("bySlug", speaker.slug()).first();

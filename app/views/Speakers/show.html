@@ -7,7 +7,7 @@
     Talks:
     <ul>
         #{list items:talks, as:'talk'}
-            <li><a href="@{Talks.show(talk.id)}">${talk.title}</a></li>
+            <li><a href="@{Talks.show(talk.id)}">${talk.title} (${talk.year})</a></li>
         #{/list}
     </ul>
 </article>

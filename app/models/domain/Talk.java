@@ -15,6 +15,7 @@ public class Talk extends Model {
 
     private String talkAbstract;
     private String title;
+    private Integer year;
 
     @Embedded
     private List<Tag> tags;
@@ -94,5 +95,13 @@ public class Talk extends Model {
 
     public void embed(Embed embed) {
         this.embed = embed;
+    }
+
+    public Integer year() {
+        return year;
+    }
+
+    public void year(Integer year) {
+        this.year = year;
     }
 }

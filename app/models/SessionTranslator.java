@@ -35,24 +35,28 @@ public class SessionTranslator {
     }
 
     private static IncogitoSession createSession(Map<String, Object> v) {
-        IncogitoSession session = new IncogitoSession("", "");
+        IncogitoSession session = new IncogitoSession("", "", 0);
         try {
-            session = new IncogitoSession(toUTF8(v, "title"), toUTF8(v, "bodyHtml"));
+            session = new IncogitoSession(toUTF8(v, "title"),
+                                          toUTF8(v, "bodyHtml"),
+                                          getYear(v));
 
             for(Map<String, Object> values : getSpeakers(v)) {
                  session.addSpeaker(toUTF8(values, "name"),
                                     (String) values.get("bioHtml"),
                                     (String) values.get("photoUrl"));
             }
-
-
-            //;addSpeakers(session, getSpeakers(v));
             return session;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
         return session;
+    }
+
+    private static int getYear(Map<String, Object> v) {
+        Map<String, Object> end = (Map<String, Object>) v.get("end");
+        return (Integer) end.get("year");
     }
 
     private static List<Map<String, Object>> getSpeakers(Map<String, Object> v) {

@@ -10,17 +10,17 @@
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/jquery.uitablefilter.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/filter.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+
         #{get 'moreScripts' /}
     </head>
-    <body>
-
-        <header>
-            <h1><a href="/">JavaZone Videos <img src="@{'/public/images/jz11_logo.png'}" alt=""/></a></h1>
+    <body class="container_12">
+       <header class="grid_5 prefix_1 suffix_6">
+            <h1><a href="/">JavaZone <img src="@{'/public/images/jz11_logo.png'}" alt=""/ > Videos</a></h1>
         </header>
-        <div class="container_12">
-          #{doLayout /}
-        </div>  
-        <footer>
+         #{doLayout /}
+       <footer class="grid_4 suffix_4 prefix_4">
             The JavaZone javazone videos brought to you by <a href="http://java.no/">JavaBin</a>
         </footer>
     </body>

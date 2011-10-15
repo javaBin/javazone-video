@@ -1,16 +1,15 @@
 import org.junit.Test;
+import play.test.UnitTest;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import static junit.framework.Assert.assertEquals;
-
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
  * 2011-10-15
  */
-public class ImageResizerTest {
+public class ImageResizerTest extends UnitTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void willNotScaleImageThatDoesNotExist() {

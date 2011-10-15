@@ -17,8 +17,9 @@ public class ImageResizerTest extends UnitTest {
     }
 
     @Test
-    public void willScaleLargePortraitImageTo200Width() {
-        BufferedImage resized = ImageResizer.resize("test/testdata/largeImage.jpg");
+    public void willScaleLargePortraitImageTo200Width() throws Exception {
+        BufferedImage original = ImageIO.read(new File("test/testdata/LargeImage.jpg"));
+        BufferedImage resized = ImageResizer.resize(original);
         assertEquals(200, resized.getWidth());
         assertEquals(300, resized.getHeight());
     }
@@ -27,13 +28,13 @@ public class ImageResizerTest extends UnitTest {
     public void willNotScaleImageSmallerThat300Tall() throws Exception {
         BufferedImage original = ImageIO.read(new File("test/testdata/smallImage.jpg"));
 
-        BufferedImage resized = ImageResizer.resize("test/testdata/smallImage.jpg");
+        BufferedImage resized = ImageResizer.resize(original);
         assertEquals(original.getWidth(), resized.getWidth());
     }
 
     @Test
     public void willScaleLandscapeTo300Wide() throws Exception {
-        BufferedImage resized = ImageResizer.resize("test/testdata/landscape.jpg");
+        BufferedImage resized = ImageResizer.resize(ImageIO.read(new File("test/testdata/landscape.jpg")));
         assertEquals(300, resized.getWidth());
         assertEquals(200, resized.getHeight());
     }

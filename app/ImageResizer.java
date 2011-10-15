@@ -10,6 +10,9 @@ import java.io.IOException;
  * 2011-10-15
  */
 public class ImageResizer {
+
+    private static final int TARGET_HEIGHT = 300;
+
     public static BufferedImage resize(String filename) {
         if(filename == null) {
             throw new IllegalArgumentException("Invalid filename supplied");
@@ -24,11 +27,11 @@ public class ImageResizer {
                 throw new IllegalArgumentException("Image " + filename + " could not be read properly");
             }
 
-            if(raw.getHeight() < 300) {
+            if(raw.getHeight() < TARGET_HEIGHT) {
                 return raw;
             }
 
-            return Scalr.resize(raw, Scalr.Method.QUALITY, 300);
+            return Scalr.resize(raw, Scalr.Method.QUALITY, TARGET_HEIGHT);
         }
         return new BufferedImage(1, 1, 1);
     }

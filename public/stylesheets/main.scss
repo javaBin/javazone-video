@@ -13,11 +13,26 @@ $box-color: #4b4b4b;
   border-radius:3px;
 }
 
+input {
+  @include rounded-corners;
+  background-color: $heading-color;
+  font-size: 110%;
+  height: 1.2em;
+  color: $light-border;
+}
+
 body {
     background-color: $main-background;
     color: $text-color;
     font: lighter 14px/18px Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
     line-height: 1.5;
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  font-weight: normal;
 }
 
 h1 {
@@ -42,7 +57,7 @@ header {
 }
 
 article {
-    width: 650px;
+    width: 700px;
 
     background-color: $box-color;
     border-width:1px;
@@ -62,7 +77,12 @@ article {
       color: $link-color;
       text-decoration: none;
       text-align: center;
-      margin-left: 5px;
+      
+      img {
+        width: 640px;
+        margin-left: 30px;
+        padding-bottom: 10px;
+      }
 
     }
 
@@ -73,10 +93,20 @@ article {
 
 
     h2 {
-      font-size: 110%;
+      font-size: 130%;
       margin-top: 0;
       padding-top: 0;
+      margin-bottom: 6px;
+      margin-left: 5px;
       letter-spacing: 0.1em;
+    }
+
+    ul {
+      list-style-type: none;
+      
+      li {
+        margin-left: 6px;
+      }
     }
 
     footer {

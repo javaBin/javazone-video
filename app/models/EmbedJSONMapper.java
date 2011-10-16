@@ -27,6 +27,6 @@ public class EmbedJSONMapper {
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
-        return new Embed();
+        return new Embed("");
     }
 }

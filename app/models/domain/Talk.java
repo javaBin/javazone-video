@@ -104,4 +104,5 @@ public class Talk extends Model {
     public void year(Integer year) {
         this.year = year;
     }
+
 }

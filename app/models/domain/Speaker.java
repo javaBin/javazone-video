@@ -11,13 +11,13 @@ import play.modules.morphia.Model;
  */
 
 @Entity
-public class Speaker extends Model {
+public final class Speaker extends Model {
 
     @Required
     private final String name;
 
     @Id
-    private final String slug;
+    private String slug;
 
     private final String bio;
     private final String photoURL;
@@ -44,4 +44,5 @@ public class Speaker extends Model {
     public String slug() {
         return slug;
     }
+
 }

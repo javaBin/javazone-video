@@ -1,8 +1,5 @@
 package models;
 
-import models.IncogitoClient;
-import models.VideoInformationMerger;
-import models.VimeoClient;
 import models.domain.Speaker;
 import models.domain.Talk;
 import models.domain.external.IncogitoSession;
@@ -31,8 +28,6 @@ public class VideoFetcher extends FunctionalTest {
         sessions = new IncogitoClient().getSessionsForYear(2010);
 
         finishedTalks.addAll(new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions));
-
-
 
         for(Talk talk : finishedTalks) {
             for(Speaker speaker : talk.speakers()) { //must save reference types first

@@ -9,17 +9,17 @@
         <a href="@{Talks.show(talk.id)}">
             <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
         </a>
-       <div class="grid_3 alpha">
+        <div class="keywords prefix_2 grid_2 alpha">plays: 34</div>
+        <div class="keywords grid_2">likes: 12</div>
+        <div class="keywords grid_2 omega suffix_1">comments: 4</div>
+      <div class="grid_3 alpha">
          #{include 'speakers.html' /}
         </div>
-        <div class="grid_3">
+        <div class="grid_5 omega">
          <h3>Abstract</h3>
          ${talk.talkAbstract.raw()}
       </div>
-        <div class="grid_3 omega">
-         <h3>Traffic</h3>
-       </div>
-       <div class="clear">
+      <div class="clear">
        </div>
        <footer>
             <ul>

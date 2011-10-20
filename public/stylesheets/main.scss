@@ -74,6 +74,12 @@ article {
     margin-bottom: 20px;
     position: relative;
 
+    .keywords {
+      font-size: 90%;
+      margin-top: -9px;
+      margin-bottom: 5px;
+    }
+
     div.wiki {
       margin-left: 4px;
       -o-text-overflow: ellipsis;

@@ -18,6 +18,7 @@ public class SessionTranslator {
         {
             put("Ã¥", "å");
             put("Ã¸", "ø");
+            put("Ã¦", "æ");
             put("Ã©", "é");
             put("Ã¶", "ö");
             put("Ã\u0098", "Ø");

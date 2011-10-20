@@ -24,13 +24,14 @@ input {
 body {
     background-color: $main-background;
     color: $text-color;
-    font: lighter 14px/18px Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
-    line-height: 1.5;
+    font: lighter 13px/15px Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
+    line-height: 1.4;
 }
 
 h3 {
   font-size: 110%;
   margin-bottom: 0px;
+  color: $heading-color;
   margin-left: 5px;
   font-weight: normal;
 }
@@ -73,6 +74,14 @@ article {
     margin-bottom: 20px;
     position: relative;
 
+    div.wiki {
+      margin-left: 4px;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      height: 150px;
+      overflow: hidden;
+    }
+
     a {
       color: $link-color;
       text-decoration: none;
@@ -112,6 +121,7 @@ article {
     footer {
         text-align: right;
         width: 100%;
+        padding-top: 8px;
     }
 
     footer ul {
@@ -121,7 +131,7 @@ article {
     }
     
     footer ul li {
-      font-size: 90%;
+      font-size: 80%;
       background-color: $heading-color;
       color: $main-background;
       border: 1px solid #8a8a8a;
@@ -153,7 +163,7 @@ p {
   left: 100px;
 }
 
-footer {
+body > footer {
   font-size: 70%;
   border-top: 1px solid $dark-border;
   text-align: center;

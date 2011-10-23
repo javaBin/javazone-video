@@ -74,6 +74,7 @@ user
     exit
 
 check that you can do 
+
     mongo -u jz-video -p jz-video 127.0.0.1/jz-video
 
 Knut Haugen & Bjarte Stien Karlsen 

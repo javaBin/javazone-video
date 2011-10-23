@@ -18,7 +18,7 @@ public class VideoTranslator {
     public static List<VimeoVideo> translateVideos(List<HashMap<String, Object>> rawVideos) {
         List<VimeoVideo> videos = new ArrayList<VimeoVideo>();
 
-        for(Map<String, Object> v : rawVideos) {
+        for (Map<String, Object> v : rawVideos) {
             videos.add(createVideoObject(v));
         }
 
@@ -33,32 +33,35 @@ public class VideoTranslator {
     }
 
     private static void addTags(Map<String, Object> v, VimeoVideo video) {
-        List<Map<String, String>> tags = (List<Map<String, String>>) ((Map<String, Object>)v.get("tags")).get("tag");
-        for(Map<String, String> tag : tags) {
+        List<Map<String, String>> tags = (List<Map<String, String>>) ((Map<String, Object>) v.get("tags")).get("tag");
+        for (Map<String, String> tag : tags) {
             video.addTag(Integer.parseInt(tag.get("id")),
-                         tag.get("_content"),
-                         tag.get("url"));
+                    tag.get("_content"),
+                    tag.get("url"));
 
         }
     }
 
     private static VimeoVideo newVideoWithSimpleProperties(Map<String, Object> v) {
         return new VimeoVideo(Integer.parseInt((String) v.get("id")),
-                              (String) v.get("title"),
-                              (String) v.get("description"),
-                              Integer.parseInt((String) v.get("duration")),
-                              createThumbnail(v));
+                (String) v.get("title"),
+                (String) v.get("description"),
+                Integer.parseInt((String) v.get("duration")),
+                createThumbnail(v),
+                Integer.parseInt((String) v.get("number_of_plays")),
+                Integer.parseInt((String) v.get("number_of_comments")),
+                Integer.parseInt((String) v.get("number_of_likes")));
     }
 
     private static Thumbnail createThumbnail(Map<String, Object> v) {
         Map<String, Object> tmp = (Map<String, Object>) v.get("thumbnails");
         List<Map<String, String>> map = (List<Map<String, String>>) tmp.get("thumbnail");
 
-        for(Map<String, String> values : map) {
-            if(values.get("width").equals("640")){
+        for (Map<String, String> values : map) {
+            if (values.get("width").equals("640")) {
                 return new Thumbnail(values.get("_content"),
-                                     Integer.parseInt(values.get("width")),
-                                     Integer.parseInt(values.get("height")));
+                        Integer.parseInt(values.get("width")),
+                        Integer.parseInt(values.get("height")));
             }
 
         }

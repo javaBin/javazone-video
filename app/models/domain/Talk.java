@@ -16,6 +16,9 @@ public class Talk extends Model {
     private String talkAbstract;
     private String title;
     private Integer year;
+    private Integer plays;
+    private Integer likes;
+    private Integer comments;
 
     @Embedded
     private List<Tag> tags;
@@ -105,4 +108,27 @@ public class Talk extends Model {
         this.year = year;
     }
 
+    public Integer plays() {
+        return plays;
+    }
+
+    public void plays(Integer plays) {
+        this.plays = plays;
+    }
+
+    public Integer likes() {
+        return likes;
+    }
+
+    public void likes(Integer likes) {
+        this.likes = likes;
+    }
+
+    public Integer comments() {
+        return comments;
+    }
+
+    public void comments(Integer comments) {
+        this.comments = comments;
+    }
 }

@@ -17,7 +17,7 @@ public class JSONMergeTest extends UnitTest {
     @Test
     public void mergeWithEmptyTitlesDoesNotMergeInfo() {
         List<IncogitoSession> sessions = Arrays.asList(new IncogitoSession("", "", 0));
-        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "", "", 0, Thumbnail.missing()));
+        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "", "", 0, Thumbnail.missing(), 0, 0, 0));
 
         List<Talk> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
         assertEquals("", videos.get(0).talkAbstract());
@@ -76,11 +76,29 @@ public class JSONMergeTest extends UnitTest {
 
     }
 
-    private VimeoVideo createTestVideo(String title) {
-        VimeoVideo video = new VimeoVideo(0, title, "", 0, Thumbnail.missing());
 
+    @Test
+    public void mergePlaysCommentsLikesFromVimeo() {
+        List<IncogitoSession> sessions = Arrays.asList(createTestSession("this is a test", "abstract"));
+        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "this is  test", "", 0, Thumbnail.missing(), 1, 2, 3));
+
+        List<Talk> talks = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
+        Talk talk = talks.get(0);
+        assertEquals("abstract", talk.talkAbstract());
+        assertEquals(Integer.valueOf(1), talk.plays());
+        assertEquals(Integer.valueOf(2), talk.comments());
+        assertEquals(Integer.valueOf(3), talk.likes());
+
+
+
+    }
+
+    private VimeoVideo createTestVideo(String title) {
+        VimeoVideo video = new VimeoVideo(0, title, "", 0, Thumbnail.missing(), 1, 1, 1);
         return video;
     }
+
+
 
     private IncogitoSession createTestSession(String title, String anAbstract) {
         IncogitoSession session = new IncogitoSession(title, anAbstract, 2011);

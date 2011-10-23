@@ -25,6 +25,9 @@ public class VideoInformationMerger {
                 talk.id(vVideo.id());
                 talk.title(vVideo.title());
                 talk.embed(vVideo.embedCode());
+                talk.plays(vVideo.plays());
+                talk.comments(vVideo.comments());
+                talk.likes(vVideo.likes());
                 talk.year(session.year());
 
                 for(VimeoVideo.Tag tag : vVideo.tags()) {

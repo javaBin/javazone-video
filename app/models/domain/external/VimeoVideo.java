@@ -19,15 +19,32 @@ public final class VimeoVideo {
     private final List<Tag> tags;
     private final Thumbnail thumb;
     private Embed embed;
+    private final int plays;
+    private final int comments;
+    private final int likes;
 
     public VimeoVideo(int id, String title, String description, int duration,
-                      Thumbnail thumbnail) {
+                      Thumbnail thumbnail, int plays, int comments, int likes) {
+        this.plays = plays;
+        this.comments = comments;
+        this.likes = likes;
         tags = new ArrayList<Tag>();
         this.id = id;
         this.title = title;
         this.description = description;
         this.duration = duration;
         this.thumb = thumbnail;
+    }
+
+    public int plays() {
+        return plays;
+    }
+    public int comments() {
+        return comments;
+    }
+
+    public int likes() {
+        return likes;
     }
 
     public String title() {

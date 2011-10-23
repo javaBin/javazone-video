@@ -68,12 +68,13 @@ not localhost as your host.
 Create a new mongodb database and check that it works
 install mongodb and start the mongo interactive shell and create the
 user 
-  use jz-video
-  db.addUser("jz-video", "jz-video")
-  exit
+
+    use jz-video
+    db.addUser("jz-video", "jz-video")
+    exit
 
 check that you can do 
-  mongo -u jz-video -p jz-video 127.0.0.1/jz-video
+    mongo -u jz-video -p jz-video 127.0.0.1/jz-video
 
 Knut Haugen & Bjarte Stien Karlsen 
 

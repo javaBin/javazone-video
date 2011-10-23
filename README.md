@@ -60,5 +60,20 @@ Demo site
 Testing site deployed to javazone-video.herokuapp.com now and then. For now. Production coming soon. 
 
 
-Knut Haugen 2011-09-16
+Troubleshooting mongodb
+------------------
+On mac if you install mongodb from homebrew you should use 127.0.0.1 and
+not localhost as your host. 
+
+Create a new mongodb database and check that it works
+install mongodb and start the mongo interactive shell and create the
+user 
+  use jz-video
+  db.addUser("jz-video", "jz-video")
+  exit
+
+check that you can do 
+  mongo -u jz-video -p jz-video 127.0.0.1/jz-video
+
+Knut Haugen & Bjarte Stien Karlsen 
 

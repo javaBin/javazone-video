@@ -7,10 +7,13 @@ require:
     - play -> sass 1.1
     - com.google.guava -> guava r09
     - org.codehaus.jackson -> jackson-mapper-asl 1.8.5 
+        id: test
     - org.apache.httpcomponents -> httpclient 4.1.2
     - org.scribe -> scribe 1.2.2
     - org.functionaljava -> functionaljava 3.0
+        id: test
     - com.thebuzzmedia -> imgscalr-lib 3.2
+        id: test
 
 repositories:
     - jboss:

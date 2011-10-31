@@ -13,6 +13,16 @@ $box-color: #4b4b4b;
   border-radius:3px;
 }
 
+@mixin common-borders {
+    border-width:1px;
+    border-style:solid;
+    border-bottom-color: $dark-border;
+    border-right-color: $dark-border;
+    border-top-color: $light-border;
+    border-left-color: $light-border;
+    @include rounded-corners;
+}
+
 input {
   @include rounded-corners;
   background-color: $heading-color;
@@ -66,17 +76,16 @@ header {
   border: 0;
 }
 
+.abstract {
+    visibility: hidden;
+    display: none;
+}
+
 article {
     width: 700px;
 
     background-color: $box-color;
-    border-width:1px;
-    border-style:solid;
-    border-bottom-color: $dark-border;
-    border-right-color: $dark-border;
-    border-top-color: $light-border;
-    border-left-color: $light-border;
-    @include rounded-corners;
+    @include common-borders;
 
     margin: 5px;
     padding: 5px;
@@ -87,6 +96,10 @@ article {
       font-size: 90%;
       margin-bottom: 5px;
     }
+
+    span {
+         color: #f9f9f9;
+    }        
 
     div.wiki {
       margin-left: 4px;
@@ -104,7 +117,9 @@ article {
       img {
         width: 640px;
         margin-left: 30px;
-        padding-bottom: 5px;
+       @include common-borders;
+       border-width: 2px;
+
       }
 
     }
@@ -139,7 +154,7 @@ article {
     }
 
     footer ul {
-        margin-bottom: 0;
+        margin-bottom: 10px;
         text-align: right;
         margin-right: 4px;
     }
@@ -164,6 +179,7 @@ article {
 }
 
 article.speaker {
+  width: 800px;
   background: transparent;
   border: none;
   

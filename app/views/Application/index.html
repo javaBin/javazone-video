@@ -9,17 +9,19 @@
         <a href="@{Talks.show(talk.id)}">
             <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
         </a>
-        <div class="keywords prefix_2 grid_2 alpha">plays: ${talk.plays}</div>
-        <div class="keywords grid_2">likes: ${talk.likes}</div>
-        <div class="keywords grid_2 omega suffix_1">comments: ${talk.comments}</div>
-      <div class="grid_3 alpha">
-         #{include 'speakers.html' /}
-        </div>
-        <div class="grid_5 omega">
-         <h3>Abstract</h3>
-         ${talk.talkAbstract.raw()}
-      </div>
-      <div class="clear">
+        <div class="keywords prefix_2 grid_2 alpha">plays: <span>${talk.plays}</span></div>
+        <div class="keywords grid_2">likes: <span>${talk.likes}</span></div>
+        <div class="keywords grid_2 omega suffix_1">comments: <span>${talk.comments}</span></div>
+      <div class="grid_8 alpha">
+        <h3>More info</h3>
+        <ul>
+         #{list items:talk.speakers, as:'speaker'}
+          <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a></li>
+          #{/list}
+          <li>Abstract <div class="abstract">${talk.talkAbstract.raw()}</div</li>
+        </ul>
+    </div>
+     <div class="clear">
        </div>
        <footer>
             <ul>

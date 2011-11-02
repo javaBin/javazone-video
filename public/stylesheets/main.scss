@@ -23,6 +23,24 @@ $box-color: #4b4b4b;
     @include rounded-corners;
 }
 
+@mixin buttonize {
+   @include common-borders;
+}
+
+nav {
+    ul {
+        list-style-type: none;
+        li {
+            @include buttonize;
+            margin-left: 14px;
+            width: 120px;
+            margin-bottom: 4px;
+            padding-left: 4px;
+        }
+    }
+    
+}
+
 input {
   @include rounded-corners;
   background-color: $heading-color;
@@ -30,6 +48,7 @@ input {
   height: 1.2em;
   color: $light-border;
 }
+
 
 body {
     background-color: $main-background;
@@ -117,9 +136,8 @@ article {
       img {
         width: 640px;
         margin-left: 30px;
-       @include common-borders;
-       border-width: 2px;
-
+        @include common-borders;
+        border-width: 2px;
       }
 
     }
@@ -141,6 +159,7 @@ article {
 
     ul {
       list-style-type: none;
+      margin-bottom: 0px;
       
       li {
         margin-left: 6px;
@@ -178,6 +197,10 @@ article {
     }
 }
 
+div:first-of-type {
+    padding-left: 10px;
+}
+
 article.speaker {
   width: 800px;
   background: transparent;
@@ -212,4 +235,40 @@ body > footer {
     }
 
   }
+}
+
+.symbol {
+  color: white;
+  font-size: 120%;
+}
+
+.info ul li {
+  display: inline;
+}
+
+.button {
+  margin: 2px;
+  text-align: left;
+  color: $text-color;
+  font-size: 90%;
+  font-weight: normal;
+  background: transparent;
+}
+
+.ui-state-hover {
+  background-color: $heading-color;
+  color: $dark-border;
+}
+
+.ui-icon {
+  background-image: url(../images/ui-icons_222222_256x240.png) !important;
+}
+
+.ui-icon-gear { 
+  background-position: -192px -112px; 
+}
+
+.shadow {
+  border: 1px solid red;
+  background-color: $light-border;
 }

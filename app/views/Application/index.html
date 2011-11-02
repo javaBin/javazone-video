@@ -1,24 +1,42 @@
 #{extends 'main.html' /}
-#{set title:'Javazone videos' /}
+#{set title:'JavaZone Talks' /}
 
-<form class="grid_4 prefix_7 suffix_1" id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="25" type="text"></form>
+<form class="grid_4 prefix_8" id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="25" type="text"></form>
+  
 #{list items:talks, as:'talk'}
-   <div class="grid_9 prefix_1 suffix_2 content">
-   <article>
+  #{if talk_isFirst}
+   <nav class="grid_2 alpha">
+     <h3>Filter</h3>
+     <ul>
+       <li class="button">JavaZone 2011</li>
+        <li class="button">JavaZone 2010</li>
+       <li class="button">Java</li>
+       <li class="button">Scala</li>
+       <li class="button">HTML5</li>
+       <li class="button">Javascript</li>
+       <li class="button">Methodology</li>
+       <li class="button">TDD</li>
+       <li class="button">Design</li>
+ </nav>
+       <div class="grid_10 content omega">
+  #{/if}
+  #{else}
+       <div class="grid_10 prefix_2 content">
+  #{/else}     
+ <article>
         <header><h2>${talk.title}</h2></header>
         <a href="@{Talks.show(talk.id)}">
             <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
         </a>
-        <div class="keywords prefix_2 grid_2 alpha">plays: <span>${talk.plays}</span></div>
+       <div class="keywords prefix_2 grid_2 alpha">plays: <span>${talk.plays}</span></div>
         <div class="keywords grid_2">likes: <span>${talk.likes}</span></div>
         <div class="keywords grid_2 omega suffix_1">comments: <span>${talk.comments}</span></div>
-      <div class="grid_8 alpha">
-        <h3>More info</h3>
-        <ul>
+     <div class="grid_8 alpha info">
+       <ul>
          #{list items:talk.speakers, as:'speaker'}
-          <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a></li>
+          <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a> <span class="symbol">☞</span></li>
           #{/list}
-          <li>Abstract <div class="abstract">${talk.talkAbstract.raw()}</div</li>
+          <li>Abstract  <span class="symbol">☞</span><div class="abstract">${talk.talkAbstract.raw()} </div</li>
         </ul>
     </div>
      <div class="clear">

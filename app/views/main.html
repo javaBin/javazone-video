@@ -6,21 +6,20 @@
         <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/reset.css'}" />
         <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/text.css'}" />
         <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/960.css'}" />
-        <link rel="stylesheet" href="@{'public/stylesheets/main.scss'}" type="text/css">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <link rel="stylesheet" href="@{'public/stylesheets/jquery-ui-1.8.16.custom.css'}" type="text/css"/>
+        <link rel="stylesheet" href="@{'public/stylesheets/main.scss'}" type="text/css"/>
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}"/>
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         <script src="@{'/public/javascripts/jquery-ui-1.8.16.custom.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-
-        #{get 'moreScripts' /}
+        <script src="@{'/public/javascripts/app.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     </head>
     <body class="container_12">
        <header class="grid_5 prefix_1 suffix_6">
-            <h1><a href="/">JavaZone <img src="@{'/public/images/jz11_logo.png'}" alt=""/ > Videos</a></h1>
+            <h1><a href="/">JavaZone <img src="@{'/public/images/jz11_logo.png'}" alt=""/ > Talks</a></h1>
         </header>
          #{doLayout /}
        <footer class="grid_6 suffix_3 prefix_3">
-            The JavaZone javazone videos brought to you by <a href="http://java.no/">JavaBin</a>
+            The JavaZone talk videos brought to you by <a href="http://java.no/">JavaBin</a> with a little help from <a href="http://vimeo.com/">vimeo</a> and <a href="http://javazone.no/incogito">Incogito</a>
         </footer>
     </body>
 </html>

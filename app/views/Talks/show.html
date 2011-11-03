@@ -6,13 +6,16 @@
 
   <article class="speaker">
    ${talk.embed.embedCode.raw()}
-   <div class="keywords prefix_2 grid_2 alpha">plays: ${talk.plays}</div>
-   <div class="keywords grid_2">likes: ${talk.likes}</div>
-   <div class="keywords grid_2 omega suffix_1">comments: ${talk.comments}</div>
-   <div class="grid_3 omega suffix_9">
-     #{include 'speakers.html' /}
+   <div class="keywords prefix_7 grid_5 alpha">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span></div>
+  <div class="grid_3 alpha">
+    #{include 'speakers.html' /}
    </div>
-   <footer class="alpha grid_10">
+  <div class="grid_6 omega">
+    <h3>Talk Abstract</h3>
+    ${talk.talkAbstract.raw()}
+  <div/>
+    <div class="clear"></div>
+   <footer class="alpha grid_7">
         <ul>
             #{list items:talk.tags, as:'tag'}
             <li><a href="${tag.url}" class="tag">${tag.name}</a></li>

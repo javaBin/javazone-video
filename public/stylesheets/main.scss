@@ -114,6 +114,7 @@ article {
     .keywords {
       font-size: 90%;
       margin-bottom: 5px;
+      margin-top: 3px;
     }
 
     span {
@@ -166,7 +167,7 @@ article {
     footer {
         text-align: right;
         width: 100%;
-        padding-top: 8px;
+        padding-top: 18px;
     }
 
     footer ul {
@@ -192,6 +193,13 @@ article {
       color: $dark-border;
       font-weight: bold;
     }
+}
+
+span.square {
+   color: $link-color;
+   margin-left: 5px;         
+   margin-right: 5px;
+   padding: 0px;         
 }
 
 div.content:first-of-type {

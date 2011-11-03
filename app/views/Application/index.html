@@ -28,18 +28,16 @@
         <a href="@{Talks.show(talk.id)}">
             <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
         </a>
-       <div class="keywords prefix_2 grid_2 alpha">plays: <span>${talk.plays}</span></div>
-        <div class="keywords grid_2">likes: <span>${talk.likes}</span></div>
-        <div class="keywords grid_2 omega suffix_1">comments: <span>${talk.comments}</span></div>
-     <div class="grid_8 alpha info">
-       <ul>
-         #{list items:talk.speakers, as:'speaker'}
-          <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a> <span class="symbol">☞</span></li>
-          #{/list}
-          <li>Abstract  <span class="symbol">☞</span><div class="abstract">${talk.talkAbstract.raw()} </div</li>
-        </ul>
-    </div>
-     <div class="clear">
+    <div class="grid_5 alpha info">
+      <ul>
+        #{list items:talk.speakers, as:'speaker'}
+         <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a> <span class="symbol">☞</span></li>
+         #{/list}
+         <li>Abstract  <span class="symbol">☞</span><div class="abstract">${talk.talkAbstract.raw()} </div</li>
+       </ul>
+   </div>
+       <div class="keywords grid_4 alpha">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span></div>
+    <div class="clear">
        </div>
        <footer>
             <ul>

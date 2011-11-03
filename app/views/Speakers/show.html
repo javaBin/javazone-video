@@ -1,14 +1,19 @@
 #{extends 'main.html' /}
 #{set title: speaker.name + ' @ JavaZone Talks' /}
-<div class="prefix_1 grid_7 suffix_4">
+<div class="prefix_1 grid_8 suffix_3">
 <article class="speaker">
-    <header><h2>${speaker.name}</h2></header>
-    <img src="${speaker.photoURL}" alt="${speaker.name}">
-    Talks:
-    <ul>
+  <header><h2>${speaker.name}</h2></header>
+    <div class="grid_4 alpha">
+     <img src="${speaker.photoURL}" alt="${speaker.name}" width="200" height="250" />
+      ${speaker.bio.raw()}
+    </div>
+    <div class="grid_4 alpha">
+      <h3>Talks</h3>
+     <ul>
         #{list items:talks, as:'talk'}
-            <li><a href="@{Talks.show(talk.id)}">${talk.title} (${talk.year})</a></li>
+        <li><a href="@{Talks.show(talk.id)}">${talk.title} (${talk.year})</a></li>
         #{/list}
-    </ul>
+      </ul>
+      </div>
 </article>
 </div>

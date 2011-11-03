@@ -5,24 +5,24 @@
   
 #{list items:talks, as:'talk'}
   #{if talk_isFirst}
-   <nav class="grid_2 alpha">
-     <h3>Filter</h3>
-     <ul>
-       <li class="button">JavaZone 2011</li>
-        <li class="button">JavaZone 2010</li>
-       <li class="button">Java</li>
-       <li class="button">Scala</li>
-       <li class="button">HTML5</li>
-       <li class="button">Javascript</li>
-       <li class="button">Methodology</li>
-       <li class="button">TDD</li>
-       <li class="button">Design</li>
- </nav>
-       <div class="grid_10 content omega">
-  #{/if}
-  #{else}
-       <div class="grid_10 prefix_2 content">
-  #{/else}     
+<nav class="grid_2 alpha">
+<h3>Filter</h3>
+<ul>
+  <li class="button">JavaZone 2011</li>
+  <li class="button">JavaZone 2010</li>
+  <li class="button">Java</li>
+  <li class="button">Scala</li>
+  <li class="button">HTML5</li>
+  <li class="button">Javascript</li>
+  <li class="button">Methodology</li>
+  <li class="button">TDD</li>
+  <li class="button">Design</li>
+  </nav>
+  <div class="grid_10 content omega">
+    #{/if}
+    #{else}
+  <div class="grid_10 prefix_2 content">
+    #{/else}     
  <article>
         <header><h2>'${talk.title}</h2></header>
         <a href="@{Talks.show(talk.id)}">
@@ -44,7 +44,7 @@
        <footer>
             <ul>
             #{list items:talk.tags, as:'tag'}
-                <li><a href="@{Application.filter(tag.name)}" class="tag">${tag.name}</a></li>
+                <li><a href="@{Application.filter(tag.name)}" title="filter by tag ${tag.name} ( videos)" class="tag">${tag.name}</a></li>
             #{/list}
             </ul>
         </footer>

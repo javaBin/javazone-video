@@ -44,12 +44,12 @@ public class SessionTranslator {
 
             for(Map<String, Object> values : getSpeakers(v)) {
                  session.addSpeaker(toUTF8(values, "name"),
-                                    (String) values.get("bioHtml"),
+                                    toUTF8(v, "bioHtml"),
                                     (String) values.get("photoUrl"));
             }
             return session;
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
 
         return session;

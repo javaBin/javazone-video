@@ -24,7 +24,7 @@
        <div class="grid_10 prefix_2 content">
   #{/else}     
  <article>
-        <header><h2>${talk.title}</h2></header>
+        <header><h2>'${talk.title}</h2></header>
         <a href="@{Talks.show(talk.id)}">
             <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
         </a>
@@ -44,7 +44,7 @@
        <footer>
             <ul>
             #{list items:talk.tags, as:'tag'}
-                <li><a href="${tag.url}" class="tag">${tag.name}</a></li>
+                <li><a href="@{Application.filter(tag.name)}" class="tag">${tag.name}</a></li>
             #{/list}
             </ul>
         </footer>

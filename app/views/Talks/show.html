@@ -1,15 +1,21 @@
 #{extends 'main.html' /}
-#{set title:'Javazone videos :: ' + talk.title /}
+#{set title: talk.title + ' @ JavaZone Talks' /}
 
-<div class="prefix_1 grid_9 suffix_2">
-<article class="speaker">
+<div class="grid_11 talk">
+  <h2>JavaZone ${talk.year}</h2>
+
+  <article class="speaker">
    ${talk.embed.embedCode.raw()}
-   <div class="keywords prefix_2 grid_2 alpha">plays: ${talk.plays}</div>
-   <div class="keywords grid_2">likes: ${talk.likes}</div>
-   <div class="keywords grid_2 omega suffix_1">comments: ${talk.comments}</div>
-   #{include 'speakers.html' /}
-    year: ${talk.year}
-    <footer>
+   <div class="keywords prefix_7 grid_5 alpha">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span></div>
+  <div class="grid_3 alpha">
+    #{include 'speakers.html' /}
+   </div>
+  <div class="grid_6 omega">
+    <h3>Talk Abstract</h3>
+    ${talk.talkAbstract.raw()}
+  <div/>
+    <div class="clear"></div>
+   <footer class="alpha grid_7">
         <ul>
             #{list items:talk.tags, as:'tag'}
             <li><a href="${tag.url}" class="tag">${tag.name}</a></li>

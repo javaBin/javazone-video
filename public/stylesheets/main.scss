@@ -13,6 +13,34 @@ $box-color: #4b4b4b;
   border-radius:3px;
 }
 
+@mixin common-borders {
+    border-width:1px;
+    border-style:solid;
+    border-bottom-color: $dark-border;
+    border-right-color: $dark-border;
+    border-top-color: $light-border;
+    border-left-color: $light-border;
+    @include rounded-corners;
+}
+
+@mixin buttonize {
+   @include common-borders;
+}
+
+nav {
+    ul {
+        list-style-type: none;
+        li {
+            @include buttonize;
+            margin-left: 14px;
+            width: 120px;
+            margin-bottom: 4px;
+            padding-left: 4px;
+        }
+    }
+    
+}
+
 input {
   @include rounded-corners;
   background-color: $heading-color;
@@ -20,6 +48,7 @@ input {
   height: 1.2em;
   color: $light-border;
 }
+
 
 body {
     background-color: $main-background;
@@ -53,21 +82,29 @@ h1 {
     }
 }
 
+.talk {
+      h2 {
+      text-align: right;
+      padding-right: 50px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      }
+}
+
 header {
   border: 0;
+}
+
+.abstract {
+    visibility: hidden;
+    display: none;
 }
 
 article {
     width: 700px;
 
     background-color: $box-color;
-    border-width:1px;
-    border-style:solid;
-    border-bottom-color: $dark-border;
-    border-right-color: $dark-border;
-    border-top-color: $light-border;
-    border-left-color: $light-border;
-    @include rounded-corners;
+    @include common-borders;
 
     margin: 5px;
     padding: 5px;
@@ -77,14 +114,16 @@ article {
     .keywords {
       font-size: 90%;
       margin-bottom: 5px;
+      margin-top: 3px;
     }
 
+    span {
+         color: #f9f9f9;
+    }        
+
     div.wiki {
-      margin-left: 4px;
-      -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      height: 150px;
-      overflow: hidden;
+      margin-left: 0px;
+      margin-top: 10px;
     }
 
     a {
@@ -95,7 +134,8 @@ article {
       img {
         width: 640px;
         margin-left: 30px;
-        padding-bottom: 5px;
+        @include common-borders;
+        border-width: 2px;
       }
 
     }
@@ -117,6 +157,7 @@ article {
 
     ul {
       list-style-type: none;
+      margin-bottom: 0px;
       
       li {
         margin-left: 6px;
@@ -126,11 +167,11 @@ article {
     footer {
         text-align: right;
         width: 100%;
-        padding-top: 8px;
+        padding-top: 18px;
     }
 
     footer ul {
-        margin-bottom: 0;
+        margin-bottom: 10px;
         text-align: right;
         margin-right: 4px;
     }
@@ -154,10 +195,39 @@ article {
     }
 }
 
+span.square {
+   color: $link-color;
+   margin-left: 5px;         
+   margin-right: 5px;
+   padding: 0px;         
+}
+
+div.content:first-of-type {
+    padding-left: 10px;
+}
+
 article.speaker {
+  width: 800px;
   background: transparent;
   border: none;
-  
+
+  .wiki:first-letter {
+   color: $heading-color;
+   font-size: 440%;
+   float:left; 
+   padding: 2px;
+   margin-top: -15px;
+   margin-bottom: -22px;
+   position: relative;
+   top: -20px; 
+   }
+
+  h2 {
+     font-size: 250%;
+     letter-spacing: 0.1em;
+     text-align: center;
+  }        
+
   footer {
     border: none;
   }
@@ -169,12 +239,13 @@ p {
 }
 
 body > footer {
-  font-size: 70%;
+  font-size: 85%;
   border-top: 1px solid $dark-border;
   text-align: center;
   padding-top: 4px;
   width: 60%;
   margin-left: auto;
+  margin-top: 20px;
   margin-right: auto;
   letter-spacing: 0.1em;
 
@@ -187,4 +258,40 @@ body > footer {
     }
 
   }
+}
+
+.symbol {
+  color: white;
+  font-size: 120%;
+}
+
+.info ul li {
+  display: inline;
+}
+
+.button {
+  margin: 2px;
+  text-align: left;
+  color: $text-color;
+  font-size: 90%;
+  font-weight: normal;
+  background: transparent;
+}
+
+.ui-state-hover {
+  background-color: $heading-color;
+  color: $dark-border;
+}
+
+.ui-icon {
+  background-image: url(../images/ui-icons_222222_256x240.png) !important;
+}
+
+.ui-icon-gear { 
+  background-position: -192px -112px; 
+}
+
+.shadow {
+  border: 1px solid red;
+  background-color: $light-border;
 }

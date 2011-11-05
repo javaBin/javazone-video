@@ -1,6 +1,5 @@
 package models;
 
-import models.VimeoClient;
 import models.domain.Embed;
 import models.domain.external.VimeoVideo;
 import org.junit.Before;
@@ -79,7 +78,7 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
     public void handlesNullMax() {
         VimeoClient client = new VimeoClient();
         List<VimeoVideo> results = client.getVideosByYear("2010", null, null);
-        assertEquals(68, results.size());
+        assertEquals(67, results.size());
     }
 
     @Test

@@ -1,5 +1,7 @@
 package models;
 
+import fj.F;
+import fj.data.Array;
 import models.domain.Thumbnail;
 import models.domain.external.VimeoVideo;
 
@@ -34,7 +36,21 @@ public class VideoTranslator {
 
     private static void addTags(Map<String, Object> v, VimeoVideo video) {
         List<Map<String, String>> tags = (List<Map<String, String>>) ((Map<String, Object>) v.get("tags")).get("tag");
+        final Array<String> filteredTags = Array.array("JavaZOne 2011", "JavaZone 2011","Conference", "JavaZone 2010", "JavaZone");
+
         for (Map<String, String> tag : tags) {
+            final String content = tag.get("_content");
+            if(filteredTags.exists(new F<String, Boolean>() {
+                @Override
+                public Boolean f(String s) {
+                    if(s.equals(content)) {
+                        return Boolean.TRUE;
+                    }
+                    return Boolean.FALSE;
+                }
+            })) {
+                continue;
+            }
             video.addTag(Integer.parseInt(tag.get("id")),
                     tag.get("_content"),
                     tag.get("url"));

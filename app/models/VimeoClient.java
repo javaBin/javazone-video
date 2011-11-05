@@ -149,7 +149,7 @@ public class VimeoClient {
 
     private String executeRequest(int id, HttpClient client) throws IOException {
         String url = encodeUrl(id);
-        url = url + "?url=" + VIMEO_BASE_URL + id + "&maxwidth=640";
+        url = url + "?url=" + VIMEO_BASE_URL + id + "&maxwidth=800";
 
         HttpGet httpget = new HttpGet(url);
         httpget.addHeader("Accept", "application/json");

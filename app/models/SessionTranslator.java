@@ -22,6 +22,9 @@ public class SessionTranslator {
             put("Ã©", "é");
             put("Ã¶", "ö");
             put("Ã\u0098", "Ø");
+            put("ã¤", "ä");
+            put("Ã", "Ö");
+            put("â\u0080\u0099", "’");
         }
     };
 
@@ -73,7 +76,7 @@ public class SessionTranslator {
             return "";
         }
 
-        String iso = new String((String)v.get(key));
+        String iso = (String) v.get(key);
         iso = replaceCrapCharset(iso);
         return new String(iso.getBytes("UTF-8"));
     }

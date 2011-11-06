@@ -59,5 +59,12 @@ public class ApplicationTest extends FunctionalTest {
         Response response = GET("/speaker/foo");
         assertIsNotFound(response);
     }
+
+    @Test
+    public void talkFilterPageResponds200ForValidTag() {
+        Response response = GET("/talks/html5");
+        assertIsOk(response);
+        assertContentType("text/html", response);
+    }
     
 }

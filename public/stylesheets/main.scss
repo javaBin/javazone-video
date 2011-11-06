@@ -124,6 +124,31 @@ article {
     div.wiki {
       margin-left: 0px;
       margin-top: 10px;
+
+      ul li {
+        list-style: circle;
+        margin-left: 20px;
+      }
+
+      .paragraph {
+        padding-top: 6px;
+      }
+      .paragraph:nth-of-type(n+2):first-letter {
+        margin-left: 20px;
+      }
+
+      .paragraph:first-of-type:first-letter {
+        color: $heading-color;
+        font-size: 440%;
+        float:left; 
+        padding: 2px;
+        margin-top: -15px;
+        margin-bottom: -22px;
+        position: relative;
+        top: -20px; 
+      }
+
+
     }
 
     a {
@@ -212,17 +237,6 @@ article.speaker {
   width: 800px;
   background: transparent;
   border: none;
-
-  .wiki:first-letter {
-   color: $heading-color;
-   font-size: 440%;
-   float:left; 
-   padding: 2px;
-   margin-top: -15px;
-   margin-bottom: -22px;
-   position: relative;
-   top: -20px; 
-   }
 
   h2 {
      font-size: 250%;

@@ -6,13 +6,12 @@
 
   <article class="speaker">
    ${talk.embed.embedCode.raw()}
-   <div class="keywords prefix_7 grid_5 alpha">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span></div>
+   <div class="keywords prefix_6 grid_5 alpha">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span> <span class="square">◼</span> <a href="http://vimeo.com/${talk.id}">on vimeo</a></div>
   <div class="grid_3 alpha">
     #{include 'speakers.html' /}
    </div>
   <div class="grid_6 omega">
-    <h3>Talk Abstract</h3>
-    ${talk.talkAbstract.raw()}
+   ${talk.talkAbstract.raw()}
   <div/>
     <div class="clear"></div>
    <footer class="alpha grid_7">

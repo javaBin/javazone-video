@@ -22,9 +22,9 @@ public class SessionTranslator {
             put("Ã©", "é");
             put("Ã¶", "ö");
             put("Ã\u0098", "Ø");
-            put("ã¤", "ä");
-            put("Ã", "Ö");
+            put("Ã¤", "ä");
             put("â\u0080\u0099", "’");
+            put("Ã", "Ö");
         }
     };
 

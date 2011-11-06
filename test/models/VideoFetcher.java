@@ -4,7 +4,6 @@ import models.domain.Speaker;
 import models.domain.Talk;
 import models.domain.external.IncogitoSession;
 import models.domain.external.VimeoVideo;
-import org.junit.Ignore;
 import org.junit.Test;
 import play.test.FunctionalTest;
 
@@ -20,7 +19,7 @@ import java.util.List;
 public class VideoFetcher extends FunctionalTest {
 
     @Test
-    @Ignore
+
     public void fetchAndSaveVideos() {
         List<VimeoVideo> videos = new VimeoClient().getVideosByYear("2011", null, null);
         List<IncogitoSession> sessions = new IncogitoClient().getSessionsForYear(2011);

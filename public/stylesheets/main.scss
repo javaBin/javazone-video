@@ -135,7 +135,9 @@ article {
         width: 640px;
         margin-left: 30px;
         @include common-borders;
-        border-width: 2px;
+        border-width: 1px;
+        border-color: #818181;
+        border-style: outset;
       }
 
     }
@@ -240,7 +242,8 @@ p {
 
 body > footer {
   font-size: 85%;
-  border-top: 1px solid $dark-border;
+  border-top: 2px solid $light-border;
+  border-style: groove;
   text-align: center;
   padding-top: 4px;
   width: 60%;

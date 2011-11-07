@@ -4,7 +4,6 @@ import models.domain.Embed;
 import models.domain.Speaker;
 import models.domain.Talk;
 import models.domain.Thumbnail;
-import org.junit.Ignore;
 import org.junit.Test;
 import play.mvc.Http.Response;
 import play.test.FunctionalTest;
@@ -20,7 +19,6 @@ public class ApplicationTest extends FunctionalTest {
     }
 
     @Test
-    @Ignore
     public void talkPageResponds200ForValidVideo() {
         Talk talk = new Talk();
         talk.id(123);
@@ -42,7 +40,6 @@ public class ApplicationTest extends FunctionalTest {
     }
 
     @Test
-    @Ignore
     public void talkPageResponds200ForValidSpeaker() {
         Speaker speaker = new Speaker("test", "bio", "url");
         speaker.save();

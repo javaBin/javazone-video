@@ -1,4 +1,5 @@
 import junit.framework.AssertionFailedError;
+import models.ImageHandler;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

@@ -1,3 +1,4 @@
+import models.ImageFetcher;
 import org.junit.Test;
 import play.test.FunctionalTest;
 

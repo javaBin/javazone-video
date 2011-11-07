@@ -1,3 +1,5 @@
+package models;
+
 import com.thebuzzmedia.imgscalr.Scalr;
 
 import java.awt.image.BufferedImage;

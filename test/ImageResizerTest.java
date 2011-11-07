@@ -1,3 +1,4 @@
+import models.ImageResizer;
 import org.junit.Test;
 import play.test.UnitTest;
 

@@ -1,4 +1,5 @@
-import models.ImageFetcher;
+package models;
+
 import org.junit.Test;
 import play.test.FunctionalTest;
 
@@ -18,6 +19,11 @@ public class ImageFetcherTest extends FunctionalTest {
     @Test(expected = IllegalArgumentException.class)
     public void wontFetchNullUrl() {
         ImageFetcher.fetch(null);
+    }
+
+    public void wontFetchMalformedUrl() {
+        BufferedImage image = ImageFetcher.fetch("http://:foo.com/url");
+        assertEquals(image.getHeight(), 1);
     }
 
     @Test

@@ -47,7 +47,7 @@ public class SessionTranslator {
 
             for(Map<String, Object> values : getSpeakers(v)) {
                  session.addSpeaker(toUTF8(values, "name"),
-                                    toUTF8(v, "bioHtml"),
+                                    toUTF8(values, "bioHtml"),
                                     (String) values.get("photoUrl"));
             }
             return session;

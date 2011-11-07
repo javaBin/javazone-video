@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
-#{set title: talk.title + ' @ JavaZone Talks' /}
+#{set title: talk.title /}
 
 <div class="grid_11 talk">
   <h2>JavaZone ${talk.year}</h2>
@@ -9,7 +9,7 @@
    <div class="keywords prefix_6 grid_5 alpha">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span> <span class="square">◼</span> <a href="http://vimeo.com/${talk.id}">on vimeo</a></div>
   <div class="grid_3 alpha">
     #{include 'speakers.html' /}
-   </div>
+  </div>
   <div class="grid_6 omega">
    ${talk.talkAbstract.raw()}
   <div/>

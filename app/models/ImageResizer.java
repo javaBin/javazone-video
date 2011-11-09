@@ -8,19 +8,23 @@ import java.awt.image.BufferedImage;
  * User: Knut Haugen <knuthaug@gmail.com>
  * 2011-10-15
  */
-public class ImageResizer {
+public final class ImageResizer {
 
     private static final int TARGET_HEIGHT = 300;
 
-    public static BufferedImage resize(BufferedImage image) {
+    public static BufferedImage resize(final BufferedImage image) {
+        return resize(image, TARGET_HEIGHT);
+    }
+
+    public static BufferedImage resize(final BufferedImage image, final int targetHeight) {
         if(image == null) {
             throw new IllegalArgumentException("Invalid bufferedImage supplied");
         }
 
-        if(image.getHeight() < TARGET_HEIGHT) {
+        if(image.getHeight() < targetHeight) {
             return image;
         }
 
-        return Scalr.resize(image, Scalr.Method.QUALITY, TARGET_HEIGHT);
+        return Scalr.resize(image, Scalr.Method.QUALITY, targetHeight);
     }
 }

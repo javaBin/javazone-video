@@ -111,6 +111,11 @@ article {
     margin-bottom: 20px;
     position: relative;
 
+    .plays {
+      background: transparent url("../images/stat_play.png") no-repeat -2px 3px;
+      padding-left: 15px;
+    }
+
     .keywords {
       font-size: 90%;
       margin-bottom: 5px;

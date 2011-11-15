@@ -10,8 +10,7 @@ require:
     - org.apache.httpcomponents -> httpclient 4.1.2
     - org.scribe -> scribe 1.2.2
     - org.functionaljava -> functionaljava 3.0
-    - com.thebuzzmedia -> imgscalr-lib 3.2:
-        id: test
+    - com.thebuzzmedia -> imgscalr-lib 3.2
 
 repositories:
     - jboss:

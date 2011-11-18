@@ -9,7 +9,7 @@ $(function () {
             });
             var valid = _.difference(filters, tags).length == 0;
 
-            toggle(aricle, valid);
+            toggle(article, valid);
         });
     }
     var filterArticlesbyYear = function (filters) {
@@ -58,15 +58,14 @@ $(function () {
         filterArticlesbyYear(filters);
     });
 
-    $("#filter-form").submit(function () {
-
+    $("#filter-form").submit(function (event) {
+        event.preventDefault();
         var input = $("#filter").val();
         if (input == "") {
             filterArticles([]);
         } else {
             filterArticles(input.split(" "));
         }
-        return false;
     });
 
 

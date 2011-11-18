@@ -1,5 +1,6 @@
 package controllers;
 
+import com.google.common.collect.Lists;
 import models.GuavaTools;
 import models.domain.Talk;
 import play.data.validation.Required;
@@ -19,8 +20,8 @@ public class Application extends Controller {
         List<Talk> talks = Talk.filter("year =", 2011).order("-plays").asList();
         Iterable<String> alleTags = collect(talks, Talk.findTags());
         List<String> tags = GuavaTools.findMostPopularElements(alleTags, 10);
-
-        render(talks, tags);
+         List<Integer> years = Lists.newArrayList(2010, 2011);
+        render(talks, tags, years);
     }
 
 

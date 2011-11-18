@@ -10,6 +10,13 @@
         <input type="checkbox" id="${tag}" /><label for="${tag}">${tag}</label>
     #{/list}
     </div>
+
+    <h3>Years</h3>
+        <div id="filter-years">
+        #{list items:years, as:'year'}
+            <input type="checkbox" id="${year}" /><label for="${year}">${year}</label>
+        #{/list}
+        </div>
  </nav>
 
 #{list items:talks, as:'talk'}
@@ -35,6 +42,8 @@
             #{list items:talk.tags, as:'tag'}
                 <li><a href="@{Application.filter(tag.name)}" title="filter by tag ${tag.name}" class="tag">${tag.name}</a></li>
             #{/list}
+                <li><a href="#" title="filter by year ${talk.year}" class="year">${talk.year}</a></li>
+
             </ul>
         </footer>
     </article>

@@ -4,11 +4,16 @@ import com.google.code.morphia.annotations.Embedded;
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
 import com.google.code.morphia.annotations.Reference;
+import com.google.common.base.Function;
+import com.google.common.collect.Iterables;
 import models.domain.external.VimeoVideo;
 import play.modules.morphia.Model;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.google.common.collect.Iterables.transform;
 
 @Entity
 public class Talk extends Model {
@@ -130,5 +135,14 @@ public class Talk extends Model {
 
     public void comments(Integer comments) {
         this.comments = comments;
+    }
+
+
+    public static Function<Talk, Iterable<String>> findTags() {
+        return new Function<Talk, Iterable<String>>() {
+            public Iterable<String> apply( Talk talk) {
+                return transform(talk.tags, Tag.name());
+            }
+        };
     }
 }

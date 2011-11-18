@@ -1,5 +1,9 @@
 package models.domain;
 
+import com.google.common.base.Function;
+
+import javax.annotation.Nullable;
+
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
  * 2011-09-25
@@ -15,4 +19,12 @@ public final class Tag {
         this.url = url;
     }
 
+
+    public static Function<Tag, String> name() {
+        return new Function<Tag, String>() {
+            public String apply(Tag tag) {
+                return tag.name.replace(" ", "_");
+            }
+        };
+    }
 }

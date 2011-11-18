@@ -1,17 +1,28 @@
 package controllers;
 
+import models.GuavaTools;
 import models.domain.Talk;
 import play.data.validation.Required;
 import play.mvc.Controller;
 
+
 import java.util.List;
+
+import static com.google.common.collect.Iterables.concat;
+import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Sets.newHashSet;
+import static models.GuavaTools.collect;
 
 public class Application extends Controller {
 
     public static void index() {
         List<Talk> talks = Talk.filter("year =", 2011).order("-plays").asList();
-        render(talks);
+        Iterable<String> alleTags = collect(talks, Talk.findTags());
+        List<String> tags = GuavaTools.findMostPopularElements(alleTags, 10);
+
+        render(talks, tags);
     }
+
 
     public static void filter(@Required String tag) {
         List<Talk> talks = Talk.filter("tags.name =", tag).order("-plays").asList();

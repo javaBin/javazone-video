@@ -2,23 +2,18 @@
 #{set title:'JavaZone Talks' /}
 
 <form class="grid_4 prefix_8" id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="25" type="text"></form>
-  
-#{list items:talks, as:'talk'}
-  #{if talk_isFirst}
-<nav class="grid_2 alpha">
+
+<nav class="grid_12 alpha">
 <h3>Filter</h3>
     <div id="filter-tags">
     #{list items:tags, as:'tag'}
         <input type="checkbox" id="${tag}" /><label for="${tag}">${tag}</label>
     #{/list}
     </div>
+ </nav>
 
-  </nav>
-  <div class="grid_10 content omega">
-    #{/if}
-    #{else}
-  <div class="grid_10 prefix_2 content">
-    #{/else}     
+#{list items:talks, as:'talk'}
+  <div class="grid_12 content">
  <article id="${talk.id}">
         <header><h2>${talk.title}</h2></header>
         <a href="@{Talks.show(talk.id)}">

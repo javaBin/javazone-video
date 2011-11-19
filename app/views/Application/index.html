@@ -31,7 +31,7 @@
         #{list items:talk.speakers, as:'speaker'}
          <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a> <span class="symbol">☞</span></li>
          #{/list}
-         <li>Abstract  <span class="symbol">☞</span><div class="abstract">${talk.talkAbstract.raw()} </div</li>
+         <li>Abstract  <span class="symbol">☞</span><div class="abstract">${talk.talkAbstract.raw()}</div></li>
        </ul>
    </div>
        <div class="keywords grid_4 alpha">plays: <span class="plays">${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span></div>

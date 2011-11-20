@@ -6,21 +6,17 @@ import models.domain.Talk;
 import play.data.validation.Required;
 import play.mvc.Controller;
 
-
 import java.util.List;
 
-import static com.google.common.collect.Iterables.concat;
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Sets.newHashSet;
 import static models.GuavaTools.collect;
 
 public class Application extends Controller {
 
     public static void index() {
-        List<Talk> talks = Talk.filter("year =", 2011).order("-plays").asList();
+        List<Talk> talks = Talk.filter("year >", 2009).order("-plays").asList();
         Iterable<String> alleTags = collect(talks, Talk.findTags());
         List<String> tags = GuavaTools.findMostPopularElements(alleTags, 10);
-         List<Integer> years = Lists.newArrayList(2010, 2011);
+        List<Integer> years = Lists.newArrayList(2010, 2011);
         render(talks, tags, years);
     }
 

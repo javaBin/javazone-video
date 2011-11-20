@@ -1,0 +1,21 @@
+Tags used in tagging Vimeo content for javazone
+========================================
+(note uppercaseFirst()
+
+Language:
+        Java
+        Scala
+        HTML5
+        Clojure
+        JRuby
+        Erlang
+        (etc...)
+
+Topic:
+        Frameworks
+        Web
+        Scalability
+        Big Data
+        Testing
+        Methodology
+           

@@ -1,52 +1,45 @@
 #{extends 'main.html' /}
 #{set title:'' /}
+<div class="row">
 
-<div class="grid_8"><a href="#" id="clearfilter">Fjern alle filtre</a></div>
-<div class="grid_4"></div><form id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="25" type="text"></form></div>
-
-<nav class="grid_12 alpha">
-<h3>Filter</h3>
-    <div id="filter-tags">
+  <nav class="span3">
+  <ul id="filter-tags">
     #{list items:tags, as:'tag'}
-        <input type="checkbox" id="${tag}" /><label for="${tag}">${tag}</label>
+    <li> <span class="label warning" id="${tag}">${tag}</span></li>
     #{/list}
+  </ul>
+  </nav>
+  <section class="span13">
+  #{list items:talks, as:'talk'}
+  <article  id="${talk.id}">
+    <header class="span13"><h2>${talk.title}</h2></header>
+    <div class="row">
+    <div class="span11">
+      <a href="@{Talks.show(talk.id)}">
+        <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
+      </a>
     </div>
-
-    <h3>Years</h3>
-        <div id="filter-years">
-        #{list items:years, as:'year'}
-            <input type="checkbox" id="${year}" /><label for="${year}">${year}</label>
+    <div class="span2">
+      <ul class="tags">
+        <li>plays: <span class="plays">${talk.plays}</span></li>
+        <li>likes: <span>${talk.likes}</span></li>
+        <li>comments: <span>${talk.comments}</span></li>
+      </ul>
+      <ul class="tags">
+        #{list items:talk.tags, as:'tag'}
+        <li><span class="label warning tag">${tag.name}</a></li>
         #{/list}
-        </div>
- </nav>
-
-#{list items:talks, as:'talk'}
-  <div class="grid_12 content">
- <article id="${talk.id}">
-        <header><h2>${talk.title}</h2></header>
-        <a href="@{Talks.show(talk.id)}">
-            <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
-        </a>
-    <div class="grid_5 alpha info">
-      <ul>
-        #{list items:talk.speakers, as:'speaker'}
-         <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a> <span class="symbol">☞</span></li>
-         #{/list}
-         <li>Abstract  <span class="symbol">☞</span><div class="abstract">${talk.talkAbstract.raw()}</div></li>
-       </ul>
-   </div>
-       <div class="keywords grid_4 alpha">plays: <span class="plays">${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span></div>
-    <div class="clear">
-       </div>
-       <footer>
-            <ul class="tags">
-            #{list items:talk.tags, as:'tag'}
-                <li><a href="#" title="filter by tag ${tag.name}" class="tag">${tag.name}</a></li>
-            #{/list}
-                <li><a href="#" title="filter by year ${talk.year}" class="year">${talk.year}</a></li>
-            </ul>
-        </footer>
-    </article>
-    </div>       
-#{/list}
+        <li><span class="label important year">${talk.year}</a></li>
+      </ul>
+    </div>
+  </div>
+    <ul>
+      #{list items:talk.speakers, as:'speaker'}
+      <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a> <span class="symbol">☞</span></li>
+      #{/list}
+      <li>Abstract  <span class="symbol">☞</span></li>
+    </ul>
+  </article>
+  #{/list}
+</div>
 

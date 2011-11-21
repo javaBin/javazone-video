@@ -21,11 +21,11 @@ public class Application extends Controller {
     }
 
 
-    public static void filter(@Required String tag) {
-        List<Talk> talks = Talk.filter("tags.name =", tag).order("-plays").asList();
+    public static void filter(@Required Integer year) {
+        List<Talk> talks = Talk.filter("year =", year).order("-plays").asList();
 
         if(talks == null) {
-            notFound("The talk was not found. Sorry");
+            notFound("No talks were found for that year. Sorry");
         }
 
         renderTemplate("Application/index.html", talks);

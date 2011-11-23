@@ -24,7 +24,7 @@ public class Application extends Controller {
     public static void filter(@Required Integer year) {
         List<Talk> talks = Talk.filter("year =", year).order("-plays").asList();
 
-        if(talks == null) {
+        if(talks == null || talks.size() == 0) {
             notFound("No talks were found for that year. Sorry");
         }
 

@@ -18,7 +18,10 @@
         #{/list}
         </div>
  </nav>
-
+#{if talks.size == 0}
+        <span>Sorry, no talks could be found for that tag</span>
+#{/if}
+        
 #{list items:talks, as:'talk'}
   <div class="grid_12 content">
  <article id="${talk.id}">

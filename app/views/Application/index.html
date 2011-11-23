@@ -3,10 +3,15 @@
 <div class="row">
 
   <nav class="span3">
+      <h3>Topic</h3>
   <ul id="filter-tags">
     #{list items:tags, as:'tag'}
-    <li> <span class="label warning" id="${tag}">${tag}</span></li>
+    <li> <span class="label warning tag ${tag.toLowerCase().replace(" ", "_")}">${tag}</span></li>
     #{/list}
+  </ul>
+<br />
+      <h3>Active topics</h3>
+  <ul id="activetags">
   </ul>
   </nav>
   <section class="span13">
@@ -27,20 +32,22 @@
         <li><span class="abstract">Abstract</span></li>
       </ul>
       <br />
-      <ul class="tags">
-        <li>plays: <span class="plays">${talk.plays}</span></li>
-        <li>likes: <span>${talk.likes}</span></li>
-        <li>comments: <span>${talk.comments}</span></li>
-      </ul>
+      <dl>
+        <dt>plays</dt><dd>${talk.plays}</dd>
+        <dt>likes</dt><dd>${talk.likes}</dd>
+        <dt>comments</dt><dd>${talk.comments}</dd>
+      </dl>
     </div>
 
   </div>
-  <div>
+  <div class>
     #{list items:talk.tags, as:'tag'}
-    <span class="label warning tag">${tag.name}</span>
+    <span class="label warning tag ${tag.name.toLowerCase().replace(" ", "_")}">${tag.name}</span>
     #{/list}
   </div>
   </article>
+
   #{/list}
+      </section>
 </div>
 

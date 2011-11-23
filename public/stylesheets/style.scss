@@ -1,0 +1,53 @@
+$language-color: green;
+$talktype-color: black;
+
+body {
+     padding-top: 60px;
+}
+ul {
+    list-style-type: none;
+    padding:0px;
+    margin:0px;
+ }
+
+
+#filter-tags, #activetags, nav h3 {
+    text-align:right;
+}
+
+.label.android,
+.label.rest,
+.label.frameworks,
+.label.testing,
+.label.methodology,
+.label.lift,
+.label.agile,
+.label.web,
+.label.play
+ {
+    background-color: navy;
+
+}
+
+
+
+.label.java,
+.label.scala,
+.label.javascript,
+.label.coffescript {
+    background-color: green;
+}
+
+
+
+.label.LightningTalk, .label.Workshop, .label.Presentation {
+    background-color: black;
+}
+
+.label:hover{
+    cursor: pointer;
+}
+
+article {
+margin-bottom:5px;
+}

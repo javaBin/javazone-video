@@ -1,84 +1,78 @@
 $(function () {
 
+    var fixTag = function(tag) {
+        var tagFix = "" + tag;
+        return tagFix.toLowerCase().split(" ").join("_")
+            .split(".").join("_")
+            .split("#").join("_");
+    }
 
     var filterArticles = function (filters) {
+
+        var fixedFilters = _.map(filters, function(value) {
+            return fixTag(value);
+        })
+
+        console.log(fixedFilters);
         $('article').each(function () {
             var article = $(this);
             var tags = article.find(".tag").map(function () {
-                return this.text.toLowerCase().replace(" ", "_");
+                return fixTag($(this).text());
             });
-            var valid = _.difference(filters, tags).length == 0;
-
+            var valid = _.difference(fixedFilters, tags).length == 0;
             toggle(article, valid);
-        });
-    }
-    var filterArticlesbyYear = function (filters) {
-        $('article').each(function () {
-            var article = $(this);
-            var year = article.find(".year").text();
-
-            if (filters.size() == 0) {
-                toggle(article, true);
-            } else {
-                toggle(article, _.include(filters, year));
-            }
         });
     }
 
     var toggle = function (element, valid) {
         var visible = element.is(":visible");
-
         if (valid && !visible) {
             element.fadeIn()
         }
-
         if (!valid && visible) {
             element.fadeOut();
         }
-
     }
 
-    $("#clearfilter").button();
-    $("#filter-tags").buttonset();
-    $("#filter-years").buttonset();
+     var fjernEllerLeggTilTag = function(tag) {
+       var finnes = $("#activetags ." + fixTag(tag));
+        if(finnes.size() == 1) {
+             finnes.parent().remove();
+        }   else {
+            var newLi = '<li> <span class="label warning rmtag ' + fixTag(tag) + '">' + tag + '</span></li>';
+             $("#activetags").append(newLi);
+        }
+    }
 
-    $("#filter-tags label").click(function (event) {
-        var filters = $(this).parent().find(".ui-state-active").map(function () {
-            return $(this).attr("for").toLowerCase();
-        });
+
+    $(".tag").click(function() {
+
+        fjernEllerLeggTilTag($(this).text());
+
+        var filters = $("#activetags .rmtag").map(function () {
+           return $(this).text();
+         });
+
         filterArticles(filters);
+    });
 
-
+    $(".rmtag").live('click', function(){
+       $(this).parent().remove();
+        var filters = $("#activetags .rmtag").map(function () {
+           return $(this).text();
+         });
+        filterArticles(filters);
     });
 
 
-    $("#clearfilter").click(function(){
-       $(".ui-state-active").removeClass("ui-state-active");
-        filterArticles([]);
-    });
-
-    $(".tags .tag").click(function() {
-        var value = $(this).text();
-
-        filterArticles([value]);
-    });
-
-    $("#filter-years label").click(function (event) {
-        var filters = $(this).parent().find(".ui-state-active").map(function () {
-            return $(this).attr("for").toLowerCase();
-        });
-        filterArticlesbyYear(filters);
-    });
-
-    $("#filter-form").submit(function (event) {
+    $("#filter-form").submit(function(event) {
         event.preventDefault();
         var input = $("#filter").val();
         if (input == "") {
             filterArticles([]);
         } else {
-            filterArticles(input.split(" "));
+            filterArticles(input.toLowerCase().split(" "));
         }
     });
-
 
 });

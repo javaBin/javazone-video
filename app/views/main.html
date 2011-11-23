@@ -10,25 +10,7 @@
 
     <!-- Le styles -->
     <link href="@{'public/stylesheets/bootstrap.css'}" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-      ul
-      {
-          list-style-type: none;
-          padding:0px;
-          margin:0px;
-      }
-
-      .tags { 
-        font-size:0.9em;
-      }
-
-      #filter-tags {
-        text-align:right; 
-      }
-    </style>
+    <link href="@{'public/stylesheets/style.scss'}" rel="stylesheet">
 
 
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}"/>
@@ -49,9 +31,9 @@
             <li><a href="#contact">Authors</a></li>
             <li><a href="#contact">About</a></li>
           </ul>
-          <form action="" class="pull-right" id="filter-form">
-            <input class="input-small" type="text" name="filter" placeholder="tag1 tag2">
-            <button class="btn" type="submit">Søk</button>
+          <form action="#" class="pull-right" id="filter-form">
+            <input class="input-large" type="text" name="filter" id="filter" placeholder="tag1 tag2">
+            <button class="btn"  type="submit">Søk</button>
           </form>
         </div>
       </div>

@@ -27,9 +27,9 @@
     <div class="span2">
       <ul>
         #{list items:talk.speakers, as:'speaker'}
-        <li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a></li>
+        <li><a class="speaker" href="@{Speakers.show(speaker.slug)}">${speaker.name}</a><div class="hidden">${speaker.bio.raw()}</div></li>
         #{/list}
-        <li><span class="abstract">Abstract</span></li>
+        <li><span class="abstract">Abstract</span> <div class="hidden">${talk.talkAbstract().raw()}</div></li>
       </ul>
       <br />
       <dl>

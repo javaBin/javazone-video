@@ -11,9 +11,8 @@ $(function () {
 
         var fixedFilters = _.map(filters, function(value) {
             return fixTag(value);
-        })
+        });
 
-        console.log(fixedFilters);
         $('article').each(function () {
             var article = $(this);
             var tags = article.find(".tag").map(function () {
@@ -75,4 +74,27 @@ $(function () {
         }
     });
 
+
+    $(".abstract").popover({
+        content: function() {
+            return $(this).parent().find(".wiki").html();
+        },
+        title: function() {
+            return $(this).closest("article").find("h2").text();
+        },
+        placement: 'below',
+        html: true
+    })
+
+
+    $(".speaker").popover({
+        content: function() {
+            return $(this).parent().find(".wiki").html();
+        },
+        title: function() {
+            return $(this).text();
+        },
+        placement: 'below',
+        html: true
+    })
 });

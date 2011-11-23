@@ -38,6 +38,7 @@ $(function () {
 
     }
 
+    $("#clearfilter").button();
     $("#filter-tags").buttonset();
     $("#filter-years").buttonset();
 
@@ -50,6 +51,17 @@ $(function () {
 
     });
 
+
+    $("#clearfilter").click(function(){
+       $(".ui-state-active").removeClass("ui-state-active");
+        filterArticles([]);
+    });
+
+    $(".tags .tag").click(function() {
+        var value = $(this).text();
+
+        filterArticles([value]);
+    });
 
     $("#filter-years label").click(function (event) {
         var filters = $(this).parent().find(".ui-state-active").map(function () {

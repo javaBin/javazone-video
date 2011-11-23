@@ -1,7 +1,8 @@
 #{extends 'main.html' /}
 #{set title:'' /}
 
-<form class="grid_4 prefix_8" id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="25" type="text"></form>
+<div class="grid_8"><a href="#" id="clearfilter">Fjern alle filtre</a></div>
+<div class="grid_4"></div><form id="filter-form">Filter: <input name="filter" id="filter" value="" maxlength="30" size="25" type="text"></form></div>
 
 <nav class="grid_12 alpha">
 <h3>Filter</h3>
@@ -41,9 +42,9 @@
     <div class="clear">
        </div>
        <footer>
-            <ul>
+            <ul class="tags">
             #{list items:talk.tags, as:'tag'}
-                <li><a href="@{Application.filter(tag.name)}" title="filter by tag ${tag.name}" class="tag">${tag.name}</a></li>
+                <li><a href="#" title="filter by tag ${tag.name}" class="tag">${tag.name}</a></li>
             #{/list}
                 <li><a href="#" title="filter by year ${talk.year}" class="year">${talk.year}</a></li>
             </ul>

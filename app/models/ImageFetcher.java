@@ -1,6 +1,9 @@
 package models;
 
+import play.Logger;
+
 import javax.imageio.ImageIO;
+import java.awt.color.CMMException;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -19,11 +22,14 @@ public class ImageFetcher {
         }
 
         try {
+            Logger.info("Fetching image at url %s", url);
             URL newURL = new URL(url);
             return ImageIO.read(newURL);
         } catch (MalformedURLException e) {
             return new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         } catch (IOException e) {
+            return new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+        } catch (CMMException colorException) {
             return new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         }
 

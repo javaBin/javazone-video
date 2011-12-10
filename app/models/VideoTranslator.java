@@ -43,10 +43,7 @@ public class VideoTranslator {
             if(filteredTags.exists(new F<String, Boolean>() {
                 @Override
                 public Boolean f(String s) {
-                    if(s.equals(content)) {
-                        return Boolean.TRUE;
-                    }
-                    return Boolean.FALSE;
+                    return s.equals(content);
                 }
             })) {
                 continue;

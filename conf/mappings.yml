@@ -40,17 +40,21 @@ jamesward:
 kentbeck:
   twitterName: KentBeck
   blog: http://www.threeriversinstitute.org/
+  other_videos:
+    leankanban: [http://vimeo.com/33530096]
 aslakjohannesen:
   twitterName: aslakjo
 aslakknutsen:
   twitterName: aslakknutsen
+  other_videos:
+    misc: [http://vimeo.com/30749383, http://vimeo.com/14245054]
 johndavies:
   twitterName:
 carlquinn:
   twitterName: cquinn
   blog: http://javaposse.com/
 markfisher:
-  twitterName:
+  twitterName: m_f_
 victorgrazi:
   twitterName: vgrazi
 simonritter:
@@ -59,16 +63,23 @@ costinleau:
   twitterName: costinl
 danielspiewak:
   twitterName: djspiewak
+  other_videos:
+    misc: [http://vimeo.com/28746025,http://vimeo.com/32353918]
 dickwall:
   twitterName: dickwall 
 trulsjørgensen:
   twitterName: trulsjor 
 anderssveen:
   twitterName: anderssv
+  other_videos:
+    smidig: [http://vimeo.com/30577740]
 martijndashorst:
   twitterName: dashorst 
 olvemaudal:
   twitterName: olvemaudal
+  other_videos:
+    smidig: [http://vimeo.com/32087512,http://vimeo.com/30577521]
+    ndc: [vimeo.com/17561028]
 aslakknutsen:
   twitterName: aslakknutsen 
 andrewleerubinger:

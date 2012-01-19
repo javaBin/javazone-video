@@ -10,8 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * User: Knut Haugen <knuthaug@gmail.com>
- * 2011-10-15
+ * @author Knut Haugen <knuthaug@gmail.com>
  */
 public class ImageFetcher {
 
@@ -32,7 +31,5 @@ public class ImageFetcher {
         } catch (CMMException colorException) {
             return new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         }
-
-
     }
 }

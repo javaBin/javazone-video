@@ -15,6 +15,8 @@ import org.scribe.model.Response;
 import org.scribe.model.Token;
 import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
+import play.Logger;
+import play.Play;
 
 import java.io.IOException;
 import java.net.URI;
@@ -25,26 +27,33 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * User: Knut Haugen <knuthaug@gmail.com>
+ * Class acting as an interface against the vimeo services.
+ * It reads configuration from the conf/application.conf file
+ * for urls and such, but needs the vimeo consumer key and consumer secret to
+ * be set as environment variables for the requests to work.
+ *
+ * @author Knut Haugen <knuthaug@gmail.com>
  * 2011-09-12
  */
 public class VimeoClient {
 
-    private static final String VIMEO_API_URL = "http://vimeo.com/api/rest/v2/";
-    private static final String VIDEOS_METHOD = "vimeo.videos.getByTag";
+    private static final String VIMEO_API_URL      = Play.configuration.getProperty("vimeo.api.url");
+    private static final String VIMEO_BASE_URL     = Play.configuration.getProperty("vimeo.base.url");
+    private static final String ENDPOINT_HOST      = Play.configuration.getProperty("vimeo.endpoint.host");
+    private static final String EMBED_SERVICE_PATH = Play.configuration.getProperty("vimeo.embed.servicepath");
+    private static final String VIDEOS_METHOD      = Play.configuration.getProperty("vimeo.video.method");
+
+    private static final String ENDPOINT_PROTOCOL  = "http";
 
     private static final Token EMPTY_TOKEN = new Token("", "");
     private static final String CONSUMER_KEY = System.getenv("VIMEO_CONSUMER_KEY");
     private static final String CONSUMER_SECRET = System.getenv("VIMEO_CONSUMER_SECRET");
 
-    private static final Map<String, String> supportedTags = new HashMap<String, String>(){{put("2011", "Javazone2011");
-        put("2010", "Javazone2010");}};
+    private static final Map<String, String> supportedTags = new HashMap<String, String>(){{
+            put("2011", "Javazone2011");
+            put("2010", "Javazone2010");}};
 
     private Integer totalVideos;
-    private static final String VIMEO_BASE_URL = "http://vimeo.com/";
-    private static final String ENDPOINT_PROTOCOL = "http";
-    private static final String ENDPOINT_HOST = "vimeo.com";
-    private static final String EMBED_SERVICE_PATH = "/api/oembed.json";
 
     public List<VimeoVideo> getVideosByYear(String year, Map<String, String> args, Integer max ) {
 
@@ -136,9 +145,9 @@ public class VimeoClient {
         try {
             responseBody = executeRequest(id, client);
         } catch (ClientProtocolException e) {
-            e.printStackTrace(); //TODO: log?
+            Logger.error(e.toString());
         } catch (IOException e) {
-            e.printStackTrace(); //TODO: log?
+            Logger.error(e.toString());
         } finally {
             client.getConnectionManager().shutdown();
         }
@@ -148,7 +157,7 @@ public class VimeoClient {
 
 
     private String executeRequest(int id, HttpClient client) throws IOException {
-        String url = encodeUrl(id);
+        String url = encodeUrl();
         url = url + "?url=" + VIMEO_BASE_URL + id + "&maxwidth=800";
 
         HttpGet httpget = new HttpGet(url);
@@ -158,11 +167,10 @@ public class VimeoClient {
         return client.execute(httpget, responseHandler);
     }
 
-    private String encodeUrl(int id) {
+    private String encodeUrl() {
         try {
-            return new URI(ENDPOINT_PROTOCOL, ENDPOINT_HOST,
-                    EMBED_SERVICE_PATH,
-                    null).toString();
+            return new URI(ENDPOINT_PROTOCOL, ENDPOINT_HOST, EMBED_SERVICE_PATH,
+                           null).toString();
         } catch (URISyntaxException e) {
             return null;
         }

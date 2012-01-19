@@ -2,6 +2,7 @@ package models;
 
 import models.domain.Embed;
 import org.codehaus.jackson.map.ObjectMapper;
+import play.Logger;
 
 import java.io.IOException;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class EmbedJSONMapper {
             Map<String, String> fields = mapper.readValue(json, Map.class);
             return new Embed(fields.get("html"));
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Logger.error(e.toString());
         }
         return new Embed("");
     }

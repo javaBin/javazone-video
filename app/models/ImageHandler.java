@@ -10,8 +10,10 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 
 /**
- * User: Knut Haugen <knuthaug@gmail.com>
- * 2011-10-15
+ * Class for handling speaker images, filenames related to image and storing them to disk.
+ * This class uses ImageFetcher and ImageResizer internally to handle the dirty work.
+ *
+ * @author Knut Haugen <knuthaug@gmail.com>
  */
 public class ImageHandler {
 
@@ -58,7 +60,10 @@ public class ImageHandler {
 
         try {
             ImageIO.write(image.get(), "jpeg", file);
-            System.gc();
+            //even with a weak ref, we need to gc to avoid messing too much with the memory settings
+            // of the jvm running the test
+              System.gc();
+
         } catch (IOException e) {
             Logger.error("Error encountered when writing image %s to disk: %s", file, e);
         }

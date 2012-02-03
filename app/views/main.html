@@ -2,46 +2,47 @@
 <html>
   <head>
     <title>#{get 'title' /} @ JavaZone Talks</title>
-    <meta charset="${_response_encoding}">
+    <meta charset="${_response_encoding}"/>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <!-- Le styles -->
-    <link href="@{'public/stylesheets/bootstrap.css'}" rel="stylesheet">
+    <link href="@{'public/stylesheets/bootstrap.min.css'}" rel="stylesheet"/>
+    <link href="@{'public/stylesheets/bootstrap-responsive.min.css'}" rel="stylesheet"/>
     <link href="@{'public/stylesheets/style.scss'}" rel="stylesheet">
 
 
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}"/>
-    <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-    <script src="@{'/public/javascripts/bootstrap-twipsy.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-    <script src="@{'/public/javascripts/bootstrap-popover.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/bootstrap-tooltip.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/bootstrap-popover.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 
-    <script src="@{'/public/javascripts/underscore-min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-    <script src="@{'/public/javascripts/app.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/underscore-min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/app.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 
   </head>
   <body>
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="/"><img src="@{'public/images/jz11_logo.png'}" height="22"></a>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
           <ul class="nav">
-            <li class="active"><a href="#">Javazone 2011</a></li>
-            <li><a href="#about">Javazone 2010</a></li>
-            <li><a href="#contact">Tags</a></li>
-            <li><a href="#contact">Authors</a></li>
-            <li><a href="#contact">About</a></li>
+            <li class="active"><a href="talks/Javazone 2011">Javazone 2011</a></li>
+            <li><a href="talks/Javazone 2010">Javazone 2010</a></li>
+            <li><a href="tags/">Tags</a></li>
+            <li><a href="speakers/">Speakers</a></li>
           </ul>
           <form action="#" class="pull-right" id="filter-form">
-            <input class="input-large" type="text" name="filter" id="filter" placeholder="tag1 tag2">
-            <button class="btn"  type="submit">Søk</button>
+            <fieldset>
+              <input class="input-large" type="text" name="filter" id="filter" placeholder="tag1 tag2"/>
+              <button class="btn"  type="submit">Søk</button>
+            </fieldset>
           </form>
         </div>
       </div>
     </div>
-    <div class="container">
+    
+    <div class="container-fluid">
     #{doLayout /}
   </div>
     <footer>

@@ -2,17 +2,18 @@ $language-color: green;
 $talktype-color: black;
 
 body {
-     padding-top: 60px;
+  padding-top: 60px;
 }
+
 ul {
-    list-style-type: none;
-    padding:0px;
-    margin:0px;
- }
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
 
 #filter-tags, #activetags, nav h3 {
-    text-align:right;
+  text-align: right;
 }
 
 .label.android,
@@ -23,38 +24,36 @@ ul {
 .label.lift,
 .label.agile,
 .label.web,
-.label.play
- {
-    background-color: navy;
-
+.label.play {
+  background-color: navy;
 }
-
-
 
 .label.java,
 .label.scala,
 .label.javascript,
+.label.html5,
 .label.coffescript {
-    background-color: green;
+  background-color: green;
 }
 
-
-
 .label.LightningTalk, .label.Workshop, .label.Presentation {
-    background-color: black;
+  background-color: black;
 }
 
 .label:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 article {
-margin-bottom:5px;
+  margin-bottom: 7px;
+  padding-bottom: 15px;
+  border-bottom: 1px inset #999;
 }
-.hidden {
-    display: none;
- }
 
- .popover .inner {
-     width: 400px;
- }
+.hidden {
+  display: none;
+}
+
+.popover .inner {
+  width: 400px;
+}

@@ -23,7 +23,7 @@ public final class Tag {
     public static Function<Tag, String> name() {
         return new Function<Tag, String>() {
             public String apply(Tag tag) {
-                return tag.name.replace(" ", "_");
+                return tag.name;
             }
         };
     }

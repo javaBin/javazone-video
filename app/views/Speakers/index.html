@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title: 'Speakers' /}
+#{list items:speakers, as:'speaker'}
+<div class="row-fluid">
+  <div class="span2">&nbsp;</div>
+  <div class="span6">
+    <header><h2><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a></h2></header>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span2">&nbsp;</div>
+  <article class="speaker-section span6">
+    <a href="@{Speakers.show(speaker.slug)}"><img src="${speaker.photoURL}" alt="${speaker.name}" width="200" height="250" /></a>
+    ${speaker.bio.raw()}
+  </article>
+  <div class="span3">
+      <h3>Talks</h3>
+      <ul>
+      </ul>
+  </div>
+</div>
+#{/list}
+<script type="text/javascript">$("#speakers").addClass("active");</script>
+

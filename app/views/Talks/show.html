@@ -1,25 +1,41 @@
 #{extends 'main.html' /}
 #{set title: talk.title /}
 
-<div class="grid_11 talk">
-  <h2>JavaZone ${talk.year}</h2>
-
-  <article class="speaker">
-   ${talk.embed.embedCode.raw()}
-   <div class="keywords prefix_6 grid_5 alpha">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span> <span class="square">◼</span> <a href="http://vimeo.com/${talk.id}">on vimeo</a></div>
-  <div class="grid_3 alpha">
-    #{include 'speakers.html' /}
+<div class="row-fluid">
+ <div class="span8">&nbsp;</div>
+  <div class="span4">
+    <h2>JavaZone ${talk.year}</h2>
   </div>
-  <div class="grid_6 omega">
-   ${talk.talkAbstract.raw()}
-  <div/>
-    <div class="clear"></div>
-   <footer class="alpha grid_7">
+</div>
+
+<div class="row-fluid">
+  <div class="span2">&nbsp;</div>
+  <article class="speaker-section span10">
+    <div class="row-fluid">
+      <div class="span10">
+        ${talk.embed.embedCode.raw()}
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span5">&nbsp;</div>
+<div class="keywords span6">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span> <span class="square">◼</span> <a href="http://vimeo.com/${talk.id}">on vimeo</a></div>
+    </div>
+
+    <div class="row-fluid text">
+      <div class="span2">
+        #{include 'speakers.html' /}
+      </div>
+      <div class="span5">
+        ${talk.talkAbstract.raw()}
+      </div>
+      <div class="span3">
         <ul>
-            #{list items:talk.tags, as:'tag'}
-            <li><a href="${tag.url}" class="tag">${tag.name}</a></li>
-            #{/list}
+          #{list items:talk.tags, as:'tag'}
+          <li><a href="${tag.url}" class="tag">${tag.name}</a></li>
+          #{/list}
         </ul>
-    </footer>
-</article>
+      </div>
+    </article>
+  </div>
 </div>

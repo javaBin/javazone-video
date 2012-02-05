@@ -88,7 +88,7 @@ $(function () {
     })
 
 
-    $(".speaker").popover({
+    $(".speaker-link").popover({
         content: function() {
             return $(this).parent().find(".wiki").html();
         },
@@ -96,6 +96,17 @@ $(function () {
             return $(this).text();
         },
         placement: 'bottom',
+        html: true
+    })
+
+    $(".speaker-link-right").popover({
+        content: function() {
+            return $(this).parent().find(".wiki").html();
+        },
+        title: function() {
+            return $(this).text();
+        },
+        placement: 'right',
         html: true
     })
 });

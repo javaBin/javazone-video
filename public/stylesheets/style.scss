@@ -1,21 +1,70 @@
 $language-color: green;
 $talktype-color: black;
+$heading-color: #555;
+$effect-color: #00adee;
 
 body {
   padding-top: 60px;
   font-family: "proxima-nova-condensed", "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 14px !important;
+  color: $heading-color !important;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 0 !important;
+}
+
+h2 {
+  color: $heading-color;
 }
 
 article {
   img {
-    border: 2px
+    border: 2px !important;
   }
+}
+
+.navbar-inner {
+  background: rgb(224,224,224); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(224,224,224,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(224,224,224,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+  background: linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+  box-shadow: none;
+  -webkit-box-shadow: none;
+
+  .brand {
+    color: #333 !important;
+    font-size: 250%;
+    font-weight: 400;
+  }
+  
+  .nav {
+    padding-top: 6px !important;
+  }
+
+  li.active a {
+    background-color: transparent !important;
+    border-bottom: 2px solid $effect-color;
+    color: #333 !important;
+  }
+  
+  li a {
+    color: #333 !important;
+    padding-bottom: 3px !important;
+  }
+
+  li a:hover {
+    color: #00adee !important;;
+  }
+  
+
 }
 
 form {
@@ -26,9 +75,9 @@ form {
     margin-bottom: 0px;
   }
 
-  input[type="submit"]{
+  input {
+    color: #333 !important;
   }
-
 
 }
 
@@ -70,10 +119,67 @@ article {
   border-bottom: 1px inset #999;
 }
 
+ul  {
+  list-style: none !important;
+  margin-left: 10px;
+}
+
+article.speaker {
+  border-bottom: 0;
+
+  .text {
+    padding-top: 10px;
+  }
+
+  ul li {
+    list-style-type: none !important;
+    margin-left: 0 !important;
+  }
+
+  div.wiki {
+      margin-left: 0;
+      margin-top: 0;
+
+
+      .paragraph {
+        padding-top: 6px;
+      }
+      .paragraph:nth-of-type(n+2):first-letter {
+        margin-left: 20px;
+      }
+
+      .paragraph:first-of-type:first-letter {
+        color: $heading-color;
+        font-size: 450%;
+        float:left; 
+        line-height: 0.75em;
+        padding: 2px;
+        margin-top: 2px;
+        margin-bottom: -3px;
+        position: relative;
+        top: -20px; 
+      }
+    }
+
+  span {
+    color: #000;
+  }
+  
+  span.square {
+    color: $effect-color;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
 .hidden {
   display: none;
 }
 
-.popover .inner {
-  width: 400px;
+.popover-inner {
+  width: 500px !important;
+}
+
+footer {
+  margin: auto;
 }

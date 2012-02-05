@@ -6,6 +6,6 @@
 #{/else}
 <ul>
 #{list items:talk.speakers, as:'speaker'}
-<li><a href="@{Speakers.show(speaker.slug)}">${speaker.name}</a></li>
+<li><a class="speaker-link-right" href="@{Speakers.show(speaker.slug)}">${speaker.name}</a><div class="hidden">${speaker.bio.raw()}</div></li>
 #{/list}
 </ul>

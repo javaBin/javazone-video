@@ -32,7 +32,7 @@ public class Application extends Controller {
             notFound("No talks found for the current query. Sorry");
         }
 
-        renderTemplate("Application/index.html", talks, null, years);
+        renderTemplate("Application/index.html", talks, tags, years);
     }
 
 }

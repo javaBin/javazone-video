@@ -124,7 +124,7 @@ ul  {
   margin-left: 10px;
 }
 
-article.speaker {
+article.speaker-section {
   border-bottom: 0;
 
   .text {
@@ -142,8 +142,14 @@ article.speaker {
 
 
       .paragraph {
-        padding-top: 6px;
+        padding-top: 7px;
       }
+
+      .paragraph:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+      }
+
       .paragraph:nth-of-type(n+2):first-letter {
         margin-left: 20px;
       }
@@ -164,7 +170,19 @@ article.speaker {
   span {
     color: #000;
   }
-  
+
+  img {
+    float: left;
+    margin: 5px 8px 5px 5px;
+    border: 1px solid #d1d1d1 !important;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px #d1d1d1;
+  }
+
+  img:hover {
+    pointer: hand;
+  }
+
   span.square {
     color: $effect-color;
     margin-left: 5px;

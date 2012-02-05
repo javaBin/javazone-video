@@ -23,4 +23,9 @@ public class Speakers extends Controller {
 
         render(speaker, talks);
     }
+
+    public static void index() {
+        List<Speaker> speakers = Speaker.all().asList();
+        render(speakers);
+    }
 }

@@ -15,6 +15,7 @@ GET     /talk/{id}                              Talks.show
 GET     /talks/{tag}                            Application.filter
 
 GET     /speaker/{slug}                         Speakers.show
+GET     /speakers                               Speakers.index
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

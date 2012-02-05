@@ -25,6 +25,7 @@ public class SessionTranslator {
             put("Ã¤", "ä");
             put("â\u0080\u0099", "’");
             put("Ã", "Ö");
+            put("â", "-");
         }
     };
 

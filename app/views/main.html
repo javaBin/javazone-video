@@ -11,17 +11,9 @@
     <link href="@{'public/stylesheets/bootstrap.min.css'}" rel="stylesheet"/>
     <link href="@{'public/stylesheets/bootstrap-responsive.min.css'}" rel="stylesheet"/>
     <link href="@{'public/stylesheets/style.scss'}" rel="stylesheet">
-
+    <script src="@{'public/javascripts/jquery.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}"/>
-    <script src="@{'public/javascripts/jquery.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-    <script src="@{'public/javascripts/underscore-min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-    <script src="@{'public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-    <script src="@{'public/javascripts/bootstrap-tooltip.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-    <script src="@{'public/javascripts/bootstrap-popover.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-
-    <script src="@{'public/javascripts/app.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-
   </head>
   <body>
     <div class="navbar navbar-fixed-top">
@@ -35,10 +27,15 @@
           <a class="brand" href="/">JavaZone Talks</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="talks/Javazone 2011">Javazone 2011</a></li>
-              <li><a href="talks/Javazone 2010">Javazone 2010</a></li>
-              <li><a href="/tags">Tags</a></li>
-              <li><a href="/speakers">Speakers</a></li>
+              <li id="main" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Years <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/talks/2011">2011</a></li>
+                  <li><a href="/talks/2010">2010</a></li>
+                </ul>
+              </li>
+              <li id="tags"><a href="/tags">Tags</a></li>
+              <li id="speakers"><a href="/speakers">Speakers</a></li>
             </ul>
             <form action="#" class="pull-right" id="filter-form">
               <fieldset>
@@ -54,8 +51,19 @@
     <div class="container-fluid">
       #{doLayout /}
     </div>
-    <footer>
-      The JavaZone talk videos brought to you by <a href="http://java.no/">JavaBin</a> with a little help from <a href="http://vimeo.com/">vimeo</a> and <a href="http://javazone.no/incogito">Incogito</a>
-    </footer>
+    <div class="row-fluid">
+      <div class="span12">
+        <footer>
+          <p>
+            The JavaZone talk videos brought to you by <a href="http://java.no/">JavaBin</a> with a little help from <a href="http://vimeo.com/">vimeo</a> and <a href="http://javazone.no/incogito">Incogito</a>
+            </p>
+        </footer>
+      </div>
+    </div>
+    <script src="@{'public/javascripts/underscore-min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/bootstrap-tooltip.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/bootstrap-popover.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/app.js'}" type="text/javascript" charset="${_response_encoding}"></script>
   </body>
 </html>

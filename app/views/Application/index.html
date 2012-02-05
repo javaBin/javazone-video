@@ -36,9 +36,10 @@
               <li><span class="abstract">Abstract</span> <div class="hidden">${talk.talkAbstract().raw()}</div></li>
             </ul>
             <ul>
-              <li>plays: ${talk.plays}</li>
-              <li>likes: ${talk.likes}</li>
-              <li>comments: ${talk.comments}</li>
+              <li>plays: <span>${talk.plays}</span></li>
+              <li>likes: <span>${talk.likes}</span></li>
+              <li>comments: <span>${talk.comments}</span></li>
+              <li>year: <span>${talk.year}</span></li>
             </ul>
           </div>
           
@@ -53,4 +54,5 @@
       #{/list}
     </section>
   </div>
+  <script type="text/javascript">$("#main").addClass("active");</script>
 

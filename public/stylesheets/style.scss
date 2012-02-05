@@ -49,10 +49,14 @@ article {
     padding-top: 6px !important;
   }
 
-  li.active a {
+  li.active > a {
     background-color: transparent !important;
     border-bottom: 2px solid $effect-color;
     color: #333 !important;
+
+    ul.dropdown-menu li a {
+      border: 0 !important;
+    }
   }
   
   li a {
@@ -85,6 +89,12 @@ form {
   text-align: right;
 }
 
+.caret {
+  border-top-color: $effect-color !important;
+}
+
+
+
 .label.android,
 .label.rest,
 .label.frameworks,
@@ -93,6 +103,7 @@ form {
 .label.lift,
 .label.agile,
 .label.web,
+.label.jvm,
 .label.play {
   background-color: navy;
 }
@@ -101,11 +112,12 @@ form {
 .label.scala,
 .label.javascript,
 .label.html5,
+.label.groovy,
 .label.coffescript {
   background-color: green;
 }
 
-.label.LightningTalk, .label.Workshop, .label.Presentation {
+.label.lightningtalk, .label.workshop, .label.presentation {
   background-color: black;
 }
 
@@ -117,6 +129,11 @@ article {
   margin-bottom: 7px;
   padding-bottom: 15px;
   border-bottom: 1px inset #999;
+}
+
+li span {
+  color: #000;
+  font-weight: 500;
 }
 
 ul  {
@@ -199,5 +216,23 @@ article.speaker-section {
 }
 
 footer {
-  margin: auto;
+  text-align: center;
+  height: 60px;
+  padding-top: 30px;
+  font-size: 140% !important;
+ background: rgb(224,224,224); /* Old browsers */
+  background: -moz-linear-gradient(bottom,  rgba(224,224,224,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(224,224,224,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(bottom,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(bottom,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(bottom,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+  background: linear-gradient(bottom,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+  p {
+    width: 60%;
+    margin: auto;
+    padding-top: 30px;
+  }
+
 }

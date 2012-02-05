@@ -3,6 +3,10 @@ $talktype-color: black;
 $heading-color: #555;
 $effect-color: #00adee;
 
+html {
+     background-color:  rgba(224,224,224,1);
+}
+
 body {
   padding-top: 60px;
   font-family: "proxima-nova-condensed", "helvetica neue", helvetica, arial, sans-serif;
@@ -93,15 +97,15 @@ form {
   border-top-color: $effect-color !important;
 }
 
-
-
 .label.android,
 .label.rest,
 .label.frameworks,
 .label.testing,
 .label.methodology,
+.label.methods,
 .label.lift,
 .label.spring,
+.label.functional,
 .label.agile,
 .label.web,
 .label.jvm,

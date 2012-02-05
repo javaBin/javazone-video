@@ -24,8 +24,8 @@ public class Application extends Controller {
     public static void filter(@Required int year) {
         List<Talk> talks = Talk.filter("year =", year).order("-plays").asList();
 
-        //Iterable<String> allTags = collect(talks, Talk.findTags());
-        //List<String> tags = GuavaTools.findMostPopularElements(allTags, 20);
+        Iterable<String> allTags = collect(talks, Talk.findTags());
+        List<String> tags = GuavaTools.findMostPopularElements(allTags, 10);
         List<Integer> years = Lists.newArrayList(2010, 2011);
 
         if(talks == null) {

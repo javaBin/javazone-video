@@ -14,33 +14,47 @@
 
 
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}"/>
-    <script src="@{'public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/jquery.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/underscore-min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <script src="@{'public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     <script src="@{'public/javascripts/bootstrap-tooltip.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     <script src="@{'public/javascripts/bootstrap-popover.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 
-    <script src="@{'public/javascripts/underscore-min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     <script src="@{'public/javascripts/app.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+    <div class="row-fluid"><div class="span10 offset2">
+    <div class="navbar">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <ul class="nav">
-            <li class="active"><a href="talks/Javazone 2011">Javazone 2011</a></li>
-            <li><a href="talks/Javazone 2010">Javazone 2010</a></li>
-            <li><a href="tags/">Tags</a></li>
-            <li><a href="speakers/">Speakers</a></li>
-          </ul>
-          <form action="#" class="pull-right" id="filter-form">
-            <fieldset>
-              <input class="input-large" type="text" name="filter" id="filter" placeholder="tag1 tag2"/>
-              <button class="btn"  type="submit">Søk</button>
-            </fieldset>
-          </form>
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="talks/Javazone 2011">Javazone 2011</a></li>
+              <li><a href="talks/Javazone 2010">Javazone 2010</a></li>
+              <li><a href="tags/">Tags</a></li>
+              <li><a href="speakers/">Speakers</a></li>
+            </ul>
+            <form action="#" class="pull-right" id="filter-form">
+              <fieldset>
+                <input class="input-large" type="text" name="filter" id="filter" placeholder="tag1 tag2"/>
+                <button class="btn"  type="submit">Søk</button>
+              </fieldset>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+    </div>
+    </div>
+</div>
     
     <div class="container-fluid">
     #{doLayout /}

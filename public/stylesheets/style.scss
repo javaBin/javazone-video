@@ -3,6 +3,7 @@ $talktype-color: black;
 
 body {
   padding-top: 60px;
+  font-family: "proxima-nova-condensed", "helvetica neue", helvetica, arial, sans-serif;
 }
 
 ul {
@@ -11,6 +12,25 @@ ul {
   margin: 0;
 }
 
+article {
+  img {
+    border: 2px
+  }
+}
+
+form {
+  margin: 1px 0;
+
+  input[type="text"]{
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
+
+  input[type="submit"]{
+  }
+
+
+}
 
 #filter-tags, #activetags, nav h3 {
   text-align: right;

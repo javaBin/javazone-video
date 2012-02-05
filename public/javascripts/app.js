@@ -1,3 +1,4 @@
+
 $(function () {
 
     var fixTag = function(tag) {
@@ -82,7 +83,7 @@ $(function () {
         title: function() {
             return $(this).closest("article").find("h2").text();
         },
-        placement: 'below',
+        placement: 'bottom',
         html: true
     })
 
@@ -94,7 +95,7 @@ $(function () {
         title: function() {
             return $(this).text();
         },
-        placement: 'below',
+        placement: 'bottom',
         html: true
     })
 });

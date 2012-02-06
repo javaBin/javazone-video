@@ -148,6 +148,10 @@ ul  {
 
 article.speaker-section {
   border-bottom: 0;
+  
+  h3 {
+    margin-top: 8px;
+  }
 
   .text {
     padding-top: 10px;
@@ -194,11 +198,19 @@ article.speaker-section {
   }
 
   img {
-    float: left;
-    margin: 5px 8px 5px 5px;
     border: 1px solid #d1d1d1 !important;
     border-radius: 4px;
     box-shadow: 1px 1px 4px #d1d1d1;
+  }
+
+  img.odd {
+    float: left;
+    margin: 5px 10px 5px 5px;
+  }
+
+  img.even {
+    float: right;
+    margin: 5px 5px 5px 10px;
   }
 
   img:hover {

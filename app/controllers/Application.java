@@ -12,11 +12,13 @@ import static models.GuavaTools.collect;
 
 public class Application extends Controller {
 
+    static List<Integer> years = Lists.newArrayList(2010, 2011);
+
     public static void index() {
         List<Talk> talks = Talk.filter("year =", 2011).order("-plays").asList();
         Iterable<String> allTags = collect(talks, Talk.findTags());
         List<String> tags = GuavaTools.findMostPopularElements(allTags, 20);
-        List<Integer> years = Lists.newArrayList(2010, 2011);
+
         render(talks, tags, years);
     }
 
@@ -26,7 +28,6 @@ public class Application extends Controller {
 
         Iterable<String> allTags = collect(talks, Talk.findTags());
         List<String> tags = GuavaTools.findMostPopularElements(allTags, 10);
-        List<Integer> years = Lists.newArrayList(2010, 2011);
 
         if(talks == null) {
             notFound("No talks found for the current query. Sorry");

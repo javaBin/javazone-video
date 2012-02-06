@@ -10,14 +10,15 @@
 <div class="row-fluid">
   <div class="span2">&nbsp;</div>
   <article class="speaker-section span6">
-    <a href="@{Speakers.show(speaker.slug)}"><img src="${speaker.photoURL}" alt="${speaker.name}" width="200" height="250" /></a>
+    <a href="@{Speakers.show(speaker.slug)}"><img class="${speaker_parity}" src="${speaker.photoURL}" alt="${speaker.name}" width="200" height="250" /></a>
     ${speaker.bio.raw()}
+    <h3>Talks</h3>
+    <ul>
+      #{list items:talks.get(speaker.slug), as:'item'}
+      <li><a href="@{Talks.show(item.id)}">${item.title} (${item.year})</a></li>
+      #{/list}
+    </ul>
   </article>
-  <div class="span3">
-      <h3>Talks</h3>
-      <ul>
-      </ul>
-  </div>
 </div>
 #{/list}
 <script type="text/javascript">$("#speakers").addClass("active");</script>

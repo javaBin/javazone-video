@@ -203,16 +203,6 @@ article.speaker-section {
     box-shadow: 1px 1px 4px #d1d1d1;
   }
 
-  img.odd {
-    float: left;
-    margin: 5px 10px 5px 5px;
-  }
-
-  img.even {
-    float: right;
-    margin: 5px 5px 5px 10px;
-  }
-
   img:hover {
     pointer: hand;
   }
@@ -223,6 +213,17 @@ article.speaker-section {
     margin-right: 5px;
   }
 }
+
+img.odd {
+  float: left;
+  margin: 5px 10px 5px 5px;
+}
+
+img.even {
+  float: right;
+  margin: 5px 5px 5px 10px;
+}
+
 
 .hidden {
   display: none;

@@ -90,7 +90,7 @@ $(function () {
 
     $(".speaker-link").popover({
         content: function() {
-            return $(this).parent().find(".wiki").html();
+            return $(this).parent().find(".bio").html();
         },
         title: function() {
             return $(this).text();
@@ -101,7 +101,7 @@ $(function () {
 
     $(".speaker-link-right").popover({
         content: function() {
-            return $(this).parent().find(".wiki").html();
+            return $(this).parent().find(".bio").html();
         },
         title: function() {
             return $(this).text();

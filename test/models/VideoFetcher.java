@@ -8,6 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import play.test.FunctionalTest;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -35,14 +36,36 @@ public class VideoFetcher extends FunctionalTest {
         for(Talk talk : finishedTalks) {
             for(Speaker speaker : talk.speakers()) { //must save reference types first
                 Speaker found = Speaker.find("bySlug", speaker.slug()).first();
+
                 if(null != found) {
                     speaker = found;
                 }
 
+                handleImages(talk, speaker);
                 speaker.save();
             }
+
             talk.save();
         }
+    }
+
+    private void handleImages(Talk talk, Speaker speaker) {
+        HashMap<String, Integer> sizes = new HashMap<String, Integer>(){{
+                put("large", 200);
+                put("small", 80);
+        }};
+
+        ImageHandler handler = new ImageHandler("public/images/speakers");
+        HashMap<String, ImageInfo> versions = handler.handleImage(speaker.slug(), talk.year(),
+                                                               speaker.photoURL(), sizes);
+
+        if(speaker.images().isEmpty() || isNewerVersions(versions, speaker.images()) ) {
+            speaker.images(versions);
+        }
+    }
+
+    private boolean isNewerVersions(HashMap<String, ImageInfo> newImages, HashMap<String, ImageInfo> oldImages) {
+        return !newImages.isEmpty() && newImages.get("large").year() > oldImages.get("large").year();
     }
 
 }

@@ -1,9 +1,13 @@
 package models.domain;
 
+import com.google.code.morphia.annotations.Embedded;
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
+import models.ImageInfo;
 import play.data.validation.Required;
 import play.modules.morphia.Model;
+
+import java.util.HashMap;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
@@ -21,6 +25,9 @@ public final class Speaker extends Model {
 
     private final String bio;
     private final String photoURL;
+
+    @Embedded
+    private HashMap<String, ImageInfo> images = new HashMap<String, ImageInfo>();
 
     public Speaker(String name, String bio, String url) {
         this.name = name;
@@ -45,4 +52,11 @@ public final class Speaker extends Model {
         return slug;
     }
 
+    public void images(HashMap<String, ImageInfo> sizes) {
+        images = sizes;
+    }
+
+    public HashMap<String, ImageInfo> images() {
+        return images;
+    }
 }

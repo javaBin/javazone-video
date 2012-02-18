@@ -78,7 +78,7 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
     public void handlesNullMax() {
         VimeoClient client = new VimeoClient();
         List<VimeoVideo> results = client.getVideosByYear("2010", null, null);
-        assertEquals(67, results.size());
+        assertEquals(65, results.size());
     }
 
     @Test

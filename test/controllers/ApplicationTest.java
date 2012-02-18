@@ -59,7 +59,7 @@ public class ApplicationTest extends FunctionalTest {
 
     @Test
     public void talkFilterPageResponds200ForValidTag() {
-        Response response = GET("/talks/html5");
+        Response response = GET("/talks/2011");
         assertIsOk(response);
         assertContentType("text/html", response);
     }

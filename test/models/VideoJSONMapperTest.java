@@ -58,25 +58,25 @@ public class VideoJSONMapperTest extends UnitTest {
 
     @Test
     public void isWrapperForTags() {
-        assertEquals(2, video.tags().size());
+        assertEquals(1, video.tags().size());
     }
 
     @Test
     public void tagsHaveId() {
         VimeoVideo.Tag tag = video.tags().get(0);
-        assertEquals(64157812, tag.id());
+        assertEquals(64157814, tag.id());
     }
 
     @Test
     public void tagsHaveName() {
         VimeoVideo.Tag tag = video.tags().get(0);
-        assertEquals("JavaBin", tag.name());
+        assertEquals("Java", tag.name());
     }
 
     @Test
     public void tagsHaveUrl() {
         VimeoVideo.Tag tag = video.tags().get(0);
-        assertEquals("http://vimeo.com/tag:javabin", tag.url());
+        assertEquals("http://vimeo.com/tag:java", tag.url());
     }
 
     @Test

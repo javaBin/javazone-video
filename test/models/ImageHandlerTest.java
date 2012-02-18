@@ -51,29 +51,34 @@ public class ImageHandlerTest extends FunctionalTest {
         test.createNewFile();
 
         ImageHandler handler = new ImageHandler("test/out");
-        handler.handleImage("test", 2011,
+        HashMap<String, ImageInfo> versions = handler.handleImage("test", 2011,
                 "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0",
                 new HashMap<String, Integer>(){{put("large", 300);}});
 
         assertFileExist("test/out/test_2011_large.jpg");
         assertEquals(null, ImageIO.read(test));
+        
+        assertEquals(0, versions.get("large").width());
     }
 
-     @Test
+    @Test
     public void updatesImagesForMoreRecentYear() throws Exception {
-         File test = new File("test/out/test_2010_large.jpg");
-         test.createNewFile();
+        File test = new File("test/out/test_2010_large.jpg");
+        test.createNewFile();
 
-         ImageHandler handler = new ImageHandler("test/out");
+        ImageHandler handler = new ImageHandler("test/out");
 
-         handler.handleImage("test", 2011,
+        HashMap<String, ImageInfo> versions = handler.handleImage("test", 2011,
                  "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0",
                  new HashMap<String, Integer>(){{put("large", 300);}});
 
-         assertFileExist("test/out/test_2011_large.jpg");
-         assertFileDoesntExist("test/out/test_2010_large.jpg");
-         BufferedImage in = ImageIO.read(new File("test/out/test_2011_large.jpg"));
-         assertEquals(200, in.getWidth());  //scaled
+        assertFileExist("test/out/test_2011_large.jpg");
+        assertFileDoesntExist("test/out/test_2010_large.jpg");
+        BufferedImage in = ImageIO.read(new File("test/out/test_2011_large.jpg"));
+        assertEquals(200, in.getWidth());  //scaled
+
+        assertEquals(200, versions.get("large").width() );
+
     }
 
 
@@ -96,6 +101,19 @@ public class ImageHandlerTest extends FunctionalTest {
 
         BufferedImage in = ImageIO.read(new File("test/out/test_2011_small.jpg"));
         assertEquals(100, in.getHeight());  //scaled
+    }
+
+    @Test
+    public void returnsInfoAboutVersionsForImage() throws Exception {
+        ImageHandler handler = new ImageHandler("test/out");
+        HashMap<String, ImageInfo> versions = handler.handleImage("test", 2011,
+                "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0",
+                new HashMap<String, Integer>(){{put("large", 300); put("small", 100);}});
+
+        assertEquals(300, versions.get("large").height());
+        assertEquals(100, versions.get("small").height());
+        assertEquals("test/out/test_2011_small.jpg", versions.get("small").url());
+        assertEquals("test/out/test_2011_large.jpg", versions.get("large").url());
     }
 
 

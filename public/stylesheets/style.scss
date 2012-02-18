@@ -165,7 +165,7 @@ article.speaker-section {
   div.wiki {
       margin-left: 0;
       margin-top: 0;
-
+      margin-right: 15px;
 
       .paragraph {
         padding-top: 7px;
@@ -224,11 +224,6 @@ img.even {
   margin: 5px 5px 5px 10px;
 }
 
-.speakers, .abstract {
-  height: 150px;
-  border-right: 1px solid #e5e5e5;
-}
-
 
 .hidden {
   display: none;
@@ -237,6 +232,11 @@ img.even {
 .popover-inner {
   width: 500px !important;
 }
+
+.keywords {
+  margin-bottom: 5px;
+}
+
 
 footer {
   text-align: center;

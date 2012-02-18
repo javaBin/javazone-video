@@ -22,14 +22,15 @@
 <div class="keywords span6">plays: <span>${talk.plays}</span> <span class="square">◼</span> likes: <span>${talk.likes}</span> <span class="square">◼</span> comments: <span>${talk.comments}</span> <span class="square">◼</span> <a href="http://vimeo.com/${talk.id}">on vimeo</a></div>
     </div>
 
-    <div class="row-fluid text">
-      <div class="span2">
+    <div class="row-fluid">
+      <div class="span2 speakers">
         #{include 'speakers.html' /}
       </div>
-      <div class="span5">
+      <div class="span5 abstract">
         ${talk.talkAbstract.raw()}
       </div>
       <div class="span3">
+        <h3>Tags</h3>
         <ul>
           #{list items:talk.tags, as:'tag'}
           <li><a href="${tag.url}" class="tag">${tag.name}</a></li>

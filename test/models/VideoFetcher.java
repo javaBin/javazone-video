@@ -59,7 +59,7 @@ public class VideoFetcher extends FunctionalTest {
         HashMap<String, ImageInfo> versions = handler.handleImage(speaker.slug(), talk.year(),
                                                                speaker.photoURL(), sizes);
 
-        if(speaker.images().isEmpty() || isNewerVersions(versions, speaker.images()) ) {
+        if((speaker.images() == null || speaker.images().isEmpty()) || isNewerVersions(versions, speaker.images()) ) {
             speaker.images(versions);
         }
     }

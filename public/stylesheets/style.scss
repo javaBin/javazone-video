@@ -149,11 +149,24 @@ ul  {
   padding-top: 10px;
 }
 
+ul {
+  padding-top: 1px;
+}
+
+h3 {
+  margin-top: 8px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+
 article.speaker-section {
   border-bottom: 0;
   
   h3 {
     margin-top: 8px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
 
   .text {
@@ -204,6 +217,9 @@ article.speaker-section {
     border: 1px solid #d1d1d1 !important;
     border-radius: 4px;
     box-shadow: 1px 1px 4px #d1d1d1;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
   }
 
   img:hover {

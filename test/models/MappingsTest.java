@@ -1,12 +1,7 @@
 package models;
 
+import org.junit.Before;
 import org.junit.Test;
-import org.yaml.snakeyaml.Yaml;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -16,12 +11,37 @@ import static junit.framework.Assert.assertEquals;
  */
 public class MappingsTest {
 
-    @Test
-    public void finds_user_slug_in_mapping_file() throws Exception {
-        Yaml parser = new Yaml();
-        Map<String, Object> users = (LinkedHashMap<String, Object>) parser.load(new FileInputStream(new File("test/testdata/mappings.yml")));
+    Mappings mappings;
 
-        assertEquals(152, users.size());
+    @Before
+    public void setUp() {
+        mappings = new Mappings("test/testdata/mappings.yml");
+    }
+
+
+    @Test(expected = IllegalArgumentException.class)
+    public void illegal_filename_throws_illegalArgumentException() throws Exception {
+        mappings = new Mappings("foo");
+    }
+
+    @Test
+    public void find_twitter_name_for_slug() throws Exception {
+        assertEquals("knuthaug", mappings.twitterNameForUser("knuthaugen"));
+    }
+
+    @Test
+    public void invalid_name_returns_empty_twitter_name() throws Exception {
+        assertEquals("", mappings.twitterNameForUser("foo"));
+    }
+
+    @Test
+    public void find_blog_for_user_slug() throws Exception {
+        assertEquals("http://blog.knuthaugen.no/", mappings.blogForUser("knuthaugen"));
+    }
+
+    @Test
+    public void invalid_name_returns_empty_blog() throws Exception {
+        assertEquals("", mappings.blogForUser("foo"));
     }
 
 }

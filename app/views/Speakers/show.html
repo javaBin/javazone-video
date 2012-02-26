@@ -4,7 +4,7 @@
   <div class="span2">&nbsp;</div>
   <article class="speaker-section span7">
     <header><h2>${speaker.name}</h2></header>
-     <img src="${speaker.photoURL}" alt="${speaker.name}" width="200" height="250" />
+     <img src="/${speaker.images.get("small").url}" alt="${speaker.name}" width="${speaker.images.get("small").width}" height="${speaker.images.get("small").height}" />
       ${speaker.bio.raw()}
   </article>
 </div>
@@ -27,8 +27,39 @@
 
   </div>
   <div class="span4">
-    <h3>Tweets</h3>
+#{if speaker.twitterName != null }
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script type="text/javascript">
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 5,
+  interval: 30000,
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#ffffff',
+      color: '#333333'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#333333',
+      links: '#005580'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().setUser('${speaker.twitterName}').start();
+</script>
     
+
+#{/if}
+
   </div>
 </div>
 <script type="text/javascript">$("#speakers").addClass("active");</script>

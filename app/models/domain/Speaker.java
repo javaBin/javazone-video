@@ -25,6 +25,7 @@ public final class Speaker extends Model {
 
     private final String bio;
     private final String photoURL;
+    private String twitterName;
 
     @Embedded
     private HashMap<String, ImageInfo> images = new HashMap<String, ImageInfo>();
@@ -58,5 +59,13 @@ public final class Speaker extends Model {
 
     public HashMap<String, ImageInfo> images() {
         return images;
+    }
+
+    public String twitterName() {
+        return twitterName;
+    }
+
+    public void twitterName(String twitterName) {
+        this.twitterName = twitterName;
     }
 }

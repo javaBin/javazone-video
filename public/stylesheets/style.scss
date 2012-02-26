@@ -234,12 +234,12 @@ article.speaker-section {
 }
 
 img.odd {
-  float: left;
+  float: left !important;
   margin: 5px 10px 5px 5px;
 }
 
 img.even {
-  float: right;
+  float: right !important;
   margin: 5px 5px 5px 10px;
 }
 
@@ -277,6 +277,14 @@ footer {
     padding-top: 30px;
   }
 
+}
+
+.twtr-ft {
+  display:none;
+}
+
+.twtr-doc {
+  border: 1px solid #aaa !important;
 }
 
 

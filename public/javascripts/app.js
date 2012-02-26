@@ -1,4 +1,3 @@
-
 $(function () {
 
     var fixTag = function(tag) {
@@ -110,3 +109,35 @@ $(function () {
         html: true
     })
 });
+
+var jz = jz || {};
+
+jz.feed = function feed(element, username) {
+    new TWTR.Widget({
+                        id: element,
+                        version: 2,
+                        type: 'profile',
+                        rpp: 5,
+                        interval: 30000,
+                        width: 300,
+                        height: 300,
+                        theme: {
+                            shell: {
+                                background: '#ffffff',
+                                color: '#333333'
+                            },
+                            tweets: {
+                                background: '#ffffff',
+                                color: '#333333',
+                                links: '#005580'
+                            }
+                        },
+                        features: {
+                            scrollbar: true,
+                            loop: false,
+                            live: true,
+                            behavior: 'all'
+                        }
+                    }).render().setUser(username).start();
+    
+};

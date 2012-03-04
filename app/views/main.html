@@ -62,9 +62,9 @@
       </div>
     </div>
     
-#{if speaker != null }
+#{if speaker != null || talk != null } 
     <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-    #{/if}
+#{/if}
     <script src="@{'public/javascripts/underscore-min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     <script src="@{'public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     <script src="@{'public/javascripts/bootstrap-tooltip.js'}" type="text/javascript" charset="${_response_encoding}"></script>

@@ -26,16 +26,25 @@
       <div class="span2 ">
         #{include 'speakers.html' /}
       </div>
-      <div class="span6">
+      <div class="span5">
         ${talk.talkAbstract.raw()}
       </div>
-      <div class="span3">
+      <div class="span4">
         <h3>Tags</h3>
         <ul>
           #{list items:talk.tags, as:'tag'}
-          <li><a href="${tag.url}" class="tag">${tag.name}</a></li>
+          <a href="${tag.url}" class="tag">${tag.name}</a>
+          #{if !tag_isLast} | #{/if}
           #{/list}
         </ul>
+
+        <div id="searcher"></div>
+        <script type="text/javascript">
+          $().ready(function search_loader() { 
+            jz.searcher('searcher', ["#JavaScript", "#CoffeeScript"]);
+          });
+        </script>
+
       </div>
     </div>
   </article>

@@ -112,32 +112,44 @@ $(function () {
 
 var jz = jz || {};
 
+jz.common_props = {
+    version: 2, 
+    interval: 30000,
+    width: 300,
+    height: 300,
+    theme: {
+        shell: {
+            background: '#8ec1da',
+            color: '#ffffff'
+        },
+        tweets: {
+            background: '#ffffff',
+            color: '#444444',
+            links: '#1985b5'
+        }
+    },
+    features: {
+        scrollbar: false,
+        loop: true,
+        live: true,
+        behavior: 'default'
+    }  
+};
+
+jz.searcher = function searcher(element,search_words) {
+    var props = jQuery.extend(true, {}, jz.common_props);
+    props.id = element;
+    props.type = 'search';
+    props.width = 250;
+    props.title = "Search for: " + search_words.join(" ");
+    props.search = search_words.join(" ");
+    new TWTR.Widget(props).render().start();;
+}
+
 jz.feed = function feed(element, username) {
-    new TWTR.Widget({
-                        id: element,
-                        version: 2,
-                        type: 'profile',
-                        rpp: 5,
-                        interval: 30000,
-                        width: 300,
-                        height: 300,
-                        theme: {
-                            shell: {
-                                background: '#ffffff',
-                                color: '#333333'
-                            },
-                            tweets: {
-                                background: '#ffffff',
-                                color: '#333333',
-                                links: '#005580'
-                            }
-                        },
-                        features: {
-                            scrollbar: true,
-                            loop: false,
-                            live: true,
-                            behavior: 'all'
-                        }
-                    }).render().setUser(username).start();
-    
+    var props = jQuery.extend(true, {}, jz.common_props);
+    props.id = element;
+    props.type = 'profile';
+    props.rpp = 5;
+    new TWTR.Widget(props).render().setUser(username).start();
 };

@@ -71,19 +71,28 @@ trulsjørgensen:
   twitterName: trulsjor 
 anderssveen:
   twitterName: anderssv
+  blog: "http://about.me/anderssv"
   other_videos:
     smidig: ["http://vimeo.com/30577740"]
+    misc: ["http://vimeo.com/35220226", "https://vimeo.com/35219624"]
 martijndashorst:
   twitterName: dashorst 
 olvemaudal:
   twitterName: olvemaudal
+  blog: "http://olvemaudal.wordpress.com/"
   other_videos:
     smidig: ["http://vimeo.com/32087512", "http://vimeo.com/30577521"]
     ndc: ["http://vimeo.com/17561028"]
 andrewleerubinger:
   twitterName: ALRubinger 
+  blog: "http://exitcondition.alrubinger.com/"
+  other_videos:
+    misc: ["http://vimeo.com/30747433", "http://vimeo.com/30743176", "http://vimeo.com/16544029", "http://vimeo.com/13193802"]
 adriancole:
   twitterName: adrianfcole 
+  other_videos:
+    øredev: ["http://vimeo.com/17668286"]
+    misc: ["http://vimeo.com/31897119"]
 thomasenebo:
   twitterName: tom_enebo
   blog: "http://blog.enebo.com/"
@@ -94,6 +103,8 @@ kevlinhenney:
     NDC: ["http://vimeo.com/14229762", "http://vimeo.com/14229710"]
 bodilstokke:
   twitterName: bodiltv
+  other_videos:
+    smidig: ["http://vimeo.com/32223928"]
 eugeneciurana:
   twitterName: 
 johannesbrodwall:
@@ -301,24 +312,27 @@ jimwebber:
   twitterName: jimwebber
 totto-thorhenninghetland:
   twitterName: TottoNOR
+  blog: "https://wiki.cantara.no/pages/viewpage.action?pageId=393226"
 andersbjørnestad:
   twitterName: 
 nikitaivanov:
-  twitterName: 
+  twitterName: gridgain
 alexboisvert:
-  twitterName: 
+  twitterName: boia01
 johnfallows:
   twitterName: 
 jonasjacobi:
-  twitterName: 
+  twitterName: jonasjacobi
 eivindbarstadwaaler:
   twitterName: eivindw
 andresalmiray:
   twitterName: 
 knuto.hellan:
-  twitterName: 
+  twitterName: knuthellan
+  blog: "http://knuthellan.com/"
 krestenkrabthorup:
-  twitterName: 
+  twitterName: drkrab
+  blog: "http://www.javalimit.com/"
 stephencolebourne:
   twitterName: 
 mårtenhaglind:

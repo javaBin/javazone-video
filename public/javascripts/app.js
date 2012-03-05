@@ -114,7 +114,7 @@ var jz = jz || {};
 
 jz.common_props = {
     version: 2, 
-    interval: 30000,
+    interval: 10000,
     width: 300,
     height: 300,
     theme: {

@@ -37,13 +37,15 @@
           #{if !tag_isLast} | #{/if}
           #{/list}
         </ul>
-
-        <div id="searcher"></div>
-        <script type="text/javascript">
-          $().ready(function search_loader() { 
-            jz.searcher('searcher', ["#JavaScript", "#CoffeeScript"]);
-          });
-        </script>
+         #{if filterTags.size != 0 }
+         <div id="searcher"></div>
+         <script type="text/javascript">
+           $().ready(function search_loader() { 
+             var filters = new Array(${filterTags.join(",")});
+             jz.searcher('searcher', filters);
+           });
+         </script>
+         #{/if}
 
       </div>
     </div>

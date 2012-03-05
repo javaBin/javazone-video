@@ -135,7 +135,6 @@ public class Talk extends Model {
         this.comments = comments;
     }
 
-
     public static Function<Talk, Iterable<String>> findTags() {
         return new Function<Talk, Iterable<String>>() {
             public Iterable<String> apply( Talk talk) {

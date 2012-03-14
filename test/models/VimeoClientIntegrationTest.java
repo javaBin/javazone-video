@@ -18,32 +18,28 @@ import java.util.Map;
 public class VimeoClientIntegrationTest extends FunctionalTest {
 
     private Map<String, String> args = new HashMap<String, String>();
+    VimeoClient client;
 
     @Before
     public void setup() {
+        client = new VimeoClient();
         args.put("per_page", "1");
     }
 
     @Test
-    public void canFetchVimeoVideosByTag() {
-        VimeoClient client = new VimeoClient();
-
+    public void canFetchVimeoVideosByYear() {
         List<VimeoVideo> results = client.getVideosByYear("2011", args, 1);
         assertEquals(1, results.size());
     }
 
     @Test
     public void canFetchSeveralPages() {
-        VimeoClient client = new VimeoClient();
-
         List<VimeoVideo> results = client.getVideosByYear("2011", args, 4);
         assertEquals(4, results.size());
     }
 
     @Test
     public void canFetchVideosFor2010() {
-        VimeoClient client = new VimeoClient();
-
         List<VimeoVideo> results = client.getVideosByYear("2010", args, 1);
         assertEquals(1, results.size());
 
@@ -51,8 +47,6 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
 
     @Test
     public void fetchedVideosHaveEmbedCodes() {
-        VimeoClient client = new VimeoClient();
-
         List<VimeoVideo> results = client.getVideosByYear("2010", args, 1);
         assertEquals(Embed.class, results.get(0).embedCode().getClass());
 
@@ -60,8 +54,6 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void throwsExceptionForIllegalYear() {
-        VimeoClient client = new VimeoClient();
-
         List<VimeoVideo> results = client.getVideosByYear("2009", args, 1);
         assertEquals(1, results.size());
 
@@ -69,14 +61,12 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
 
     @Test
     public void handlesNullArgs() {
-        VimeoClient client = new VimeoClient();
         List<VimeoVideo> results = client.getVideosByYear("2010", null, 1);
         assertEquals(50, results.size());
     }
 
      @Test
     public void handlesNullMax() {
-        VimeoClient client = new VimeoClient();
         List<VimeoVideo> results = client.getVideosByYear("2010", null, null);
         assertEquals(65, results.size());
     }
@@ -84,12 +74,17 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
     @Test
     @Ignore //slow
     public void clientCanFetchAll() {
-        VimeoClient client = new VimeoClient();
         Map<String, String> args = new HashMap<String, String>();
         args.put("per_page", "50");
 
         List<VimeoVideo> results = client.getVideosByYear("2011", args, 0);
         assertEquals(130, results.size());
+    }
+
+    @Test
+    @Ignore
+    public void clientCanFetchInformationForOneVideo() throws Exception {
+
     }
 
 

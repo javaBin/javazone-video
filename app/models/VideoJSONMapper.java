@@ -23,6 +23,18 @@ public class VideoJSONMapper {
         json = jsonData;
     }
 
+    public VimeoVideo videoToObject() {
+        try {
+            Map map = mapper.readValue(json, Map.class);
+            List<Object> videos = (ArrayList<Object>) map.get("video");
+            return VideoTranslator.translateVideo((HashMap<String, Object>) videos.get(0));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public List<VimeoVideo> videosToObjects() {
 
         if(json == null) {
@@ -40,7 +52,6 @@ public class VideoJSONMapper {
         return null;
     }
 
-
     public Integer getTotalVideos() {
         try {
             Map map = mapper.readValue(json, Map.class);
@@ -51,4 +62,5 @@ public class VideoJSONMapper {
         }
         return 0;
     }
+
 }

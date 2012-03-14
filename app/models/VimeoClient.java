@@ -42,6 +42,7 @@ public class VimeoClient {
     private static final String ENDPOINT_HOST      = Play.configuration.getProperty("vimeo.endpoint.host");
     private static final String EMBED_SERVICE_PATH = Play.configuration.getProperty("vimeo.embed.servicepath");
     private static final String VIDEOS_METHOD      = Play.configuration.getProperty("vimeo.video.method");
+    private static final String VIDEOS_INFO_METHOD      = Play.configuration.getProperty("vimeo.video.info_method");
 
     private static final String ENDPOINT_PROTOCOL  = "http";
 
@@ -97,6 +98,7 @@ public class VimeoClient {
                 .build();
 
         OAuthRequest request = new OAuthRequest(Verb.GET, VIMEO_API_URL);
+        args.put("method", VIDEOS_METHOD);
         args.put("page", pageNumber.toString());
         addParameters(request, args);
 
@@ -106,8 +108,29 @@ public class VimeoClient {
         return response.getBody();
     }
 
+    private String getVideoInfo(Integer id) {
+        OAuthService service = new ServiceBuilder()
+                .provider(VimeoApi.class)
+                .apiKey(CONSUMER_KEY)
+                .apiSecret(CONSUMER_SECRET)
+                .build();
+
+        OAuthRequest request = new OAuthRequest(Verb.GET, VIMEO_API_URL);
+        Map<String, String> args = new HashMap<String, String>();
+        args.put("method", VIDEOS_INFO_METHOD);
+        args.put("video_id", id.toString());
+        addParameters(request, args);
+
+        service.signRequest(EMPTY_TOKEN, request);
+        Response response = request.send();
+
+        return response.getBody();
+    }
+
+
+
     private void addParameters(OAuthRequest request, Map<String, String> args) {
-        request.addQuerystringParameter("method", VIDEOS_METHOD);
+
         request.addQuerystringParameter("user_id", "javazone");
         request.addQuerystringParameter("full_response", "1");
         request.addQuerystringParameter("format", "json");
@@ -143,7 +166,7 @@ public class VimeoClient {
         String responseBody = null;
 
         try {
-            responseBody = executeRequest(id, client);
+            responseBody = executeEmbedRequest(id, client);
         } catch (ClientProtocolException e) {
             Logger.error(e.toString());
         } catch (IOException e) {
@@ -156,8 +179,8 @@ public class VimeoClient {
     }
 
 
-    private String executeRequest(int id, HttpClient client) throws IOException {
-        String url = encodeUrl();
+    private String executeEmbedRequest(int id, HttpClient client) throws IOException {
+        String url = encodeUrl(EMBED_SERVICE_PATH);
         url = url + "?url=" + VIMEO_BASE_URL + id + "&maxwidth=800";
 
         HttpGet httpget = new HttpGet(url);
@@ -167,13 +190,19 @@ public class VimeoClient {
         return client.execute(httpget, responseHandler);
     }
 
-    private String encodeUrl() {
+    private String encodeUrl(String servicePath) {
         try {
-            return new URI(ENDPOINT_PROTOCOL, ENDPOINT_HOST, EMBED_SERVICE_PATH,
+            return new URI(ENDPOINT_PROTOCOL, ENDPOINT_HOST, servicePath,
                            null).toString();
         } catch (URISyntaxException e) {
             return null;
         }
+    }
+
+    public VimeoVideo getVideoById(Integer id) {
+        String videoJson = getVideoInfo(id);
+        return new VideoJSONMapper(videoJson).videoToObject();
+    
     }
 
 }

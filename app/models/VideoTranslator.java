@@ -27,6 +27,10 @@ public class VideoTranslator {
         return videos;
     }
 
+    public static VimeoVideo translateVideo(HashMap<String, Object> rawVideo) {
+        return createVideoObject(rawVideo);
+    }
+
     private static VimeoVideo createVideoObject(Map<String, Object> v) {
         VimeoVideo video = newVideoWithSimpleProperties(v);
         addTags(v, video);

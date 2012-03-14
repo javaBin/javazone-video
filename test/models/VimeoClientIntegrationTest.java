@@ -1,5 +1,6 @@
 package models;
 
+import junit.framework.AssertionFailedError;
 import models.domain.Embed;
 import models.domain.external.VimeoVideo;
 import org.junit.Before;
@@ -65,7 +66,7 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
         assertEquals(50, results.size());
     }
 
-     @Test
+    @Test
     public void handlesNullMax() {
         List<VimeoVideo> results = client.getVideosByYear("2010", null, null);
         assertEquals(65, results.size());
@@ -82,9 +83,16 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
     }
 
     @Test
-    @Ignore
     public void clientCanFetchInformationForOneVideo() throws Exception {
+        VimeoVideo video = client.getVideoById(28722593);
+        assertEquals(28722593, video.id());
+        assertLargerThan(75, video.plays());
+    }
 
+    private void assertLargerThan(int i, int plays) {
+        if(!(i < plays)) {
+            throw new AssertionFailedError(String.format("Expected %s to be larger than %s, but it wasn't", i, plays));
+        }
     }
 
 

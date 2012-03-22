@@ -3,7 +3,7 @@
 require:
     - play -> cobertura 2.4:
         id: test
-    - play -> morphia 1.2.4d
+    - play -> morphia 1.2.6
     - play -> sass 1.1
     - com.google.guava -> guava r09
     - org.codehaus.jackson -> jackson-mapper-asl 1.8.5

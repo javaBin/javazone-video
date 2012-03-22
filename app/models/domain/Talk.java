@@ -7,12 +7,14 @@ import com.google.code.morphia.annotations.Reference;
 import com.google.common.base.Function;
 import models.domain.external.VimeoVideo;
 import play.modules.morphia.Model;
+import play.modules.morphia.Model.AutoTimestamp;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.collect.Iterables.transform;
 
+@AutoTimestamp
 @Entity
 public class Talk extends Model {
 

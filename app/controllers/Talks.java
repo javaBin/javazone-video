@@ -2,6 +2,9 @@ package controllers;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Collections2;
+import models.GuavaTools;
 import models.domain.Tag;
 import models.domain.Talk;
 import play.Play;
@@ -14,14 +17,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import static com.google.common.collect.Collections2.filter;
 import static com.google.common.collect.Collections2.transform;
+import static models.GuavaTools.collect;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
  * 2011-09-29
  */
 public class Talks extends Controller {
+
+    static Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
 
     public static void show(@Required int id) {
         Talk talk = Talk.find("byId", id).first();
@@ -35,11 +40,26 @@ public class Talks extends Controller {
         render(talk, filterTags);
     }
 
+    public static void filter(@Required int year) {
+        List<Talk> talks = Talk.filter("year =", year).order("-plays").asList();
+
+        Iterable<String> allTags = collect(talks, Talk.findTags());
+        List<String> tags = GuavaTools.findMostPopularElements(allTags, 10);
+
+        if(talks == null) {
+            notFound("No talks found for the current query. Sorry");
+        }
+
+        renderTemplate("Application/index.html", talks, tags, years);
+    }
+
+
+
     private static List<String> findFilterTags(Collection<String> tags) {
         String filterString = Play.configuration.getProperty("twitter.filter.tags");
         final List<String> filters = Arrays.asList(filterString.split(","));
 
-        Collection<String> list = transform(filter(tags, new Predicate<String>() {
+        Collection<String> list = transform(Collections2.filter(tags, new Predicate<String>() {
             @Override
             public boolean apply(String tagName) {
                 return filters.contains(tagName);

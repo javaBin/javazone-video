@@ -106,6 +106,9 @@ form {
 .label {
   border: 1px solid;
   border-radius: 4px;
+  color: black;
+  background-color: transparent;
+  border-color: black;
 }
 
 .label.android,
@@ -128,6 +131,13 @@ form {
 .label.play {
   background-color: navy;
   border-color: navy;
+  color: white;
+
+}
+
+.label.norsk,
+.label.english {
+  background-color: lightgray;
 }
 
 .label.java,
@@ -136,9 +146,10 @@ form {
 .label.html5,
 .label.groovy,
 .label.jvm,
-.label.coffescript {
+.label.coffeescript {
   background-color: green;
   border-color: green;
+  color: white;
 }
 
 .label.lightningtalk, 
@@ -146,7 +157,7 @@ form {
 .label.presentation {
   background-color: black;
   border-color: black;
-
+  color: white;
 }
 
 .label:hover{

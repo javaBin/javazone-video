@@ -103,6 +103,11 @@ form {
   border-top-color: $effect-color !important;
 }
 
+.label {
+  border: 1px solid;
+  border-radius: 4px;
+}
+
 .label.android,
 .label.rest,
 .label.frameworks,
@@ -114,9 +119,15 @@ form {
 .label.functional,
 .label.agile,
 .label.web,
-.label.jvm,
+.label.nosql,
+.label.tools,
+.label.mobile,
+.label.architecture,
+.label.security,
+.label.cloud, 
 .label.play {
   background-color: navy;
+  border-color: navy;
 }
 
 .label.java,
@@ -124,12 +135,18 @@ form {
 .label.javascript,
 .label.html5,
 .label.groovy,
+.label.jvm,
 .label.coffescript {
   background-color: green;
+  border-color: green;
 }
 
-.label.lightningtalk, .label.workshop, .label.presentation {
+.label.lightningtalk, 
+.label.workshop, 
+.label.presentation {
   background-color: black;
+  border-color: black;
+
 }
 
 .label:hover{

@@ -28,6 +28,7 @@ import java.util.Map;
 
 /**
  * Class acting as an interface against the vimeo services.
+ *
  * It reads configuration from the conf/application.conf file
  * for urls and such, but needs the vimeo consumer key and consumer secret to
  * be set as environment variables for the requests to work.

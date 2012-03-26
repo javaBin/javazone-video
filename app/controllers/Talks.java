@@ -26,7 +26,6 @@ import static models.GuavaTools.collect;
  */
 public class Talks extends Controller {
 
-    static Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
 
     public static void show(@Required int id) {
         Talk talk = Talk.find("byId", id).first();
@@ -36,8 +35,9 @@ public class Talks extends Controller {
         }
 
         List<String> filterTags = findFilterTags(transform(talk.tags(), Tag.name()));
+        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
 
-        render(talk, filterTags);
+        render(talk, filterTags, years);
     }
 
     public static void filter(@Required int year) {
@@ -49,7 +49,7 @@ public class Talks extends Controller {
         if(talks == null) {
             notFound("No talks found for the current query. Sorry");
         }
-
+        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         renderTemplate("Application/index.html", talks, tags, years);
     }
 

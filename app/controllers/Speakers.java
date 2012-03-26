@@ -1,7 +1,9 @@
 package controllers;
 
+import com.google.common.base.Splitter;
 import models.domain.Speaker;
 import models.domain.Talk;
+import play.Play;
 import play.data.validation.Required;
 import play.mvc.Controller;
 
@@ -23,15 +25,16 @@ public class Speakers extends Controller {
             notFound("The speaker was not found. Sorry");
         }
         List<Talk> talks = Talk.filter("speakers elem", speaker).asList();
-
-        render(speaker, talks);
+        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
+        render(speaker, talks, years);
     }
 
     public static void index() {
         List<Speaker> speakers = Speaker.all().asList();
         List<Talk> talkList = Talk.all().asList();
         HashMap talks = findTalksForSpeakers(talkList);
-        render(speakers, talks);
+        Iterable <String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
+        render(speakers, talks, years);
     }
 
     private static HashMap findTalksForSpeakers(List<Talk> talkList) {

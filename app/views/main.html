@@ -31,8 +31,9 @@
               <li id="main" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Years <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/talks/2011">2011</a></li>
-                  <li><a href="/talks/2010">2010</a></li>
+                  #{list items:years, as:'year'}
+                  <li><a href="/talks/${year}">${year}</a></li>
+                  #{/list}
                 </ul>
               </li>
               <li id="tags"><a href="/tags">Tags</a></li>

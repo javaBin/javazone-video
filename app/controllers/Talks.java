@@ -44,7 +44,7 @@ public class Talks extends Controller {
         List<Talk> talks = Talk.filter("year =", year).order("-plays").asList();
 
         Iterable<String> allTags = collect(talks, Talk.findTags());
-        List<String> tags = GuavaTools.findMostPopularElements(allTags, 10);
+        List<String> tags = GuavaTools.findMostPopularElements(allTags, 20);
 
         if(talks == null) {
             notFound("No talks found for the current query. Sorry");

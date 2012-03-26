@@ -42,13 +42,15 @@ public class VimeoClient {
     private static final String ENDPOINT_HOST      = Play.configuration.getProperty("vimeo.endpoint.host");
     private static final String EMBED_SERVICE_PATH = Play.configuration.getProperty("vimeo.embed.servicepath");
     private static final String VIDEOS_METHOD      = Play.configuration.getProperty("vimeo.video.method");
-    private static final String VIDEOS_INFO_METHOD      = Play.configuration.getProperty("vimeo.video.info_method");
+    private static final String VIDEOS_INFO_METHOD = Play.configuration.getProperty("vimeo.video.info_method");
 
     private static final String ENDPOINT_PROTOCOL  = "http";
 
     private static final Token EMPTY_TOKEN = new Token("", "");
     private static final String CONSUMER_KEY = System.getenv("VIMEO_CONSUMER_KEY");
     private static final String CONSUMER_SECRET = System.getenv("VIMEO_CONSUMER_SECRET");
+    private static final String HEADER_ACCEPT = "Accept";
+    private static final String HEADER_ACCEPT_CHARSET = "Accept-Charset";
 
     private static final Map<String, String> supportedTags = new HashMap<String, String>(){{
             put("2011", "Javazone2011");
@@ -91,42 +93,42 @@ public class VimeoClient {
     }
 
     private String getVideoPage(Integer pageNumber, Map<String, String> args) {
-        OAuthService service = new ServiceBuilder()
-                .provider(VimeoApi.class)
-                .apiKey(CONSUMER_KEY)
-                .apiSecret(CONSUMER_SECRET)
-                .build();
+        OAuthService service = getService();
 
         OAuthRequest request = new OAuthRequest(Verb.GET, VIMEO_API_URL);
         args.put("method", VIDEOS_METHOD);
         args.put("page", pageNumber.toString());
         addParameters(request, args);
 
-        service.signRequest(EMPTY_TOKEN, request);
-        Response response = request.send();
-
-        return response.getBody();
+        return doRequest(service, request);
     }
 
     private String getVideoInfo(Integer id) {
-        OAuthService service = new ServiceBuilder()
-                .provider(VimeoApi.class)
-                .apiKey(CONSUMER_KEY)
-                .apiSecret(CONSUMER_SECRET)
-                .build();
-
+        OAuthService service = getService();
         OAuthRequest request = new OAuthRequest(Verb.GET, VIMEO_API_URL);
         Map<String, String> args = new HashMap<String, String>();
+
         args.put("method", VIDEOS_INFO_METHOD);
         args.put("video_id", id.toString());
         addParameters(request, args);
 
+        return doRequest(service, request);
+    }
+
+    private String doRequest(OAuthService service, OAuthRequest request) {
         service.signRequest(EMPTY_TOKEN, request);
         Response response = request.send();
 
         return response.getBody();
     }
 
+    private OAuthService getService() {
+        return new ServiceBuilder()
+                    .provider(VimeoApi.class)
+                    .apiKey(CONSUMER_KEY)
+                    .apiSecret(CONSUMER_SECRET)
+                    .build();
+    }
 
 
     private void addParameters(OAuthRequest request, Map<String, String> args) {
@@ -184,8 +186,8 @@ public class VimeoClient {
         url = url + "?url=" + VIMEO_BASE_URL + id + "&maxwidth=800";
 
         HttpGet httpget = new HttpGet(url);
-        httpget.addHeader("Accept", "application/json");
-        httpget.addHeader("Accept-Charset", "UTF-8");
+        httpget.addHeader(HEADER_ACCEPT, "application/json");
+        httpget.addHeader(HEADER_ACCEPT_CHARSET, "UTF-8");
         ResponseHandler<String> responseHandler = new BasicResponseHandler();
         return client.execute(httpget, responseHandler);
     }
@@ -202,7 +204,6 @@ public class VimeoClient {
     public VimeoVideo getVideoById(Integer id) {
         String videoJson = getVideoInfo(id);
         return new VideoJSONMapper(videoJson).videoToObject();
-    
     }
 
 }

@@ -43,12 +43,13 @@ public class Talks extends Controller {
     public static void filter(@Required int year) {
         List<Talk> talks = Talk.filter("year =", year).order("-plays").asList();
 
+        if(talks == null || talks.size() == 0) {
+            notFound("No talks found for that year. Sorry");
+        }
+
         Iterable<String> allTags = collect(talks, Talk.findTags());
         List<String> tags = GuavaTools.findMostPopularElements(allTags, 20);
 
-        if(talks == null) {
-            notFound("No talks found for the current query. Sorry");
-        }
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         renderTemplate("Application/index.html", talks, tags, years);
     }

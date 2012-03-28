@@ -1,5 +1,7 @@
 package controllers;
 
+import com.google.common.collect.Maps;
+import models.ImageInfo;
 import models.domain.Embed;
 import models.domain.Speaker;
 import models.domain.Talk;
@@ -7,6 +9,8 @@ import models.domain.Thumbnail;
 import org.junit.Test;
 import play.mvc.Http.Response;
 import play.test.FunctionalTest;
+
+import java.util.HashMap;
 
 public class ApplicationTest extends FunctionalTest {
 
@@ -42,6 +46,9 @@ public class ApplicationTest extends FunctionalTest {
     @Test
     public void talkPageResponds200ForValidSpeaker() {
         Speaker speaker = new Speaker("test", "bio", "url");
+        HashMap images = Maps.newHashMap();
+        images.put("small", new ImageInfo("url", 200, 100, 2011));
+        speaker.images(images);
         speaker.save();
 
         Response response = GET("/speaker/test");
@@ -58,10 +65,18 @@ public class ApplicationTest extends FunctionalTest {
     }
 
     @Test
-    public void talkFilterPageResponds200ForValidTag() {
+    public void talkFilterPageResponds200ForValidYear() {
         Response response = GET("/talks/2011");
         assertIsOk(response);
         assertContentType("text/html", response);
     }
+                                                                      
+    @Test
+    public void talkFilterPageResponds404ForInvalidYear() {
+        Response response = GET("/talks/2007");
+        assertEquals(new Integer(404), response.status);
+    }
+
+
     
 }

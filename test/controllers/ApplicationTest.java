@@ -77,6 +77,11 @@ public class ApplicationTest extends FunctionalTest {
         assertEquals(new Integer(404), response.status);
     }
 
+    @Test
+    public void tagPageResponds200() {
+        Response response = GET("/tags");
+        assertIsOk(response);
+        assertContentType("text/html", response);
+    }
 
-    
 }

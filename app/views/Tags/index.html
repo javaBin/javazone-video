@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title: 'Talk topics' /}
+<div class=row-fluid>
+    <div class=span2>&nbsp;</div>
+    <div class=span8>
+        #{list items:tags, as:'tag'}
+          <a href=@{Talks.filter(tag)}>${tag}</a>
+        #{/list}
+        foo?
+    </div>
+</div>
+<script type="text/javascript">$("#tags").addClass("active");</script>

@@ -17,5 +17,7 @@ GET     /talks/{year}                           Talks.filter
 GET     /speaker/{slug}                         Speakers.show
 GET     /speakers                               Speakers.index
 
+GET     /tags                                   Tags.index
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

@@ -169,6 +169,52 @@ form {
   cursor: pointer;
 }
 
+.ctag1 {
+  font-size: 90%;
+  font-weight: 200;
+}
+
+.ctag2 {
+  font-size: 100%;
+  font-weight: 200;
+}
+
+.ctag3 {
+  font-size: 110%;
+  font-weight: 300;
+}
+
+.ctag4 {
+  font-size: 120%;
+  font-weight: 400;
+}
+
+.ctag5 {
+  font-size: 140%;
+  font-weight: 600;
+}
+
+.ctag6 {
+  font-size: 160%;
+  font-weight: 700;
+}
+
+.ctag7 {
+  font-size: 180%;
+  font-weight: 800;
+}
+
+.ctag8 {
+  font-size: 200%;
+  font-weight: 900;
+}
+
+.ctag {
+  display: inline;
+  margin: 4px;
+  text-decoration: none;
+}
+
 article {
   margin-bottom: 7px;
   padding-bottom: 15px;

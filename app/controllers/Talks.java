@@ -26,7 +26,6 @@ import static models.GuavaTools.collect;
  */
 public class Talks extends Controller {
 
-
     private static final String INDEX_TEMPLATE = "Application/index.html";
 
     public static void show(@Required int id) {
@@ -56,7 +55,7 @@ public class Talks extends Controller {
     }
 
     public static void filterByTag(@Required String tag) {
-        List<Talk> talks = Talk.filter("tags elem", new Tag(1, tag, "")).order("-plays").asList();
+        List<Talk> talks = Talk.filter("tags.name", tag).order("-plays").asList();
 
         if(talks == null || talks.size() == 0) {
             notFound("No talks found for that tag. Sorry");

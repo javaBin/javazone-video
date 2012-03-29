@@ -4,9 +4,8 @@
     <div class=span2>&nbsp;</div>
     <div class=span8>
         #{list items:tags, as:'tag'}
-          <a href=@{Talks.filter(tag)}>${tag}</a>
+          <a href=@{Talks.filterByTag(tag)}>${tag}</a>
         #{/list}
-        foo?
     </div>
 </div>
 <script type="text/javascript">$("#tags").addClass("active");</script>

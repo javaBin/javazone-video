@@ -19,7 +19,7 @@ public class GuavaTools {
     /*
     http://philippeadjiman.com/blog/2010/02/20/a-generic-method-for-sorting-google-collections-multiset-per-entry-count/
      */
-    public static <T> List<Multiset.Entry<T>> sortMultisetPerEntryCount(Multiset<T> multiset) {
+    public static <T> List<Multiset.Entry<T>> sortMultisetPerEntryCount(final Multiset<T> multiset) {
         Comparator<Multiset.Entry<T>> comparator = new Comparator<Multiset.Entry<T>>() {
             public int compare(Multiset.Entry<T> e1, Multiset.Entry<T> e2) {
                 return e2.getCount() - e1.getCount();
@@ -34,14 +34,14 @@ public class GuavaTools {
     /*
     * Apply a function to each element that will return a collection and then flatten.
     */
-    public static <F, T> java.lang.Iterable<T> collect(java.lang.Iterable<F> fromIterable, com.google.common.base.Function<? super F, Iterable<T>> function) {
+    public static <F, T> java.lang.Iterable<T> collect(final java.lang.Iterable<F> fromIterable, final Function<? super F, Iterable<T>> function) {
         return Iterables.concat(Iterables.transform(fromIterable, function));
     }
 
     /*
      * Create a multiset of the collection, sort it, convert to elements, slice and return.
      */
-    public static <T> List<T> findMostPopularElements(Iterable<T> collection, int number) {
+    public static <T> List<T> findMostPopularElements(final Iterable<T> collection, final int number) {
         List<Multiset.Entry<T>> set = sortMultisetPerEntryCount(HashMultiset.create(collection));
 
         List<T> list = newArrayList(transform(set, new Function<Multiset.Entry<T>, T>() {
@@ -49,6 +49,11 @@ public class GuavaTools {
                 return tEntry.getElement();
             }
         }));
+
+        if(list.size() < number){
+            return list.subList(0, list.size());
+        }
+
         return list.subList(0, number);
     }
 }

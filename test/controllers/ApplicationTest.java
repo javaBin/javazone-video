@@ -70,6 +70,13 @@ public class ApplicationTest extends FunctionalTest {
         assertIsOk(response);
         assertContentType("text/html", response);
     }
+
+    @Test
+    public void talkFilterByTagsPageResponds200ForValidTag() {
+        Response response = GET("/talks/tag/Java");
+        assertIsOk(response);
+        assertContentType("text/html", response);
+    }
                                                                       
     @Test
     public void talkFilterPageResponds404ForInvalidYear() {

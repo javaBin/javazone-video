@@ -13,6 +13,7 @@ GET     /public/                                staticDir:public
 
 GET     /talk/{id}                              Talks.show
 GET     /talks/{year}                           Talks.filter
+GET     /talks/tag/{tag}                        Talks.filterByTag
 
 GET     /speaker/{slug}                         Speakers.show
 GET     /speakers                               Speakers.index

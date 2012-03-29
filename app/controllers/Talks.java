@@ -27,6 +27,8 @@ import static models.GuavaTools.collect;
 public class Talks extends Controller {
 
 
+    private static final String INDEX_TEMPLATE = "Application/index.html";
+
     public static void show(@Required int id) {
         Talk talk = Talk.find("byId", id).first();
 
@@ -47,14 +49,29 @@ public class Talks extends Controller {
             notFound("No talks found for that year. Sorry");
         }
 
-        Iterable<String> allTags = collect(talks, Talk.findTags());
-        List<String> tags = GuavaTools.findMostPopularElements(allTags, 20);
+        List<String> tags = extractTags(talks);
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        renderTemplate("Application/index.html", talks, tags, years);
+        renderTemplate(INDEX_TEMPLATE, talks, tags, years);
     }
 
+    public static void filterByTag(@Required String tag) {
+        List<Talk> talks = Talk.filter("tags elem", new Tag(1, tag, "")).order("-plays").asList();
 
+        if(talks == null || talks.size() == 0) {
+            notFound("No talks found for that tag. Sorry");
+        }
+
+        List<String> tags = extractTags(talks);
+
+        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
+        renderTemplate(INDEX_TEMPLATE, talks, tags, years);
+    }
+
+    private static List<String> extractTags(List<Talk> talks) {
+        Iterable<String> allTags = collect(talks, Talk.findTags());
+        return GuavaTools.findMostPopularElements(allTags, 20);
+    }
 
     private static List<String> findFilterTags(Collection<String> tags) {
         String filterString = Play.configuration.getProperty("twitter.filter.tags");

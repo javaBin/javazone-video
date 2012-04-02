@@ -4,7 +4,7 @@
     <div class=span2>&nbsp;</div>
     <div class=span8>
         #{list items:tags, as:'tag'}
-          <a href=@{Talks.filterByTag(tag)}>${tag}</a>
+          <a href=@{Talks.filterByTag(tag._1)}>${tag._1}(${tag._2})</a>
         #{/list}
     </div>
 </div>

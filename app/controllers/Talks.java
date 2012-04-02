@@ -4,7 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Collections2;
-import models.GuavaTools;
+import models.CollectionTools;
 import models.domain.Tag;
 import models.domain.Talk;
 import play.Play;
@@ -18,7 +18,6 @@ import java.util.Collection;
 import java.util.List;
 
 import static com.google.common.collect.Collections2.transform;
-import static models.GuavaTools.collect;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
@@ -48,7 +47,7 @@ public class Talks extends Controller {
             notFound("No talks found for that year. Sorry");
         }
 
-        List<String> tags = extractTags(talks);
+        List<String> tags = CollectionTools.extractTags(talks, 20);
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         renderTemplate(INDEX_TEMPLATE, talks, tags, years);
@@ -61,16 +60,13 @@ public class Talks extends Controller {
             notFound("No talks found for that tag. Sorry");
         }
 
-        List<String> tags = extractTags(talks);
+        List<String> tags = CollectionTools.extractTags(talks, 20);
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         renderTemplate(INDEX_TEMPLATE, talks, tags, years);
     }
 
-    private static List<String> extractTags(List<Talk> talks) {
-        Iterable<String> allTags = collect(talks, Talk.findTags());
-        return GuavaTools.findMostPopularElements(allTags, 20);
-    }
+
 
     private static List<String> findFilterTags(Collection<String> tags) {
         String filterString = Play.configuration.getProperty("twitter.filter.tags");

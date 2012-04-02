@@ -4,6 +4,8 @@ import com.google.common.base.Function;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multiset;
+import models.domain.Talk;
+import play.libs.F;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +15,7 @@ import java.util.List;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Lists.newArrayList;
 
-public class GuavaTools {
+public class CollectionTools {
 
 
     /*
@@ -55,5 +57,26 @@ public class GuavaTools {
         }
 
         return list.subList(0, number);
+    }
+
+    public static List<String> extractTags(List<Talk> talks, int max) {
+        Iterable<String> allTags = collect(talks, Talk.findTags());
+        return CollectionTools.findMostPopularElements(allTags, max);
+    }
+
+    public static List<F.Tuple<String, Integer>> extractTagsWithCount(List<Talk> talks) {
+        Iterable<String> allTags = collect(talks, Talk.findTags());
+        List<Multiset.Entry<String>> set = new ArrayList<Multiset.Entry<String>>(HashMultiset.create(allTags).entrySet());
+
+        List<F.Tuple<String, Integer>> tags = newArrayList();
+
+        for(Multiset.Entry<String> element : set) {
+            if(element.getElement().contains(" ")){
+                continue;
+            }
+            tags.add(new F.Tuple(element.getElement(), element.getCount()));
+        }
+
+        return tags;
     }
 }

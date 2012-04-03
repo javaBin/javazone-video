@@ -78,4 +78,34 @@ public class CollectionTools {
 
         return tags;
     }
+    
+    private static List<F.Tuple<String, Integer>> normalize(final List<F.Tuple<String, Integer>> list) {
+        List<F.Tuple<String, Integer>> newList = new ArrayList<F.Tuple<String, Integer>>();
+        int max = 0;
+        int min = Integer.MAX_VALUE;
+        
+        for(F.Tuple<String, Integer> tup : list  ) {
+            if(tup._2 > max) {
+                max = tup._2;
+            }
+            
+            if(tup._2 < min) {
+                min = tup._2;
+            }
+        }
+        
+        for(F.Tuple<String, Integer> tup : list  ) {
+            newList.add(new F.Tuple<String, Integer>(tup._1, normalizeInteger(tup._2, max, min)));
+        }
+        
+        return newList;
+    }
+
+    private static Integer normalizeInteger(final int value, final int max, final int min) {
+        Double max1 = max + 0.0;
+        Double result = ((value - min) / (max1 - min));
+        Long res = (Math.round(result * 10));
+        return res.intValue();
+    }
+
 }

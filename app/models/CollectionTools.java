@@ -66,15 +66,14 @@ public class CollectionTools {
 
     public static List<F.Tuple<String, Integer>> extractTagsWithCount(List<Talk> talks) {
         Iterable<String> allTags = collect(talks, Talk.findTags());
-        List<Multiset.Entry<String>> set = new ArrayList<Multiset.Entry<String>>(HashMultiset.create(allTags).entrySet());
+        List<Multiset.Entry<String>> set = new ArrayList<Multiset.Entry<String>>(sortMultisetPerEntryCount(HashMultiset.create(allTags)));
 
         List<F.Tuple<String, Integer>> tags = newArrayList();
 
         for(Multiset.Entry<String> element : set) {
-            if(element.getElement().contains(" ")){
-                continue;
+            if(!element.getElement().contains(" ")){  //skip all names
+                tags.add(new F.Tuple(element.getElement(), element.getCount()));
             }
-            tags.add(new F.Tuple(element.getElement(), element.getCount()));
         }
 
         return tags;

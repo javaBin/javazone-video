@@ -3,9 +3,11 @@
 <div class=row-fluid>
     <div class=span2>&nbsp;</div>
     <div class=span8>
+      <ul>
         #{list items:tags, as:'tag'}
-          <a href=@{Talks.filterByTag(tag._1)}>${tag._1}(${tag._2})</a>
+          <li><a href=@{Talks.filterByTag(tag._1)}>${tag._2} ${tag._1}</a></li>
         #{/list}
+      </ul>
     </div>
 </div>
 <script type="text/javascript">$("#tags").addClass("active");</script>

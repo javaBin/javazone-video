@@ -151,6 +151,10 @@ form {
 .label.html5,
 .label.groovy,
 .label.jvm,
+.label.ruby,
+.label.jruby,
+.label.ast,
+.label.clojure,
 .label.coffeescript {
   background-color: green;
   border-color: green;
@@ -169,42 +173,42 @@ form {
   cursor: pointer;
 }
 
-.ctag1 {
+.c1 {
   font-size: 90%;
   font-weight: 200;
 }
 
-.ctag2 {
+.c2 {
   font-size: 100%;
   font-weight: 200;
 }
 
-.ctag3 {
+.c3 {
   font-size: 110%;
   font-weight: 300;
 }
 
-.ctag4 {
+.c4 {
   font-size: 120%;
   font-weight: 400;
 }
 
-.ctag5 {
+.c5 {
   font-size: 140%;
   font-weight: 600;
 }
 
-.ctag6 {
+.c6 {
   font-size: 160%;
   font-weight: 700;
 }
 
-.ctag7 {
+.c7 {
   font-size: 180%;
   font-weight: 800;
 }
 
-.ctag8 {
+.c8 {
   font-size: 200%;
   font-weight: 900;
 }
@@ -212,6 +216,7 @@ form {
 .ctag {
   display: inline;
   margin: 4px;
+  line-height: 150%;
   text-decoration: none;
 }
 

@@ -3,13 +3,13 @@
 require:
     - play -> cobertura 2.4:
         id: test
-    - play -> morphia 1.2.6
+    - play -> morphia 1.2.7
     - play -> sass 1.1
-    - com.google.guava -> guava r09
-    - org.codehaus.jackson -> jackson-mapper-asl 1.8.5
-    - org.apache.httpcomponents -> httpclient 4.1.2
-    - org.scribe -> scribe 1.2.2
-    - org.functionaljava -> functionaljava 3.0
+    - com.google.guava -> guava 12.0
+    - org.codehaus.jackson -> jackson-mapper-asl 1.9.7
+    - org.apache.httpcomponents -> httpclient 4.1.3
+    - org.scribe -> scribe 1.3.1
+    - org.functionaljava -> functionaljava 3.1
     - com.thebuzzmedia -> imgscalr-lib 3.2
 
 repositories:

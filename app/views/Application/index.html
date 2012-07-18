@@ -4,16 +4,17 @@
 <div class="row-fluid">
 
   <nav class="span2">
-    <h3>All Tags</h3>
-    <ul id="filter-tags">
-      #{list items:tags, as:'tag'}
-      <li> <span class="label warning tag ${tag.toLowerCase().replace(" ", "_")}">${tag}</span></li>
-      #{/list}
-    </ul>
-    
     <h3>Active Tags</h3>
     <ul id="activetags">
     </ul>
+
+    <h3>All Tags</h3>
+    <ul id="filter-tags">
+      #{list items:filteredTags, as:'tag'}
+      <li> <span class="label warning tag ${tag.toLowerCase().replace(".", "_")}">${tag}</span></li>
+      #{/list}
+    </ul>
+    
     
   </nav>
   <section class="span10">

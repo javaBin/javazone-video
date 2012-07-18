@@ -16,9 +16,7 @@ public class Application extends Controller {
 
     public static void index() {
         List<Talk> talks = Talk.filter("year =", 2011).order("-plays").asList();
-        Iterable<String> allTags = collect(talks, Talk.findTags());
-        List<String> tags = CollectionTools.findMostPopularElements(allTags, 100);
-
+        List<String> tags = CollectionTools.findMostPopularElements(collect(talks, Talk.findTags()), 100);
         List<String> filteredTags = new ArrayList<String>();
 
         for(String tag : tags) {
@@ -28,7 +26,6 @@ public class Application extends Controller {
         }
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-
         render(talks, filteredTags, years);
     }
 

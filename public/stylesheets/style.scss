@@ -15,7 +15,6 @@ body {
 }
 
 ul {
-  list-style-type: none;
   padding: 0;
   margin: 0 !important;
 }
@@ -103,12 +102,20 @@ form {
   text-align: right;
 }
 
+#filter-tags li {
+  margin-top: 1px;
+  margin-bottom: 2px !important;
+  display: inline !important;
+}
+
 .caret {
   border-top-color: $effect-color !important;
 }
 
 .label {
   border: 1px solid;
+  margin: 1px 0px;
+  padding: 0px 4px 1px !important;
   border-radius: 4px;
   color: black;
   background-color: transparent;
@@ -238,12 +245,9 @@ li span {
 ul  {
   list-style: none !important;
   margin-left: 10px;
-  padding-top: 10px;
-}
-
-ul {
   padding-top: 1px;
 }
+
 
 h3 {
   margin-top: 8px;

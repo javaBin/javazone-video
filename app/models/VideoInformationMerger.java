@@ -58,7 +58,7 @@ public class VideoInformationMerger {
                 if(StringUtils.isBlank(vVideo.title()) || StringUtils.isBlank(session.title())) {
                     return false;
                 }
-                return vVideo.title().equalsIgnoreCase(session.title());
+                return vVideo.title().equalsIgnoreCase(StringUtils.normalizeSpace(session.title()));
             }
         };
 
@@ -69,7 +69,8 @@ public class VideoInformationMerger {
             }
 
             private boolean withInEditDistance(String videoTitle, String sessionTitle) {
-                int distance = StringUtils.getLevenshteinDistance(videoTitle, sessionTitle);
+                int distance = StringUtils.getLevenshteinDistance(StringUtils.normalizeSpace(videoTitle),
+                        StringUtils.normalizeSpace(sessionTitle));
                 return distance <= 2;
             }
         };

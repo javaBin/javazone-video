@@ -32,6 +32,10 @@ article {
   }
 }
 
+.navbar .btn {
+  margin-top: 11px;
+}
+
 .navbar-inner {
   background: rgb(224,224,224); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(224,224,224,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
@@ -353,7 +357,7 @@ footer {
   text-align: center;
   height: 60px;
   padding-top: 30px;
-  font-size: 140% !important;
+  font-size: 95% !important;
  background: rgb(224,224,224); /* Old browsers */
   background: -moz-linear-gradient(bottom,  rgba(224,224,224,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(224,224,224,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */

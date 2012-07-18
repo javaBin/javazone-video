@@ -82,7 +82,7 @@ $(function () {
         title: function() {
             return $(this).closest("article").find("h2").text();
         },
-        placement: 'bottom',
+        placement: 'left',
         html: true
     })
 
@@ -94,7 +94,7 @@ $(function () {
         title: function() {
             return $(this).text();
         },
-        placement: 'bottom',
+        placement: 'left',
         html: true
     })
 

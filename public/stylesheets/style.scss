@@ -128,10 +128,11 @@ form {
 .label.testing,
 .label.methodology,
 .label.methods,
-.label.lift,
-.label.spring,
 .label.functional,
 .label.agile,
+.label.productivity,
+.label.experience,
+.label.meta,
 .label.web,
 .label.nosql,
 .label.tools,
@@ -139,12 +140,33 @@ form {
 .label.architecture,
 .label.security,
 .label.cloud, 
-.label.git, 
 .label.design,
 .label.psychology,
-.label.buildr,
 .label.estimation,
-.label.play {
+.label.devops,
+.label.ux,
+.label.ci,
+.label.cd,
+.label.soa,
+.label.charsets,
+.label.quality,
+.label.concurrency,
+.label.vcs,
+.label.scalability,
+.label.refactoring,
+.label.websockets,
+.label.code,
+.label.deployment,
+.label.actors,
+.label.polyglot,
+.label.complexity,
+.label.automation,
+.label.memory,
+.label.performance,
+.label.persistence,
+.label.server-side,
+.label.bigdata,
+.label.bdd {
   background-color: navy;
   border-color: navy;
   color: white;
@@ -157,19 +179,41 @@ form {
 }
 
 .label.java,
+.label.dsl,
 .label.scala,
 .label.javascript,
 .label.html5,
 .label.groovy,
 .label.jvm,
+.label.erlang,
 .label.ruby,
 .label.jruby,
 .label.ast,
 .label.clojure,
-.label.coffeescript {
+.label.coffeescript, 
+.label.net {
   background-color: green;
   border-color: green;
   color: white;
+}
+
+.label.camel,
+.label.git, 
+.label.buildr,
+.label.play,
+.label.heroku,
+.label.solr,
+.label.gradle,
+.label.lift,
+.label.mule,
+.label.spring, 
+.label.intellij,
+.label.hadoop,
+.label.akka {
+  background-color: black;
+  border-color: black;
+  color: red;
+
 }
 
 .label.lightningtalk, 

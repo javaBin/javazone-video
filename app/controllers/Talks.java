@@ -7,6 +7,7 @@ import com.google.common.collect.Collections2;
 import models.CollectionTools;
 import models.domain.Tag;
 import models.domain.Talk;
+import org.apache.commons.lang.StringUtils;
 import play.Play;
 import play.data.validation.Required;
 import play.mvc.Controller;
@@ -47,7 +48,7 @@ public class Talks extends Controller {
             notFound("No talks found for that year. Sorry");
         }
 
-        List<String> tags = CollectionTools.extractTags(talks, 20);
+        List<String> tags = filterTags(CollectionTools.extractTags(talks, 100));
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         renderTemplate(INDEX_TEMPLATE, talks, tags, years);
@@ -60,12 +61,22 @@ public class Talks extends Controller {
             notFound("No talks found for that tag. Sorry");
         }
 
-        List<String> tags = CollectionTools.extractTags(talks, 20);
+        List<String> tags = filterTags(CollectionTools.extractTags(talks, 100));
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         renderTemplate(INDEX_TEMPLATE, talks, tags, years);
     }
 
+    private static List<String> filterTags(List<String> strings) {
+        List<String> filteredTags = new ArrayList<String>();
+
+        for(String tag : strings) {
+            if(StringUtils.trim(tag).indexOf(" ") == -1){
+                filteredTags.add(tag);
+            }
+        }
+        return filteredTags;
+    }
 
 
     private static List<String> findFilterTags(Collection<String> tags) {

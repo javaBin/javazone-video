@@ -53,7 +53,7 @@ public class CollectionTools {
         }));
 
         if(list.size() < number){
-            return list.subList(0, list.size());
+            return list;
         }
 
         return list.subList(0, number);

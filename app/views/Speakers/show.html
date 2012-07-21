@@ -3,7 +3,7 @@
 <div class="row-fluid">
   <div class="span2">&nbsp;</div>
   <article class="speaker-section span7">
-    <header><h2>${speaker.name}</h2></header>
+    <header><h1>${speaker.name}</h1></header>
      <img src="/${speaker.images.get("small").url}" alt="${speaker.name}" width="${speaker.images.get("small").width}" height="${speaker.images.get("small").height}" />
       ${speaker.bio.raw()}
   </article>
@@ -18,16 +18,20 @@
       #{/list}
     </ul>
 
+    #{if otherTalks != null }
     <h3>Other talks</h3>
     <ul>
-      #{list items:talks, as:'talk'}
+      #{list items:otherTalks, as:'talk'}
       <li><a href="@{Talks.show(talk.id)}">${talk.title} (${talk.year})</a></li>
       #{/list}
     </ul>
+    #{/if}
+
 
   </div>
   <div class="span4">
 #{if speaker.twitterName != null }
+<h3>Twitter traffic</h3>
 <div id="userfeed"></div>
 <script type="text/javascript">
   $().ready(function feed_loader() { 

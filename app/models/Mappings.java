@@ -5,6 +5,8 @@ import org.yaml.snakeyaml.Yaml;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,7 +19,7 @@ public class Mappings {
 
     private FileInputStream file;
     public Map<String, Object> userMappings;
-
+    private static final String KEY_OTHER_VIDEOS = "other_videos";
 
     public Mappings(String filename) {
         try {
@@ -37,6 +39,10 @@ public class Mappings {
 
     }
 
+    public Map<String, List<String>> otherVideosForUser(String slug) {
+        return returnMapForKey(slug, KEY_OTHER_VIDEOS);
+    }
+
     private String returnKey(String userSlug, String key) {
         Map<String, Object> user = findUser(userSlug);
         if(user != null)     {
@@ -46,7 +52,21 @@ public class Mappings {
         return "";
     }
 
+    private Map<String, List<String>> returnMapForKey(String userSlug, String key) {
+        Map<String, Object> user = findUser(userSlug);
+
+        if(user != null)     {
+            Map <String, List<String>> map = (Map<String, List<String>>) findUser(userSlug).get(key);
+            if(map != null) {
+                return map;
+            }
+        }
+
+        return new HashMap<String, List<String>>();
+    }
+
     private Map<String, Object> findUser(String userSlug) {
         return (Map<String, Object>) userMappings.get(userSlug);
     }
+
 }

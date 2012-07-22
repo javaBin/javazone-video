@@ -7,6 +7,7 @@ package models.domain.external;
 
 import models.domain.Embed;
 import models.domain.Thumbnail;
+import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +23,10 @@ public final class VimeoVideo {
     private final int plays;
     private final int comments;
     private final int likes;
+    private DateTime uploadDate;
 
     public VimeoVideo(int id, String title, String description, int duration,
-                      Thumbnail thumbnail, int plays, int comments, int likes) {
+                      Thumbnail thumbnail, int plays, int comments, int likes, DateTime uploadDate) {
         this.plays = plays;
         this.comments = comments;
         this.likes = likes;
@@ -34,6 +36,7 @@ public final class VimeoVideo {
         this.description = description;
         this.duration = duration;
         this.thumb = thumbnail;
+        this.uploadDate = uploadDate;
     }
 
     public int plays() {
@@ -81,6 +84,10 @@ public final class VimeoVideo {
 
     public void addEmbed(Embed embed) {
         this.embed = embed;
+    }
+
+    public DateTime uploadDate() {
+        return uploadDate;
     }
 
     public class Tag {

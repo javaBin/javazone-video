@@ -16,29 +16,19 @@ public class VideoInformationMerger {
         List<Talk> talks = new ArrayList<Talk>();
 
         for(VimeoVideo vVideo : vimeoVideos) {
-            Talk talk = new Talk();
             int index = titleMatches(vVideo, sessions);
 
             if(index >= 0) {
-                IncogitoSession session = sessions.get(index);
-                talk.talkAbstract(session.talkAbstract());
-                talk.id(vVideo.id());
-                talk.title(vVideo.title());
-                talk.embed(vVideo.embedCode());
-                talk.plays(vVideo.plays());
-                talk.comments(vVideo.comments());
-                talk.likes(vVideo.likes());
-                talk.year(session.year());
 
-                for(VimeoVideo.Tag tag : vVideo.tags()) {
-                    talk.addTag(new Tag(tag.id(), tag.name(), tag.url()));
-                }
+                IncogitoSession session = sessions.get(index);
+                Talk talk = talkFromVideo(vVideo);
+
+                talk.year(session.year());
+                talk.talkAbstract(session.talkAbstract());
 
                 for(IncogitoSession.Speaker speaker : session.speakers()) {
                     talk.addSpeaker(new Speaker(speaker.name(), speaker.bio(), speaker.photoURL()));
                 }
-
-                talk.thumbnail(vVideo.thumbnail());
 
                 talks.add(talk);
             } else {
@@ -48,6 +38,24 @@ public class VideoInformationMerger {
         }
 
         return talks;
+    }
+
+    public Talk talkFromVideo(VimeoVideo vVideo) {
+        Talk talk = new Talk();
+
+        talk.type(TalkTypes.JZ);
+        talk.id(vVideo.id());
+        talk.title(vVideo.title());
+        talk.embed(vVideo.embedCode());
+        talk.plays(vVideo.plays());
+        talk.comments(vVideo.comments());
+        talk.likes(vVideo.likes());
+
+        for(VimeoVideo.Tag tag : vVideo.tags()) {
+            talk.addTag(new Tag(tag.id(), tag.name(), tag.url()));
+        }
+        talk.thumbnail(vVideo.thumbnail());
+        return talk;
     }
 
     private int titleMatches(final VimeoVideo vVideo, List<IncogitoSession> sessions) {

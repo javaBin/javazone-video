@@ -18,6 +18,7 @@ import static com.google.common.collect.Iterables.transform;
 @Entity
 public class Talk extends Model {
 
+    private String type;
     private String talkAbstract;
     private String title;
     private Integer year;
@@ -144,4 +145,13 @@ public class Talk extends Model {
             }
         };
     }
+
+    public String type() {
+        return type;
+    }
+
+    public void type(String type) {
+        this.type = type;
+    }
+
 }

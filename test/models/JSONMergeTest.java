@@ -4,6 +4,7 @@ import models.domain.external.IncogitoSession;
 import models.domain.Talk;
 import models.domain.Thumbnail;
 import models.domain.external.VimeoVideo;
+import org.joda.time.DateTime;
 import org.junit.Test;
 import play.test.UnitTest;
 
@@ -17,7 +18,7 @@ public class JSONMergeTest extends UnitTest {
     @Test
     public void mergeWithEmptyTitlesDoesNotMergeInfo() {
         List<IncogitoSession> sessions = Arrays.asList(new IncogitoSession("", "", 0));
-        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "", "", 0, Thumbnail.missing(), 0, 0, 0));
+        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "", "", 0, Thumbnail.missing(), 0, 0, 0, new DateTime()));
 
         List<Talk> videos = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
         assertEquals("", videos.get(0).talkAbstract());
@@ -80,7 +81,7 @@ public class JSONMergeTest extends UnitTest {
     @Test
     public void mergePlaysCommentsLikesFromVimeo() {
         List<IncogitoSession> sessions = Arrays.asList(createTestSession("this is a test", "abstract"));
-        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "this is  test", "", 0, Thumbnail.missing(), 1, 2, 3));
+        List<VimeoVideo> vimeoVidoes = Arrays.asList(new VimeoVideo(0, "this is  test", "", 0, Thumbnail.missing(), 1, 2, 3, new DateTime()));
 
         List<Talk> talks = merger.mergeVideoAndSessionInfo(vimeoVidoes, sessions);
         Talk talk = talks.get(0);
@@ -94,7 +95,7 @@ public class JSONMergeTest extends UnitTest {
     }
 
     private VimeoVideo createTestVideo(String title) {
-        VimeoVideo video = new VimeoVideo(0, title, "", 0, Thumbnail.missing(), 1, 1, 1);
+        VimeoVideo video = new VimeoVideo(0, title, "", 0, Thumbnail.missing(), 1, 1, 1, new DateTime());
         return video;
     }
 

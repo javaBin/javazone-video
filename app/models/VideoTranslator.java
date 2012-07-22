@@ -4,6 +4,9 @@ import fj.F;
 import fj.data.Array;
 import models.domain.Thumbnail;
 import models.domain.external.VimeoVideo;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +42,12 @@ public class VideoTranslator {
     }
 
     private static void addTags(Map<String, Object> v, VimeoVideo video) {
+        if(!v.containsKey("tags")) {
+            return;
+        }
+
         List<Map<String, String>> tags = (List<Map<String, String>>) ((Map<String, Object>) v.get("tags")).get("tag");
+
         final Array<String> filteredTags = Array.array("JavaZOne 2011", "JavaZone 2011","Conference", "JavaZone 2010", "JavaZone", "JavaBin", "JavaZone2010");
 
         for (Map<String, String> tag : tags) {
@@ -60,6 +68,9 @@ public class VideoTranslator {
     }
 
     private static VimeoVideo newVideoWithSimpleProperties(Map<String, Object> v) {
+        DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+        DateTime dateTime = formatter.parseDateTime((String) v.get("upload_date"));
+
         return new VimeoVideo(Integer.parseInt((String) v.get("id")),
                 (String) v.get("title"),
                 (String) v.get("description"),
@@ -67,7 +78,8 @@ public class VideoTranslator {
                 createThumbnail(v),
                 Integer.parseInt((String) v.get("number_of_plays")),
                 Integer.parseInt((String) v.get("number_of_comments")),
-                Integer.parseInt((String) v.get("number_of_likes")));
+                Integer.parseInt((String) v.get("number_of_likes")),
+                dateTime);
     }
 
     private static Thumbnail createThumbnail(Map<String, Object> v) {

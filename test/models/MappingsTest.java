@@ -3,6 +3,9 @@ package models;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+import java.util.Map;
+
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -44,4 +47,15 @@ public class MappingsTest {
         assertEquals("", mappings.blogForUser("foo"));
     }
 
+    @Test
+    public void invalid_name_returns_empty_list_of_other_videos() {
+        assertEquals(0, mappings.otherVideosForUser("foo").size());
+    }
+
+    @Test
+    public void valid_name_returns_empty_list_of_other_videos() {
+        Map<String, List<String>> videos = mappings.otherVideosForUser("kevlinhenney");
+        assertEquals(2, videos.size());
+        assertEquals(3, videos.get("øredev").size());
+    }
 }

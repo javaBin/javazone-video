@@ -38,6 +38,7 @@ import java.util.Map;
  */
 public class VimeoClient {
 
+
     private static final String VIMEO_API_URL      = Play.configuration.getProperty("vimeo.api.url");
     private static final String VIMEO_BASE_URL     = Play.configuration.getProperty("vimeo.base.url");
     private static final String ENDPOINT_HOST      = Play.configuration.getProperty("vimeo.endpoint.host");
@@ -58,6 +59,12 @@ public class VimeoClient {
             put("2010", "Javazone2010");}};
 
     private Integer totalVideos;
+
+    public VimeoVideo getVideoById(Integer id) {
+        Logger.info("getting video information for video id=%s", id);
+        String videoJson = getVideoInfo(id);
+        return new VideoJSONMapper(videoJson).videoToObject();
+    }
 
     public List<VimeoVideo> getVideosByYear(String year, Map<String, String> args, Integer max ) {
 
@@ -159,6 +166,7 @@ public class VimeoClient {
     }
 
     private Embed getEmbed(int id) {
+        Logger.info("getting embed code for video id=%s", id);
         String videoJson = callEmbedService(id);
         return new EmbedJSONMapper(videoJson).getEmbed();
     }
@@ -200,11 +208,6 @@ public class VimeoClient {
         } catch (URISyntaxException e) {
             return null;
         }
-    }
-
-    public VimeoVideo getVideoById(Integer id) {
-        String videoJson = getVideoInfo(id);
-        return new VideoJSONMapper(videoJson).videoToObject();
     }
 
 }

@@ -8,7 +8,8 @@ christianjohansen:
   twitterName: cjno
   blog: "http://cjohansen.no/en"
   other_videos:
-    ndc: ["http://ndc2011.macsimum.no/mp4/Day1%20Wednesday/Track5%201620-1720.mp4", "http://ndc2011.macsimum.no/mp4/Day3%20Friday/Track1%201140-1240.mp4"]
+#    ndc: ["https://vimeo.com/43808808"]
+     rebels: ["https://vimeo.com/43382919"]
 trygvelie:
   twitterName: trygve_lie
   other_videos: 
@@ -288,7 +289,7 @@ andreashegna:
 håvardwigtil:
   twitterName: 
 geiramsjø:
-  twitterName: 
+  twitterName: gamsjo
 runeflobakk:
   twitterName: 
 terjeheen:

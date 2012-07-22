@@ -105,10 +105,16 @@ bodilstokke:
   twitterName: bodiltv
   other_videos:
     smidig: ["http://vimeo.com/32223928"]
+    NDC: ["https://vimeo.com/43808810"]
 eugeneciurana:
   twitterName: 
 johannesbrodwall:
   twitterName: jhannes
+  other_videos:
+    smidig: ["https://vimeo.com/32226190", "https://vimeo.com/30576021", "https://vimeo.com/30517988"]
+    NDC: []
+    roots: ["https://vimeo.com/24691954"]
+    øredev: ["https://vimeo.com/8553046", "https://vimeo.com/7849819"]
 eirikbjørsnøs:
   twitterName: eirbjo
 timothyperrett:

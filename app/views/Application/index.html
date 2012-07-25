@@ -8,9 +8,9 @@
     <ul id="activetags">
     </ul>
 
-    <h3>All Tags</h3>
+    <h3>Filter by tags</h3>
     <ul id="filter-tags">
-      #{list items:filteredTags, as:'tag'}
+      #{list items:tags, as:'tag'}
       <li> <span class="label warning tag ${tag.toLowerCase().replace(".", "_")}">${tag}</span></li>
       #{/list}
     </ul>

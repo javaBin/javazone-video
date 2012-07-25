@@ -167,7 +167,9 @@ form {
 .label.persistence,
 .label.server-side,
 .label.bigdata,
-.label.bdd {
+.label.bdd,
+.label.community,
+.label.hudson {
   background-color: navy;
   border-color: navy;
   color: white;
@@ -191,6 +193,7 @@ form {
 .label.ruby,
 .label.jruby,
 .label.ast,
+.label.python,
 .label.clojure,
 .label.coffeescript, 
 .label.net {

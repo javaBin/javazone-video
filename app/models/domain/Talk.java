@@ -25,6 +25,7 @@ public class Talk extends Model {
     private Integer plays;
     private Integer likes;
     private Integer comments;
+    private String venue;
 
     @Embedded
     private List<Tag> tags;
@@ -154,4 +155,7 @@ public class Talk extends Model {
         this.type = type;
     }
 
+    public void venue(String venue) {
+        this.venue = venue;
+    }
 }

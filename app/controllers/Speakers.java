@@ -24,10 +24,12 @@ public class Speakers extends Controller {
         if(speaker == null) {
             notFound("The speaker was not found. Sorry");
         }
-        List<Talk> talks = Talk.filter("speakers elem", speaker).asList();
-        //fetch other videos on video insert. Split between jz and non-jz
+
+        List<Talk> talks = Talk.filter("speakers elem", speaker).filter("type = ", "jz").asList();
+        List<Talk> otherTalks = Talk.filter("speakers elem", speaker).filter("type = ", "other").asList();
+
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        render(speaker, talks, years);
+        render(speaker, talks, otherTalks, years);
     }
 
     public static void index() {

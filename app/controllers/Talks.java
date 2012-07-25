@@ -4,10 +4,9 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Collections2;
-import models.CollectionTools;
+import helpers.TagHelper;
 import models.domain.Tag;
 import models.domain.Talk;
-import org.apache.commons.lang.StringUtils;
 import play.Play;
 import play.data.validation.Required;
 import play.mvc.Controller;
@@ -42,42 +41,30 @@ public class Talks extends Controller {
     }
 
     public static void filter(@Required int year) {
-        List<Talk> talks = Talk.filter("year =", year).order("-plays").asList();
+        List<Talk> talks = Talk.filter("year =", year).filter("type =", "jz").order("-plays").asList();
 
         if(talks == null || talks.size() == 0) {
             notFound("No talks found for that year. Sorry");
         }
 
-        List<String> tags = filterTags(CollectionTools.extractTags(talks, 100));
+        List<String> tags = TagHelper.findTagsForTalks(talks);
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         renderTemplate(INDEX_TEMPLATE, talks, tags, years);
     }
 
     public static void filterByTag(@Required String tag) {
-        List<Talk> talks = Talk.filter("tags.name", tag).order("-plays").asList();
+        List<Talk> talks = Talk.filter("tags.name", tag).filter("type =", "jz").order("-plays").asList();
 
         if(talks == null || talks.size() == 0) {
             notFound("No talks found for that tag. Sorry");
         }
 
-        List<String> tags = filterTags(CollectionTools.extractTags(talks, 100));
+        List<String> tags = TagHelper.findTagsForTalks(talks);
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         renderTemplate(INDEX_TEMPLATE, talks, tags, years);
     }
-
-    private static List<String> filterTags(List<String> strings) {
-        List<String> filteredTags = new ArrayList<String>();
-
-        for(String tag : strings) {
-            if(StringUtils.trim(tag).indexOf(" ") == -1){
-                filteredTags.add(tag);
-            }
-        }
-        return filteredTags;
-    }
-
 
     private static List<String> findFilterTags(Collection<String> tags) {
         String filterString = Play.configuration.getProperty("twitter.filter.tags");

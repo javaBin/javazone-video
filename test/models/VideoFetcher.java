@@ -7,6 +7,7 @@ import models.domain.external.IncogitoSession;
 import models.domain.external.VimeoVideo;
 import org.joda.time.DateTime;
 import org.junit.Test;
+import play.modules.morphia.utils.StringUtil;
 import play.test.FunctionalTest;
 
 import java.util.HashMap;
@@ -67,6 +68,7 @@ public class VideoFetcher extends FunctionalTest {
                     talk.year(getYear(videoInfo.uploadDate()));
                     talk.addSpeaker(speaker);
                     talk.type(TalkTypes.OTHER);
+                    talk.venue(StringUtil.upperFirstChar(venue));
                     talk.save();
                 }
             }

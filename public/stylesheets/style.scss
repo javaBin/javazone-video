@@ -234,51 +234,66 @@ form {
 }
 
 .c1 {
-  font-size: 90%;
+  font-size: 0.9em;
   font-weight: 200;
 }
 
 .c2 {
-  font-size: 100%;
+  font-size: 1.1em;
   font-weight: 200;
 }
 
 .c3 {
-  font-size: 110%;
+  font-size: 1.3em;
   font-weight: 300;
 }
 
 .c4 {
-  font-size: 120%;
+  font-size: 1.6em;
   font-weight: 400;
 }
 
 .c5 {
-  font-size: 140%;
+  font-size: 1.8em;
   font-weight: 600;
 }
 
 .c6 {
-  font-size: 160%;
+  font-size: 2.1em;
   font-weight: 700;
 }
 
 .c7 {
-  font-size: 180%;
+  font-size: 2.5em;
   font-weight: 800;
 }
 
 .c8 {
-  font-size: 200%;
+  font-size: 2.7em;
   font-weight: 900;
 }
 
 .ctag {
   display: inline;
-  margin: 4px;
-  line-height: 150%;
+  margin: -2px 4px -2px 4px;
+  line-height: 100%;
   text-decoration: none;
 }
+
+.cloud {
+  list-style-type: none;
+  margin-right: auto;
+  margin-top: 0;
+  margin-left: 0;
+  line-height: 1em;
+  
+  li {
+    display: inline;
+    line-height: 0.6em;
+  }
+}
+
+
 
 article {
   margin-bottom: 7px;

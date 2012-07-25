@@ -65,6 +65,7 @@ public class VideoFetcher extends FunctionalTest {
                     Integer id = Integer.valueOf(url.substring(url.lastIndexOf("/") + 1));
                     VimeoVideo videoInfo = vimeo.getVideoById(id);
                     Talk talk = new VideoInformationMerger().talkFromVideo(videoInfo);
+                    talk.removeAllTags();
                     talk.year(getYear(videoInfo.uploadDate()));
                     talk.addSpeaker(speaker);
                     talk.type(TalkTypes.OTHER);

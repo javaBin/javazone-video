@@ -83,6 +83,10 @@ public class Talk extends Model {
         return tags;
     }
 
+    public void removeAllTags() {
+        tags = null;
+    }
+
     public Thumbnail thumbnail() {
         return thumbnail;
     }

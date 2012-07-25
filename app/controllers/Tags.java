@@ -8,9 +8,9 @@ import play.libs.F;
 import play.mvc.Controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
@@ -24,44 +24,48 @@ public class Tags extends Controller {
         List<Talk> talks = Talk.all().asList();
         List<F.Tuple<String, Integer>> tags = CollectionTools.extractTagsWithCount(talks);
 
-        Map<String, List<F.Tuple<String, Integer>>> ctags = splitTagsInCategories(tags);
-        
-        render(ctags, years);
-    }
-
-    private static Map<String, List<F.Tuple<String, Integer>>> splitTagsInCategories(List<F.Tuple<String, Integer>> tags) {
-        Map<String, List<F.Tuple<String, Integer>>> categories = new HashMap<String, List<F.Tuple<String, Integer>>>();
-
-        Map<String, String> map = mapTo("meta.tags", "Meta");
-        map.putAll(mapTo("misc.tags", "Misc"));
-        map.putAll(mapTo("methods.tags", "Methods"));
-        map.putAll(mapTo("languages.tags", "Languages"));
-        map.putAll(mapTo("frameworks.tags", "Frameworks"));
-        map.putAll(mapTo("tech.tags", "Technology"));
+        List<F.Tuple<String, String>> cloudTags = new ArrayList<F.Tuple<String, String>>();
 
         for(F.Tuple<String, Integer> tag : tags) {
-            String match = map.get(tag._1);
-            if(!categories.containsKey(match)){
-                categories.put(match, new ArrayList<F.Tuple<String, Integer>>());
-                categories.get(match).add(tag);
-            } else {
-                categories.get(match).add(tag);
-            }
-            
+            F.Tuple<String, String> newTag = new F.Tuple(tag._1, normalize(tag._2));
+            cloudTags.add(newTag);
+        }
+        Collections.sort(cloudTags, new AlphabeticComparator());
+
+        render(cloudTags, years);
+    }
+
+    private static Object normalize(Integer i) {
+        if(i <= 1) {
+            return "c1";
+        }
+        if(i > 1 && i <= 2) {
+            return "c2";
+        }
+        if(i > 2 && i <= 4) {
+            return "c3";
+        }
+        if(i > 4 && i <= 7) {
+            return "c4";
+        }
+        if(i > 7 && i <= 10) {
+            return "c5";
+        }
+        if(i > 10 && i <= 20) {
+            return "c6";
+        }
+        if(i > 30 && i <= 45) {
+            return "c7";
         }
 
-        return categories;
+        return "c8";
     }
-    
-    private static Map <String, String> mapTo(String propertyName, String mapTarget) {
-        Map<String, String> map = new HashMap<String, String>();
-        Iterable <String> values = Splitter.on(",").split(Play.configuration.getProperty(propertyName));
-        
-        for(String key : values) {
-            map.put(key, mapTarget);
+
+    static class AlphabeticComparator implements Comparator<F.Tuple<String, String>> {
+        @Override
+        public int compare(F.Tuple<String, String> o1, F.Tuple<String, String> o2) {
+            return o1._1.compareTo(o2._1);
         }
-        
-        return map;
     }
 
 }

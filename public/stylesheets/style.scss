@@ -227,9 +227,9 @@ form {
 .label.lightningtalk, 
 .label.workshop, 
 .label.presentation {
-  background-color: black;
-  border-color: black;
-  color: white;
+  background-color: $background-color;
+  border-color: $heading-color;;
+  color: $heading-color;
 }
 
 .label:hover{
@@ -448,16 +448,23 @@ footer {
 }
 
 .wiki .paragraph {
-  color: $background-color;
+  color: $heading-color;
 }
 
 .popover-title {
-  color: $background-color !important;;
+  color: $heading-color !important;;
+  background-color: #222;
+  border: 2px solid #333;
 }
 
 .popover-content {
-  color: $background-color !important;
+  color: color !important;
+  background-color: $background-color;
+  border-left: 2px solid #333;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
 }
+
 
 div.abstract {
   color: red;

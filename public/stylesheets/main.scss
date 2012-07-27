@@ -8,9 +8,9 @@ $light-border: #696969;
 $box-color: #4b4b4b;
 
 @mixin rounded-corners {
-  -moz-border-radius:3px;
-  -webkit-border-radius:3px;
-  border-radius:3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 @mixin common-borders {
@@ -49,13 +49,6 @@ input {
   color: $light-border;
 }
 
-
-body {
-    background-color: $main-background;
-    color: $text-color;
-    font: lighter 13px/15px Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
-    line-height: 1.4;
-}
 
 h3 {
   font-size: 110%;

@@ -1,10 +1,11 @@
 $language-color: green;
 $talktype-color: black;
-$heading-color: #555;
+$heading-color: #f1f1f1;
 $effect-color: #00adee;
+$background-color: #000;
 
 html {
-     background-color:  rgba(224,224,224,1);
+     background-color: $background-color;;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
   font-family: "proxima-nova-condensed", "helvetica neue", helvetica, arial, sans-serif;
   font-size: 14px !important;
   color: $heading-color !important;
+  background-color: $background-color !important;
 }
 
 ul {
@@ -31,25 +33,21 @@ article {
   }
 }
 
+.navbar {
+  background-color: $background-color !important;
+}
+
 .navbar .btn {
   margin-top: 11px;
 }
 
 .navbar-inner {
-  background: rgb(224,224,224); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(224,224,224,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(224,224,224,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-  background: linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-
+  background: $background-color !important;
   box-shadow: none;
   -webkit-box-shadow: none;
 
   .brand {
-    color: #333 !important;
+    color: $heading-color !important;
     font-size: 250%;
     font-weight: 400;
   }
@@ -58,27 +56,32 @@ article {
     padding-top: 6px !important;
   }
 
+  ul.dropdown-menu {
+    background-color: $background-color;
+  }
+
   li.active > a {
     background-color: transparent !important;
     border-bottom: 2px solid $effect-color;
-    color: #333 !important;
+    color: $heading-color !important;
 
     ul.dropdown-menu li a {
       border: 0 !important;
+      color: $heading-color;;
     }
   }
   
   li a {
-    color: #333 !important;
+    color: $heading-color !important;
     padding-bottom: 3px !important;
   }
 
   li a:hover {
-    color: #00adee !important;;
+    color: $effect-color !important;;
   }
 
   .active li a:hover {
-    color: white !important;;
+    color: $background-color !important;;
   }
   
 
@@ -306,7 +309,7 @@ article.span10 {
 }
 
 li span {
-  color: #000;
+  color: $heading-color;
   font-weight: 500;
 }
 
@@ -346,9 +349,13 @@ article.speaker-section {
       margin-left: 0;
       margin-top: 0;
       margin-right: 15px;
+      color: $heading-color !important;
+      background-color: $background-color !important;
 
       .paragraph {
         padding-top: 7px;
+        color: $heading-color !important;
+        background-color: $background-color !important;
       }
 
       .paragraph:first-of-type {
@@ -374,7 +381,7 @@ article.speaker-section {
     }
 
   span {
-    color: #000;
+    color: $heading-color;
   }
 
   img {
@@ -430,14 +437,7 @@ footer {
   height: 60px;
   padding-top: 30px;
   font-size: 95% !important;
- background: rgb(224,224,224); /* Old browsers */
-  background: -moz-linear-gradient(bottom,  rgba(224,224,224,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(224,224,224,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(bottom,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(bottom,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(bottom,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-  background: linear-gradient(bottom,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+ background: $background-color;
 
   p {
     width: 60%;
@@ -455,6 +455,9 @@ footer {
   border: 1px solid #aaa !important;
 }
 
+.content {
+  background-color: $background-color !important;
+}
 
 @media (max-width: 980px) {
   body {

@@ -447,6 +447,22 @@ footer {
 
 }
 
+.wiki .paragraph {
+  color: $background-color;
+}
+
+.popover-title {
+  color: $background-color !important;;
+}
+
+.popover-content {
+  color: $background-color !important;
+}
+
+div.abstract {
+  color: red;
+}
+
 .twtr-ft {
   display:none;
 }
@@ -455,9 +471,6 @@ footer {
   border: 1px solid #aaa !important;
 }
 
-.content {
-  background-color: $background-color !important;
-}
 
 @media (max-width: 980px) {
   body {

@@ -1,6 +1,7 @@
 # Application dependencies
 
 require:
+    - play 1.2.5
     - play -> cobertura 2.4:
         id: test
     - play -> morphia 1.2.7

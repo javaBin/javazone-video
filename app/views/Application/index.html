@@ -11,7 +11,7 @@
     <h3>Filter by tags</h3>
     <ul id="filter-tags">
       #{list items:tags, as:'tag'}
-      <li> <span class="label warning tag ${tag.toLowerCase().replace(".", "_")}">${tag}</span></li>
+      <li> <span title="click on tag to filter talks by it..." class="label warning tag ${tag.toLowerCase().replace(".", "_")}">${tag}</span></li>
       #{/list}
     </ul>
     
@@ -50,7 +50,7 @@
         </div>
         <div class="">
           #{list items:talk.tags, as:'tag'}
-          <span class="label warning tag ${tag.name.toLowerCase().replace(" ", "_")}">${tag.name}</span>
+          <span title="click on tag to filter talks by it..." class="label warning tag ${tag.name.toLowerCase().replace(" ", "_")}">${tag.name}</span>
           #{/list}
         </div>
       </article>

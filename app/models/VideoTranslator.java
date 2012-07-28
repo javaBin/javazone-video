@@ -71,10 +71,14 @@ public class VideoTranslator {
         DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
         DateTime dateTime = formatter.parseDateTime((String) v.get("upload_date"));
 
+        String duration = (String) v.get("duration");
+        if(duration.contains(".")) {
+            duration = duration.substring(duration.lastIndexOf(".") + 1);
+        }
         return new VimeoVideo(Integer.parseInt((String) v.get("id")),
                 (String) v.get("title"),
                 (String) v.get("description"),
-                Integer.parseInt((String) v.get("duration")),
+                Integer.parseInt(duration),
                 createThumbnail(v),
                 Integer.parseInt((String) v.get("number_of_plays")),
                 Integer.parseInt((String) v.get("number_of_comments")),

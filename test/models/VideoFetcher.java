@@ -1,5 +1,6 @@
 package models;
 
+import com.google.common.base.Splitter;
 import models.domain.Speaker;
 import models.domain.Talk;
 import models.domain.TalkTypes;
@@ -7,9 +8,11 @@ import models.domain.external.IncogitoSession;
 import models.domain.external.VimeoVideo;
 import org.joda.time.DateTime;
 import org.junit.Test;
+import play.Play;
 import play.modules.morphia.utils.StringUtil;
 import play.test.FunctionalTest;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,17 +28,17 @@ public class VideoFetcher extends FunctionalTest {
 
     @Test
     public void fetchAndSaveVideos() {
-        List<VimeoVideo> videos = new VimeoClient().getVideosByYear("2011", null, null);
-        List<IncogitoSession> sessions = new IncogitoClient().getSessionsForYear(2011);
 
-        List<Talk> finishedTalks = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
+        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
+        List<Talk> finishedTalks = new ArrayList<Talk>();
+
+        for(String year : years) {
+            List<VimeoVideo> videos = new VimeoClient().getVideosByYear(year, null, null);
+            List<IncogitoSession> sessions = new IncogitoClient().getSessionsForYear(Integer.parseInt(year));
+            finishedTalks.addAll(new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions));
+        }
 
         Mappings mappings = new Mappings("conf/mappings.yml");
-        
-        videos = new VimeoClient().getVideosByYear("2010", null, null);
-        sessions = new IncogitoClient().getSessionsForYear(2010);
-
-        finishedTalks.addAll(new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions));
 
         for(Talk talk : finishedTalks) {
             for(Speaker speaker : talk.speakers()) { //must save reference types first

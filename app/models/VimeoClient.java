@@ -56,7 +56,10 @@ public class VimeoClient {
 
     private static final Map<String, String> supportedTags = new HashMap<String, String>(){{
             put("2011", "Javazone2011");
-            put("2010", "Javazone2010");}};
+            put("2010", "Javazone2010");
+            put("2009", "Javazone2009");
+            put("2012", "Javazone2012");
+        }};
 
     private Integer totalVideos;
 

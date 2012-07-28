@@ -3,6 +3,7 @@ package models.domain;
 import com.google.code.morphia.annotations.Embedded;
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
+import com.google.code.morphia.annotations.Index;
 import models.ImageInfo;
 import play.data.validation.Required;
 import play.modules.morphia.Model;
@@ -14,6 +15,8 @@ import java.util.HashMap;
  * 2011-10-01
  */
 
+@Index("lastname")
+@Model.AutoTimestamp
 @Entity
 public final class Speaker extends Model {
 
@@ -23,6 +26,7 @@ public final class Speaker extends Model {
     @Id
     private String slug;
 
+    private String lastname;
     private final String bio;
     private final String photoURL;
     private String twitterName;
@@ -35,6 +39,7 @@ public final class Speaker extends Model {
         this.bio = bio.trim();
         this.photoURL = url;
         slug = name.toLowerCase().trim().replace(" ", "");
+        this.lastname = name.substring(name.lastIndexOf(" ") + 1);
     }
 
     public String name() {

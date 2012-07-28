@@ -31,8 +31,9 @@ public class Tags extends Controller {
             cloudTags.add(newTag);
         }
         Collections.sort(cloudTags, new AlphabeticComparator());
+        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
 
-        render(cloudTags, years);
+        render(cloudTags, years, speakerMenu);
     }
 
     private static Object normalize(Integer i) {

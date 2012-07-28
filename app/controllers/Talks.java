@@ -36,8 +36,9 @@ public class Talks extends Controller {
 
         List<String> filterTags = findFilterTags(transform(talk.tags(), Tag.name()));
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
+        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
 
-        render(talk, filterTags, years);
+        render(talk, filterTags, years, speakerMenu);
     }
 
     public static void filter(@Required int year) {
@@ -50,7 +51,8 @@ public class Talks extends Controller {
         List<String> tags = TagHelper.findTagsForTalks(talks);
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        renderTemplate(INDEX_TEMPLATE, talks, tags, years);
+        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
+        renderTemplate(INDEX_TEMPLATE, talks, tags, years, speakerMenu);
     }
 
     public static void filterByTag(@Required String tag) {
@@ -63,7 +65,9 @@ public class Talks extends Controller {
         List<String> tags = TagHelper.findTagsForTalks(talks);
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        renderTemplate(INDEX_TEMPLATE, talks, tags, years);
+        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
+
+        renderTemplate(INDEX_TEMPLATE, talks, tags, years, speakerMenu);
     }
 
     private static List<String> findFilterTags(Collection<String> tags) {

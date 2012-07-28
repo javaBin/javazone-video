@@ -1,9 +1,6 @@
 package models.domain;
 
-import com.google.code.morphia.annotations.Embedded;
-import com.google.code.morphia.annotations.Entity;
-import com.google.code.morphia.annotations.Id;
-import com.google.code.morphia.annotations.Reference;
+import com.google.code.morphia.annotations.*;
 import com.google.common.base.Function;
 import models.domain.external.VimeoVideo;
 import play.modules.morphia.Model;
@@ -14,6 +11,7 @@ import java.util.List;
 
 import static com.google.common.collect.Iterables.transform;
 
+@Index("plays")
 @AutoTimestamp
 @Entity
 public class Talk extends Model {

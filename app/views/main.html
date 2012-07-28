@@ -37,7 +37,15 @@
                 </ul>
               </li>
               <li id="tags"><a href="/tags">Tags</a></li>
-              <li id="speakers"><a href="/speakers">Speakers</a></li>
+              <li id="speakers" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Speakers <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  #{list items:speakerMenu, as:'speak'}
+                  <li><a href="/speakers/${speak}">${speak}</a></li>
+                  #{/list}
+                </ul>
+              </li>
+              <!--<li id="speakers"><a href="/speakers">Speakers</a></li>-->
             </ul>
             <form action="#" class="pull-right" id="filter-form">
               <fieldset>

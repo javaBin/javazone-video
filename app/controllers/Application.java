@@ -14,8 +14,9 @@ public class Application extends Controller {
         List<Talk> talks = Talk.filter("year =", 2011).order("-plays").filter("type =", "jz").asList();
         List<String> tags = TagHelper.findTagsForTalks(talks);
 
+        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        render(talks, tags, years);
+        render(talks, tags, years, speakerMenu);
     }
 
 }

@@ -16,7 +16,8 @@ GET     /talks/{year}                           Talks.filter
 GET     /talks/tag/{tag}                        Talks.filterByTag
 
 GET     /speaker/{slug}                         Speakers.show
-GET     /speakers                               Speakers.index
+#GET     /speakers                               Speakers.index
+GET     /speakers/{letters}                     Speakers.index
 
 GET     /tags                                   Tags.index
 

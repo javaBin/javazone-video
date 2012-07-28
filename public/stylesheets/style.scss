@@ -150,8 +150,15 @@ form {
 .label.estimation,
 .label.devops,
 .label.ux,
+.label.datastructures,
 .label.ci,
+.label.esb,
+.label.lean, 
+.label.oo,
 .label.cd,
+.label.ddd,
+.label.legacy,
+.label.copyright,
 .label.soa,
 .label.charsets,
 .label.quality,
@@ -173,7 +180,9 @@ form {
 .label.bigdata,
 .label.bdd,
 .label.community,
-.label.hudson {
+.label.embedded,
+.label.ejb,
+.label.bpm{
   background-color: navy;
   border-color: navy;
   color: white;
@@ -216,7 +225,14 @@ form {
 .label.lift,
 .label.mule,
 .label.spring, 
+.label.hudson,
+.label.jenkins,
 .label.intellij,
+.label.qi4j,
+.label.glassfish,
+.label.sling, 
+.label.maven,
+.label.grails,
 .label.hadoop,
 .label.akka {
   background-color: black;

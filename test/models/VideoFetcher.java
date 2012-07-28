@@ -77,7 +77,6 @@ public class VideoFetcher extends FunctionalTest {
                 }
             }
         }
-
     }
 
     private Integer getYear(DateTime dateTime) {

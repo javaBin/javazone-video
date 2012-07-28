@@ -48,7 +48,8 @@ public class VideoTranslator {
 
         List<Map<String, String>> tags = (List<Map<String, String>>) ((Map<String, Object>) v.get("tags")).get("tag");
 
-        final Array<String> filteredTags = Array.array("JavaZOne 2011", "JavaZone 2011","Conference", "JavaZone 2010", "JavaZone", "JavaBin", "JavaZone2010");
+        final Array<String> filteredTags = Array.array("JavaZOne 2011", "JavaZone 2011","Conference",
+                                    "JavaZone 2009", "JavaZone 2010", "JavaZone", "JavaBin", "JavaZone2010");
 
         for (Map<String, String> tag : tags) {
             final String content = tag.get("_content");

@@ -64,7 +64,7 @@ $(function () {
     });
 
 
-    $("#filter-form").submit(function(event) {
+   /* $("#filter-form").submit(function(event) {
         event.preventDefault();
         var input = $("#filter").val();
         if (input == "") {
@@ -73,7 +73,7 @@ $(function () {
             filterArticles(input.toLowerCase().split(" "));
         }
     });
-
+    */
 
     $(".abstract").popover({
         content: function() {

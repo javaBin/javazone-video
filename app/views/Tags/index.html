@@ -5,7 +5,7 @@
 <div class="span2">&nbsp;</div>
   <ul class="cloud span8">
     #{list items:cloudTags, as:'tag'}
-    <li><a href=@{Talks.filterByTag(tag._1)} class="ctag ${tag._2}">${tag._1}</a></li>
+    <li><a href=@{Talks.filterByTag(tag._1)} class="ctag ${tag._3}" title="${tag._2} total talks">${tag._1}</a></li>
     #{/list}
   </ul>
 </div>

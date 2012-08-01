@@ -24,10 +24,10 @@ public class Tags extends Controller {
         List<Talk> talks = Talk.all().asList();
         List<F.Tuple<String, Integer>> tags = CollectionTools.extractTagsWithCount(talks);
 
-        List<F.Tuple<String, String>> cloudTags = new ArrayList<F.Tuple<String, String>>();
+        List<F.T3<String, Integer, String>> cloudTags = new ArrayList<F.T3<String, Integer, String>>();
 
         for(F.Tuple<String, Integer> tag : tags) {
-            F.Tuple<String, String> newTag = new F.Tuple(tag._1, normalize(tag._2));
+            F.T3<String, Integer, String> newTag = new F.T3(tag._1, tag._2, normalize(tag._2));
             cloudTags.add(newTag);
         }
         Collections.sort(cloudTags, new AlphabeticComparator());
@@ -58,13 +58,16 @@ public class Tags extends Controller {
         if(i > 30 && i <= 45) {
             return "c7";
         }
+        if(i > 45 && i <= 80) {
+            return "c8";
+        }
 
-        return "c8";
+        return "c9";
     }
 
-    static class AlphabeticComparator implements Comparator<F.Tuple<String, String>> {
+    static class AlphabeticComparator implements Comparator<F.T3<String, Integer, String>> {
         @Override
-        public int compare(F.Tuple<String, String> o1, F.Tuple<String, String> o2) {
+        public int compare(F.T3<String, Integer, String> o1, F.T3<String, Integer, String> o2) {
             return o1._1.compareTo(o2._1);
         }
     }

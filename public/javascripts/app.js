@@ -36,10 +36,16 @@ $(function () {
      var fjernEllerLeggTilTag = function(tag) {
        var finnes = $("#activetags ." + fixTag(tag));
         if(finnes.size() == 1) {
-             finnes.parent().remove();
+            finnes.parent().remove();
+            if($("#activetags").children("li").size() == 0) {
+                $("#active-tags-title").fadeOut();
+            }
         }   else {
             var newLi = '<li> <span class="label warning rmtag ' + fixTag(tag) + '">' + tag + '</span></li>';
-             $("#activetags").append(newLi);
+            $("#activetags").append(newLi);
+            if($("#activetags").children("li").size() > 0) {
+                $("#active-tags-title").fadeIn();
+            }
         }
     }
 
@@ -55,13 +61,18 @@ $(function () {
         filterArticles(filters);
     });
 
-    $(".rmtag").live('click', function(){
-       $(this).parent().remove();
-        var filters = $("#activetags .rmtag").map(function () {
-           return $(this).text();
-         });
-        filterArticles(filters);
-    });
+      $(".rmtag").live('click', function(){
+                           $(this).parent().remove();
+                           var filters = $("#activetags .rmtag").map(function () {
+                                                                         return $(this).text();
+                                                                     });
+                           filterArticles(filters);
+
+                           if($("#activetags").children("li").size() == 0) {
+                               $("#active-tags-title").fadeOut();
+                           }
+                           
+                       });
 
 
    /* $("#filter-form").submit(function(event) {

@@ -4,7 +4,7 @@
 <div class="row-fluid">
 
   <nav class="span2">
-    <h3>Active Tags</h3>
+    <h3 id="active-tags-title">Active filter</h3>
     <ul id="activetags">
     </ul>
 
@@ -58,5 +58,10 @@
       #{/list}
     </section>
   </div>
-  <script type="text/javascript">$("#main").addClass("active");</script>
+  <script type="text/javascript">
+    $("#main").addClass("active");
+    if( $("#activetags").children("li").size() == 0) {
+      $("#active-tags-title").hide();
+    }
+</script>
 

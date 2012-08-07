@@ -38,11 +38,11 @@ public class IncogitoClient {
             client.getConnectionManager().shutdown();
         }
 
-        return null != responseBody ? mapObjects(responseBody) : new ArrayList<IncogitoSession>();
+        return null != responseBody ? mapObjects(responseBody, year) : new ArrayList<IncogitoSession>();
     }
 
-    private List<IncogitoSession> mapObjects(String json) {
-        return new SessionJSONMapper(json).sessionsToObjects();
+    private List<IncogitoSession> mapObjects(String json, int defaultYear) {
+        return new SessionJSONMapper(json).sessionsToObjects(defaultYear);
     }
 
     private String executeRequest(int year, HttpClient client) throws IOException {

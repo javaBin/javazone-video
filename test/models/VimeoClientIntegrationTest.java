@@ -55,7 +55,7 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void throwsExceptionForIllegalYear() {
-        List<VimeoVideo> results = client.getVideosByYear("2009", args, 1);
+        List<VimeoVideo> results = client.getVideosByYear("2007", args, 1);
         assertEquals(1, results.size());
 
     }
@@ -69,7 +69,7 @@ public class VimeoClientIntegrationTest extends FunctionalTest {
     @Test
     public void handlesNullMax() {
         List<VimeoVideo> results = client.getVideosByYear("2010", null, null);
-        assertEquals(65, results.size());
+        assertEquals(66, results.size());
     }
 
     @Test

@@ -28,7 +28,7 @@ public class SessionJSONMapperTest extends UnitTest {
     public void mapSessionsToListOfSessions() throws Exception {
         String sessionJson = Files.toString(new File("test/testdata/threeSessions.json"), Charsets.UTF_8);
         SessionJSONMapper mapper = new SessionJSONMapper(sessionJson);
-        List<IncogitoSession> sessions = mapper.sessionsToObjects();
+        List<IncogitoSession> sessions = mapper.sessionsToObjects(2011);
 
         assertEquals(3, sessions.size());
     }
@@ -83,12 +83,12 @@ public class SessionJSONMapperTest extends UnitTest {
     @Test
     public void returnsEmptyListForNullString() {
         SessionJSONMapper mapper = new SessionJSONMapper(null);
-        assertEquals(0, mapper.sessionsToObjects().size());
+        assertEquals(0, mapper.sessionsToObjects(2011).size());
     }
 
     private IncogitoSession getSession() throws IOException {
         String sessionJson = Files.toString(new File("test/testdata/threeSessions.json"), Charsets.UTF_8);
         SessionJSONMapper mapper = new SessionJSONMapper(sessionJson);
-        return mapper.sessionsToObjects().get(0);
+        return mapper.sessionsToObjects(2011).get(0);
     }
 }

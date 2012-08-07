@@ -30,22 +30,25 @@ public class SessionTranslator {
         }
     };
 
-    public static List<IncogitoSession> translateSessions(List<HashMap<String, Object>> sessions) {
+    public static List<IncogitoSession> translateSessions(List<HashMap<String, Object>> sessions, int defaultYear) {
         List<IncogitoSession> sessionObjects = new ArrayList<IncogitoSession>();
 
         for(Map<String, Object> v : sessions) {
-            sessionObjects.add(createSession(v));
+            sessionObjects.add(createSession(v, defaultYear));
         }
 
         return sessionObjects;
     }
 
-    private static IncogitoSession createSession(Map<String, Object> v) {
+    private static IncogitoSession createSession(Map<String, Object> v, int defaultYear) {
         IncogitoSession session = new IncogitoSession("", "", 0);
         try {
             session = new IncogitoSession(toUTF8(v, "title"),
                                           toUTF8(v, "bodyHtml"),
                                           getYear(v));
+            if(session.year() == 0) {
+                session.year(defaultYear);
+            }
 
             for(Map<String, Object> values : getSpeakers(v)) {
                  session.addSpeaker(toUTF8(values, "name"),
@@ -62,7 +65,10 @@ public class SessionTranslator {
 
     private static int getYear(Map<String, Object> v) {
         Map<String, Object> end = (Map<String, Object>) v.get("end");
-        return (Integer) end.get("year");
+        if(end != null) {
+            return (Integer) end.get("year");
+        }
+        return 0;
     }
 
     private static List<Map<String, Object>> getSpeakers(Map<String, Object> v) {

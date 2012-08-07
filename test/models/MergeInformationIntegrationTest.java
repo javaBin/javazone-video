@@ -3,9 +3,6 @@ package models;
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import fj.F;
-import models.SessionJSONMapper;
-import models.VideoInformationMerger;
-import models.VideoJSONMapper;
 import models.domain.external.IncogitoSession;
 import models.domain.Talk;
 import models.domain.external.VimeoVideo;
@@ -96,7 +93,7 @@ public class MergeInformationIntegrationTest extends FunctionalTest {
         VideoJSONMapper mapper = new VideoJSONMapper(videosString);
 
         List<VimeoVideo> videos = mapper.videosToObjects();
-        List<IncogitoSession> sessions = new SessionJSONMapper(sessionsString).sessionsToObjects();
+        List<IncogitoSession> sessions = new SessionJSONMapper(sessionsString).sessionsToObjects(2011);
         mergedTalks = new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions);
         return mergedTalks;
     }

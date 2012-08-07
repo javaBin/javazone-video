@@ -2,42 +2,49 @@ package models;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
-import models.domain.*;
+import models.domain.Speaker;
+import models.domain.Tag;
+import models.domain.Talk;
+import models.domain.TalkTypes;
 import models.domain.external.IncogitoSession;
 import models.domain.external.VimeoVideo;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class VideoInformationMerger {
 
     public List<Talk> mergeVideoAndSessionInfo(List<VimeoVideo> vimeoVideos, List<IncogitoSession> sessions) {
         List<Talk> talks = new ArrayList<Talk>();
+        Map<Integer, Boolean> seen = new HashMap<Integer, Boolean>();
 
         for(VimeoVideo vVideo : vimeoVideos) {
             int index = titleMatches(vVideo, sessions);
 
             if(index >= 0) {
-
                 IncogitoSession session = sessions.get(index);
                 Talk talk = talkFromVideo(vVideo);
-
-                talk.year(session.year());
-                talk.talkAbstract(session.talkAbstract());
-
-                for(IncogitoSession.Speaker speaker : session.speakers()) {
-                    talk.addSpeaker(new Speaker(speaker.name(), speaker.bio(), speaker.photoURL()));
-                }
-
+                addSessionInformation(session, talk);
                 talks.add(talk);
+                seen.put(index, true);
             } else {
                 System.err.println("Could not match title for talk <" + vVideo.title() + ">");
             }
 
         }
-
         return talks;
+    }
+
+    private void addSessionInformation(IncogitoSession session, Talk talk) {
+        talk.year(session.year());
+        talk.talkAbstract(session.talkAbstract());
+
+        for(IncogitoSession.Speaker speaker : session.speakers()) {
+            talk.addSpeaker(new Speaker(speaker.name(), speaker.bio(), speaker.photoURL()));
+        }
     }
 
     public Talk talkFromVideo(VimeoVideo vVideo) {

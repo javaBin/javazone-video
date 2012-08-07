@@ -23,14 +23,14 @@ public class SessionJSONMapper {
         json = sessionJson;
     }
 
-    public List<IncogitoSession> sessionsToObjects() {
+    public List<IncogitoSession> sessionsToObjects(int defaultYear) {
         if(null == json) {
             return new ArrayList<IncogitoSession>();
         }
 
         try {
             Map map = mapper.readValue(json, Map.class);
-            return SessionTranslator.translateSessions((List<HashMap<String, Object>>) map.get("sessions"));
+            return SessionTranslator.translateSessions((List<HashMap<String, Object>>) map.get("sessions"), defaultYear);
         } catch (IOException e) {
             e.printStackTrace(); //LOG?
         }

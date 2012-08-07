@@ -1,6 +1,8 @@
 package models;
 
+import com.google.common.base.Function;
 import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
 import models.domain.Speaker;
 import models.domain.Talk;
 import models.domain.TalkTypes;
@@ -12,10 +14,7 @@ import play.Play;
 import play.modules.morphia.utils.StringUtil;
 import play.test.FunctionalTest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com> 2011-09-24
@@ -32,7 +31,17 @@ public class VideoFetcher extends FunctionalTest {
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         List<Talk> finishedTalks = new ArrayList<Talk>();
 
+        List<Integer> intYears = Lists.transform(Lists.newLinkedList(years), new Function<String, Integer>() {
+            @Override
+            public Integer apply(String o) {
+                return Integer.valueOf(o);
+            }
+        });
+
+        int maxYear = Collections.max(intYears);
+
         for(String year : years) {
+            System.err.println("fetching sessions for year=" + year);
             List<VimeoVideo> videos = new VimeoClient().getVideosByYear(year, null, null);
             List<IncogitoSession> sessions = new IncogitoClient().getSessionsForYear(Integer.parseInt(year));
             finishedTalks.addAll(new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions));
@@ -101,5 +110,5 @@ public class VideoFetcher extends FunctionalTest {
     private boolean isNewerVersions(HashMap<String, ImageInfo> newImages, HashMap<String, ImageInfo> oldImages) {
         return !newImages.isEmpty() && newImages.get("large").year() > oldImages.get("large").year();
     }
-
 }
+

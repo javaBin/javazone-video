@@ -121,7 +121,7 @@ $(function () {
                                            title: function() {
                                                return $(this).text();
                                            },
-                                           placement: 'right',
+                                           placement: 'left',
                                            html: true
                                        });
   });

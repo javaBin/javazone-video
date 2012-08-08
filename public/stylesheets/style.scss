@@ -27,12 +27,6 @@ h2 {
   line-height: 30px;
 }
 
-article {
-  img {
-    border: 2px !important;
-  }
-}
-
 .navbar {
   background-color: $background-color !important;
 }
@@ -310,6 +304,10 @@ form {
   text-decoration: none;
 }
 
+a:hover {
+  color: $effect-color !important;
+}
+
 .cloud {
   list-style-type: none;
   margin-right: auto;
@@ -398,7 +396,7 @@ article.speaker-section {
         color: $heading-color;
         font-size: 450%;
         float:left; 
-        line-height: 0.75em;
+        line-height: 0.7em;
         padding: 2px;
         margin-top: 2px;
         margin-bottom: -3px;
@@ -411,15 +409,6 @@ article.speaker-section {
     color: $heading-color;
   }
 
-  img {
-    border: 1px solid #d1d1d1 !important;
-    border-radius: 4px;
-    box-shadow: 1px 1px 4px #d1d1d1;
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-
   img:hover {
     pointer: hand;
   }
@@ -429,6 +418,21 @@ article.speaker-section {
     margin-left: 5px;
     margin-right: 5px;
   }
+}
+
+img {
+  border: 1px solid #818181 !important;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px #818181;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+.blue {
+  color: $effect-color;
 }
 
 img.odd {

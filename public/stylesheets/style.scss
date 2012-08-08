@@ -177,6 +177,8 @@ form {
 .label.persistence,
 .label.server-side,
 .label.bigdata,
+.label.search,
+.label.di,
 .label.bdd,
 .label.community,
 .label.embedded,
@@ -226,6 +228,8 @@ form {
 .label.spring, 
 .label.hudson,
 .label.jenkins,
+.label.wicket,
+.label.lucene,
 .label.intellij,
 .label.qi4j,
 .label.glassfish,
@@ -321,7 +325,10 @@ a:hover {
   }
 }
 
-
+.spaced {
+  margin-left: 4px;
+  margin-right: 4px;
+}
 
 article {
   margin-bottom: 7px;
@@ -468,7 +475,7 @@ footer {
   height: 60px;
   padding-top: 30px;
   font-size: 95% !important;
- background: $background-color;
+  background: $background-color;
 
   p {
     width: 60%;

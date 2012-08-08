@@ -2,13 +2,6 @@
 #{set title: talk.title /}
 
 <div class="row-fluid">
- <div class="span8">&nbsp;</div>
-  <div class="span4">
-    <h2>JavaZone ${talk.year}</h2>
-  </div>
-</div>
-
-<div class="row-fluid">
   <div class="span2">&nbsp;</div>
   <article class="speaker-section span8">
     <div class="row-fluid">
@@ -18,20 +11,20 @@
     </div>
     
     <div class="row-fluid keywords">
-      <div class="span5">&nbsp;</div>
-      <div class="keywords span6"><span>${talk.plays} plays</span> / <span>${talk.likes} likes</span> / <span>${talk.comments} comments</span> <i class=icon-circle-arrow-right></i> <a href="http://vimeo.com/${talk.id}">on vimeo</a></div>
+      <div class="span4"></div>
+      <div class="keywords span7"> <strong>JavaZone ${talk.year} <span class=square><i class="icon-stop"></i></span> </strong><span>${talk.plays} plays</span> / <span>${talk.likes} likes</span> / <span>${talk.comments} comments</span> <i class="icon-circle-arrow-right spaced"></i> <a href="http://vimeo.com/${talk.id}">on vimeo</a></div>
     </div>
 
     <div class="row-fluid">
-      <div class="span7">
+      <div class="span8">
         ${talk.talkAbstract.raw()}
       </div>
-      <div class="span5">
+      <div class="span4">
         #{include 'speakers.html' /}
         <h3>Tags</h3>
         <ul class=icons>
           #{list items:talk.tags, as:'tag'}
-          <li><i class="icon-tag blue"></i><a href="${tag.url}" class="tag">${tag.name}</a></li>
+          <li><i class="icon-tag"></i><a href="${tag.url}" class="tag">${tag.name}</a></li>
           #{/list}
         </ul>
          #{if filterTags.size != 0 }

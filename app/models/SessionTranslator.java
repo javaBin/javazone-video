@@ -8,10 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * User: Knut Haugen <knuthaug@gmail.com>
- * 2011-09-24
- */
 public class SessionTranslator {
 
     static Map<String, String> replacements = new HashMap<String, String>(){

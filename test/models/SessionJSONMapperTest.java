@@ -21,7 +21,7 @@ public class SessionJSONMapperTest extends UnitTest {
 
     @Before
     public void init() throws IOException {
-        session = getSession();
+        session = getSession(0);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class SessionJSONMapperTest extends UnitTest {
         SessionJSONMapper mapper = new SessionJSONMapper(sessionJson);
         List<IncogitoSession> sessions = mapper.sessionsToObjects(2011);
 
-        assertEquals(3, sessions.size());
+        assertEquals(4, sessions.size());
     }
 
     @Test
@@ -52,6 +52,11 @@ public class SessionJSONMapperTest extends UnitTest {
     @Test
     public void speakersHaveAName() {
         assertEquals("Kaare Nilsen", session.speakers().get(0).name());
+    }
+
+    @Test
+    public void speakersWithSpecialCharsInNameAreHandled() throws Exception {
+        assertEquals("Rickard Öberg", getSession(3).speakers().get(0).name());
     }
 
     @Test
@@ -86,9 +91,9 @@ public class SessionJSONMapperTest extends UnitTest {
         assertEquals(0, mapper.sessionsToObjects(2011).size());
     }
 
-    private IncogitoSession getSession() throws IOException {
+    private IncogitoSession getSession(int index) throws IOException {
         String sessionJson = Files.toString(new File("test/testdata/threeSessions.json"), Charsets.UTF_8);
         SessionJSONMapper mapper = new SessionJSONMapper(sessionJson);
-        return mapper.sessionsToObjects(2011).get(0);
+        return mapper.sessionsToObjects(2011).get(index);
     }
 }

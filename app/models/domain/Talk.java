@@ -73,6 +73,10 @@ public class Talk extends Model {
         this.id = id;
     }
 
+    public int id() {
+        return id;
+    }
+
     public void addTag(Tag tag) {
         tags.add(tag);
     }

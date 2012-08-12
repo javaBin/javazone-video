@@ -2,7 +2,7 @@ $language-color: green;
 $talktype-color: black;
 $heading-color: #f1f1f1;
 $effect-color: #00adee;
-$background-color: #000;
+$background-color: #222;
 
 html {
      background-color: $background-color;;
@@ -436,6 +436,16 @@ img {
   margin-bottom: 10px;
 }
 
+.svg {
+  border: 0 !important;
+  box-shadow: none;
+  border-radius: 0;
+  display: inline;
+  float: none;
+  vertical-align: middle;
+  margin-top: 6px;
+  margin-left: -4px;
+}
 
 
 .blue {

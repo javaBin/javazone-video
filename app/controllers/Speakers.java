@@ -60,6 +60,9 @@ public class Speakers extends Controller {
     }
 
     private static Query<Speaker> createQuery(String letters) {
+        //create a mongo query for finding speakers with lastnames ending in a specific range
+        //split the argument and iterate.
+
         Datastore ds = MorphiaPlugin.ds();
         Query<Speaker> q = ds.createQuery(Speaker.class);
         List<String> parts = Lists.newArrayList(Splitter.on("-").split(letters));
@@ -76,18 +79,6 @@ public class Speakers extends Controller {
         q.or(crits);
         return q;
     }
-
-    /*public static void index() {
-        Datastore ds = MorphiaPlugin.ds();
-        Query<Speaker> q = ds.createQuery(Speaker.class);
-
-        List<Speaker> speakers = q.asList();
-        List<Talk> talkList = Talk.all().asList();
-        HashMap talks = findTalksForSpeakers(talkList);
-        Iterable <String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
-        render(speakers, talks, years, speakerMenu);
-    }*/
 
     private static HashMap findTalksForSpeakers(List<Talk> talkList) {
         HashMap talks = new LinkedHashMap<String, List<Talk>>();

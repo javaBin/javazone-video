@@ -1,12 +1,13 @@
 #{extends 'main.html' /}
 #{set title:'Monkeys ate my bytes!' /}
 
-#{if play.mode.name() == 'DEV'}
-#{404 result /}
-#{/if}
-#{else}
-<h1>The internet monkeys ate my bytes!</h1>
-<p>
-    ${result.message}
-</p>
-#{/else}
+<div class="row-fluid">
+    <div class="span3">&nbsp;</div>
+    <div class="span8">
+    <h1>The internet monkeys ate my bytes!</h1>
+    <p>
+        ${result.message}
+    </p>
+    </div>
+</div>
+

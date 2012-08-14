@@ -10,7 +10,7 @@
 <div class="row-fluid">
   <div class="span2">&nbsp;</div>
   <article class="speaker-section span6">
-    <a href="@{Speakers.show(speaker.slug)}"><img class="${speaker_parity}" src="${play.Play.configuration.get("image/prefix")}/${speaker.images.get("large").url}" alt="${speaker.name}" width="${speaker.images.get("large").width}" height="${speaker.images.get("large").height}" /></a>
+    <a href="@{Speakers.show(speaker.slug)}"><img class="${speaker_parity}" src="${play.Play.configuration.get("image.prefix")}/${speaker.images.get("large").url}" alt="${speaker.name}" width="${speaker.images.get("large").width}" height="${speaker.images.get("large").height}" /></a>
     ${speaker.bio.raw()}
     <h3>Talks</h3>
     <ul>

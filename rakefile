@@ -42,6 +42,10 @@ task :import_test => [:set_test_environment_local] do
   sh "play test"
 end
 
+task :import_prod => [:set_prod_environment_local] do
+  sh "play test"
+end
+
 task :deploy_test => [:set_test_environment_heroku] do
   sh "git push heroku master"
 end

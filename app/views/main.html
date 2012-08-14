@@ -9,9 +9,7 @@
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="@{'public/stylesheets/bootstrap.min.css'}" rel="stylesheet"/>
-    <link href="@{'public/stylesheets/font-awesome.css'}" rel="stylesheet">
-    <link href="@{'public/stylesheets/style.scss'}" rel="stylesheet">
+    <link href="@{'public/stylesheets/all.css'}" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}"/>
   </head>
   <body>
@@ -69,13 +67,9 @@
       </div>
     </div>
     
+<script src="@{'public/javascripts/all.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 #{if speaker != null || talk != null } 
-<script src="@{'public/javascripts/jquery.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-
 <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
 #{/if}
-<script src="@{'public/javascripts/underscore-min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-<script src="@{'public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-<script src="@{'public/javascripts/app.js'}" type="text/javascript" charset="${_response_encoding}"></script>
   </body>
 </html>

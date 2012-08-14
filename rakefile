@@ -1,4 +1,32 @@
+require 'rake/minify'
 load 'jzvideo-secrets.rb' if FileTest.exists?('jzvideo-secrets.rb')
+
+Rake::Minify.new(:js) do
+  dir("public/javascripts") do # we specify only the source directory
+    group("public/javascripts/all.js") do # the output file name is full path
+      add("jquery.min.js", :minify => false)
+      add("underscore-min.js", :minify => false)
+      add("bootstrap.min.js", :minify => false)
+      add("app.js")
+    end
+  end
+end
+
+task :sass do
+     system "sass -f -t compressed --update public/stylesheets/style.scss"
+end
+
+task :css => [:sass] do
+  Rake::Minify.new(:css) do
+  dir("public/stylesheets") do # we specify only the source directory
+    group("public/stylesheets/all.css") do # the output file name is full path
+      add("bootstrap.min.css", :minify => false)
+      add("font-awesome.css", :minify => false)
+      add("style.css", :minify => false)
+    end
+  end
+end     
+end
 
 task :run => [:set_development_environment] do
   sh "play dependencies --%prod --sync"

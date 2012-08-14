@@ -135,11 +135,11 @@ jz.common_props = {
     height: 250,
     theme: {
         shell: {
-            background: '#000000',
+            background: '#222222',
             color: '#f1f1f1'
         },
         tweets: {
-            background: '#000000',
+            background: '#222222',
             color: '#f1f1f1',
             links: '#1985b5'
         }

@@ -54,10 +54,12 @@ public class VideoFetcher extends FunctionalTest {
                 Speaker found = Speaker.find("bySlug", speaker.slug()).first();
 
                 if(null != found) {
+                    found.name(speaker.name());
                     speaker = found;
                 }
 
                 speaker.twitterName(mappings.twitterNameForUser(speaker.slug()));
+
                 handleImages(talk, speaker);
                 speaker.save();
             }

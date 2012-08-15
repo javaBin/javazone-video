@@ -21,7 +21,7 @@ import java.util.HashMap;
 public final class Speaker extends Model {
 
     @Required
-    private final String name;
+    private String name;
 
     @Id
     private String slug;
@@ -46,6 +46,9 @@ public final class Speaker extends Model {
         return name;
     }
 
+    public void name(String newName) {
+        name = newName;
+    }
     public String bio() {
         return bio;
     }

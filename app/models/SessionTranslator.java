@@ -20,9 +20,13 @@ public class SessionTranslator {
             put("Ã\u0098", "Ø");
             put("Ã¤", "ä");
             put("â\u0080\u0099", "’");
-            put("Ã", "Å");
+            put("Ã¼", "ü");
+            put("Ã\u0096", "Ö");
+            //put("Ã", "Å");
             put("â", "-");
+
             put("Â", "");
+
         }
     };
 
@@ -85,6 +89,7 @@ public class SessionTranslator {
         return new String(iso.getBytes("UTF-8"));
     }
 
+    //a horrible hack to fix crap charsets in input data
     private static String replaceCrapCharset(String iso) {
 
         String ret = iso;
@@ -92,6 +97,7 @@ public class SessionTranslator {
             ret = ret.replaceAll(e.getKey(), e.getValue());
         }
 
+        ret = ret.replaceAll("Ã", "Å");
         return ret;
     }
 }

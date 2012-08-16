@@ -4,13 +4,18 @@
   <div class="span2">&nbsp;</div>
   <article class="speaker-section span7">
     <header><h1>${speaker.name}</h1></header>
-     <img src="${play.Play.configuration.get("image.prefix")}/${speaker.images.get("large").url}" alt="${speaker.name}" width="${speaker.images.get("large").width}" height="${speaker.images.get("large").height}" />
+     <img title="${speaker.name}" src="${play.Play.configuration.get("image.prefix")}/${speaker.images.get("large").url}" alt="${speaker.name}" width="${speaker.images.get("large").width}" height="${speaker.images.get("large").height}" />
       ${speaker.bio.raw()}
   </article>
 </div>
 <div class="row-fluid">
   <div class="span2">&nbsp;</div>
+#{if speaker.twitterName != "" && speaker.twitterName != null }
   <div class="span4">
+#{/if}
+#{else}
+  <div class="span8">
+#{/else}
     <h3>JavaZone Talks</h3>
     <ul>
       #{list items:talks, as:'talk'}
@@ -29,8 +34,8 @@
 
 
   </div>
+#{if speaker.twitterName != "" && speaker.twitterName != null }
   <div class="span4">
-#{if speaker.twitterName != "" }
 <h3><i class="icon-twitter"></i>Twitter traffic</h3>
 <div id="userfeed"></div>
 <script type="text/javascript">
@@ -38,9 +43,9 @@
     jz.feed('userfeed', '${speaker.twitterName}');
   });
 </script>
+  </div>
 #{/if}
 
-  </div>
 </div>
 <script type="text/javascript">$("#speakers").addClass("active");</script>
 

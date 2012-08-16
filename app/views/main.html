@@ -8,6 +8,10 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      #{if speaker != null || talk != null } 
+      <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+      #{/if}
+
       <script src="@{'public/javascripts/jquery.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 
     <link href="@{'public/stylesheets/all.css'}" rel="stylesheet">
@@ -62,9 +66,6 @@ Got feedback? Try us on <a href="http://twitter.com/knuthaug">twitter</a>
       </div>
     </div>
     
-#{if speaker != null || talk != null } 
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-#{/if}
 <script src="@{'public/javascripts/all.js'}" type="text/javascript" charset="${_response_encoding}"></script>
   </body>
 </html>

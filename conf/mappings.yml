@@ -9,7 +9,7 @@ christianjohansen:
   blog: "http://cjohansen.no/en"
   other_videos:
     ndc: ["http://vimeo.com/43808808"]
-    rebels: ["http://vimeo.com/43382919"]
+    webrebels: ["http://vimeo.com/43382919"]
 trygvelie:
   twitterName: trygve_lie
   other_videos: 
@@ -68,7 +68,7 @@ danielspiewak:
     misc: ["http://vimeo.com/28746025", "http://vimeo.com/32353918"]
 dickwall:
   twitterName: dickwall 
-trulsjørgensen:
+trulsjorgensen:
   twitterName: trulsjor 
 anderssveen:
   twitterName: anderssv
@@ -115,7 +115,7 @@ johannesbrodwall:
     smidig: ["https://vimeo.com/32226190", "https://vimeo.com/30576021", "https://vimeo.com/30517988"]
     roots: ["https://vimeo.com/24691954"]
     øredev: ["https://vimeo.com/8553046", "https://vimeo.com/7849819"]
-eirikbjørsnøs:
+eirikbjorsnos:
   twitterName: eirbjo
 timothyperrett:
   twitterName: timperrett
@@ -145,7 +145,7 @@ nealford:
   blog: "http://www.nealford.com/"
   other_videos:
     øredev: ["http://vimeo.com/16955608", "http://vimeo.com/10895743", "http://vimeo.com/7849514", "http://vimeo.com/17158355", "http://vimeo.com/7722342"]
-alfkristianstøyle:
+alfkristianstoyle:
   twitterName: 
 olaellnestam:
   twitterName: ellnestam
@@ -195,12 +195,12 @@ karianneberg:
 vegardhartmann:
   twitterName: vegardhar
 dannycoward:
-  twitterName: 
+twitterName: 
 antonarhipov:
   twitterName: antonarhipov
   other_videos:
     misc: ["https://vimeo.com/28408020", "https://vimeo.com/9060462", "https://vimeo.com/19541023"]
-    geecon: ["https://vimeo.com/28342292]
+    geecon: ["https://vimeo.com/28342292"]
 angelikalanger:
   twitterName: 
 espenberger:
@@ -221,11 +221,6 @@ matthewj.mccullough:
   twitterName: matthewmccull 
   other_videos:
     øredev: ["https://vimeo.com/17159581"]
-knuthaugen:
-  twitterName: knuthaug 
-  other_videos:
-    smidig: [ "https://vimeo.com/30574860"]
-    roots: ["https://vimeo.com/24691568"]
 thomasferrisnicolaisen:
   twitterName: tfnico
 nilschristianhaugen:
@@ -234,7 +229,7 @@ steingrimstad:
   twitterName: 
 eirikwang:
   twitterName: 
-børgelotre:
+borgelotre:
   twitterName: 
 erikdrolshammer:
   twitterName: sherriff1
@@ -256,17 +251,17 @@ joshlong:
   twitterName: 
 clausibsen:
   twitterName: 
-runepeterbjørnstad:
+runepeterbjornstad:
   twitterName: 
-bjørnnordlund:
+bjornnordlund:
   twitterName: 
 ivarrummelhoff:
   twitterName: 
 trondarvewasskog:
   twitterName: 
-staffannöteberg:
+staffannoteberg:
   twitterName: 
-jonasbonér:
+jonasboner:
   twitterName: jboner
 mortenandersen-gott:
   twitterName: 
@@ -284,7 +279,7 @@ hamletd'arcy:
   twitterName: 
 joonaslehtinen:
   twitterName: 
-trondmariusøvstetun:
+trondmariusovstetun:
   twitterName: 
 patrickkua:
   twitterName: 
@@ -296,9 +291,9 @@ kennethstigen:
   twitterName: 
 steinarhaugen:
   twitterName: 
-jonasfollesø:
+jonasfolleso:
   twitterName: follesoe
-pedersøholt:
+pedersoholt:
   twitterName: 
 ninaheitmann:
   twitterName: ninaheitmann
@@ -319,9 +314,9 @@ josteintveit:
   twitterName: 
 andreashegna:
   twitterName: 
-håvardwigtil:
+havardwigtil:
   twitterName: 
-geiramsjø:
+geiramsjo:
   twitterName: gamsjo
 runeflobakk:
   twitterName: 
@@ -329,11 +324,11 @@ terjeheen:
   twitterName: 
 kenstephansen:
   twitterName: 
-øyvindbøsyrstad:
+oyvindbosyrstad:
   twitterName: 
 fredrikoledal:
   twitterName: 
-eivindmølster:
+eivindmolster:
   twitterName: 
 fredrikvraalsen:
   twitterName: fredriv
@@ -345,14 +340,14 @@ cathrineriisedannevig:
   twitterName: 
 erikbakstad:
   twitterName: ebaxt
-rickardöberg:
+rickardoberg:
   twitterName: rickardoberg
 jimwebber:
   twitterName: jimwebber
 totto-thorhenninghetland:
   twitterName: TottoNOR
   blog: "https://wiki.cantara.no/pages/viewpage.action?pageId=393226"
-andersbjørnestad:
+andersbjornesta:
   twitterName: 
 nikitaivanov:
   twitterName: gridgain
@@ -374,13 +369,13 @@ krestenkrabthorup:
   blog: "http://www.javalimit.com/"
 stephencolebourne:
   twitterName: 
-mårtenhaglind:
+martenhaglind:
   twitterName: 
 patrycjawegrzynowicz:
   twitterName: 
 dandiephouse:
   twitterName: dandiep
-pärsikö:
+parsiko:
   twitterName: per_siko
 martingunnarsson:
   twitterName: gunnarsson

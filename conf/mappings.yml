@@ -149,27 +149,36 @@ alfkristianstøyle:
   twitterName: 
 olaellnestam:
   twitterName: ellnestam
+  other_videos:
+    øredev: ["https://vimeo.com/16956932"]
+    agile_prague: ["https://vimeo.com/33956292"]
+    agila_sverige: ["https://vimeo.com/9443024", "https://vimeo.com/8871711"]
+    smidig: ["https://vimeo.com/30512990"]
   blog: "http://ellnestam.wordpress.com/"
 danielbrolund:
-  twitterName: 
+  twitterName: danielbrolund
 kaarenilsen:
   twitterName: kaarenilsen
 magnarsveen:
   twitterName: magnars
 jakubholy:
-  twitterName: 
+  twitterName: jakubholynet
 steinmagnusjodal:
-  twitterName: 
+  twitterName: jodal
 aleksandergrande:
   twitterName: 
 kennethpedersen:
   twitterName: 
 marioaparicio:
   twitterName: marioaparicio
+  other_videos: 
+    roots:["https://vimeo.com/24705631"]
 anderskarlsen:
   twitterName: anderskar
 andréheievik:
   twitterName: andrev
+  other_videos:
+    smidig: ["https://vimeo.com/32225685", "https://vimeo.com/30576175"]
 mikekeith:
   twitterName: 
 kensipe:
@@ -177,25 +186,31 @@ kensipe:
 mortenberg:
   twitterName: 
 runelien:
-  twitterName: 
+  twitterName: rulien
 karianneberg:
   twitterName: karianneberg 
+  other_videos: 
+    smidig: ["https://vimeo.com/30516081", "https://vimeo.com/30575536"]
+    ndc: ["https://vimeo.com/14629385"]
 vegardhartmann:
-  twitterName: 
+  twitterName: vegardhar
 dannycoward:
   twitterName: 
 antonarhipov:
-  twitterName: 
+  twitterName: antonarhipov
+  other_videos:
+    misc: ["https://vimeo.com/28408020", "https://vimeo.com/9060462", "https://vimeo.com/19541023"]
+    geecon: ["https://vimeo.com/28342292]
 angelikalanger:
   twitterName: 
 espenberger:
   twitterName: espenbe
 kaithomasgilb:
-  twitterName: 
+  twitterName: kaigilb
 tomgilb:
   twitterName: imtomgilb
 timberglund:
-  twitterName: 
+  twitterName: tlberglund
 paulking:
   twitterName: 
 matthewj.mccullough:

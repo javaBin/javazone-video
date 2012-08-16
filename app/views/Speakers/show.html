@@ -27,7 +27,7 @@
     <h3>Other talks</h3>
     <ul>
       #{list items:otherTalks, as:'talk'}
-      <li><a href="@{Talks.show(talk.id)}">${talk.title} (${talk.venue} ${talk.year})</a></li>
+      <li><a href="http://vimeo.com/${talk.id}">${talk.title} (${talk.venue} ${talk.year})</a></li>
       #{/list}
     </ul>
     #{/if}

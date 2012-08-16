@@ -41,7 +41,6 @@ public class VideoFetcher extends FunctionalTest {
         int maxYear = Collections.max(intYears);
 
         for(String year : years) {
-            System.err.println("fetching sessions for year=" + year);
             List<VimeoVideo> videos = new VimeoClient().getVideosByYear(year, null, null);
             List<IncogitoSession> sessions = new IncogitoClient().getSessionsForYear(Integer.parseInt(year));
             finishedTalks.addAll(new VideoInformationMerger().mergeVideoAndSessionInfo(videos, sessions));

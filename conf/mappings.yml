@@ -207,16 +207,25 @@ espenberger:
   twitterName: espenbe
 kaithomasgilb:
   twitterName: kaigilb
+  other_videos:
+    smidig: ["https://vimeo.com/30575447"]
 tomgilb:
   twitterName: imtomgilb
+  other_videos:
+    smidig: ["https://vimeo.com/32086463", "https://vimeo.com/30575396"]
 timberglund:
   twitterName: tlberglund
 paulking:
   twitterName: 
 matthewj.mccullough:
   twitterName: matthewmccull 
+  other_videos:
+    øredev: ["https://vimeo.com/17159581"]
 knuthaugen:
-  twitterName: knuthaug
+  twitterName: knuthaug 
+  other_videos:
+    smidig: [ "https://vimeo.com/30574860"]
+    roots: ["https://vimeo.com/24691568"]
 thomasferrisnicolaisen:
   twitterName: tfnico
 nilschristianhaugen:

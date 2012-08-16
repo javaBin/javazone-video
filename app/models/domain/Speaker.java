@@ -38,7 +38,10 @@ public final class Speaker extends Model {
         this.name = name;
         this.bio = bio.trim();
         this.photoURL = url;
-        slug = name.toLowerCase().trim().replace(" ", "");
+        slug = name.toLowerCase().trim().replaceAll(" ", "")
+                .replaceAll("\\)", "").replaceAll("å", "a").replaceAll("ø", "o")
+                .replaceAll("æ", "a").replaceAll("ö", "o").replaceAll("ä", "a")
+                .replaceAll("\\(", "").replaceAll("-", "").replaceAll("é", "e");
         this.lastname = name.substring(name.lastIndexOf(" ") + 1);
     }
 

@@ -66,7 +66,9 @@ public class VimeoClient {
     public VimeoVideo getVideoById(Integer id) {
         Logger.info("getting video information for video id=%s", id);
         String videoJson = getVideoInfo(id);
-        return new VideoJSONMapper(videoJson).videoToObject();
+        VimeoVideo video = new VideoJSONMapper(videoJson).videoToObject();
+        video.addEmbed(getEmbed(video.id()));
+        return video;
     }
 
     public List<VimeoVideo> getVideosByYear(String year, Map<String, String> args, Integer max ) {

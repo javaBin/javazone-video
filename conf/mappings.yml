@@ -123,14 +123,23 @@ chrisrichardson:
   twitterName: 
 peterhilton:
   twitterName: PeterHilton
+  other_videos:
+    geecon: ["https://vimeo.com/44790820"]
 nicolasleroux:
   twitterName: nicolasleroux
+  other_videos:
+    geecon: ["https://vimeo.com/42091849"]
 danberghjohnsson:
-  twitterName: 
+  twitterName: danbjson
+  other_videos:
+    øredev: ["https://vimeo.com/13549100"]
 eivinduggedal:
   twitterName: uggedal
 olechristianrynning:
   twitterName: olecr
+  other_videos:
+    roots: ["https://vimeo.com/24706789"]
+    smidig: ["https://vimeo.com/30576102"]
 nealford:
   twitterName: neal4d
   blog: "http://www.nealford.com/"

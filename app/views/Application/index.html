@@ -34,7 +34,7 @@
               #{list items:talk.speakers, as:'speaker'}
               <li>
                 <a class="speaker-link" rel="popover" href="@{Speakers.show(speaker.slug)}">${speaker.name}</a>
-                <div class="hidden bio"><img src="/${speaker.images.get("small").url}" class="odd" width="${speaker.images.get("small").width}" height="${speaker.images.get("small").height}" />${speaker.bio.raw()}</div>
+                <div class="hidden bio"><img src="${play.Play.configuration.get("image.prefix")}/${speaker.images.get("small").url}" class="odd" width="${speaker.images.get("small").width}" height="${speaker.images.get("small").height}" />${speaker.bio.raw()}</div>
                 </li>
               #{/list}
               <li><span class="abstract">Abstract</span> <div class="hidden abstract">${talk.talkAbstract().raw()}</div></li>

@@ -195,7 +195,7 @@ karianneberg:
 vegardhartmann:
   twitterName: vegardhar
 dannycoward:
-twitterName: 
+  twitterName: 
 antonarhipov:
   twitterName: antonarhipov
   other_videos:
@@ -205,6 +205,8 @@ angelikalanger:
   twitterName: 
 espenberger:
   twitterName: espenbe
+  other_videos:
+    smidig: ["https://vimeo.com/30516240"]
 kaithomasgilb:
   twitterName: kaigilb
   other_videos:
@@ -223,20 +225,28 @@ matthewj.mccullough:
     øredev: ["https://vimeo.com/17159581"]
 thomasferrisnicolaisen:
   twitterName: tfnico
+  other_videos:
+    froscon: ["https://vimeo.com/14448923"]
 nilschristianhaugen:
   twitterName: nchaugen
+  other_videos:
+    smidig: ["https://vimeo.com/30574489"]
 steingrimstad:
   twitterName: 
 eirikwang:
-  twitterName: 
+  twitterName: eirikwang
+  other_videos:
+    smidig: ["https://vimeo.com/30520792"]
 borgelotre:
-  twitterName: 
+  twitterName: blotre
 erikdrolshammer:
   twitterName: sherriff1
 thorhenninghetland:
   twitterName: javatotto
 nathanielschutta:
   twitterName: ntschutta
+  other_videos:
+    misc: ["https://vimeo.com/45717168"]
 arnejervell:
   twitterName: 
 erlendhamnaberg:
@@ -248,23 +258,24 @@ brendanw.mcadams:
   other_videos:
     misc: ["http://vimeo.com/14090025", "http://vimeo.com/31991810", "http://vimeo.com/28914664", "http://vimeo.com/32373908", "http://vimeo.com/32830423"]
 joshlong:
-  twitterName: 
+  twitterName: starbuxman
 clausibsen:
   twitterName: 
 runepeterbjornstad:
   twitterName: 
 bjornnordlund:
-  twitterName: 
+  twitterName: bjornno
 ivarrummelhoff:
   twitterName: 
 trondarvewasskog:
-  twitterName: 
+  twitterName: ilmyggo
 staffannoteberg:
-  twitterName: 
+  twitterName: staffannoteberg
+  blog: "http://blog.staffannoteberg.com/"
 jonasboner:
   twitterName: jboner
 mortenandersen-gott:
-  twitterName: 
+  twitterName: mortenag
 justinlee:
   twitterName: evanchooly
 mortengranlund:
@@ -345,7 +356,7 @@ rickardoberg:
 jimwebber:
   twitterName: jimwebber
 totto-thorhenninghetland:
-  twitterName: TottoNOR
+  twitterName: javatotto
   blog: "https://wiki.cantara.no/pages/viewpage.action?pageId=393226"
 andersbjornesta:
   twitterName: 

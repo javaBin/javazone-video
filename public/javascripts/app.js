@@ -21,6 +21,9 @@ $(function () {
                                 var valid = _.difference(fixedFilters, tags).length == 0;
                                 toggle(article, valid);
                             });
+          var num = $("article:visible").size();
+          $("#overlay").text(num + " total talks").fadeIn().delay(1500).fadeOut();
+
       };
 
       var toggle = function (element, valid) {
@@ -29,7 +32,7 @@ $(function () {
               element.fadeIn()
           }
           if (!valid && visible) {
-              element.fadeOut();
+              element.hide();
           }
       };
 

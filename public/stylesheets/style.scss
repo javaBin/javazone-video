@@ -523,6 +523,22 @@ div.abstract {
   color: red;
 }
 
+#overlay {
+  background-color: $background-color;
+  border: 3px solid #666;
+  border-radius: 6px;
+  z-index: 10000;
+  width: 100px;
+  min-heigth: 100px;
+  padding: 8px;
+  font-size: 110%;
+  position: fixed;
+  top: 10px;
+  display: none;
+  left: 600px;
+  text-align: center;
+}
+
 .twtr-ft {
   display:none;
 }

@@ -303,13 +303,15 @@ gojkoadzic:
     ndc: ["https://vimeo.com/43612920", "https://vimeo.com/43612884"]
     øredev: ["https://vimeo.com/41977015", "https://vimeo.com/36283624", "https://vimeo.com/35656356"]
 kennethstigen:
-  twitterName: 
+  twitterName: kstigen
 steinarhaugen:
   twitterName: 
 jonasfolleso:
   twitterName: follesoe
+  other_videos:
+    ndc: ["https://vimeo.com/12986550"]
 pedersoholt:
-  twitterName: 
+  twitterName: psoholt
 ninaheitmann:
   twitterName: ninaheitmann
 magnarwium:

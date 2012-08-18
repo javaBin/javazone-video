@@ -33,6 +33,8 @@ stiangrenborgen:
   twitterName: 
 christingorman:
   twitterName: ChristinGorman
+  other_videos:
+    smidig: ["https://vimeo.com/30577204"]
 espenhersethhalvorsen:
   twitterName: 
 jamesward:
@@ -184,7 +186,7 @@ mikekeith:
 kensipe:
   twitterName: kensipe
 mortenberg:
-  twitterName: 
+  twitterName: mortenberg
 runelien:
   twitterName: rulien
 karianneberg:
@@ -260,7 +262,7 @@ brendanw.mcadams:
 joshlong:
   twitterName: starbuxman
 clausibsen:
-  twitterName: 
+  twitterName: davsclaus
 runepeterbjornstad:
   twitterName: 
 bjornnordlund:
@@ -274,6 +276,8 @@ staffannoteberg:
   blog: "http://blog.staffannoteberg.com/"
 jonasboner:
   twitterName: jboner
+  other_videos:
+    misc: ["https://vimeo.com/40726380"]
 mortenandersen-gott:
   twitterName: mortenag
 justinlee:
@@ -286,6 +290,8 @@ markusbjartveitkruger:
   twitterName: markusbk
 jannichehaugen:
   twitterName: miss_haugen
+  other_videos:
+    smidig: ["https://vimeo.com/30513581"]
 hamletd'arcy:
   twitterName: 
 joonaslehtinen:
@@ -296,6 +302,8 @@ patrickkua:
   twitterName: 
 kristianrosenvold:
   twitterName: krosenvold 
+  other_videos:
+    smidig: ["https://vimeo.com/30520384", "https://vimeo.com/30577258"]
 gojkoadzic:
   twitterName: gojkoadzic
   other_videos:
@@ -324,15 +332,15 @@ bjartestienkarlsen:
   twitterName: bjartek
   blog: "http://bjartek.org"
 benjaminsommer:
-  twitterName: 
+  twitterName: benjaminsommer
 tor-erikmathisen:
   twitterName: 
 josteintveit:
-  twitterName: 
+  twitterName: josteitv
 andreashegna:
   twitterName: 
 havardwigtil:
-  twitterName: 
+  twitterName: havardw
 geiramsjo:
   twitterName: gamsjo
 runeflobakk:
@@ -340,11 +348,11 @@ runeflobakk:
 kenstephansen:
   twitterName: 
 oyvindbosyrstad:
-  twitterName: 
+  twitterName: bosyr
 fredrikoledal:
   twitterName: 
 eivindmolster:
-  twitterName: 
+  twitterName: eivindmolster
 fredrikvraalsen:
   twitterName: fredriv
 mattiaskarlsson:
@@ -355,10 +363,15 @@ cathrineriisedannevig:
   twitterName: 
 erikbakstad:
   twitterName: ebaxt
+  other_videos:
+    smidig: ["https://vimeo.com/30576670"]
 rickardoberg:
   twitterName: rickardoberg
 jimwebber:
   twitterName: jimwebber
+  other_videos: 
+    øredev: ["https://vimeo.com/41763224", "https://vimeo.com/17156605"]
+    geecon: ["https://vimeo.com/27741450"]
 totto-thorhenninghetland:
   twitterName: javatotto
   blog: "https://wiki.cantara.no/pages/viewpage.action?pageId=393226"
@@ -370,6 +383,8 @@ alexboisvert:
   twitterName: boia01
 johnfallows:
   twitterName: 
+  other_videos:
+    misc: ["https://vimeo.com/35199139"]
 jonasjacobi:
   twitterName: jonasjacobi
 eivindbarstadwaaler:
@@ -383,7 +398,7 @@ krestenkrabthorup:
   twitterName: drkrab
   blog: "http://www.javalimit.com/"
 stephencolebourne:
-  twitterName: 
+  twitterName: jodastephen
 martenhaglind:
   twitterName: 
 patrycjawegrzynowicz:
@@ -402,12 +417,20 @@ randystafford:
     øredev: ["http://vimeo.com/12971053"]
 gregyoung:
   twitterName: gregyoung
+  other_videos:
+    øredev: ["https://vimeo.com/17151526", "https://vimeo.com/19428577"]
+    ndc: ["https://vimeo.com/13824218"]
+    misc: ["https://vimeo.com/31645099"]
 kohsukekawaguchi:
   twitterName: kohsukekawa
+  other_videos: 
+    misc: ["https://vimeo.com/35678536"]
 tobiasktorrissen:
   twitterName: tobiast
 jevgenikabanov:
   twitterName: ekabanov
+  other_videos:
+    misc: ["https://vimeo.com/45318366"]
 perottobergumchristensen:
   twitterName:
 marvinbredallillehaug:

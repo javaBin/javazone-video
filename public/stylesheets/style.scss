@@ -109,6 +109,7 @@ form {
 
 #activetags li {
   display: inline !important;
+  line-height: 19px;
 }
 
 .caret {
@@ -117,7 +118,7 @@ form {
 
 .label {
   border: 1px solid;
-  margin: 1px 0px;
+  margin: 1px 1px;
   padding: 0px 4px 1px !important;
   border-radius: 4px;
   color: black;
@@ -191,7 +192,10 @@ form {
 }
 
 .label.norsk,
-.label.english {
+.label.english,
+.label.lightningtalk, 
+.label.workshop, 
+.label.presentation  {
   background-color: lightgray;
 }
 
@@ -242,14 +246,6 @@ form {
   border-color: black;
   color: red;
 
-}
-
-.label.lightningtalk, 
-.label.workshop, 
-.label.presentation {
-  background-color: $background-color;
-  border-color: $heading-color;;
-  color: $heading-color;
 }
 
 .label:hover{

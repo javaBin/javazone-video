@@ -133,7 +133,8 @@ var jz = jz || {};
 
 jz.common_props = {
     version: 2, 
-    interval: 10000,
+    interval: 30000,
+    rpp: 4,
     width: 300,
     height: 250,
     theme: {
@@ -150,7 +151,7 @@ jz.common_props = {
     features: {
         scrollbar: false,
         loop: true,
-        live: true,
+        live: false,
         behavior: 'default'
     }  
 };

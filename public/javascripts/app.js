@@ -149,10 +149,10 @@ jz.common_props = {
         }
     },
     features: {
-        scrollbar: false,
+        scrollbar: true,
         loop: true,
         live: false,
-        behavior: 'default'
+        behavior: 'all'
     }  
 };
 

@@ -28,10 +28,12 @@ public class ImageFetcherTest extends FunctionalTest {
 
     @Test
     public void fetchesBufferedImageForValidUrl() {
-        String testUrl = "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0";
+        String testUrl = "http://javazone.no/incogito10/rest/events/JavaZone%202010/sessions/a18467d7-6eb2-4abd-97d1-b76b574c485d/speaker-photos/0";
         BufferedImage image = ImageFetcher.fetch(testUrl);
-        assertEquals(534, image.getWidth());
+        assertEquals(489, image.getWidth());
     }
+
+
 
     @Test
     public void validButNonFunctionalUrlReturnsEmptyPicture() {

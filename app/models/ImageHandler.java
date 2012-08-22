@@ -62,17 +62,11 @@ public class ImageHandler {
         //must be a weak ref, or else we run out of memory quickly when fetching and scaling images
         WeakReference<BufferedImage> image =  new WeakReference<BufferedImage>(ImageResizer.resize(ImageFetcher.fetch(imageUrl), size));
 
-        try {
-            ImageIO.write(image.get(), "jpeg", file);
-            //even with a weak ref, we need to gc to avoid messing too much with the memory settings
-            // of the jvm running the test
-            ImageInfo info = new ImageInfo(file.getPath(), image.get().getWidth(), image.get().getHeight(), year);
-            System.gc();
-            return info;
-        } catch (IOException e) {
-            Logger.error("Error encountered when writing image %s to disk: %s", file, e);
-        }
-        return null;
+        ImageInfo info = new models.ImageWriter().write(image.get(), file, year);
+        //even with a weak ref, we need to gc to avoid messing too much with the memory settings
+        // of the jvm running the test
+        System.gc();
+        return info;
 
     }
 

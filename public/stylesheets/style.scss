@@ -240,6 +240,7 @@ form {
 .label.sling, 
 .label.maven,
 .label.grails,
+.label.drools,
 .label.hadoop,
 .label.akka {
   background-color: #222;
@@ -479,14 +480,13 @@ img.even {
 
 footer {
   text-align: center;
-  height: 60px;
   padding-top: 40px;
   font-size: 95% !important;
   background: $background-color;
 
   p {
     border-top: 1px solid $effect-color;;
-    width: 60%;
+    width: 100%;
     margin: auto;
     padding-top: 10px;
   }

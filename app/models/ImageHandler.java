@@ -26,7 +26,7 @@ public class ImageHandler {
     }
 
     public HashMap<String, ImageInfo> handleImage(String basename, int year, String imageUrl, Map<String, Integer> sizes) {
-        Logger.info("Handling image files for basename=%s year=%s, format=%s", basename, year);
+        Logger.info("Handling image files for basename=%s, year=%s", basename, year);
         HashMap<String, ImageInfo> info = new HashMap<String, ImageInfo>();
         
         

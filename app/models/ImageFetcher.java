@@ -4,6 +4,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import play.Logger;
+import play.libs.F;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
@@ -23,7 +24,7 @@ import java.util.Iterator;
 public class ImageFetcher {
 
 
-    public static BufferedImage fetch(String url) {
+    public static F.Tuple<BufferedImage, String> fetch(String url) {
         if(url == null || url.equals("")) {
             throw new IllegalArgumentException("invalid url given as argument to fetch(URL)");
         }
@@ -35,6 +36,10 @@ public class ImageFetcher {
 
             InputStream in = client.execute(httpget).getEntity().getContent();
 
+            if(in.available() == 0) {
+                return new F.Tuple<BufferedImage, String>(new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB), "unknown");
+            }
+
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             org.apache.commons.io.IOUtils.copy(in, baos);
             byte[] bytes = baos.toByteArray();
@@ -43,15 +48,14 @@ public class ImageFetcher {
 
             BufferedImage img = ImageIO.read(bais);
             bais.reset();
-            Logger.info("first=" + getFormatName(bais));
-            return img;
+            return new F.Tuple(img, getFormatName(bais));
         } catch (MalformedURLException e) {
-            return new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+            return new F.Tuple<BufferedImage, String>(new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB), "unknown");
         } catch (IOException e) {
             Logger.error(e.getMessage());
-            return new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+            return new F.Tuple<BufferedImage, String>(new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB), "unknown");
         } catch (CMMException colorException) {
-            return new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+            return new F.Tuple<BufferedImage, String>(new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB), "unknown");
         }
     }
 

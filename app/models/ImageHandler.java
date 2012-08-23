@@ -60,7 +60,7 @@ public class ImageHandler {
         }
 
         //must be a weak ref, or else we run out of memory quickly when fetching and scaling images
-        WeakReference<BufferedImage> image =  new WeakReference<BufferedImage>(ImageResizer.resize(ImageFetcher.fetch(imageUrl), size));
+        WeakReference<BufferedImage> image =  new WeakReference<BufferedImage>(ImageResizer.resize(ImageFetcher.fetch(imageUrl)._1, size));
 
         ImageInfo info = new models.ImageWriter().write(image.get(), file, year);
         //even with a weak ref, we need to gc to avoid messing too much with the memory settings

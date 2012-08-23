@@ -9,6 +9,7 @@ import models.domain.TalkTypes;
 import models.domain.external.IncogitoSession;
 import models.domain.external.VimeoVideo;
 import org.joda.time.DateTime;
+import org.junit.Ignore;
 import org.junit.Test;
 import play.Play;
 import play.modules.morphia.utils.StringUtil;
@@ -26,6 +27,7 @@ import java.util.*;
 public class VideoFetcher extends FunctionalTest {
 
     @Test
+    @Ignore
     public void fetchAndSaveVideos() {
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));

@@ -30,8 +30,8 @@ public class ImageHandlerTest extends FunctionalTest {
 
     @After
     public void tearDown() {
-        new File("test/out/test_2011_large.jpg").delete();
-        new File("test/out/test_2011_small.jpg").delete();
+        new File("test/out/test_2011_large.jpeg").delete();
+        new File("test/out/test_2011_small.jpeg").delete();
     }
 
     @Test
@@ -41,13 +41,13 @@ public class ImageHandlerTest extends FunctionalTest {
                 "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0",
                 new HashMap<String, Integer>(){{put("large", 300);}});
 
-        assertFileExist("test/out/test_2011_large.jpg");
+        assertFileExist("test/out/test_2011_large.jpeg");
 
     }
 
     @Test
     public void doesNotOverwriteImageForSameAuthorAndYear() throws Exception {
-        File test = new File("test/out/test_2011_large.jpg");
+        File test = new File("test/out/test_2011_large.jpeg");
         test.createNewFile();
 
         ImageHandler handler = new ImageHandler("test/out");
@@ -55,7 +55,7 @@ public class ImageHandlerTest extends FunctionalTest {
                 "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0",
                 new HashMap<String, Integer>(){{put("large", 300);}});
 
-        assertFileExist("test/out/test_2011_large.jpg");
+        assertFileExist("test/out/test_2011_large.jpeg");
         assertEquals(null, ImageIO.read(test));
         
         assertEquals(0, versions.get("large").width());
@@ -72,9 +72,9 @@ public class ImageHandlerTest extends FunctionalTest {
                  "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0",
                  new HashMap<String, Integer>(){{put("large", 300);}});
 
-        assertFileExist("test/out/test_2011_large.jpg");
-        assertFileDoesntExist("test/out/test_2010_large.jpg");
-        BufferedImage in = ImageIO.read(new File("test/out/test_2011_large.jpg"));
+        assertFileExist("test/out/test_2011_large.jpeg");
+        assertFileDoesntExist("test/out/test_2010_large.jpeg");
+        BufferedImage in = ImageIO.read(new File("test/out/test_2011_large.jpeg"));
         assertEquals(200, in.getWidth());  //scaled
 
         assertEquals(200, versions.get("large").width() );
@@ -89,7 +89,7 @@ public class ImageHandlerTest extends FunctionalTest {
                 "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0",
                 new HashMap<String, Integer>(){{put("large", 300); put("small", 100);}});
 
-        assertFileExist("test/out/test_2011_small.jpg");
+        assertFileExist("test/out/test_2011_small.jpeg");
     }
 
     @Test
@@ -99,7 +99,7 @@ public class ImageHandlerTest extends FunctionalTest {
                 "http://javazone.no/incogito10/rest/events/JavaZone%202011/sessions/a21042d4-bb57-432a-bbfa-9766b90546d2/speaker-photos/0",
                 new HashMap<String, Integer>(){{put("large", 300); put("small", 100);}});
 
-        BufferedImage in = ImageIO.read(new File("test/out/test_2011_small.jpg"));
+        BufferedImage in = ImageIO.read(new File("test/out/test_2011_small.jpeg"));
         assertEquals(100, in.getHeight());  //scaled
     }
 
@@ -112,8 +112,8 @@ public class ImageHandlerTest extends FunctionalTest {
 
         assertEquals(300, versions.get("large").height());
         assertEquals(100, versions.get("small").height());
-        assertEquals("test/out/test_2011_small.jpg", versions.get("small").url());
-        assertEquals("test/out/test_2011_large.jpg", versions.get("large").url());
+        assertEquals("test/out/test_2011_small.jpeg", versions.get("small").url());
+        assertEquals("test/out/test_2011_large.jpeg", versions.get("large").url());
     }
 
 

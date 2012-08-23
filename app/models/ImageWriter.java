@@ -8,14 +8,13 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * User: Knut Haugen <knuthaug@gmail.com>
- * 2012-08-22
  */
 public class ImageWriter {
 
-    public ImageInfo write(BufferedImage image, File file, int year) {
+    public ImageInfo write(BufferedImage image, String format, File file, int year) {
         try {
-            ImageIO.write(image, "jpeg", file);
+            Logger.debug("writing image format %s to file %s", format, file);
+            ImageIO.write(image, format, new File(file.getAbsolutePath() ));
             ImageInfo info = new ImageInfo(file.getPath(), image.getWidth(), image.getHeight(), year);
             return info;
         } catch (IOException e) {

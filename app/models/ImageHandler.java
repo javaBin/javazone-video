@@ -1,6 +1,7 @@
 package models;
 
 import play.Logger;
+import play.libs.F;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -25,7 +26,7 @@ public class ImageHandler {
     }
 
     public HashMap<String, ImageInfo> handleImage(String basename, int year, String imageUrl, Map<String, Integer> sizes) {
-        Logger.info("Handling image files for basename=%s year=%s", basename, year);
+        Logger.info("Handling image files for basename=%s year=%s, format=%s", basename, year);
         HashMap<String, ImageInfo> info = new HashMap<String, ImageInfo>();
         
         
@@ -37,7 +38,10 @@ public class ImageHandler {
     }
 
     private ImageInfo handleFile(String basename, int year, String imageUrl, String sizeName, int size) {
-        File file = getFileName(basename, year, sizeName);
+        F.Tuple<BufferedImage, String> image = ImageFetcher.fetch(imageUrl);
+        String format = image._2;
+
+        File file = getFileName(basename, year, sizeName, format);
         Logger.info("Checking for size %s (wide=%s)", sizeName, size);
 
         if(file.exists()) {
@@ -45,24 +49,25 @@ public class ImageHandler {
             return readFile(file, year);
         }
 
-        File previousFile = getFileName(basename, year - 1, sizeName);
+        File previousFile = getFileName(basename, year - 1, sizeName, format);
 
         if(previousFile.exists()) {
             Logger.info("File exists for basename, but for previous year. Updating it");
             previousFile.delete();
         }
 
-        File nextFile = getFileName(basename, year + 1, sizeName);
+        File nextFile = getFileName(basename, year + 1, sizeName, format);
 
         if(nextFile.exists()) {
             Logger.info("File exists for basename, but for more a recent year. Skipping this");
             return readFile(nextFile, year);
         }
 
-        //must be a weak ref, or else we run out of memory quickly when fetching and scaling images
-        WeakReference<BufferedImage> image =  new WeakReference<BufferedImage>(ImageResizer.resize(ImageFetcher.fetch(imageUrl)._1, size));
 
-        ImageInfo info = new models.ImageWriter().write(image.get(), file, year);
+        //must be a weak ref, or else we run out of memory quickly when fetching and scaling images
+        WeakReference<BufferedImage> weakImage =  new WeakReference<BufferedImage>(ImageResizer.resize(image._1, size));
+
+        ImageInfo info = new models.ImageWriter().write(weakImage.get(), image._2, file, year);
         //even with a weak ref, we need to gc to avoid messing too much with the memory settings
         // of the jvm running the test
         System.gc();
@@ -85,7 +90,7 @@ public class ImageHandler {
         return new ImageInfo(file.getPath(), 0, 0, year);
     }
 
-    private File getFileName(String basename, int year, String size) {
-        return new File(dir + "/" + basename + "_" + year + "_" + size + ".jpg");
+    private File getFileName(String basename, int year, String size, String format) {
+        return new File(dir + "/" + basename + "_" + year + "_" + size + "." + format.toLowerCase());
     }
 }

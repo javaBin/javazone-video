@@ -2,6 +2,9 @@ Tags used in tagging Vimeo content for javazone
 ========================================
 (note uppercaseFirst()
 
+For the full set of tags in use, always visit the site production url
+and see http://jzvideo-prod.herokuapp.com/tags.
+
 Language:
         Java
         Scala

@@ -16,6 +16,16 @@ body {
   background-color: $background-color !important;
 }
 
+#beta {
+  width: 87px;
+  height: 88px;
+  background: url(../images/beta.png);
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  pointer-events: none;
+}
+
 ul {
   padding: 0;
   margin: 0 !important;

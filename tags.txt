@@ -9,17 +9,36 @@ Language:
         Clojure
         JRuby
         Erlang
+        JVM
         (etc...)
 
 Topic:
         Frameworks
         Web
         Scalability
-        Big Data
+        BigData
         Testing
         Methodology
         Design
-        JVM
+        Architecture
+        TDD
+        BDD
+        DDD
+        Server-Side
+        
+        
 
+Framework:
+        Spring
+        Grails
+        EJB
+        Akka
+        Sling
+        Wicket
+        Struts
+        
 Misc:
-        ?
+        Presentation
+        LightningTalk
+        Norsk
+        English

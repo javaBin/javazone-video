@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Collections2;
+import com.google.common.collect.Lists;
 import helpers.TagHelper;
 import models.domain.Tag;
 import models.domain.Talk;
@@ -38,7 +39,9 @@ public class Talks extends Controller {
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
         Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
 
-        render(talk, filterTags, years, speakerMenu);
+        List<Talk> otherTalks = findOtherTalksByTags(talk);
+
+        render(talk, filterTags, years, speakerMenu, otherTalks);
     }
 
     public static void filter(@Required int year) {
@@ -70,6 +73,23 @@ public class Talks extends Controller {
         renderTemplate(INDEX_TEMPLATE, talks, tags, years, speakerMenu);
     }
 
+    private static List<Talk> findOtherTalksByTags(Talk talk) {
+        Collection<String> tagNames = Lists.newArrayList(Talk.findTags().apply(talk));
+        tagNames = Collections2.filter(tagNames, new Predicate<String>() {
+            @Override
+            public boolean apply(@Nullable String s) {
+                if(s.matches("English") || s.matches("Norsk") || s.matches("Presentation") ||
+                        s.matches("LightningTalk") || s.matches("Frameworks")) {
+                    return false;
+                }
+                return true;
+            }
+        });
+
+        return Talk.filter("tags.name in", tagNames).filter("title !=", talk.title())
+                    .order("-plays").limit(10).asList();
+    }
+
     private static List<String> findFilterTags(Collection<String> tags) {
         String filterString = Play.configuration.getProperty("twitter.filter.tags");
         final List<String> filters = Arrays.asList(filterString.split(","));
@@ -87,6 +107,6 @@ public class Talks extends Controller {
         });
 
         return new ArrayList<String>(list);
-        
+
     }
 }

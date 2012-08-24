@@ -18,6 +18,15 @@
     <div class="row-fluid">
       <div class="span8">
         ${talk.talkAbstract.raw()}
+
+        #{if otherTalks.size() > 0 }
+          <h3>Similar Talks</h3>
+          <ul>
+            #{list items:otherTalks, as:'talk2'}
+            <li><a href="@{Talks.show(talk2.id)}">${talk2.title} (${talk2.year})</a></li>
+            #{/list}
+          </ul>
+         #{/if}
       </div>
       <div class="span4">
         #{include 'speakers.html' /}
@@ -27,16 +36,6 @@
           <li><i class="icon-tag"></i><a  href=@{Talks.filterByTag(tag.name)}  class="tag">${tag.name}</a></li>
           #{/list}
         </ul>
-         #{if filterTags.size != 0 }
-         <div id="searcher"></div>
-         <script type="text/javascript">
-           $().ready(function search_loader() { 
-             var filters = new Array(${filterTags.join(",")});
-             jz.searcher('searcher', filters);
-           });
-         </script>
-         #{/if}
-
       </div>
     </div>
   </article>

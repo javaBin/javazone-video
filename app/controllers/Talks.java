@@ -87,7 +87,7 @@ public class Talks extends Controller {
         });
 
         return Talk.filter("tags.name in", tagNames).filter("title !=", talk.title())
-                    .order("-plays").limit(10).asList();
+                    .order("-plays").limit(8).asList();
     }
 
     private static List<String> findFilterTags(Collection<String> tags) {

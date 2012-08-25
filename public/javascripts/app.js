@@ -11,10 +11,12 @@ $(function () {
                            e.stopPropagation();
                            if( el.height() > "100") {
                                el.animate( {'height': "100px"} );
-                               $("#more i").removeClass("icon-remove-sign").addClass("icon-plus-sign").attr("title", "Expand abstract");;
+                               $("#more i").animate( {'class': 'icon-plus-sign'} );
+                                   //.removeClass("icon-remove-sign").addClass("icon-plus-sign").attr("title", "Expand abstract");;
                            } else {
                                el.animate( {'height': h} );
-                               $("#more i").removeClass("icon-plus-sign").addClass("icon-remove-sign").attr("title", "Contract abstract");
+                               $("#more i").animate( { 'class': 'icon-remove-sign'});
+                               //removeClass("icon-plus-sign").addClass("icon-remove-sign").attr("title", "Contract abstract");
 b                           }
                        });
 });

@@ -1,21 +1,26 @@
 $(function () {
       var h = $('.wiki')[0].scrollHeight;
 
-      if( h <= "100") {
+      if( h <= "120") {
           $("#more").hide();
+          $('.shadow').hide()
       }
 
       $('#more').click(function(e) {
                            var el = $('.wiki').first();
 
                            e.stopPropagation();
-                           if( el.height() > "100") {
-                               el.animate( {'height': "100px"} );
+                           if( el.height() > "120") {
+                               el.animate( {'height': "120px"} );
                                $("#more i").removeClass("icon-remove-sign").addClass("icon-plus-sign").attr("title", "Expand abstract");;
+                               $('.shadow').fadeIn().delay(1000);
                            } else {
-                               el.animate( {'height': h} );
+                               el.animate( {'height': (h - 50) } );
                                $("#more i").removeClass("icon-plus-sign").addClass("icon-remove-sign").attr("title", "Contract abstract");
-b                           }
+                               
+                               $('.shadow').hide();
+
+                           }
                        });
 });
 

@@ -9,10 +9,10 @@ $(function () {
                            e.stopPropagation();
                            if( $('.wiki').height() > "100") {
                                $('.wiki').animate( {'height': "100px"} );
-                               $("#more").text("Show more");
+                               $("#more i").removeClass("icon-remove-sign").addClass("icon-plus-sign").attr("title", "Expand abstract");;
                            } else {
                                $('.wiki').animate( {'height': h} );
-                               $("#more").text("Show less");
+                               $("#more i").removeClass("icon-plus-sign").addClass("icon-remove-sign").attr("title", "Contract abstract");
                            }
                        });
 });

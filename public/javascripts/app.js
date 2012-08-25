@@ -6,14 +6,16 @@ $(function () {
       }
 
       $('#more').click(function(e) {
+                           var el = $('.wiki').first();
+
                            e.stopPropagation();
-                           if( $('.wiki').height() > "100") {
-                               $('.wiki').animate( {'height': "100px"} );
+                           if( el.height() > "100") {
+                               el.animate( {'height': "100px"} );
                                $("#more i").removeClass("icon-remove-sign").addClass("icon-plus-sign").attr("title", "Expand abstract");;
                            } else {
-                               $('.wiki').animate( {'height': h} );
+                               el.animate( {'height': h} );
                                $("#more i").removeClass("icon-plus-sign").addClass("icon-remove-sign").attr("title", "Contract abstract");
-                           }
+b                           }
                        });
 });
 

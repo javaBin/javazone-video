@@ -1,11 +1,11 @@
 #{if talk.speakers.size == 1 }
-    <h3>Speaker </h3>
+    <h3>Speaker</h3>
 #{/if}
 #{else}
-    <h3>Speakers </h3>
+    <h3>Speakers</h3>
 #{/else}
 <ul>
 #{list items:talk.speakers, as:'speaker'}
-<li><a class="speaker-link-right" href="@{Speakers.show(speaker.slug)}">${speaker.name}</a><div class="hidden bio"><img src="/${speaker.images.get("small").url}" class="odd" width="${speaker.images.get("small").width}" height="${speaker.images.get("small").height}" />${speaker.bio.raw()}</div></li>
+<li class="speaker-list-item"><a class="speaker-link-right" href="@{Speakers.show(speaker.slug)}">${speaker.name}</a><div class="hidden bio"><img src="/${speaker.images.get("small").url}" class="odd" width="${speaker.images.get("small").width}" height="${speaker.images.get("small").height}" />${speaker.bio.raw()}</div></li>
 #{/list}
 </ul>

@@ -28,7 +28,7 @@ body {
 
 #more {
   float: right;
-  font-size: 20px;
+  font-size: 24px;
   text-decoration: none;
 }
 
@@ -378,10 +378,17 @@ h3 {
   padding-bottom: 0px;
 }
 
-.talks .wiki {
+
+.abstract-show .wiki {
   height: 100px;
   overflow: hidden;
 }
+
+.speaker-list-item .bio .wiki {
+  height: auto;
+  overflow: visible;
+}
+
 
 article.speaker-section {
   border-bottom: 0;
@@ -541,10 +548,6 @@ footer {
 
 #active-tag-title {
   display: none;
-}
-
-div.abstract {
-  color: red;
 }
 
 #overlay {

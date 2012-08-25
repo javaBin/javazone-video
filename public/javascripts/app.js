@@ -1,4 +1,23 @@
 $(function () {
+      var h = $('.wiki')[0].scrollHeight;
+
+      if( h <= "100") {
+          $("#more").hide();
+      }
+
+      $('#more').click(function(e) {
+                           e.stopPropagation();
+                           if( $('.wiki').height() > "100") {
+                               $('.wiki').animate( {'height': "100px"} );
+                               $("#more").text("Show more");
+                           } else {
+                               $('.wiki').animate( {'height': h} );
+                               $("#more").text("Show less");
+                           }
+                       });
+});
+
+$(function () {
 
       var fixTag = function(tag) {
           var tagFix = "" + tag;

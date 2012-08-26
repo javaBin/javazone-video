@@ -13,12 +13,10 @@ $(function () {
                            if( el.height() > "120") {
                                el.animate( {'height': "120px"} );
                                $("#more i").removeClass("icon-remove-sign").addClass("icon-plus-sign").attr("title", "Expand abstract");;
-                               $('.shadow').fadeIn().delay(1000);
                            } else {
                                el.animate( {'height': h } );
                                $("#more i").removeClass("icon-plus-sign").addClass("icon-remove-sign").attr("title", "Contract abstract");
                                
-                               $('.shadow').hide();
 
                            }
                        });

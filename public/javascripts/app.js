@@ -1,6 +1,6 @@
 $(function () {
       var h = $('.wiki')[0].scrollHeight;
-
+      
       if( h <= "120") {
           $("#more").hide();
           $('.shadow').hide()
@@ -15,7 +15,7 @@ $(function () {
                                $("#more i").removeClass("icon-remove-sign").addClass("icon-plus-sign").attr("title", "Expand abstract");;
                                $('.shadow').fadeIn().delay(1000);
                            } else {
-                               el.animate( {'height': (h - 50) } );
+                               el.animate( {'height': h } );
                                $("#more i").removeClass("icon-plus-sign").addClass("icon-remove-sign").attr("title", "Contract abstract");
                                
                                $('.shadow').hide();

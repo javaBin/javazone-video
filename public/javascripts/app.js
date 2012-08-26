@@ -1,4 +1,28 @@
 $(function () {
+      var h = $('.wiki')[0].scrollHeight;
+      
+      if( h <= "120") {
+          $("#more").hide();
+          $('.shadow').hide()
+      }
+
+      $('#more').click(function(e) {
+                           var el = $('.wiki').first();
+
+                           e.stopPropagation();
+                           if( el.height() > "120") {
+                               el.animate( {'height': "120px"} );
+                               $("#more i").removeClass("icon-remove-sign").addClass("icon-plus-sign").attr("title", "Expand abstract");;
+                           } else {
+                               el.animate( {'height': h } );
+                               $("#more i").removeClass("icon-plus-sign").addClass("icon-remove-sign").attr("title", "Contract abstract");
+                               
+
+                           }
+                       });
+});
+
+$(function () {
 
       var fixTag = function(tag) {
           var tagFix = "" + tag;

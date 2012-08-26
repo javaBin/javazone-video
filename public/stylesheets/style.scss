@@ -26,6 +26,13 @@ body {
   pointer-events: none;
 }
 
+#more {
+  float: right;
+  font-size: 20px;
+  text-decoration: none;
+  padding-left: 3px;
+}
+
 ul {
   padding: 0;
   margin: 0 !important;
@@ -373,6 +380,16 @@ h3 {
 }
 
 
+.abstract-show .wiki {
+  height: 100px;
+  overflow: hidden;
+}
+
+.speaker-list-item .bio .wiki {
+  height: auto;
+  overflow: visible;
+}
+
 article.speaker-section {
   border-bottom: 0;
   
@@ -531,10 +548,6 @@ footer {
 
 #active-tag-title {
   display: none;
-}
-
-div.abstract {
-  color: red;
 }
 
 #overlay {

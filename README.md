@@ -45,19 +45,9 @@ Tasks:
 * import_prod
   * TBD 
 
-Design mockups
----------------
-
-* Prelimenary page mockups are on google docs on the following urls:
-  * front page: https://docs.google.com/drawings/d/1VIyzGEhxpbbk7wLqCetqQepUj7cWTr8HOhETOEBMvXg/edit?hl=en_US
-  * video page: https://docs.google.com/drawings/d/1mL2RtVe02dTR2pf5MrgUT-NdtrImC-5K593PuNbdNoY/edit?hl=en_US&pli=1
-
-Request access if you think you need it. 
-
-
 Demo site
 ----------
-Testing site deployed to javazone-video.herokuapp.com now and then. For now. Production coming soon. 
+Testing site deployed to javazone-video.herokuapp.com now and then. For now. 
 
 
 Troubleshooting mongodb

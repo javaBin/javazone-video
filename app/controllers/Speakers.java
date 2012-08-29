@@ -5,9 +5,9 @@ import com.google.code.morphia.query.Criteria;
 import com.google.code.morphia.query.Query;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
+import helpers.ControllerHelper;
 import models.domain.Speaker;
 import models.domain.Talk;
-import play.Play;
 import play.data.validation.Required;
 import play.modules.morphia.MorphiaPlugin;
 import play.mvc.Controller;
@@ -41,8 +41,8 @@ public class Speakers extends Controller {
         List<Talk> talks = Talk.filter("speakers elem", speaker).filter("type = ", "jz").asList();
         List<Talk> otherTalks = Talk.filter("speakers elem", speaker).filter("type = ", "other").asList();
 
-        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
+        Iterable<String> years = ControllerHelper.getYearsMenuValue();
+        Iterable<String> speakerMenu = ControllerHelper.getSpeakersMenuValue();
         render(speaker, talks, otherTalks, years, speakerMenu);
     }
 
@@ -53,8 +53,8 @@ public class Speakers extends Controller {
         List<Talk> talkList = Talk.all().asList();
         HashMap talks = findTalksForSpeakers(talkList);
 
-        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
+        Iterable<String> years = ControllerHelper.getYearsMenuValue();
+        Iterable<String> speakerMenu = ControllerHelper.getSpeakersMenuValue();
 
         render(speakers, talks, years, speakerMenu);
     }

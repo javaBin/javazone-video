@@ -1,9 +1,8 @@
 package controllers;
 
-import com.google.common.base.Splitter;
+import helpers.ControllerHelper;
 import models.CollectionTools;
 import models.domain.Talk;
-import play.Play;
 import play.libs.F;
 import play.mvc.Controller;
 
@@ -19,7 +18,8 @@ import java.util.List;
 public class Tags extends Controller {
     
     public static void index() {
-        Iterable <String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
+        Iterable <String> years = ControllerHelper.getYearsMenuValue();
+        Iterable<String> speakerMenu = ControllerHelper.getSpeakersMenuValue();
 
         List<Talk> talks = Talk.all().asList();
         List<F.Tuple<String, Integer>> tags = CollectionTools.extractTagsWithCount(talks);
@@ -31,7 +31,7 @@ public class Tags extends Controller {
             cloudTags.add(newTag);
         }
         Collections.sort(cloudTags, new AlphabeticComparator());
-        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
+
 
         render(cloudTags, years, speakerMenu);
     }

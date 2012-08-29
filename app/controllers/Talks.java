@@ -2,9 +2,9 @@ package controllers;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
-import com.google.common.base.Splitter;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
+import helpers.ControllerHelper;
 import helpers.TagHelper;
 import models.domain.Tag;
 import models.domain.Talk;
@@ -27,6 +27,7 @@ import static com.google.common.collect.Collections2.transform;
 public class Talks extends Controller {
 
     private static final String INDEX_TEMPLATE = "Application/index.html";
+    private static final String TWITTER_FILTER_TAGS = "twitter.filter.tags";
 
     public static void show(@Required int id) {
         Talk talk = Talk.find("byId", id).first();
@@ -36,8 +37,9 @@ public class Talks extends Controller {
         }
 
         List<String> filterTags = findFilterTags(transform(talk.tags(), Tag.name()));
-        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
+
+        Iterable<String> years = ControllerHelper.getYearsMenuValue();
+        Iterable<String> speakerMenu = ControllerHelper.getSpeakersMenuValue();
 
         List<Talk> otherTalks = findOtherTalksByTags(talk);
 
@@ -48,13 +50,14 @@ public class Talks extends Controller {
         List<Talk> talks = Talk.filter("year =", year).filter("type =", "jz").order("-plays").asList();
 
         if(talks == null || talks.size() == 0) {
-            notFound("No talks found for that year. Sorry");
+            notFound("Aarrgh! No talks found for that year. Sorry");
         }
 
         List<String> tags = TagHelper.findTagsForTalks(talks);
 
-        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
+        Iterable<String> years = ControllerHelper.getYearsMenuValue();
+        Iterable<String> speakerMenu = ControllerHelper.getSpeakersMenuValue();
+
         renderTemplate(INDEX_TEMPLATE, talks, tags, years, speakerMenu);
     }
 
@@ -62,19 +65,19 @@ public class Talks extends Controller {
         List<Talk> talks = Talk.filter("tags.name", tag).filter("type =", "jz").order("-plays").asList();
 
         if(talks == null || talks.size() == 0) {
-            notFound("No talks found for that tag. Sorry");
+            notFound("Aarrgh! No talks found for that tag. Sorry");
         }
 
         List<String> tags = TagHelper.findTagsForTalks(talks);
-
-        Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
-        Iterable<String> speakerMenu = Splitter.on(",").split(Play.configuration.getProperty("speakers"));
+        Iterable<String> years = ControllerHelper.getYearsMenuValue();
+        Iterable<String> speakerMenu = ControllerHelper.getSpeakersMenuValue();
 
         renderTemplate(INDEX_TEMPLATE, talks, tags, years, speakerMenu);
     }
 
     private static List<Talk> findOtherTalksByTags(Talk talk) {
         Collection<String> tagNames = Lists.newArrayList(Talk.findTags().apply(talk));
+
         tagNames = Collections2.filter(tagNames, new Predicate<String>() {
             @Override
             public boolean apply(@Nullable String s) {
@@ -91,7 +94,7 @@ public class Talks extends Controller {
     }
 
     private static List<String> findFilterTags(Collection<String> tags) {
-        String filterString = Play.configuration.getProperty("twitter.filter.tags");
+        String filterString = Play.configuration.getProperty(TWITTER_FILTER_TAGS);
         final List<String> filters = Arrays.asList(filterString.split(","));
 
         Collection<String> list = transform(Collections2.filter(tags, new Predicate<String>() {

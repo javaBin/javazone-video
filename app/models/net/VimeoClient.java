@@ -1,7 +1,9 @@
-package models;
+package models.net;
 
 import models.domain.Embed;
 import models.domain.external.VimeoVideo;
+import models.transform.EmbedJSONMapper;
+import models.transform.VideoJSONMapper;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;

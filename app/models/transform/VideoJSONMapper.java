@@ -1,4 +1,4 @@
-package models;
+package models.transform;
 
 import models.domain.external.VimeoVideo;
 import org.codehaus.jackson.map.ObjectMapper;

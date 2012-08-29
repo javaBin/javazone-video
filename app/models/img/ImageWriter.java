@@ -1,4 +1,4 @@
-package models;
+package models.img;
 
 import play.Logger;
 

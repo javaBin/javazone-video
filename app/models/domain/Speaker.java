@@ -4,7 +4,7 @@ import com.google.code.morphia.annotations.Embedded;
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
 import com.google.code.morphia.annotations.Index;
-import models.ImageInfo;
+import models.img.ImageInfo;
 import play.data.validation.Required;
 import play.modules.morphia.Model;
 

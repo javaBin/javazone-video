@@ -1,6 +1,8 @@
-package models;
+package models.img;
 
 import junit.framework.AssertionFailedError;
+import models.img.ImageHandler;
+import models.img.ImageInfo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

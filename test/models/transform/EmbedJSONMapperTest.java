@@ -1,8 +1,9 @@
-package models;
+package models.transform;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import models.domain.Embed;
+import models.transform.EmbedJSONMapper;
 import org.junit.Test;
 
 import java.io.File;

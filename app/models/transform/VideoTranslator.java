@@ -1,4 +1,4 @@
-package models;
+package models.transform;
 
 import fj.F;
 import fj.data.Array;

@@ -1,6 +1,7 @@
-package models;
+package models.net;
 
 import models.domain.external.IncogitoSession;
+import models.transform.SessionJSONMapper;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;

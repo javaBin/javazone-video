@@ -1,6 +1,6 @@
-package models;
+package models.net;
 
-import models.IncogitoClient;
+import models.net.IncogitoClient;
 import models.domain.external.IncogitoSession;
 import org.junit.Test;
 import play.test.FunctionalTest;

@@ -3,6 +3,7 @@ package models;
 
 import models.domain.Talk;
 import models.domain.external.VimeoVideo;
+import models.net.VimeoClient;
 import play.Logger;
 import play.Play;
 import play.jobs.Every;

@@ -1,4 +1,4 @@
-package models;
+package models.img;
 
 import play.Logger;
 import play.libs.F;
@@ -67,7 +67,7 @@ public class ImageHandler {
         //must be a weak ref, or else we run out of memory quickly when fetching and scaling images
         WeakReference<BufferedImage> weakImage =  new WeakReference<BufferedImage>(ImageResizer.resize(image._1, size));
 
-        ImageInfo info = new models.ImageWriter().write(weakImage.get(), image._2, file, year);
+        ImageInfo info = new ImageWriter().write(weakImage.get(), image._2, file, year);
         //even with a weak ref, we need to gc to avoid messing too much with the memory settings
         // of the jvm running the test
         System.gc();

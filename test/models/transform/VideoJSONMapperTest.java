@@ -1,9 +1,10 @@
-package models;
+package models.transform;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 import models.domain.Thumbnail;
 import models.domain.external.VimeoVideo;
+import models.transform.VideoJSONMapper;
 import org.junit.Before;
 import org.junit.Test;
 import play.test.UnitTest;

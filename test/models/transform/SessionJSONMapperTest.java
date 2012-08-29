@@ -1,4 +1,4 @@
-package models;
+package models.transform;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;

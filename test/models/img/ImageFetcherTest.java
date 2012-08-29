@@ -1,5 +1,6 @@
-package models;
+package models.img;
 
+import models.img.ImageFetcher;
 import org.junit.Test;
 import play.libs.F;
 import play.test.FunctionalTest;

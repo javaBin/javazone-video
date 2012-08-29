@@ -6,6 +6,8 @@ import fj.F;
 import models.domain.external.IncogitoSession;
 import models.domain.Talk;
 import models.domain.external.VimeoVideo;
+import models.transform.SessionJSONMapper;
+import models.transform.VideoJSONMapper;
 import org.junit.Test;
 import play.test.FunctionalTest;
 

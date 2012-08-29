@@ -1,6 +1,7 @@
-package models;
+package models.transform;
 
 import models.domain.external.IncogitoSession;
+import models.transform.SessionTranslator;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;

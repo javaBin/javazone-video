@@ -1,4 +1,4 @@
-package models;
+package models.img;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;

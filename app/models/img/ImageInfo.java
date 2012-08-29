@@ -1,4 +1,4 @@
-package models;
+package models.img;
 
 /**
  * Data class for information about an image used in the app.

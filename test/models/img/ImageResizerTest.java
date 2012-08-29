@@ -1,5 +1,6 @@
-package models;
+package models.img;
 
+import models.img.ImageResizer;
 import org.junit.Test;
 import play.test.UnitTest;
 

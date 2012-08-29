@@ -1,7 +1,7 @@
 package controllers;
 
 import com.google.common.collect.Maps;
-import models.ImageInfo;
+import models.img.ImageInfo;
 import models.domain.Embed;
 import models.domain.Speaker;
 import models.domain.Talk;

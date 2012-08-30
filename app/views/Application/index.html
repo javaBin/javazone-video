@@ -27,13 +27,13 @@
         <header class="span9"><h2><a href="@{Talks.show(talk.id)}">${talk.title}</a></h2></header>
       </div>
       <div class="row-fluid">
-        <div class="span9">
-          <a href="@{Talks.show(talk.id)}">
-            <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
-            </a>
-          </div>
-          <div class="span3">
-            <ul>
+      <div class="span8">
+        <a href="@{Talks.show(talk.id)}">
+        <img src="${talk.thumbnail.url}" width="${talk.thumbnail.width}" height="${talk.thumbnail.height}" alt="${talk.title}">
+        </a>
+      </div>
+      <div class="span4">
+             <ul>
               #{list items:talk.speakers, as:'speaker'}
               <li>
                 <i class="icon-arrow-right"></i><a class="speaker-link" rel="popover" href="@{Speakers.show(speaker.slug)}">${speaker.name}</a>

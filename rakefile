@@ -13,7 +13,7 @@ Rake::Minify.new(:js) do
 end
 
 task :sass do
-     system "sass -f -t compressed --update public/stylesheets/style.scss"
+     system "sass -t compressed --update public/stylesheets/style.scss"
 end
 
 task :css => [:sass] do

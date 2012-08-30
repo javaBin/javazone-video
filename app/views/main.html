@@ -23,46 +23,46 @@
     <div class="navbar navbar-fixed-top">
       <a id="beta" href="http://github.com/javaBin/javazone-video"></a>
       <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="/">JavaZone Talks</a>
-            <ul class="nav">
-              <li id="main" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Years <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  #{list items:years, as:'year'}
-                  <li><a href="/talks/${year}">${year}</a></li>
-                  #{/list}
-                </ul>
-              </li>
-              <li id="tags"><a href="/tags">Tags</a></li>
-              <li id="speakers" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Speakers <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  #{list items:speakerMenu, as:'speak'}
-                  <li><a href="/speakers/${speak}">${speak}</a></li>
-                  #{/list}
-                </ul>
-              </li>
-            </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      #{doLayout /}
-    </div>
-    <div class="row-fluid">
-      <div class="span2">&nbsp;</div>
-      <div class="span8">
-        <footer>
-          <p>
-            The JavaZone talk videos brought to you by <a href="http://java.no/">JavaBin</a> with a little help from <a href="http://vimeo.com/"><img class="svg" width="50" height="12" alt="Go home" src="http://a.vimeocdn.com/logo.svg?color=00adee"></a> and <strong><a href="http://javazone.no/incogito10">Incogito</a></strong><br>
-Got feedback? Try us on <a href="http://twitter.com/knuthaug">twitter</a>
-          </p>
-        </footer>
-      </div>
-    </div>
-    
-<script src="@{'public/javascripts/all.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+      <div class="container-fluid">
+        <a class="brand" href="/">JavaZone Talks</a>
+        <ul class="nav">
+          <li id="main" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Years <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            #{list items:years, as:'year'}
+            <li><a href="/talks/${year}">${year}</a></li>
+            #{/list}
+          </ul>
+        </li>
+        <li id="tags"><a href="/tags">Tags</a></li>
+        <li id="speakers" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Speakers <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          #{list items:speakerMenu, as:'speak'}
+          <li><a href="/speakers/${speak}">${speak}</a></li>
+          #{/list}
+        </ul>
+      </li>
+    </ul>
+  </div>
+  </div>
+  </div>
+  
+  <div class="container-fluid">
+    #{doLayout /}
+  </div>
+  <div class="row-fluid">
+  <div class="span2">&nbsp;</div>
+  <div class="span8">
+    <footer>
+    <p>
+    The JavaZone talk videos brought to you by <a href="http://java.no/">JavaBin</a> with a little help from <a href="http://vimeo.com/"><img class="svg" width="50" height="12" alt="Go home" src="http://a.vimeocdn.com/logo.svg?color=00adee"></a> and <strong><a href="http://javazone.no/incogito10">Incogito</a></strong><br>
+    Got feedback? Try us on <a href="http://twitter.com/knuthaug">twitter</a>
+    </p>
+    </footer>
+  </div>
+  </div>
+  
+  <script src="@{'public/javascripts/all.js'}" type="text/javascript" charset="${_response_encoding}"></script>
   </body>
 </html>

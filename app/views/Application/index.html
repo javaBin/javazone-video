@@ -24,7 +24,7 @@
     #{list items:talks, as:'talk'}
     <article  id="${talk.id}" class="span10">
       <div class="row-fluid">
-        <header class="span9"><h2>${talk.title}</h2></header>
+        <header class="span9"><h2><a href="@{Talks.show(talk.id)}">${talk.title}</a></h2></header>
       </div>
       <div class="row-fluid">
         <div class="span9">

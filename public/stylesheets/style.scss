@@ -330,7 +330,7 @@ form {
 }
 
 a:hover {
-  color: $effect-color !important;
+  color: $effect-color;
 }
 
 .cloud {
@@ -512,6 +512,10 @@ img.even {
   margin-bottom: 5px;
 }
 
+header h2 a, header h2 a:hover {
+  color: $heading-color;
+  text-decoration: none;
+}
 
 footer {
   text-align: center;

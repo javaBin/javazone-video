@@ -330,7 +330,7 @@ form {
 }
 
 a:hover {
-  color: $effect-color !important;
+  color: $effect-color;
 }
 
 .cloud {
@@ -391,6 +391,7 @@ h3 {
 }
 
 article.speaker-section {
+  padding-bottom: 10px;                        
   border-bottom: 0;
   
   h3 {
@@ -504,25 +505,33 @@ img.even {
 }
 
 .popover-inner {
-  width: 500px !important;
+  width: 600px !important;
 }
 
 .keywords {
   margin-bottom: 5px;
 }
 
+header h2 a, header h2 a:hover {
+  color: $heading-color;
+  text-decoration: none;
+}
 
 footer {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 10px;
+  margin-top: 30px;
   font-size: 95% !important;
-  background: $background-color;
+  background: #313131;
+  min-heigth: 80px;
+  border-top: 1px solid #444;
 
   p {
-    border-top: 1px solid $effect-color;;
+    //border-top: 1px solid $effect-color;;
     width: 100%;
     margin: auto;
     padding-top: 10px;
+    padding-bottom: 20px;
   }
 
 }

@@ -24,9 +24,10 @@ public final class VimeoVideo {
     private final int comments;
     private final int likes;
     private DateTime uploadDate;
+    private String privacy;
 
     public VimeoVideo(int id, String title, String description, int duration,
-                      Thumbnail thumbnail, int plays, int comments, int likes, DateTime uploadDate) {
+                      Thumbnail thumbnail, int plays, int comments, int likes, DateTime uploadDate, String privacy) {
         this.plays = plays;
         this.comments = comments;
         this.likes = likes;
@@ -37,6 +38,7 @@ public final class VimeoVideo {
         this.duration = duration;
         this.thumb = thumbnail;
         this.uploadDate = uploadDate;
+        this.privacy = privacy;
     }
 
     public int plays() {
@@ -89,6 +91,11 @@ public final class VimeoVideo {
     public DateTime uploadDate() {
         return uploadDate;
     }
+
+    public boolean isPrivate() {
+        return !"anybody".equals(this.privacy);
+    }
+
 
     public class Tag {
         private int id;

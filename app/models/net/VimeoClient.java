@@ -23,10 +23,7 @@ import play.Play;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Class acting as an interface against the vimeo services.
@@ -97,6 +94,16 @@ public class VimeoClient {
         int total = (max == 0) ? totalVideos : max;
         addPagesUntilTotal(args, videos, total);
 
+        //filter private and other videos
+        Iterator<VimeoVideo> it = videos.iterator();
+        while(it.hasNext()) {
+            VimeoVideo v = it.next();
+
+            if(v.isPrivate()){
+                it.remove();
+            }
+        }
+
         return videos;
     }
 
@@ -166,7 +173,9 @@ public class VimeoClient {
         List<VimeoVideo> videos = mapper.videosToObjects();
 
         for(VimeoVideo video : videos) {
-            video.addEmbed(getEmbed(video.id()));
+            if(!video.isPrivate()){
+                video.addEmbed(getEmbed(video.id()));
+            }
         }
 
         return videos;

@@ -24,7 +24,7 @@ public class VideoTranslator {
         List<VimeoVideo> videos = new ArrayList<VimeoVideo>();
 
         for (Map<String, Object> v : rawVideos) {
-            videos.add(createVideoObject(v));
+                videos.add(createVideoObject(v));
         }
 
         return videos;
@@ -84,7 +84,8 @@ public class VideoTranslator {
                 Integer.parseInt((String) v.get("number_of_plays")),
                 Integer.parseInt((String) v.get("number_of_comments")),
                 Integer.parseInt((String) v.get("number_of_likes")),
-                dateTime);
+                dateTime,
+                (String) v.get("privacy"));
     }
 
     private static Thumbnail createThumbnail(Map<String, Object> v) {

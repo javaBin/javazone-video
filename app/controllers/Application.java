@@ -1,6 +1,5 @@
 package controllers;
 
-import com.google.common.base.Splitter;
 import helpers.ControllerHelper;
 import helpers.TagHelper;
 import models.domain.Talk;
@@ -12,7 +11,7 @@ import java.util.List;
 public class Application extends Controller {
 
     public static void index() {
-        int defaultYear = Integer.parseInt(Play.configuration.getProperty("default.year", "2011"));
+        int defaultYear = Integer.parseInt(Play.configuration.getProperty("default.year", "2012"));
         List<Talk> talks = Talk.filter("year =", defaultYear).order("-plays").filter("type =", "jz").asList();
         List<String> tags = TagHelper.findTagsForTalks(talks);
 

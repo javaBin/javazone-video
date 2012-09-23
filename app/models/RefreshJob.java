@@ -11,7 +11,7 @@ import play.jobs.Job;
 
 import java.util.List;
 
-@Every("1h")
+@Every("30min")
 public class RefreshJob extends Job {
 
     /**
@@ -29,6 +29,10 @@ public class RefreshJob extends Job {
 
         for(Talk talk : talks) {
             VimeoVideo video = vimeo.getVideoById(talk.id());
+            if(video == null) {
+                continue;
+            }
+
             Logger.info("%s delta: plays=%s, likes=%s, comments=%s", talk.id(),
                     (video.plays() - talk.plays()),
                     (video.likes() - talk.likes()),

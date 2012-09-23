@@ -66,6 +66,11 @@ public class VimeoClient {
         Logger.info("getting video information for video id=%s", id);
         String videoJson = getVideoInfo(id);
         VimeoVideo video = new VideoJSONMapper(videoJson).videoToObject();
+
+        if(video == null) {
+            return null;
+        }
+
         video.addEmbed(getEmbed(video.id()));
         return video;
     }

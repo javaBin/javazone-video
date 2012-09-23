@@ -13,13 +13,15 @@ import models.img.ImageInfo;
 import models.net.IncogitoClient;
 import models.net.VimeoClient;
 import org.joda.time.DateTime;
-import org.junit.Ignore;
 import org.junit.Test;
 import play.Play;
 import play.modules.morphia.utils.StringUtil;
 import play.test.FunctionalTest;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com> 2011-09-24
@@ -31,7 +33,6 @@ import java.util.*;
 public class VideoFetcher extends FunctionalTest {
 
     @Test
-    @Ignore
     public void fetchAndSaveVideos() {
 
         Iterable<String> years = Splitter.on(",").split(Play.configuration.getProperty("years"));
@@ -43,8 +44,6 @@ public class VideoFetcher extends FunctionalTest {
                 return Integer.valueOf(o);
             }
         });
-
-        int maxYear = Collections.max(intYears);
 
         for(String year : years) {
             List<VimeoVideo> videos = new VimeoClient().getVideosByYear(year, null, null);

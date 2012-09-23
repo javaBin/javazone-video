@@ -27,7 +27,9 @@ public class VideoJSONMapper {
         try {
             Map map = mapper.readValue(json, Map.class);
             List<Object> videos = (ArrayList<Object>) map.get("video");
-            return VideoTranslator.translateVideo((HashMap<String, Object>) videos.get(0));
+            if(videos.get(0) != null){
+                return VideoTranslator.translateVideo((HashMap<String, Object>) videos.get(0));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
